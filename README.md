@@ -1,0 +1,1 @@
+This is the code for the ChicagoVeg Group restaurant application. It is provided under the MIT license. 
