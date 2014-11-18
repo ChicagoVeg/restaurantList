@@ -3,13 +3,13 @@
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicagoland Vegan and Vegetarian Restaurants</title>
-    <link href="./Content/restaurantFinder.css" rel="stylesheet" type="text/css" />
-    <link href="./Content/bootstrap.min.css" rel="stylesheet" type="text/css" />	
-    <link href="./Content/Veg/page.css" rel="stylesheet" />
-    <link href="./Content/toastr.css" rel="stylesheet" />
+    <link href="./Lib/Veg/dist/css/restaurantFinder.css" rel="stylesheet" type="text/css" />
+    <link href="./Lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />	
+    <link href="./Lib/Veg/dist/css/page.css" rel="stylesheet" />
+    <link href="./Lib/toastr/toastr.min.css" rel="stylesheet" />
 </head>
 
-<body background="http://photos2.meetupstatic.com/photos/theme_body/9/e/6/2/full_40546.jpeg">
+<body> 
 
 <h2 class="text-center">Chicagoland Vegan and Vegetarian Restaurants</h2>
 
@@ -26,19 +26,20 @@
                     <h3 class="panel-title">Your Location</h3>
                 </div>
                 <div class="panel-body">
-                    <div style="display: none;" data-bind="autoDetectLocation: $root.locationAutoDetectable">
-                        <input type="radio" name="location" value="auto" checked="checked" /> Auto-detect <br />
-                        <input type="radio" name="location" value="manual" /> Manual
+                    <div data-bind="if: $root.locationAutoDetectable">
+                        <input type="radio" name="location" value="auto"  /> Auto-detect <br />
+                        <input type="radio" name="location" value="manual" checked="checked" /> Manual
                     </div>
                     <div>
                         <ul class="list-inline">
                              <li>Address</li>
-                             <li><input type="text" name="userAdress" maxlength="500" /></li>
+                             <li><input type="text" name="userAddress" maxlength="500" /></li>
                         </ul>
                         <div>
                             <span>City</span>
                             <input type="text" name="userCity" size="15" maxlength="100"/>
-
+							&nbsp;
+							<span>State</span>
                              <select name="state" size="1">
                                         <option value="AK">AK</option>
                                         <option value="AL">AL</option>
@@ -92,66 +93,10 @@
                                         <option value="WV">WV</option>
                                         <option value="WY">WY</option> 
                             </select>
-
+							&nbsp;
                             <span> Zip Code</span>
                             <input type="text" name="userZipCode" maxlength="5" size="3" />
                         </div>
-
-
-                        <table class="table-condensed">
-                            <tr>
-                                <td>
-                                    Address
-                                </td>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    
-                                </td>
-                                <td>
-                                   
-                                </td>
-                                
-                                <td>
-                                    State
-                                </td>
-                                <td>
-                                   
-                                </td>
-
-
-                                <td>
-                                   
-                                </td>
-                                <td>
-                                   
-                                </td>
-                            </tr>
-                        </table>
-
-                        <!--
-                        <table class="table table-condensed table-bordered">
-                            <tr>
-                                <td>Address</td>
-                                <td><input type="text" name="userAdress" /></td>
-                            </tr>
-                            <tr>
-                                <td>City </td>
-                                <td><input type="text" name="userCity" /></td>
-                            </tr>
-                            <tr>
-                                <td>State</td>
-                                <td><input type="text" name="userState" /></td>
-                            </tr>
-                            <tr>
-                                <td>Zip Code</td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    -->
                     </div>
                 </div>
             </div>            
@@ -177,7 +122,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="v-noRestaurantSelected">Select a restaurant</div>
-                            <div class="v-directions" data-bind="directions: $root.direction"></div>
+                            <div class="v-directions directions" data-bind="directions: $root.direction"></div>
                         </div>
                     </div>
                     <div class="panel panel-success">
@@ -200,7 +145,26 @@
                 <div class="panel-body" data-bind="foreach: restaurants">
                     <input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected"> <span data-bind="text: Name"></span> <br>
                 </div>
+				<br />
+				 <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Restaurant Details</h3>
+                        </div>
+                        <div class="panel-body" data-bind="visible: isRestaurantSelected">
+                            <span>Restaurant Name: </span>  <!--<span data-bind="text: currentSelectedRestaurant.restaurant().Name || ''"></span>-->   <br />
+			                <span>Type: </span>   <span></span> <br />
+							<span>Phone Number:</span>   <span></span> <br />
+							<span>Website: </span>   <span></span> <br />
+							<span>Full Address</span>   <span></span> <br />				
+                        </div>
 
+						<!--
+						As soon as the restaurant is selected we would display there:
+Restaurant name, Type (Vegetarian/Vegan/Raw Vegan)
+Phone number, website
+Full address
+						-->
+				</div>
             </div>
         </div>
     </div>
@@ -216,32 +180,30 @@
 </body>
 
 
-<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAOwzytIg0f5sPAwNODdSHB5lfYaYa-sQ"></script> -->
-
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-<script src="./Scripts/Veg/veg.init.js"></script>
+<script src="./Lib/Veg/dist/js/veg.init.js"></script>
 
-<script src="./Scripts/knockout-3.2.0.debug.js"></script>
-<script src="./Scripts/jquery-2.1.1.min.js"></script>
-<script src="./Scripts/underscore.js"></script>
-<script src="./Scripts/toastr.min.js"></script>
-<script src="./Scripts/modernizr-2.8.3.js"></script>
+<script src="./Lib/knockout/dist/knockout.js"></script>
+<script src="./Lib/jquery/dist/jquery.min.js"></script>
+<script src="./Lib/underscore/underscore-min.js"></script>
+<script src="./Lib/toastr/toastr.min.js"></script>
+<script src="./Lib/modernizr/modernizr.js"></script>
 
-<script src="./Scripts/underscore.string.min.js"></script>
-<script src="./Scripts/Veg/extensions/underscore.emptyFunction.js"></script>
+<script src="./Lib/underscore.string/dist/underscore.string.min.js"></script>
+<script src="./Lib/Veg/dist/js/extensions/underscore.emptyFunction.js"></script>
 
-<script src="./Scripts/Veg/veg.restaurantFinderDataAccess.js"></script>
-<script src="./Scripts/Veg/veg.restaurantFinderViewModel.js"></script>
+<script src="./Lib/Veg/dist/js/veg.restaurantFinderDataAccess.js"></script>
+<script src="./Lib/Veg/dist/js/veg.restaurantFinderViewModel.js"></script>
 
-<script src="./Scripts/Veg/ko/ko.bindingHandlers.googleMap.js"></script>
-<script src="./Scripts/Veg/ko/ko.bindingHandlers.selectRestaurant.js"></script>
-<script src="./Scripts/Veg/ko/ko.bindingHandlers.directions.js"></script>
-<script src="./Scripts/Veg/ko/ko.bindingHandlers.getUserLocation.js"></script>
-<script src="./Scripts/Veg/ko/ko.bindingHandlers.autoDetectLocation.js"></script>
-<script src="./Scripts/Veg/ko/ko.bindingHandlers.directionType.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.googleMap.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.selectRestaurant.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.directions.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.getUserLocation.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.autoDetectLocation.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.directionType.js"></script>
 
-<script src="./Scripts/Veg/veg.binding.js"></script>
+<script src="./Lib/Veg/dist/js/veg.binding.js"></script>
 
 
 

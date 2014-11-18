@@ -1,9 +1,13 @@
 body {
-    color: white;
+    /*color: white; */
 }
 
 
 .panel {
-    color: white;
-    background-color: #006600;
+    /*color: white;
+    background-color: #006600; */
+}
+
+.directions {
+	/* color: white; */
 }
