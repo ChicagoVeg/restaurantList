@@ -1,0 +1,47 @@
+{
+  "name": "ChicagoVegRestaurantList",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ChicagoVeg/restaurantList",
+  "authors": [
+    "Phil <zoldello@gmail.com>"
+  ],
+  "description": "List of Vegan and Vegetarian Restaurants",
+  "main": "index.html",
+  "keywords": [
+    "vegan",
+    "vegetarian",
+    "restaurants",
+    "chicagoveg",
+    "veg",
+    "no-meat",
+    "Forks over knives"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "Scripts",
+    "test",
+    "tests",
+    "source",
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "bootstrap": "~3.3.1",
+    "underscore.string": "~2.4.0",
+    "toastr": "~2.1.0",
+    "modernizr": "~2.8.3",
+    "knockout": "~3.2.0",
+    "jquery": "1.11.1"
+  }
+}
