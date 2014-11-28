@@ -1,63 +1,48 @@
 [
     {
         "Id": "1",
-        "Name": "Native Foods- West Loop, Chicago",
-        "Url": "http://www.nativefoods.com",
+        "Name": "Native Foods-West Loop",
+        "Url": "http: //www.nativefoods.com",
         "latitude": "41.8814122",
         "longitude": "-87.641146",
         "Address": {
-            "Address": "14 South Clinton",
+            "Address": "14 S. Clinton",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60661"
         },
-        "PhoneNumber": null,
+        "PhoneNumber": "312-382-8600",
         "Type": "vegan"
     },
     {
         "Id": "2",
         "Name": "Chicago Raw Food",
-        "Url": "http://www.chicagorawfood.com",
+        "Url": "http: //www.chicagorawfood.com",
         "latitude": "41.88391",
         "longitude": "-87.64086480000003",
         "Address": {
-            "Address": "131 n clinton st",
+            "Address": "131 N Clinton st",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60661"
         },
         "PhoneNumber": "",
-        "Type": "Vegan"
+        "Type": "Raw Vegan"
     },
     {
         "Id": "3",
-        "Name": "Urban Vegan- Lakeview",
-        "Url": "http://urbanveganchicago.com",
+        "Name": "Urban Vegan-Lakeview",
+        "Url": "http: //urbanveganchicago.com",
         "latitude": "41.9614449",
         "longitude": "-87.66957350000001",
         "Address": {
             "Address": "1605 W Montrose Ave",
-            "City": "Wheaton",
+            "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60613"
         },
-        "PhoneNumber": "",
+        "PhoneNumber": "773.404.1109",
         "Type": "Vegan"
-    },
-    {
-        "Id": "4",
-        "Name": "Chicago Diner",
-        "Url": "",
-        "latitude": "41.944089",
-        "longitude": " -87.649554",
-        "Address": {
-            "Address": "",
-            "City": "",
-            "StateAbbreviation": "",
-            "ZipCode": ""
-        },
-        "PhoneNumber": "",
-        "Type": "Vegetarian"
     },
     {
         "Id": "5",
@@ -111,7 +96,7 @@
         "latitude": "41.917332",
         "longitude": "-87.710685",
         "Address": {
-            "Address": "3315 W. Armitage Ave",
+            "Address": "3315 W. ArmitageAve",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": ""
@@ -151,12 +136,12 @@
     },
     {
         "Id": "11",
-        "Name": "Kramer's HealthFoodsCafe",
+        "Name": "Kramer's Health Foods Cafe",
         "Url": "",
         "latitude": "41.879135",
         "longitude": "-87.626138",
         "Address": {
-            "Address": "230SWabashAve",
+            "Address": "230 S Wabash Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": ""
@@ -166,27 +151,27 @@
     },
     {
         "Id": "12",
-        "Name": "QuesadillaLaReynaDelSur",
+        "Name": "Quesadilla La Reyna Del Sur",
         "Url": "",
         "latitude": "41.922673",
         "longitude": "-87.687749",
         "Address": {
-            "Address": "2235N.Western",
+            "Address": "2235 N. Western",
             "City": "Chicago",
             "StateAbbreviation": "IL",
-            "ZipCode": ""
+            "ZipCode": ""              
         },
         "PhoneNumber": "",
         "Type": "Vegetarian"
     },
     {
-        "Id": 13,
-        "Name": "VegetarianExpress",
+        "Id": "13",
+        "Name": "Vegetarian Express",
         "Url": "",
         "latitude": "41.938352",
         "longitude": "-87.649354",
         "Address": {
-            "Address": "3109N.Halsted",
+            "Address": "3109 N. Halsted",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": ""
@@ -196,12 +181,12 @@
     },
     {
         "Id": "14",
-        "Name": "Victory'sBanner",
+        "Name": "Victory's Banner",
         "Url": "",
         "latitude": "41.943232",
         "longitude": "-87.680955",
         "Address": {
-            "Address": "2100W.Roscoe",
+            "Address": "2100 W. Roscoe",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": ""
@@ -211,7 +196,7 @@
     },
     {
         "Id": "15",
-        "Name": "Amitabul ",
+        "Name": "Amitabul",
         "Url": "",
         "latitude": "41.993916",
         "longitude": "-87.784523",
@@ -238,5 +223,395 @@
         },
         "PhoneNumber": "",
         "Type": "Vegan"
+    },
+    {
+        "Id": "17",
+        "Name": "Karyn's Cooked",
+        "Url": "",
+        "latitude": "41.8959243",
+        "longitude": "-87.63446320000003",
+        "Address": {
+            "Address": "738 N. Wells",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "312.587.1050",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "18",
+        "Name": "Karyn's on Green",
+        "Url": "",
+        "latitude": "41.879509",
+        "longitude": "-87.64879480000002",
+        "Address": {
+            "Address": "130 S. Green St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "312.226.6155",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "19",
+        "Name": "Kitchen 17",
+        "Url": "",
+        "latitude": "41.9389869",
+        "longitude": "-87.64491279999999",
+        "Address": {
+            "Address": "613 W. Briar Pl",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.661.1757",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "20",
+        "Name": "Loving Heart",
+        "Url": "",
+        "latitude": "41.962053",
+        "longitude": "-87.65168670000003",
+        "Address": {
+            "Address": "838 W. Montrose Ave",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.561.5399",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "21",
+        "Name": "Loving Hut",
+        "Url": "",
+        "latitude": "41.9874327",
+        "longitude": "-87.66020309999999",
+        "Address": {
+            "Address": "5812 N. Broadway",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.275.8797",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "22",
+        "Name": "Mariano’s Veg'd Bar",
+        "Url": "",
+        "latitude": "41.9200411",
+        "longitude": "-87.6687478",
+        "Address": {
+            "Address": "2112 N Ashland Ave",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.342.6585",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "23",
+        "Name": "Native Foods Café- Lakeview",
+        "Url": "",
+        "latitude": "41.939637",
+        "longitude": "-87.6550775",
+        "Address": {
+            "Address": "1023 W. Belmont",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.549.4904",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "24",
+        "Name": "Native Foods Café- Loop",
+        "Url": "",
+        "latitude": "41.878867",
+        "longitude": "-87.631168",
+        "Address": {
+            "Address": "218 S. Clark St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "312.332.6332",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "25",
+        "Name": "Native Foods Café- Hyde Park",
+        "Url": "",
+        "latitude": "41.8003383",
+        "longitude": "-87.58828210000001",
+        "Address": {
+            "Address": "1518 E Harper Ct",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773-241-7800",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "26",
+        "Name": "Native Foods Café- Wicker Park",
+        "Url": "",
+        "latitude": "41.908664",
+        "longitude": "-87.6753109",
+        "Address": {
+            "Address": "1484 N. Milwaukee Ave",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.489.8480",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "27",
+        "Name": "Original Soul Vegetarian",
+        "Url": "",
+        "latitude": "41.7581566",
+        "longitude": "-87.61962720000002",
+        "Address": {
+            "Address": "203 E. 75th St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.224.0104",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "28",
+        "Name": "Sistah's",
+        "Url": "",
+        "latitude": "41.720684",
+        "longitude": "-87.678697",
+        "Address": {
+            "Address": "2239 W 95th St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.445.4788",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "29",
+        "Name": "Upton's Breakroom",
+        "Url": "",
+        "latitude": "41.8909794",
+        "longitude": "-87.67907560000003",
+        "Address": {
+            "Address": "2054 W Grand",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "312.666.7838",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "30",
+        "Name": "Urban Vegan",
+        "Url": "",
+        "latitude": "41.925369",
+        "longitude": "-87.66772509999998",
+        "Address": {
+            "Address": "1550 W. Fullerton",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.472.8208",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "31",
+        "Name": "Yah's Cuisine",
+        "Url": "",
+        "latitude": "41.75873",
+        "longitude": "-87.56698289999997",
+        "Address": {
+            "Address": "2347 E. 75th St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.759.8517",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "32",
+        "Name": "B'Gabs Goodies",
+        "Url": "",
+        "latitude": "41.78407",
+        "longitude": "-87.59056799999996",
+        "Address": {
+            "Address": "6100 S. Blackstone Ave",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.251.3071",
+        "Type": "Raw Vegan"
+    },
+    {
+        "Id": "33",
+        "Name": "Earth's Healing Café",
+        "Url": "",
+        "latitude": "41.9615985",
+        "longitude": "-87.6777821",
+        "Address": {
+            "Address": "1942 W. Montrose",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.728.0598",
+        "Type": "Raw Vegan"
+    },
+    {
+        "Id": "34",
+        "Name": "Karyn's",
+        "Url": "",
+        "latitude": "41.9160336",
+        "longitude": "-87.64814130000002",
+        "Address": {
+            "Address": "1901 N. Halsted",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "312.255.1590",
+        "Type": "Raw Vegan"
+    },
+    {
+        "Id": "35",
+        "Name": "RAW",
+        "Url": "",
+        "latitude": "41.8947217",
+        "longitude": "-87.63010220000001",
+        "Address": {
+            "Address": "51 W. Huron St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "312.664.2729",
+        "Type": "Raw Vegan"
+    },
+    {
+        "Id": "36",
+        "Name": "Annappurna",
+        "Url": "",
+        "latitude": "41.9978471",
+        "longitude": "-87.6951148",
+        "Address": {
+            "Address": "2608 W. Devon",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.764.1858",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "37",
+        "Name": "Arya Bhavan",
+        "Url": "",
+        "latitude": "41.9979058",
+        "longitude": "-87.692816900000038",
+        "Address": {
+            "Address": "2508 W. Devon",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.274.5800",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "38",
+        "Name": "Kamdar Plaza",
+        "Url": "",
+        "latitude": "41.9979122",
+        "longitude": "-87.6966021",
+        "Address": {
+            "Address": "264 W. Devon",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.338.8100",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "39",
+        "Name": "Mysore Woodlands",
+        "Url": "",
+        "latitude": "41.9978937",
+        "longitude": "-87.69435149999998",
+        "Address": {
+            "Address": "2548 W. Devon",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.338.8160",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "40",
+        "Name": "Sukhadia",
+        "Url": "",
+        "latitude": "41.9976267",
+        "longitude": "-87.69452609999996",
+        "Address": {
+            "Address": "2557 W. Devon",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.338.5400",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "41",
+        "Name": "Udupi Palace",
+        "Url": "",
+        "latitude": "41.9974375",
+        "longitude": "-87.6940093",
+        "Address": {
+            "Address": "2557 W. Devon",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.338.2152",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "42",
+        "Name": "Uru-Swati",
+        "Url": "",
+        "latitude": "41.9973381",
+        "longitude": "-87.6957979",
+        "Address": {
+            "Address": "2629 W. Devon",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": ""
+        },
+        "PhoneNumber": "773.262.5280",
+        "Type": "Vegetarian"
     }
 ]

@@ -34,6 +34,30 @@
             return !!selectedRestaurant  && _.string.trim(selectedRestaurant);
         };
 
+        self.isEmpty = function(data) {
+            return !_.string.trim(data);
+        };
+
+        self.selectedRestaurantInfo = ko.computed(function() {
+            var selectedRestaurant = self. currentSelectedRestaurant.restaurant(),
+                address = null;
+
+            if(!selectedRestaurant) {
+                return {}
+            } 
+
+            address = selectedRestaurant.Address || {};
+
+            return {
+                "Name": selectedRestaurant.Name,
+                "Url": selectedRestaurant.Url,            
+                "PhoneNumber": selectedRestaurant.PhoneNumber,
+                "Type": selectedRestaurant.Type, 
+                "Address1": address.Address,
+                "Address2": [address.City, ', ', address.StateAbbreviation, ' ',address.ZipCode ].join('')
+            }
+        });
+
         self.newRestaurantSelected = function (restaurant) {
             if (!restaurant) {
                 console.warn('Restaurant is not a defined object. Somwthing could be wrong');

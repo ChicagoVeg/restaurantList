@@ -1,2 +1,11 @@
 ﻿body {
+	background-image: url('http://chicagoveg.com/images/green_bg.jpg')
+}
+
+.pam {
+	padding: 5px;
+}
+
+.whiteFont {
+	color: white;
 }

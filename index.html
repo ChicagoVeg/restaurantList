@@ -11,28 +11,27 @@
 
 <body> 
 
-<h2 class="text-center">Chicagoland Vegan and Vegetarian Restaurants</h2>
+<h2 class="text-center whiteFont">Chicagoland Vegan and Vegetarian Restaurants</h2>
 
 
 <div class="container body-content">
 
    
 
-<div class="container-fluid" data-restaurants-url="./App_Data/restaurants.json">
+<div class="container" data-restaurants-url="./App_Data/restaurants.json">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Your Location</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body pam">
                     <div data-bind="if: $root.locationAutoDetectable">
-                        <input type="radio" name="location" value="auto"  /> Auto-detect <br />
-                        <input type="radio" name="location" value="manual" checked="checked" /> Manual
-                    </div>
-                    <div>
+                        <input type="radio" name="location" value="auto"  /> Auto-detect 							
+							
+							<div>							
                         <ul class="list-inline">
-                             <li>Address</li>
+                             <li><input type="radio" name="location" value="manual" checked="checked" /> Enter Address</li>
                              <li><input type="text" name="userAddress" maxlength="500" /></li>
                         </ul>
                         <div>
@@ -97,73 +96,82 @@
                             <span> Zip Code</span>
                             <input type="text" name="userZipCode" maxlength="5" size="3" />
                         </div>
+                    </div>							
+							
                     </div>
                 </div>
             </div>            
             <div>
                 <div>
-                    <div class="panel panel-success">
+				<div class="panel panel-success">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Travel Means</h3>
+                            <h3 class="panel-title">Map</h3>
                         </div>
-                        <div class="panel-body">
-                            <!--Object {DRIVING: "DRIVING", WALKING: "WALKING", BICYCLING: "BICYCLING", TRANSIT: "TRANSIT"} -->
-                            <ul class="list-inline">
-                                <li><input type="radio" data-bind="directionType: {}" name="directionType" value="DRIVING" checked="classhecked" /> Driving </li>
-                                <li><input type="radio" data-bind="directionType: {}" name="directionType" value="WALKING" /> Walking </li>
-                                <li><input type="radio" data-bind="directionType: {}" name="directionType" value="BICYCLING" /> Bicycling </li>
-                                <li><input type="radio" data-bind="directionType: {}" name="directionType" value="TRANSIT" /> Transit   </li>                             
-                            </ul>
+                        <div class="panel-body pam">
+                            <div id=" map-canvas" data-bind="googleMap: $root.currentSelectedRestaurant.restaurant, updateDirection: $root.direction" style="height: 600px; width: 600px; margin: 0; padding: 0;"></div>
                         </div>
-                    </div>
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Directions</h3>
+                </div>
+                <div class="panel panel-success">
+						<div class="panel-heading">
+							<div class="inline">
+							<ul class="list-inline">
+								<li>
+								<h3 class="panel-title">Directions</h3>
+								</li>
+								
+								<li class="pull-right">
+								<!--Object {DRIVING: "DRIVING", WALKING: "WALKING", BICYCLING: "BICYCLING", TRANSIT: "TRANSIT"} -->
+									<ul class="list-inline">
+										<li><input type="radio" data-bind="directionType: {}" name="directionType" value="DRIVING" checked="classhecked" /> Driving </li>
+										<li><input type="radio" data-bind="directionType: {}" name="directionType" value="WALKING" /> Walking </li>
+										<li><input type="radio" data-bind="directionType: {}" name="directionType" value="BICYCLING" /> Bicycling </li>
+										<li><input type="radio" data-bind="directionType: {}" name="directionType" value="TRANSIT" /> Transit   </li>                             
+									</ul>
+								</li>
+							</ul>
+							</div>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body pam">
                             <div class="v-noRestaurantSelected">Select a restaurant</div>
                             <div class="v-directions directions" data-bind="directions: $root.direction"></div>
                         </div>
                     </div>
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Map</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id=" map-canvas" data-bind="googleMap: $root.currentSelectedRestaurant.restaurant, updateDirection: $root.direction" style="height: 600px; width: 600px; margin: 0; padding: 0;"></div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Restaurants</h3>
                 </div>
                
-                <div class="panel-body" data-bind="foreach: restaurants">
+                <div class="panel-body pam">  
+					<div data-bind="foreach: restaurants">
                     <input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected"> <span data-bind="text: Name"></span> <br>
-                </div>
+					</div>
+				</div>
 				<br />
 				 <div class="panel panel-success">
                         <div class="panel-heading">
                             <h3 class="panel-title">Restaurant Details</h3>
                         </div>
-                        <div class="panel-body" data-bind="visible: isRestaurantSelected">
-                            <span>Restaurant Name: </span>  <!--<span data-bind="text: currentSelectedRestaurant.restaurant().Name || ''"></span>-->   <br />
-			                <span>Type: </span>   <span></span> <br />
-							<span>Phone Number:</span>   <span></span> <br />
-							<span>Website: </span>   <span></span> <br />
-							<span>Full Address</span>   <span></span> <br />				
+                        <div class="panel-body pam" data-bind="visible: isRestaurantSelected">
+						<div class="inline">
+							<div>
+								<span data-bind="if: ($root.selectedRestaurantInfo().Name)"><span data-bind="text: $root.selectedRestaurantInfo().Name"></span></span>															 
+								<span  data-bind="if: ($root.selectedRestaurantInfo().Type)">(<span data-bind="text: $root.selectedRestaurantInfo().Type"></span>)</span>
+							</div>
+							<div>
+								<span data-bind="if: ($root.selectedRestaurantInfo().Url)"><span "data-bind="text: $root.selectedRestaurantInfo().Url"></span></span>
+								<span  data-bind="if: ($root.selectedRestaurantInfo().PhoneNumber)"><span data-bind="text: $root.selectedRestaurantInfo().PhoneNumber"></span></span>	
+							</div>						
+							<div  data-bind="if: ($root.selectedRestaurantInfo().Address1)">
+								<span data-bind="text: $root.selectedRestaurantInfo().Address1"></span><br />
+								<span data-bind="text: $root.selectedRestaurantInfo().Address2"></span>
+							</div>
+						</div>							
                         </div>
-
-						<!--
-						As soon as the restaurant is selected we would display there:
-Restaurant name, Type (Vegetarian/Vegan/Raw Vegan)
-Phone number, website
-Full address
-						-->
 				</div>
             </div>
         </div>
