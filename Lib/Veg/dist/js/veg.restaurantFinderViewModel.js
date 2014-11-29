@@ -28,6 +28,46 @@
         };
         self.restaurantMap = null;
 
+        self.veganText = 'Vegan';
+        self.vegetarianText = 'Vegetarian';
+        self.rawVeganText = 'Raw Vegan';
+
+        self.veganTextAbbreviation = 'V';
+        self.vegetarianTextAbbreviation = 'V<sub>T</sub>';
+        self.rawVeganTextAbbreviation = 'R<sub>V</sub>';
+
+
+        self.veganLegendMarkup = function () { 
+            return  self.veganTextAbbreviation  + '- ' + self.veganText;
+        }; 
+           
+        self.vegetarianLegendMarkup = function () { 
+            return  self.vegetarianTextAbbreviation + '- ' +  self.vegetarianText;
+        };
+        
+        self.rawVeganLegendMarkup = function () { 
+            return self.rawVeganTextAbbreviation + '- ' + self.rawVeganText;
+        };
+
+        self.getRestaurantType = function(type) {
+            var typeLowerCase = _.string.trim(type);
+
+            if (!typeLowerCase) {
+                return '';
+            }
+
+            typeLowerCase = typeLowerCase.toLowerCase();
+
+            if (typeLowerCase === 'vegan') {
+                return self.veganTextAbbreviation;
+            }  else if (typeLowerCase == 'vegetarian')  {
+               return self.vegetarianTextAbbreviation;
+            }  else if (typeLowerCase === 'raw vegan')  {
+                return self.rawVeganTextAbbreviation;
+            } else {
+                return  '';
+            }
+        };
 
         self.isRestaurantSelected = function() {
             var selectedRestaurant = self.currentSelectedRestaurant.restaurant();

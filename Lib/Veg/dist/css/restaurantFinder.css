@@ -9,3 +9,15 @@
 .whiteFont {
 	color: white;
 }
+
+.legend {
+	font-size: 80%
+}
+
+.displayInline {
+	display:inline !important;
+}
+
+.thicker {
+	font-weight: bolder;
+}

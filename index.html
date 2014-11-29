@@ -13,16 +13,12 @@
 
 <body> 
 
-<h2 class="text-center whiteFont">Chicagoland Vegan and Vegetarian Restaurants</h2>
-
+<h2 class="text-center  whiteFont">Chicagoland Vegan and Vegetarian Restaurants</h2>
 
 <div class="container body-content">
-
-   
-
-<div class="container" data-restaurants-url="./App_Data/restaurants.json">
-    <div class="row">
-        <div class="col-md-7">
+	<div class="container" data-restaurants-url="./App_Data/restaurants.json">
+		<div class="row">
+			<div class="col-md-8">
             <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Your Location</h3>
@@ -95,7 +91,7 @@
                                         <option value="WY">WY</option> 
                             </select>
 							&nbsp;
-                            <span> Zip Code</span>
+                            <span> Zip </span>
                             <input type="text" name="userZipCode" maxlength="5" size="3" />
                         </div>
                     </div>							
@@ -142,19 +138,23 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="panel panel-success">
+			<div class="col-md-4">
+				<div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Restaurants</h3>
+                    <h3 class="panel-title displayInline">Restaurants</h3>
+					<span class="legend pull-right"><span data-bind="html: $root.veganLegendMarkup()"></span> <span class="thicker">|</span> <span data-bind="html: $root.vegetarianLegendMarkup()"></span> <span class="thicker">|</span> <span data-bind="html: $root.rawVeganLegendMarkup()"></span>
                 </div>
                
                 <div class="panel-body pam">  
-					<div data-bind="foreach: restaurants">
-                    <input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected"> <span data-bind="text: Name"></span> <br>
-					</div>
+					<ul  class="list-unstyled" data-bind="foreach: restaurants">
+						<li>
+							<input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected"> <span data-bind="text: Name"></span>
+							&nbsp; <span class="thicker">(<span data-bind="html: $root.getRestaurantType(Type)"></span>) </span>
+						</li>
+					</ul>
 				</div>
-				<br />
-				 <div class="panel panel-success">
+			</div>			
+				<div class="panel panel-success">
                         <div class="panel-heading">
                             <h3 class="panel-title">Restaurant Details</h3>
                         </div>
@@ -175,7 +175,7 @@
 						</div>							
                         </div>
 				</div>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -183,8 +183,10 @@
 
 </div>
   <hr />
-        <footer>
-            <p>&copy; <span class="s-currentYear"></span> - <span class="s-pageTitle"></span></p>
+        <footer class="text-center whiteFont">
+            <p>
+				&copy; <span class="s-currentYear"></span> - <a href="http://chicagoveg.com/"><span class="s-pageTitle"></span></a>
+			</p>
         </footer>
 
 </body>
