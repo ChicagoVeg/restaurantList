@@ -12,12 +12,22 @@
 </head>
 
 <body> 
+	<h2 class="text-center  whiteFont">ChicagoVeg Restaurants: Chicagoland Vegan and Vegetarian Restaurants</h2>
+	<div class="container body-content">
+		<div class="container" data-restaurants-url="./App_Data/restaurants.json">
+			<div class="row">
+				<div class="col-md-12">		
+					<div class="panel panel-success">
+						<div class="panel-heading text-center fsler">
+							<a href="http://www.chicagoveg.com" target="_blank">ChicagoVeg Home</a>
+							&nbsp; | &nbsp; <a href="http://www.chicagoveg.org" target="_blank">ChicagoVeg Events</a>
+							&nbsp; | &nbsp; <a href=" http://www.meetup.com/ChicagoVeg/polls/1191267/" target="_blank">ChicagoVeg Choice</a>
+						</div>
+					</div>
 
-<h2 class="text-center  whiteFont">Chicagoland Vegan and Vegetarian Restaurants</h2>
-
-<div class="container body-content">
-	<div class="container" data-restaurants-url="./App_Data/restaurants.json">
-		<div class="row">
+				</div>
+			</div>
+			<div class="row">
 			<div class="col-md-8">
             <div class="panel panel-success">
                 <div class="panel-heading">
@@ -25,19 +35,15 @@
                 </div>
                 <div class="panel-body pam">
                     <div data-bind="if: $root.locationAutoDetectable">
-                        <input type="radio" name="location" value="auto"  /> Auto-detect 							
-							
-							<div>							
-                        <ul class="list-inline">
-                             <li><input type="radio" name="location" value="manual" checked="checked" /> Enter Address</li>
-                             <li><input type="text" name="userAddress" maxlength="500" /></li>
-                        </ul>
-                        <div>
-                            <span>City</span>
-                            <input type="text" name="userCity" size="15" maxlength="100"/>
-							&nbsp;
-							<span>State</span>
-                             <select name="state" size="1">
+                        <input type="radio" name="location" value="auto"  /> Auto-detect								
+							<div>		
+								<input type="radio" name="location" value="manual" checked="checked" /> Address &nbsp; 
+								<input type="text" name="userAddress" class="w35pc" maxlength="600" />&nbsp;
+								<span>City</span>
+								<input type="text" name="userCity" class="w12pc" maxlength="100"/>
+								&nbsp;	
+								<span>State</span>
+								<select name="state" class="w6pc">
                                         <option value="AK">AK</option>
                                         <option value="AL">AL</option>
                                         <option value="AR">AR</option>
@@ -90,11 +96,10 @@
                                         <option value="WV">WV</option>
                                         <option value="WY">WY</option> 
                             </select>
-							&nbsp;
-                            <span> Zip </span>
-                            <input type="text" name="userZipCode" maxlength="5" size="3" />
-                        </div>
-                    </div>							
+								&nbsp;
+								<span> Zip </span>
+								<input type="text" name="userZipCode"  class="w7pc"maxlength="5"  />                							
+							</div>							
 							
                     </div>
                 </div>
@@ -142,14 +147,17 @@
 				<div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title displayInline">Restaurants</h3>
-					<span class="legend pull-right"><span data-bind="html: $root.veganLegendMarkup()"></span> <span class="thicker">|</span> <span data-bind="html: $root.vegetarianLegendMarkup()"></span> <span class="thicker">|</span> <span data-bind="html: $root.rawVeganLegendMarkup()"></span>
+					<span class="legend pull-right">
+						<span class="green" data-bind="html: $root.veganLegendMarkup()"></span> 
+						<span class="thicker">|</span> <span class="orange" data-bind="html: $root.vegetarianLegendMarkup()"></span> 
+						<span class="thicker">|</span> <span class="blue" data-bind="html: $root.rawVeganLegendMarkup()"></span>
                 </div>
                
                 <div class="panel-body pam">  
 					<ul  class="list-unstyled" data-bind="foreach: restaurants">
 						<li>
 							<input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected"> <span data-bind="text: Name"></span>
-							&nbsp; <span class="thicker">(<span data-bind="html: $root.getRestaurantType(Type)"></span>) </span>
+							&nbsp; <span class="thicker"><span data-bind="html: $root.getRestaurantType(Type), css: $root.getRestaurantLegendColorClass(Type)"></span> </span>
 						</li>
 					</ul>
 				</div>
@@ -159,19 +167,25 @@
                             <h3 class="panel-title">Restaurant Details</h3>
                         </div>
                         <div class="panel-body pam" data-bind="visible: isRestaurantSelected">
-						<div class="inline">
-							<div>
-								<span data-bind="if: ($root.selectedRestaurantInfo().Name)"><span data-bind="text: $root.selectedRestaurantInfo().Name"></span></span>															 
-								<span  data-bind="if: ($root.selectedRestaurantInfo().Type)">(<span data-bind="text: $root.selectedRestaurantInfo().Type"></span>)</span>
-							</div>
-							<div>
-								<span data-bind="if: ($root.selectedRestaurantInfo().Url)"><span "data-bind="text: $root.selectedRestaurantInfo().Url"></span></span>
-								<span  data-bind="if: ($root.selectedRestaurantInfo().PhoneNumber)"><span data-bind="text: $root.selectedRestaurantInfo().PhoneNumber"></span></span>	
-							</div>						
-							<div  data-bind="if: ($root.selectedRestaurantInfo().Address1)">
-								<span data-bind="text: $root.selectedRestaurantInfo().Address1"></span><br />
-								<span data-bind="text: $root.selectedRestaurantInfo().Address2"></span>
-							</div>
+						<div>
+								<div data-bind="if: ($root.selectedRestaurantInfo().Name)">
+									<span data-bind="text: $root.selectedRestaurantInfo().Name"></span>
+									<span class="thicker"><span data-bind="html: $root.getRestaurantType($root.selectedRestaurantInfo().Type), css: $root.getRestaurantLegendColorClass($root.selectedRestaurantInfo().Type)"></span> </span>
+								</div>													 																
+								<div  data-bind="if: ($root.selectedRestaurantInfo().Address1)">
+									<span data-bind="text: $root.selectedRestaurantInfo().Address1"></span><br />
+									<span data-bind="text: $root.selectedRestaurantInfo().Address2"></span>
+								</div>
+								<div data-bind="if: ($root.selectedRestaurantInfo().PhoneNumber)">
+									<span data-bind="text: $root.selectedRestaurantInfo().PhoneNumber"></span>
+								</div>	
+								<div>
+									<span data-bind="if: ($root.selectedRestaurantInfo().Url)">
+									<a data-bind="attr:{ href: $root.selectedRestaurantInfo().Url }">
+										<span data-bind="text: $root.selectedRestaurantInfo().Url"></span>
+									</a>
+									</span>	
+								</div>	
 						</div>							
                         </div>
 				</div>
@@ -179,16 +193,15 @@
         </div>
     </div>
 </div>
-
-
-</div>
-  <hr />
-        <footer class="text-center whiteFont">
-            <p>
-				&copy; <span class="s-currentYear"></span> - <a href="http://chicagoveg.com/"><span class="s-pageTitle"></span></a>
-			</p>
+		</div>
+	</div>
+	<hr />
+    <footer class="whiteFont">
+            <div class="text-center">
+				&copy; <span class="s-currentYear"></span> - <a href="http://chicagoveg.com/"  target="_blank"><span class="s-pageTitle"></span></a> 				
+				&nbsp; | &nbsp; <a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" target="_blank"> Feedback</a>			
+			</div>
         </footer>
-
 </body>
 
 

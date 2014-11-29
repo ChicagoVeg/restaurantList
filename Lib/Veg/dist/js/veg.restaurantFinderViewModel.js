@@ -69,6 +69,26 @@
             }
         };
 
+        self.getRestaurantLegendColorClass = function (type) {
+             var typeLowerCase = _.string.trim(type);
+
+            if (!typeLowerCase) {
+                return '';
+            }
+
+            typeLowerCase = typeLowerCase.toLowerCase();
+
+            if (typeLowerCase === 'vegan') {
+                return 'green';
+            }  else if (typeLowerCase == 'vegetarian')  {
+               return 'orange';
+            }  else if (typeLowerCase === 'raw vegan')  {
+                return 'blue';
+            } else {
+                return  '';
+            }
+        };
+
         self.isRestaurantSelected = function() {
             var selectedRestaurant = self.currentSelectedRestaurant.restaurant();
             return !!selectedRestaurant  && _.string.trim(selectedRestaurant);

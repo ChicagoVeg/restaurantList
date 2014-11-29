@@ -46,32 +46,17 @@
     },
     {
         "Id": "5",
-        "Name": "Chicago Dinner",
-        "Url": "",
+        "Name": "Chicago Dinner (Logan Square)",
+        "Url": "http://veggiediner.com/index.html",
         "latitude": "41.923514",
         "longitude": "-87.698547",
         "Address": {
             "Address": "2333 N. Milwaukee Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
-            "ZipCode": ""
+            "ZipCode": "60647"
         },
-        "PhoneNumber": "",
-        "Type": "Vegetarian"
-    },
-    {
-        "Id": "6",
-        "Name": "Falafill",
-        "Url": "",
-        "latitude": "41.940288",
-        "longitude": "-87.644654",
-        "Address": {
-            "Address": "3202 N. Broadway",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": ""
-        },
-        "PhoneNumber": "",
+        "PhoneNumber": " 773.252.3211",
         "Type": "Vegetarian"
     },
     {
@@ -613,5 +598,37 @@
         },
         "PhoneNumber": "773.262.5280",
         "Type": "Vegetarian"
+    },
+    {
+        "Id": "43",
+        "Name": "Munch",
+        "Url": "http://www.munchrestaurant.net/",
+        "latitude": "41.8876256",
+        "longitude": "-87.80215650000002",
+        "Address": {
+            "Address": "104 North Marion Street",
+            "City": "Oak Park",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60301"
+        },
+        "PhoneNumber": "708.848.4226",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "44",
+        "Name": "Chicago Dinner (Halsted)",
+        "Url": "http://veggiediner.com/index.html",
+        "latitude": "41.9440076",
+        "longitude": "-87.64914420000002",
+        "Address": {
+            "Address": "3411 N. Halsted St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60657"
+        },
+        "PhoneNumber": "773.935.6696",
+        "Type": "Vegetarian"
     }
+
+
 ]

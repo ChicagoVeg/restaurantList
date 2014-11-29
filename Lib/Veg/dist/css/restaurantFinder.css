@@ -21,3 +21,36 @@
 .thicker {
 	font-weight: bolder;
 }
+
+.green {
+	color: green;
+}
+
+.blue {
+	color: blue;
+}
+
+.orange {
+	color: orange;
+}
+
+.w12pc {
+	width: 12%;
+}
+
+.w6pc {
+	width: 6%;
+}
+
+.w7pc {
+	width: 7%;
+}
+
+
+.w35pc {
+	width: 35%
+}
+
+.fsler {
+	font-size: larger;
+}
