@@ -1,7 +1,7 @@
 [
     {
         "Id": "1",
-        "Name": "Native Foods-West Loop",
+        "Name": "Native Foods- West Loop",
         "Url": "http: //www.nativefoods.com",
         "latitude": "41.8814122",
         "longitude": "-87.641146",
@@ -46,7 +46,7 @@
     },
     {
         "Id": "5",
-        "Name": "Chicago Dinner (Logan Square)",
+        "Name": "Chicago Dinner- Logan Square",
         "Url": "http://veggiediner.com/index.html",
         "latitude": "41.923514",
         "longitude": "-87.698547",
@@ -616,7 +616,7 @@
     },
     {
         "Id": "44",
-        "Name": "Chicago Dinner (Halsted)",
+        "Name": "Chicago Dinner- Halsted",
         "Url": "http://veggiediner.com/index.html",
         "latitude": "41.9440076",
         "longitude": "-87.64914420000002",
@@ -628,7 +628,65 @@
         },
         "PhoneNumber": "773.935.6696",
         "Type": "Vegetarian"
+    },
+	{
+        "Id": "45",
+        "Name": "Blind Faith Café",
+        "Url": "http://www.blindfaithcafe.com",
+        "latitude": "42.0413317",
+        "longitude": "-87.68002589999998",
+        "Address": {
+            "Address": "525 Dempster St",
+            "City": "Evanston",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60201"
+        },
+        "PhoneNumber": "847.328.6875",
+        "Type": "Vegetarian"
+    },
+	 {
+        "Id": "46",
+        "Name": "Native Foods- River Forest",
+        "Url": "https://www.nativefoods.com/locations/locations/river-forest",
+        "latitude": "41.8884727",
+        "longitude": "-87.80835939999997",
+        "Address": {
+            "Address": "7343 Lake St",
+            "City": "River Forest",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60305"
+        },
+        "PhoneNumber": "708.689.4777",
+        "Type": "vegan"
+    },
+	{
+        "Id": "47",
+        "Name": "Borrowed Earth Café",
+        "Url": "http://www.borrowedearthcafe.com",
+        "latitude": "41.7962339",
+        "longitude": "-88.00991019999998",
+        "Address": {
+            "Address": "970 Warren Ave",
+            "City": "Downers Grove",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60515"
+        },
+        "PhoneNumber": "630.795.1729",
+        "Type": "Raw Vegan"
+    },
+	{
+        "Id": "48",
+        "Name": "Chowpatti",
+        "Url": "http://www.tpsiclients.com/chowpatti/",
+        "latitude": "42.064868",
+        "longitude": "-87.979467",
+        "Address": {
+            "Address": "1035 S. Arlington Heights Rd",
+            "City": "Arlington Heights",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60515"
+        },
+        "PhoneNumber": "847.640.9554",
+        "Type": "Vegetarian"
     }
-
-
 ]
