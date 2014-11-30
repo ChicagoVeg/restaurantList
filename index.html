@@ -2,7 +2,7 @@
 <head>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chicagoland Vegan and Vegetarian Restaurants</title>
+    <title>ChicagoVeg Restaurants: Chicagoland Vegan and Vegetarian Restaurants</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="favicon.ico" type="image/ico" />
     <link href="./Lib/Veg/dist/css/restaurantFinder.css" rel="stylesheet" type="text/css" />
@@ -12,11 +12,11 @@
 </head>
 
 <body> 
-	<h2 class="text-center  whiteFont">ChicagoVeg Restaurants: Chicagoland Vegan and Vegetarian Restaurants</h2>
 	<div class="container body-content">
 		<div class="container" data-restaurants-url="./App_Data/restaurants.json">
 			<div class="row">
-				<div class="col-md-12">		
+				<div class="col-md-11">	
+				<h2 class="text-center  whiteFont">ChicagoVeg Restaurants: Chicagoland Vegan and Vegetarian Restaurants</h2>
 					<div class="panel panel-success">
 						<div class="panel-heading text-center fsler">
 							<a href="http://www.chicagoveg.com" target="_blank">ChicagoVeg Home</a>
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 			<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-7">
             <div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Your Location</h3>
@@ -37,12 +37,9 @@
                     <div data-bind="if: $root.locationAutoDetectable">
                         <input type="radio" name="location" value="auto"  /> Auto-detect								
 							<div>		
-								<input type="radio" name="location" value="manual" checked="checked" /> Address &nbsp; 
-								<input type="text" name="userAddress" class="w35pc" maxlength="600" />&nbsp;
-								<span>City</span>
-								<input type="text" name="userCity" class="w12pc" maxlength="100"/>
-								&nbsp;	
-								<span>State</span>
+								<input type="radio" name="location" value="manual" checked="checked" /> Address 
+								<input type="text" name="userAddress" class="w35pc" maxlength="100" /> &nbsp; City 
+								<input type="text" name="userCity" class="w12pc" maxlength="50"/> &nbsp; State 
 								<select name="state" class="w6pc">
                                         <option value="AK">AK</option>
                                         <option value="AL">AL</option>
@@ -96,8 +93,7 @@
                                         <option value="WV">WV</option>
                                         <option value="WY">WY</option> 
                             </select>
-								&nbsp;
-								<span> Zip </span>
+								&nbsp; Zip 
 								<input type="text" name="userZipCode"  class="w7pc"maxlength="5"  />                							
 							</div>							
 							
@@ -181,7 +177,7 @@
 								</div>	
 								<div>
 									<span data-bind="if: ($root.selectedRestaurantInfo().Url)">
-									<a data-bind="attr:{ href: $root.selectedRestaurantInfo().Url }">
+									<a data-bind="attr:{ href: $root.selectedRestaurantInfo().Url }" target="_blank">
 										<span data-bind="text: $root.selectedRestaurantInfo().Url"></span>
 									</a>
 									</span>	
