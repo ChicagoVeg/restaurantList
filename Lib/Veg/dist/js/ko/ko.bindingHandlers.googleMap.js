@@ -1,4 +1,4 @@
-﻿; (function (ko, google, navigator, toastr, _, Modernizr) {
+﻿; (function (ko, google, navigator, toastr, _, Modernizr, $) {
     'use strict';
 
     ko.bindingHandlers.googleMap = {
@@ -12,11 +12,28 @@
                 marker = null,
                 infowindow,
                 i,
-                infoDisplay = function (marker, map, message) {
+                infoDisplay = function (marker, map, message, restaurantId) {
                         google.maps.event.addListener(marker, 'click', (function (marker) {
+                           return function () {
+                            if (!restaurantId) {
+                                return;
+                            } 
+
+                            $('[type="radio"][data-id="' +  restaurantId +'"]').prop('checked', true);
+                            $('[type="radio"][data-id="' + restaurantId + '"]').trigger('change');
+                           }                            
+                        })(marker, i));
+
+                        google.maps.event.addListener(marker, 'mouseover', (function(marker) {
                             return function () {
-                                infowindow.setContent(message);
-                                infowindow.open(map, marker);
+                               infowindow.setContent((['<div class="infoWindow">', _.string.trim(message), '</div>']).join(''));
+                               infowindow.open(map, marker);
+                           };
+                        })(marker, i));
+
+                        google.maps.event.addListener(marker, 'mouseout', (function() {
+                            return function () {
+                                infowindow.close();
                             };
                         })(marker, i));
                 }, 
@@ -29,30 +46,39 @@
                     var userCurrentLatlng = new google.maps.LatLng(defaultCoordinates.latitude, defaultCoordinates.longitude),                        
                         marker = null,
                         infowindow,
-                        i;
+                        i,
+                        redPinIcon = new google.maps.MarkerImage('http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|FF0000', 
+                                new google.maps.Size(21, 34),
+                                new google.maps.Point(0,0),
+                                new google.maps.Point(10, 34));
 
                         infowindow = new google.maps.InfoWindow();
 
                         // current location
                         marker = new google.maps.Marker({
                            position: userCurrentLatlng,
-                           map: root.restaurantMap
+                           map: root.restaurantMap,
+                           icon: redPinIcon
                        });
 
                        infoDisplay(marker, root.restaurantMap, 'You are here');
                 };
-
+                
                 root.restaurantMap = new google.maps.Map(element, mapOptions); //  this is preserved
-                infowindow = new google.maps.InfoWindow(),
+                infowindow = new google.maps.InfoWindow();
+               
                    
                 // restaurants
                 _.each(root.restaurants(), function (value) {
+                    var pinIcon = ko.bindingHandlers.googleMap.getPinIcon(value.Type);                        
+
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(value.latitude, value.longitude),
-                        map: root.restaurantMap
+                        map: root.restaurantMap, 
+                        icon: pinIcon
                     });
 
-                    infoDisplay(marker, root.restaurantMap, value.Name);
+                    infoDisplay(marker, root.restaurantMap, value.Name, value.Id);
                  });
 
 
@@ -88,7 +114,8 @@
                 root = bindingContext.$root,
                 direction = ko.unwrap(allBindings()).updateDirection,
                 latLng = null,
-                marker = null;
+                marker = null,
+                restaurantId = null;
 
             if (!value) {
                 return;
@@ -98,7 +125,7 @@
             marker = root.currentSelectedRestaurant.marker;
 
             if (marker !== null) {
-                //    marker.setMap(null); // delete old marker
+                    marker.setMap(null); // delete old marker
             }
 
             // create new marker
@@ -109,6 +136,36 @@
             });
 
             direction(true);
+        },
+
+        getPinIcon: function(restaurantType) {
+        var trimmedRestaurantType = _.string.trim(restaurantType), 
+            pinIcon = null,
+            size = new google.maps.Size(21, 34),
+            startPoint = new google.maps.Point(0,0),
+            endPoint = new google.maps.Point(10, 34),
+            greenPinIcon = new google.maps.MarkerImage('http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|00FF00', 
+                                size,
+                                startPoint,
+                                endPoint),
+            bluePinIcon = new google.maps.MarkerImage('http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|0000FF', 
+                                size,
+                                startPoint,
+                                endPoint),
+            orangePinIcon = new google.maps.MarkerImage('http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|FFA500', 
+                                size,
+                                startPoint,
+                                endPoint); 
+
+            if (!trimmedRestaurantType || trimmedRestaurantType.toLowerCase() === 'vegetarian') {
+                pinIcon = orangePinIcon;
+            }  else if (trimmedRestaurantType.toLowerCase() === 'raw vegan') {
+                pinIcon = bluePinIcon;
+            }   else {
+                pinIcon = greenPinIcon;
+            } 
+
+            return pinIcon
         }
-    };
-})(window.ko, window.google, window.navigator, window.toastr, window._, window.Modernizr);
+    }
+})(window.ko, window.google, window.navigator, window.toastr, window._, window.Modernizr, window.jQuery);

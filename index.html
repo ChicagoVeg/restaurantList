@@ -152,7 +152,8 @@
                 <div class="panel-body pam">  
 					<ul  class="list-unstyled" data-bind="foreach: restaurants">
 						<li>
-							<input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected"> <span data-bind="text: Name"></span>
+							<a data-bind="attr: { href: '#restaurant' + Id }"></a>
+							<input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected, attr: { 'data-id': Id }"> <span data-bind="text: Name"></span>
 							&nbsp; <span class="thicker"><span data-bind="html: $root.getRestaurantType(Type), css: $root.getRestaurantLegendColorClass(Type)"></span> </span>
 						</li>
 					</ul>
@@ -174,14 +175,14 @@
 								</div>
 								<div data-bind="if: ($root.selectedRestaurantInfo().PhoneNumber)">
 									<span data-bind="text: $root.selectedRestaurantInfo().PhoneNumber"></span>
-								</div>	
-								<div>
-									<span data-bind="if: ($root.selectedRestaurantInfo().Url)">
-									<a data-bind="attr:{ href: $root.selectedRestaurantInfo().Url }" target="_blank">
-										<span data-bind="text: $root.selectedRestaurantInfo().Url"></span>
-									</a>
-									</span>	
-								</div>	
+								</div>
+								<div data-bind="if: ($root.selectedRestaurantInfo().Url)">
+									<span>
+										<a data-bind="attr:{ href: $root.selectedRestaurantInfo().Url }" target="_blank">
+											Website
+										</a>
+									</span>
+								</div>
 						</div>							
                         </div>
 				</div>
