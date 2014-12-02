@@ -46,7 +46,7 @@
     },
     {
         "Id": "5",
-        "Name": "Chicago Dinner - Logan Square",
+        "Name": "Chicago Diner - Logan Square",
         "Url": "http://veggiediner.com/index.html",
         "latitude": "41.923514",
         "longitude": "-87.698547",
@@ -616,7 +616,7 @@
     },
     {
         "Id": "44",
-        "Name": "Chicago Dinner - Halsted",
+        "Name": "Chicago Diner - Halsted",
         "Url": "http://veggiediner.com/index.html",
         "latitude": "41.9440076",
         "longitude": "-87.64914420000002",
