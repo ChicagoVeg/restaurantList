@@ -17,7 +17,7 @@
     {
         "Id": "2",
         "Name": "Chicago Raw - French Market",
-        "Url": "http: //www.chicagorawfood.com",
+        "Url": "http://www.chicagorawfood.com",
         "latitude": "41.88391",
         "longitude": "-87.64086480000003",
         "Address": {
@@ -451,7 +451,7 @@
     },
     {
         "Id": "33",
-        "Name": "Earth's Healing Café",
+        "Name": "Earth's Healing Café- Ravenwoods",
         "Url": "http://www.ehcafe.com",
         "latitude": "41.9615985",
         "longitude": "-87.6777821",
@@ -689,6 +689,21 @@
         "PhoneNumber": "847.640.9554",
         "Type": "Vegetarian"
     },
+    {
+        "Id": "49",
+        "Name": "Expressly Leslie Vegetarian Specialties",
+        "Url": "http://expresslyleslie.com",
+        "latitude": "42.314448",
+        "longitude": "-88.44838700000003",
+        "Address": {
+            "Address": "110 S. Johnson St.",
+            "City": "Woodstock",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60098"
+        },
+        "PhoneNumber": "815.338.2833",
+        "Type": "Vegetarian"
+    },
 	{
         "Id": "50",
         "Name": "Shree",
@@ -719,19 +734,20 @@
         "PhoneNumber": "815.838.4626",
         "Type": "Raw Vegan"
     },
-	{
-        "Id": "49",
-        "Name": "Expressly Leslie Vegetarian Specialties",
-        "Url": "http://expresslyleslie.com",
-        "latitude": "42.314448",
-        "longitude": "-88.44838700000003",
+    {
+        "Id": "52",
+        "Name": "Earth's Healing Café- Downtown",
+        "Url": "http://www.ehcafe.com",
+        "latitude": "41.8879004",
+        "longitude": "-87.62371830000001",
         "Address": {
-            "Address": "110 S. Johnson St.",
-            "City": "Woodstock",
+            "Address": "111 E Upper Wacker Dr",
+            "City": "Chicago",
             "StateAbbreviation": "IL",
-            "ZipCode": "60098"
+            "ZipCode": "60601"
         },
-        "PhoneNumber": "815.338.2833",
-        "Type": "Vegetarian"
+        "PhoneNumber": "312.540.1440",
+        "Type": "Raw Vegan"
     }
+
 ]
