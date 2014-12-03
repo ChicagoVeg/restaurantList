@@ -11,7 +11,6 @@ module.exports = function(grunt) {
 		htmlhint: {
 			templates: {
 				options: {
-
 				},
 				src: ['./*.html']
 			}	
@@ -23,4 +22,5 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask('default', ['jshint', 'htmlhint']);
+	grunt.registerTask('travis', ['jshint', 'htmlhint']);
 }

@@ -6,7 +6,7 @@
   "author": "ChicagoVeg Group",
   "contributors": [
     {
-      "name": "ChicagoVeg Group",
+      "name": "ChicagoVeg Group Development Team",
       "email": "chicagoVegGroup@gmail.com"
     },
     {
@@ -18,5 +18,8 @@
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-htmlhint": "^0.4.1"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
   }
 }
