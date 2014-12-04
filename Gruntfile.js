@@ -22,4 +22,5 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask('default', ['jshint', 'htmlhint']);
+	grunt.registerTask('travis', ['jshint', 'htmlhint']);
 }
