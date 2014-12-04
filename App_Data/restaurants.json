@@ -375,21 +375,6 @@
         "Type": "Vegan"
     },
     {
-        "Id": "28",
-        "Name": "Sistah's",
-        "Url": "https://www.facebook.com/pages/Sistahs/152468304789349",
-        "latitude": "41.720684",
-        "longitude": "-87.678697",
-        "Address": {
-            "Address": "2239 W 95th St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60614"
-        },
-        "PhoneNumber": "773.445.4788",
-        "Type": "Vegan"
-    },
-    {
         "Id": "29",
         "Name": "Upton's Breakroom",
         "Url": "http://www.uptonsnaturals.com/breakroom/",
@@ -417,21 +402,6 @@
             "ZipCode": "60614"
         },
         "PhoneNumber": "773.472.8208",
-        "Type": "Vegan"
-    },
-    {
-        "Id": "31",
-        "Name": "Yah's Cuisine",
-        "Url": "http://yahscuisine.com",
-        "latitude": "41.75873",
-        "longitude": "-87.56698289999997",
-        "Address": {
-            "Address": "2347 E. 75th St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60649"
-        },
-        "PhoneNumber": "773.759.8517",
         "Type": "Vegan"
     },
     {
@@ -525,24 +495,9 @@
         "Type": "Vegetarian"
     },
     {
-        "Id": "38",
-        "Name": "Kamdar Plaza",
-        "Url": "http://www.mysorewoodlands.info",
-        "latitude": "41.9979122",
-        "longitude": "-87.6966021",
-        "Address": {
-            "Address": "264 W. Devon",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60659"
-        },
-        "PhoneNumber": "773.338.8100",
-        "Type": "Vegetarian"
-    },
-    {
         "Id": "39",
         "Name": "Mysore Woodlands",
-        "Url": "",
+        "Url": "http://www.mysorewoodlands.info",
         "latitude": "41.9978937",
         "longitude": "-87.69435149999998",
         "Address": {
@@ -748,6 +703,95 @@
         },
         "PhoneNumber": "312.540.1440",
         "Type": "Raw Vegan"
+    },
+    {
+        "Id": "53",
+        "Name": "Daisy's Cafe",
+        "Url": "https://www.facebook.com/pages/Daisys-Catering-Cafe/433315993366810",
+        "latitude": "41.609357",
+        "longitude": "-87.63345020000003",
+        "Address": {
+            "Address": "15417 Vincennes Rd",
+            "City": "Phoenix",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60426"
+        },
+        "PhoneNumber": "708.250.6334",
+        "Type": "Vegan"
+    },
+    {
+        "Id": "54",
+        "Name": "Pure Juice Cafe",
+        "Url": "http://www.purejuicecafe.com",
+        "latitude": "42.0823768",
+        "longitude": "-87.98175509999999",
+        "Address": {
+            "Address": "24 S Evergreen Ave",
+            "City": "Arlington Heights",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60005"
+        },
+        "PhoneNumber": "847.873.0942",
+        "Type": "Raw Vegan"
+    },
+    {
+        "Id": "55",
+        "Name": "Vegetarian Fast Food",
+        "Url": "http://purevegetarianonly.com",
+        "latitude": "41.9373961",
+        "longitude": "-88.08375969999997",
+        "Address": {
+            "Address": "185 E Army Trail Rd",
+            "City": "Glendale Heights",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60139"
+        },
+        "PhoneNumber": "630.529.3344",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "56",
+        "Name": "True Nature Foods Juice Bar and Cafe",
+        "Url": "http://www.truenaturefoods.com",
+        "latitude": "41.9919444",
+        "longitude": "-87.66067570000001",
+        "Address": {
+            "Address": "6034 N Broadway St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60660"
+        },
+        "PhoneNumber": "773.465.6400",
+        "Type": "Vegetarian"
+    },
+    {
+        "Id": "57",
+        "Name": "Maoz Vegetarian",
+        "Url": "http://www.maozusa.com/restaurants/locations/chicago",
+        "latitude": "41.9754921",
+        "longitude": "-87.8659695",
+        "Address": {
+            "Address": "5220 Fashion Outlet Wy Ste F1",
+            "City": "Rosemont",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60018"
+        },
+        "PhoneNumber": "847.678.8834",
+        "Type": "Vegetarian"
+    },
+        {
+        "Id": "58",
+        "Name": "Chataka Masti",
+        "Url": "http://chatakamasti.com",
+        "latitude": "41.7696417",
+        "longitude": "-88.20657010000002",
+        "Address": {
+            "Address": "888 S. Rt. 59 #108",
+            "City": "Naperville",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60540"
+        },
+        "PhoneNumber": "630.922.5880",
+        "Type": "Vegetarian"
     }
-
 ]
