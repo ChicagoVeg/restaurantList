@@ -104,19 +104,19 @@
         "PhoneNumber": "773.342.1742",
         "Type": "Vegetarian"
     },
-    {
+        {
         "Id": "10",
-        "Name": "New Life",
-        "Url": "http://newlifehealthfoods.dinehere.us",
-        "latitude": "41.866433",
-        "longitude": "-87.705393",
+        "Name": "Chataka Masti",
+        "Url": "http://chatakamasti.com",
+        "latitude": "41.7696417",
+        "longitude": "-88.20657010000002",
         "Address": {
-            "Address": "3141 W. Roosevelt Road",
-            "City": "Chicago",
+            "Address": "888 S. Rt. 59 #108",
+            "City": "Naperville",
             "StateAbbreviation": "IL",
-            "ZipCode": "60612"
+            "ZipCode": "60540"
         },
-        "PhoneNumber": "773.762.1090",
+        "PhoneNumber": "630.922.5880",
         "Type": "Vegetarian"
     },
     {
@@ -408,20 +408,20 @@
         "Id": "32",
         "Name": "B'Gabs Goodies",
         "Url": "http://www.bgabsgoodies.com",
-        "latitude": "41.78407",
-        "longitude": "-87.59056799999996",
+        "latitude": "41.79151359999999",
+        "longitude": "-87.58977419999997",
         "Address": {
-            "Address": "6100 S. Blackstone Ave",
+            "Address": "1450 E 57th St",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60637"
         },
-        "PhoneNumber": "773.251.3071",
+        "PhoneNumber": "773.256.1000",
         "Type": "Raw Vegan"
     },
     {
         "Id": "33",
-        "Name": "Earth's Healing Café- Ravenwoods",
+        "Name": "Earth's Healing Café - Ravenwoods",
         "Url": "http://www.ehcafe.com",
         "latitude": "41.9615985",
         "longitude": "-87.6777821",
@@ -511,12 +511,12 @@
     },
     {
         "Id": "40",
-        "Name": "Sukhadia",
-        "Url": "http://www.sukhadia.com",
+        "Name": "Sukhadia's",
+        "Url": "http://sukhadiasweetschicago.com",
         "latitude": "41.9976267",
         "longitude": "-87.69452609999996",
         "Address": {
-            "Address": "2557 W. Devon",
+            "Address": "2559 W. Devon",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60659"
@@ -691,7 +691,7 @@
     },
     {
         "Id": "52",
-        "Name": "Earth's Healing Café- Downtown",
+        "Name": "Earth's Healing Café - Downtown",
         "Url": "http://www.ehcafe.com",
         "latitude": "41.8879004",
         "longitude": "-87.62371830000001",
@@ -777,21 +777,6 @@
             "ZipCode": "60018"
         },
         "PhoneNumber": "847.678.8834",
-        "Type": "Vegetarian"
-    },
-        {
-        "Id": "58",
-        "Name": "Chataka Masti",
-        "Url": "http://chatakamasti.com",
-        "latitude": "41.7696417",
-        "longitude": "-88.20657010000002",
-        "Address": {
-            "Address": "888 S. Rt. 59 #108",
-            "City": "Naperville",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60540"
-        },
-        "PhoneNumber": "630.922.5880",
         "Type": "Vegetarian"
     }
 ]
