@@ -114,7 +114,8 @@
                 "PhoneNumber": selectedRestaurant.PhoneNumber,
                 "Type": selectedRestaurant.Type, 
                 "Address1": address.Address,
-                "Address2": [address.City, ', ', address.StateAbbreviation, ' ',address.ZipCode ].join('')
+                "Address2": [address.City, ', ', address.StateAbbreviation, ' ',address.ZipCode ].join(''),
+                "DistanceInMiles": ko.observable()
             }
         });
 

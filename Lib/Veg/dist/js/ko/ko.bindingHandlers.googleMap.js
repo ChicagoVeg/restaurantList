@@ -1,4 +1,4 @@
-﻿; (function (ko, google, navigator, toastr, _, Modernizr, $) {
+﻿; (function (ko, google, navigator, toastr, _, Modernizr, $, veg) {
     'use strict';
 
     ko.bindingHandlers.googleMap = {
@@ -6,8 +6,8 @@
         init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
             var root = bindingContext.$root,
                 defaultCoordinates = {
-                    latitude: '41.88030058331521',
-                    longitude: '-87.62414216995239'
+                    latitude: '41.878114',
+                    longitude: '-87.629798'
                 },
                 marker = null,
                 infowindow,
@@ -69,16 +69,25 @@
                
                    
                 // restaurants
-                _.each(root.restaurants(), function (value) {
-                    var pinIcon = ko.bindingHandlers.googleMap.getPinIcon(value.Type);                        
+                _.each(root.restaurants(), function (restaurant) {
+                    var pinIcon = ko.bindingHandlers.googleMap.getPinIcon(restaurant.Type),   
+                        latitudeLongitude = veg.latitudeLongitude();                     
 
+                    //set marker    
                     marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(value.latitude, value.longitude),
+                        position: new google.maps.LatLng(restaurant.latitude, restaurant.longitude),
                         map: root.restaurantMap, 
                         icon: pinIcon
                     });
 
-                    infoDisplay(marker, root.restaurantMap, value.Name, value.Id);
+                    //set distance
+                    if (!restaurant.DistanceInMiles) {
+                        restaurant.DistanceInMiles = ko.observable();
+                    }
+                    restaurant.DistanceInMiles(latitudeLongitude.getDistanceInMiles(root.userLocation.latitude,  root.userLocation.longitude, restaurant.latitude, restaurant.longitude));
+                       
+
+                    infoDisplay(marker, root.restaurantMap, restaurant.Name, restaurant.Id);
                  });
 
 
@@ -168,4 +177,4 @@
             return pinIcon
         }
     }
-})(window.ko, window.google, window.navigator, window.toastr, window._, window.Modernizr, window.jQuery);
+})(window.ko, window.google, window.navigator, window.toastr, window._, window.Modernizr, window.jQuery, window.veg);

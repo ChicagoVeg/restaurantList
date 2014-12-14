@@ -155,17 +155,18 @@
                 </div>
                
                 <div class="panel-body pam"> 
-                    <ul class="list-inline pull-right">
-                        <li><input type="checkbox" name="restaurantType" data-bind="" value="vegan" checked /> Vegan &nbsp;  </li>
-                        <li><input type="checkbox" name="restaurantType" data-bind="" value="vegetarian" checked /> Vegetarian &nbsp; </li>
-                        <li><input type="checkbox" name="restaurantType" data-bind="" value="rawVegan" checked /> Raw Vegan &nbsp; </li>
+                    <ul class="list-inline legend pull-right">
+                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegan" checked /> <span class="green">Vegan </span> &nbsp;  </li>
+                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegetarian" checked /> <span class="orange"> Vegetarian &nbsp; </span> </li>
+                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="raw vegan" checked /> <span class="blue"> Raw Vegan &nbsp; </span></li>
                     </ul>    
-                    <br />   <br />                 
-					<ul  class="list-unstyled" data-bind="foreach: restaurants">
-						<li>
+                    <br /> <br />                 
+					<ul class="list-unstyled" role="restaurantListing" data-bind="foreach: restaurants">
+						<li data-bind="attr: {'data-restaurant-type': Type }">
 							<a data-bind="attr: { href: '#restaurant' + Id }"></a>
 							<input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected, attr: { 'data-id': Id }"> <span data-bind="text: Name"></span>
 							&nbsp; <span class="thicker"><span data-bind="html: $root.getRestaurantType(Type), css: $root.getRestaurantLegendColorClass(Type)"></span> </span>
+                            &nbsp;&nbsp;(<span data-bind="text: DistanceInMiles"></span> miles away)
 						</li>
 					</ul>
 				</div>
@@ -273,6 +274,9 @@
 
 <script src="./Lib/Veg/dist/js/veg.restaurantFinderDataAccess.js"></script>
 <script src="./Lib/Veg/dist/js/veg.restaurantFinderViewModel.js"></script>
+<script src="./Lib/Veg/dist/js/veg.latitudeLongitude.js"></script>
+
+
 
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.googleMap.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.selectRestaurant.js"></script>
@@ -282,6 +286,9 @@
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.directionType.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.preventDefault.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.sendFeedback.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.filterRestaurants.js"></script>
+
+
 
 <script src="./Lib/Veg/dist/js/veg.binding.js"></script>
 
