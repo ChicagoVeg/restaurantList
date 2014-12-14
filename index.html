@@ -104,7 +104,12 @@
                 <div>
 				<div class="panel panel-success">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Map</h3>
+                            <h3 class="panel-title displayInline">Map</h3>
+                            <div class="legend pull-right">
+                                <span class="green" data-bind="html: $root.veganLegendMarkup()"></span> 
+                                <span class="thicker">|</span> <span class="orange" data-bind="html: $root.vegetarianLegendMarkup()"></span> 
+                                <span class="thicker">|</span> <span class="blue" data-bind="html: $root.rawVeganLegendMarkup()"></span>
+                            </div>
                         </div>
                         <div class="panel-body pam">
                             <div id=" map-canvas" data-bind="googleMap: $root.currentSelectedRestaurant.restaurant, updateDirection: $root.direction" style="height: 600px; width: 600px; margin: 0; padding: 0;"></div>
@@ -143,14 +148,19 @@
 				<div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title displayInline">Restaurants</h3>
-					<div class="legend pull-right">
-						<span class="green" data-bind="html: $root.veganLegendMarkup()"></span> 
-						<span class="thicker">|</span> <span class="orange" data-bind="html: $root.vegetarianLegendMarkup()"></span> 
-						<span class="thicker">|</span> <span class="blue" data-bind="html: $root.rawVeganLegendMarkup()"></span>
-					</div>
+                        <div class="legend pull-right">
+                            <span class="" data-bind="">Name</span> 
+                            <span class="thicker">|</span> <span class="" data-bind="">Distance</span> 
+                        </div>			
                 </div>
                
-                <div class="panel-body pam">  
+                <div class="panel-body pam"> 
+                    <ul class="list-inline pull-right">
+                        <li><input type="checkbox" name="restaurantType" data-bind="" value="vegan" checked /> Vegan &nbsp;  </li>
+                        <li><input type="checkbox" name="restaurantType" data-bind="" value="vegetarian" checked /> Vegetarian &nbsp; </li>
+                        <li><input type="checkbox" name="restaurantType" data-bind="" value="rawVegan" checked /> Raw Vegan &nbsp; </li>
+                    </ul>    
+                    <br />   <br />                 
 					<ul  class="list-unstyled" data-bind="foreach: restaurants">
 						<li>
 							<a data-bind="attr: { href: '#restaurant' + Id }"></a>
@@ -195,11 +205,53 @@
 	</div>
 	<hr />
     <footer class="whiteFont">
-            <div class="text-center">
-				&copy; <span class="s-currentYear"></span> - <a href="http://chicagoveg.com/"  target="_blank"><span class="s-pageTitle"></span></a> 				
-				&nbsp; | &nbsp; <a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" target="_blank"> Feedback</a>			
-			</div>
-        </footer>
+        <div class="text-center">
+				&copy; <span class="s-currentYear"></span> - <a href="http://chicagoveg.com/"  target="_blank"><span class="s-pageTitle"></span></a> 
+                 &nbsp; | &nbsp; <a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" target="_blank"> Feedback</a> 				
+				<!-- &nbsp; | &nbsp; <a href="#" data-toggle="modal" data-target="#feedbackModel"> Feedback</a>	-->
+
+
+		</div>
+    </footer>
+
+    <div id="feedbackModel" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">
+                        Feedback Form
+                    </h4>
+                </div>
+            <div class="modal-body">
+                <div>
+                    <table class="feedbackForm">
+                        <tr>
+                            <td>Name &nbsp;</td>
+                            <td><input type="text" name="feebackName" /></td>                            
+                        </tr>
+                        <tr>
+                            <td>E-mail  &nbsp;</td>
+                            <td><input type="text" name="feebackEmail" /></td>
+                        </tr>
+                        <tr>
+                            <td>Comment &nbsp;</td>
+                            <td><textarea name="feebackComment"></textarea></td>
+                        </tr>
+                    </table>
+                </div>                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bind="data-bind="sendFeedback: {}">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 </body>
 
 <script src="./Lib/Veg/dist/js/ga.js"></script>
@@ -212,6 +264,9 @@
 <script src="./Lib/underscore/underscore-min.js"></script>
 <script src="./Lib/toastr/toastr.min.js"></script>
 <script src="./Lib/modernizr/modernizr.js"></script>
+<script src="./Lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
 
 <script src="./Lib/underscore.string/dist/underscore.string.min.js"></script>
 <script src="./Lib/Veg/dist/js/extensions/underscore.emptyFunction.js"></script>
@@ -225,6 +280,8 @@
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.getUserLocation.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.autoDetectLocation.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.directionType.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.preventDefault.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.sendFeedback.js"></script>
 
 <script src="./Lib/Veg/dist/js/veg.binding.js"></script>
 
