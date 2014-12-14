@@ -62,6 +62,25 @@
                        });
 
                        infoDisplay(marker, root.restaurantMap, 'You are here');
+                },
+                getDistanceInMiles = function(restaurants, userLocationlatitude, userLocationlongitude) {
+                    var distanceInMiles;
+
+                    if (!restaurants) {
+                        return;
+                    }
+
+                    // restaurants
+                    _.each(restaurants, function (restaurant) {
+                        var latitudeLongitude = veg.latitudeLongitude();                     
+
+                    if (!restaurant.DistanceInMiles) {
+                        restaurant.DistanceInMiles = ko.observable();
+                    }
+                    
+                    distanceInMiles = latitudeLongitude.getDistanceInMiles(userLocationlatitude, userLocationlongitude, restaurant.latitude, restaurant.longitude);
+                    restaurant.DistanceInMiles(distanceInMiles.toFixed(1));
+                    });
                 };
                 
                 root.restaurantMap = new google.maps.Map(element, mapOptions); //  this is preserved
@@ -94,7 +113,11 @@
             // Set default location
             if (!Modernizr.geolocation) {
                 var latLng = new google.maps.LatLng(defaultCoordinates.latitude, defaultCoordinates.longitude); // pick some location in Chicago
-                root.locationAutoDetectable(false);                       
+                
+                root.userLocation.latitude = defaultCoordinates.latitude;
+                root.userLocation.longitude = defaultCoordinates.longitude;                                        
+                getDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
+                root.locationAutoDetectable(false);                          
             } else {
                 root.locationAutoDetectable(true);
 
@@ -104,6 +127,7 @@
                         root.userLocation.longitude = position.coords.longitude;                        
                         drawUserLocationOnMap(root, mapOptions, infoDisplay);
                         $('[value="auto"]').prop('checked', true);
+                        getDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
                         toastr.info('Your browser supports geolocation and current location has been identified. No need to add your address');
                     }, { root: root, drawUserLocationOnMap: drawUserLocationOnMap, mapOptions: mapOptions, infoDisplay: infoDisplay }),
                     _.bind(function () { // user disallowed access to location. Bummer!
@@ -112,6 +136,7 @@
                         root.userLocation.longitude = defaultCoordinates.longitude;
                         drawUserLocationOnMap(root, mapOptions, infoDisplay);
                         $('[value="manual"]').prop('checked', true);
+                        getDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
                         toastr.info('Permission to use geolocation was denied. An present location was selected automatically');
                     }, { root: root, drawUserLocationOnMap: drawUserLocationOnMap, defaultCoordinates: defaultCoordinates, mapOptions: mapOptions, infoDisplay: infoDisplay }));
             }

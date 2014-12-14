@@ -166,7 +166,7 @@
 							<a data-bind="attr: { href: '#restaurant' + Id }"></a>
 							<input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected, attr: { 'data-id': Id }"> <span data-bind="text: Name"></span>
 							&nbsp; <span class="thicker"><span data-bind="html: $root.getRestaurantType(Type), css: $root.getRestaurantLegendColorClass(Type)"></span> </span>
-                            &nbsp;&nbsp;(<span data-bind="text: DistanceInMiles"></span> miles away)
+                            &nbsp;&nbsp;&#40;<span data-bind="text: DistanceInMiles"></span> miles away&#41;
 						</li>
 					</ul>
 				</div>
@@ -247,7 +247,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-bind="data-bind="sendFeedback: {}">Save changes</button>
+                <button type="button" class="btn btn-primary" data-bind="sendFeedback: {}">Save changes</button>
             </div>
         </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
