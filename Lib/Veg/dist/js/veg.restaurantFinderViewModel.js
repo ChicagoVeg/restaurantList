@@ -9,6 +9,7 @@
         self.direction = ko.observable().extend({ notify: 'always' });
         self.locationAutoDetectable = ko.observable().extend({ notify: 'always' });
         self.directionsDisplay = null;
+        self.directionsService = null; 
         self.currentSelectedRestaurant = {
             restaurant: ko.observable().extend({ notify: 'always' }),
             marker: null,
@@ -32,9 +33,9 @@
         self.vegetarianText = 'Vegetarian';
         self.rawVeganText = 'Raw Vegan';
 
-        self.veganTextAbbreviation = 'V';
-        self.vegetarianTextAbbreviation = 'V<sub>T</sub>';
-        self.rawVeganTextAbbreviation = 'R<sub>V</sub>';
+        self.veganTextAbbreviation = 'VG';
+        self.vegetarianTextAbbreviation = 'VT';
+        self.rawVeganTextAbbreviation = 'RV';
 
 
         self.veganLegendMarkup = function () { 
@@ -68,6 +69,14 @@
                 return  '';
             }
         };
+
+        self.getDistanceText = function (distance) {
+            if (!distance) {
+                return '';
+            }
+
+            return '(' + _.string.trim(distance) + ' mi' + ')';
+        }
 
         self.getRestaurantLegendColorClass = function (type) {
              var typeLowerCase = _.string.trim(type);

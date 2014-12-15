@@ -6,6 +6,7 @@
             var koBindingContextRoot = bindingContext.$root;
 
             bindingContext.$root.directionsDisplay = new google.maps.DirectionsRenderer();
+            bindingContext.$root.directionsService = new google.maps.DirectionsService();
             //bindingContext.$root.directionsDisplay.setMap(koBindingContextRoot.restaurantMap);
             //bindingContext.$root.directionsDisplay.setPanel(element);
 
@@ -13,7 +14,7 @@
 
         update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
             var value = ko.unwrap(valueAccessor()),
-             directionsService = null,
+             directionsService = bindingContext.$root.directionsService,
              //directionsDisplay = null,
              userAddress = null,
              origin = null,
@@ -33,12 +34,13 @@
 
             directionType = $('input[name=directionType]:checked').first().val();
 
-            directionsService = new google.maps.DirectionsService();
+            //directionsService = new google.maps.DirectionsService();
             //directionsDisplay = new google.maps.DirectionsRenderer();
             //directionsDisplay.setMap(null);
             //directionsDisplay.setMap(koBindingContextRoot.restaurantMap);
             // directionsDisplay.setPanel(element);
 
+            bindingContext.$root.directionsDisplay.setDirections({routes: []}) // remove current directions
             bindingContext.$root.directionsDisplay.setMap(koBindingContextRoot.restaurantMap);
             bindingContext.$root.directionsDisplay.setPanel(element);
 
@@ -54,7 +56,7 @@
                     return;
                 }
 
-                userAddress =  _.string.trim([addressLine, city, $(':selected').val(), zip].join(' '));
+                userAddress =  _.string.trim([addressLine, city, $('select[name="state"] :selected').val(), zip].join(' '));
                 origin = userAddress;
             } else {
                 userAddress =  $nameAttribute.val() === 'manual' ?

@@ -92,9 +92,10 @@
                                         <option value="WI">WI</option>
                                         <option value="WV">WV</option>
                                         <option value="WY">WY</option> 
-                            </select>
+                                </select>
 								&nbsp; Zip 
-								<input type="text" name="userZipCode"  class="w7pc" maxlength="5"  />                							
+								<input type="text" name="userZipCode"  class="w7pc" maxlength="5"  />   
+                                &nbsp; <button data-bind="updateAddress: {}">GO</button>             							
 							</div>							
 							
                     </div>
@@ -106,9 +107,9 @@
                         <div class="panel-heading">
                             <h3 class="panel-title displayInline">Map</h3>
                             <div class="legend pull-right">
-                                <span class="green" data-bind="html: $root.veganLegendMarkup()"></span> 
-                                <span class="thicker">|</span> <span class="orange" data-bind="html: $root.vegetarianLegendMarkup()"></span> 
-                                <span class="thicker">|</span> <span class="blue" data-bind="html: $root.rawVeganLegendMarkup()"></span>
+                                <span class="green">VG- Vegan</span> 
+                                <span class="thicker">|</span> <span class="orange">VT- Vegetarian</span> 
+                                <span class="thicker">|</span> <span class="blue">RV- Raw Vegan</span>
                             </div>
                         </div>
                         <div class="panel-body pam">
@@ -148,17 +149,17 @@
 				<div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title displayInline">Restaurants</h3>
-                        <div class="legend pull-right">
-                            <span class="" data-bind="">Name</span> 
-                            <span class="thicker">|</span> <span class="" data-bind="">Distance</span> 
+                        <div class="legend pull-right pointer">
+                            <span class="" data-bind="sortRestaurants: 'name'">Name</span> 
+                            <span class="thicker">|</span> <span class="" data-bind="sortRestaurants: 'byDistance'">Distance</span> 
                         </div>			
                 </div>
                
                 <div class="panel-body pam"> 
                     <ul class="list-inline legend pull-right">
-                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegan" checked /> <span class="green">Vegan </span> &nbsp;  </li>
-                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegetarian" checked /> <span class="orange"> Vegetarian &nbsp; </span> </li>
-                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="raw vegan" checked /> <span class="blue"> Raw Vegan &nbsp; </span></li>
+                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegan" checked /> <span class="green">Vegan (VG)  </span>  </li>
+                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegetarian" checked /> <span class="orange"> Vegetarian (VT) </span> </li>
+                        <li><input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="raw vegan" checked /> <span class="blue"> Raw Vegan (RV) </span></li>
                     </ul>    
                     <br /> <br />                 
 					<ul class="list-unstyled" role="restaurantListing" data-bind="foreach: restaurants">
@@ -166,7 +167,7 @@
 							<a data-bind="attr: { href: '#restaurant' + Id }"></a>
 							<input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected, attr: { 'data-id': Id }"> <span data-bind="text: Name"></span>
 							&nbsp; <span class="thicker"><span data-bind="html: $root.getRestaurantType(Type), css: $root.getRestaurantLegendColorClass(Type)"></span> </span>
-                            &nbsp;&nbsp;&#40;<span data-bind="text: DistanceInMiles"></span> miles away&#41;
+                            &nbsp;&nbsp;<span data-bind="text: $root.getDistanceText($data.DistanceInMiles())"></span>
 						</li>
 					</ul>
 				</div>
@@ -176,7 +177,7 @@
                             <h3 class="panel-title">Restaurant Details</h3>
                         </div>
                         <div class="panel-body pam" data-bind="visible: isRestaurantSelected">
-						<div>
+						    <div>
 								<div data-bind="if: ($root.selectedRestaurantInfo().Name)">
 									<span data-bind="text: $root.selectedRestaurantInfo().Name"></span>
 									<span class="thicker"><span data-bind="html: $root.getRestaurantType($root.selectedRestaurantInfo().Type), css: $root.getRestaurantLegendColorClass($root.selectedRestaurantInfo().Type)"></span> </span>
@@ -195,7 +196,10 @@
 										</a>
 									</span>
 								</div>
-						</div>							
+						    </div>							
+                        </div>
+                         <div class="panel-body pam" data-bind="invisible: $root.isRestaurantSelected">
+                            Select a restaurant
                         </div>
 				</div>
             
@@ -275,7 +279,7 @@
 <script src="./Lib/Veg/dist/js/veg.restaurantFinderDataAccess.js"></script>
 <script src="./Lib/Veg/dist/js/veg.restaurantFinderViewModel.js"></script>
 <script src="./Lib/Veg/dist/js/veg.latitudeLongitude.js"></script>
-
+<script src="./Lib/Veg/dist/js/veg.utils.map.js"></script>
 
 
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.googleMap.js"></script>
@@ -287,6 +291,9 @@
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.preventDefault.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.sendFeedback.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.filterRestaurants.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.sortRestaurants.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.invisible.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.updateAddress.js"></script>
 
 
 

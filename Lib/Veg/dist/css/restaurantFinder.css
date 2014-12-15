@@ -60,3 +60,7 @@
 	height:100%;
 	white-space:nowrap;
 }
+
+.pointer {
+	cursor: pointer;
+}

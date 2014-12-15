@@ -63,7 +63,7 @@
 
                        infoDisplay(marker, root.restaurantMap, 'You are here');
                 },
-                getDistanceInMiles = function(restaurants, userLocationlatitude, userLocationlongitude) {
+                setDistanceInMiles = function(restaurants, userLocationlatitude, userLocationlongitude) {
                     var distanceInMiles;
 
                     if (!restaurants) {
@@ -79,7 +79,7 @@
                     }
                     
                     distanceInMiles = latitudeLongitude.getDistanceInMiles(userLocationlatitude, userLocationlongitude, restaurant.latitude, restaurant.longitude);
-                    restaurant.DistanceInMiles(distanceInMiles.toFixed(1));
+                    restaurant.DistanceInMiles(distanceInMiles.toFixed(2));
                     });
                 };
                 
@@ -99,11 +99,10 @@
                         icon: pinIcon
                     });
 
-                    //set distance
-                    if (!restaurant.DistanceInMiles) {
+                     if (!restaurant.DistanceInMiles) {
                         restaurant.DistanceInMiles = ko.observable();
-                    }
-                    restaurant.DistanceInMiles(latitudeLongitude.getDistanceInMiles(root.userLocation.latitude,  root.userLocation.longitude, restaurant.latitude, restaurant.longitude));
+                        }
+                  //  restaurant.DistanceInMiles(latitudeLongitude.getDistanceInMiles(root.userLocation.latitude,  root.userLocation.longitude, restaurant.latitude, restaurant.longitude));
                        
 
                     infoDisplay(marker, root.restaurantMap, restaurant.Name, restaurant.Id);
@@ -127,7 +126,7 @@
                         root.userLocation.longitude = position.coords.longitude;                        
                         drawUserLocationOnMap(root, mapOptions, infoDisplay);
                         $('[value="auto"]').prop('checked', true);
-                        getDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
+                        setDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
                         toastr.info('Your browser supports geolocation and current location has been identified. No need to add your address');
                     }, { root: root, drawUserLocationOnMap: drawUserLocationOnMap, mapOptions: mapOptions, infoDisplay: infoDisplay }),
                     _.bind(function () { // user disallowed access to location. Bummer!
@@ -136,7 +135,7 @@
                         root.userLocation.longitude = defaultCoordinates.longitude;
                         drawUserLocationOnMap(root, mapOptions, infoDisplay);
                         $('[value="manual"]').prop('checked', true);
-                        getDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
+                        setDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
                         toastr.info('Permission to use geolocation was denied. An present location was selected automatically');
                     }, { root: root, drawUserLocationOnMap: drawUserLocationOnMap, defaultCoordinates: defaultCoordinates, mapOptions: mapOptions, infoDisplay: infoDisplay }));
             }
