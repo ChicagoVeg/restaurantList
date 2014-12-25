@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/ChicagoVeg/restaurantList.svg?branch=master)](https://travis-ci.org/ChicagoVeg/restaurantList)
 
 
-This is the source code for the ChicagoVeg Group restaurant application. It is provided under the MIT license. 
+This is the source code for the ChicagoVeg Group restaurant application. 
 
 
 
