@@ -95,7 +95,7 @@
                                 </select>
 								&nbsp; Zip 
 								<input type="text" name="userZipCode"  class="w7pc" maxlength="5"  />   
-                                &nbsp; <button data-bind="updateAddress: {}">GO</button>             							
+                                &nbsp; <button class="pas" data-bind="updateAddress: {}">GO</button>             							
 							</div>							
 							
                     </div>
@@ -149,9 +149,9 @@
 				<div class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title displayInline">Restaurants</h3>
-                        <div class="legend pull-right pointer">
-                            <span class="" data-bind="sortRestaurants: 'name'">Name</span> 
-                            <span class="thicker">|</span> <span class="" data-bind="sortRestaurants: 'byDistance'">Distance</span> 
+                        <div class="legend pull-right pointer" role="Sorter">
+                            <span class="activeSorter" data-bind="sortRestaurants: 'name'" role="ByName">Name</span> 
+                            <span class="thicker">|</span> <span class="" data-bind="sortRestaurants: 'byDistance'" role="ByDistance">Distance</span> 
                         </div>			
                 </div>
                

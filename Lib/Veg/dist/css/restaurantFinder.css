@@ -2,6 +2,10 @@
 	background-image: url('http://chicagoveg.com/images/green_bg.jpg')
 }
 
+.pas { 
+	padding: 2px;
+}
+
 .pam {
 	padding: 5px;
 }
@@ -63,4 +67,9 @@
 
 .pointer {
 	cursor: pointer;
+}
+
+.activeSorter {
+	text-decoration: underline;
+	font-weight: bold;
 }
