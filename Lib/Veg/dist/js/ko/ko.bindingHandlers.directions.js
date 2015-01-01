@@ -24,9 +24,10 @@
              request,
              $nameAttribute = null,
              addressLine, city, zip,
-             koBindingContextRoot = bindingContext.$root;
+             koBindingContextRoot = bindingContext.$root,
+             isRestaurantSelected = $('input[name="restaurantList"]:checked').is(':visible');
 
-            if (!value) {
+            if (!value || !isRestaurantSelected) {
                 return;
             }
 

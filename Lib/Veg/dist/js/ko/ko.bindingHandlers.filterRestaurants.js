@@ -17,8 +17,8 @@
                     checkboxValue = _.string.trim($this.val()),
                     restaurants = null, 
                     isChecked = $this.is(':checked'),
-                    $checkedRestaurant;
-
+                    $checkedRestaurant
+                    root = e.data.root;
 
                     if (!checkboxValue) {
                         return;
@@ -47,7 +47,14 @@
 
                     // hide directions if checked restaurant is no longer visible
                     if (!$checkedRestaurant.is(':visible')) {
-                        e.data.root.currentSelectedRestaurant = {};
+                        
+                        
+                        root.currentSelectedRestaurant.restaurant('');
+                        //root.marker =  null;
+                        //root.addressOnOneLine = null;
+                        //root.latitude = null;
+                        //root.longitude  = null;
+
                         $checkedRestaurant.prop('checked', false); //unchecked a now hidden restaurant
                         bindingContext.$root.directionsDisplay.setMap(null); //remove directions from map
                         bindingContext.$root.directionsDisplay.setDirections({routes: []}) // remove directions                       
