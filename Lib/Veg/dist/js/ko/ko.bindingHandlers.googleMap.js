@@ -93,7 +93,7 @@
                         latitudeLongitude = veg.latitudeLongitude();                     
 
                     //set marker    
-                    marker = new google.maps.Marker({
+                    restaurant.marker = new google.maps.Marker({
                         position: new google.maps.LatLng(restaurant.latitude, restaurant.longitude),
                         map: root.restaurantMap, 
                         icon: pinIcon
@@ -105,7 +105,7 @@
                   //  restaurant.DistanceInMiles(latitudeLongitude.getDistanceInMiles(root.userLocation.latitude,  root.userLocation.longitude, restaurant.latitude, restaurant.longitude));
                        
 
-                    infoDisplay(marker, root.restaurantMap, restaurant.Name, restaurant.Id);
+                    infoDisplay(restaurant.marker, root.restaurantMap, restaurant.Name, restaurant.Id);
                  });
 
 

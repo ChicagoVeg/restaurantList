@@ -38,6 +38,8 @@
                          }
 
                          $li[isChecked ? 'show' : 'hide']();
+
+                         ko.contextFor($li[0]).$data.marker.setVisible(isChecked); //hide or show marker (pin) in map
                     });
 
                     $checkedRestaurant = $('input[name="restaurantList"]:checked');
