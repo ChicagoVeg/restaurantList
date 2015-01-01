@@ -8,11 +8,12 @@
           var root = bindingContext.$root,
                      addressLine = _.string.trim($('input[name=userAddress]').val()),
                      city = _.string.trim($('input[name=userCity]').val()), 
-                     state = $('select[name="state"] :selected').val(),
+                     state = $('select[name="state"] :selected').val(),   
                      zip = _.string.trim($('input[name=userZipCode]').val()),
                      success = _.bind( function(res) {
                         var root = this.root,
-                            restaurants = root.restaurants;
+                            restaurants = root.restaurants,
+                            $distanceSorterSpan = $('[role="ByDistance"]');
 
                         root.userLocation.latitude = res.results[0].geometry.location.lat;
                         root.userLocation.longitude = res.results[0].geometry.location.lng;
@@ -21,6 +22,11 @@
                         map.setDistanceInMiles(restaurants, root.userLocation.latitude, root.userLocation.longitude);
 
                         $('input[name="restaurantList"]:checked').trigger('change'); // update directions
+
+                        // resort by distance
+                        if ($distanceSorterSpan.hasClass('activeSorter')) {
+                            $distanceSorterSpan.trigger('click')
+                        }
                       
                     }, { root: root, map: map } );
             

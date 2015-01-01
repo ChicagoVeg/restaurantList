@@ -4,13 +4,14 @@
     ko.bindingHandlers.filterRestaurants = {
         init: function (element, valueAccessor, allBindings, vm, bindingContext) {
             var value = ko.unwrap(valueAccessor()),
-                restaurants = bindingContext.$data.restaurants;
+                restaurants = bindingContext.$data.restaurants,
+                root = bindingContext.$root;
             
             if (!value) {
                 return;
             }
 
-            $(element).on('change', { value: value, restaurants: restaurants }, function (e) {
+            $(element).on('change', { value: value, restaurants: restaurants, root: root }, function (e) {
                 var data = e.data,
                     $this = $(this),  
                     checkboxValue = _.string.trim($this.val()),
@@ -44,10 +45,12 @@
 
                     $checkedRestaurant = $('input[name="restaurantList"]:checked');
 
+                    // hide directions if checked restaurant is no longer visible
                     if (!$checkedRestaurant.is(':visible')) {
+                        e.data.root.currentSelectedRestaurant = {};
                         $checkedRestaurant.prop('checked', false); //unchecked a now hidden restaurant
                         bindingContext.$root.directionsDisplay.setMap(null); //remove directions from map
-                        bindingContext.$root.directionsDisplay.setDirections({routes: []}) // remove directions
+                        bindingContext.$root.directionsDisplay.setDirections({routes: []}) // remove directions                       
                     }
             });
         }
