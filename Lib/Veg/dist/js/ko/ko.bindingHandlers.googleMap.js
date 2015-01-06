@@ -116,9 +116,13 @@
                 root.userLocation.latitude = defaultCoordinates.latitude;
                 root.userLocation.longitude = defaultCoordinates.longitude;                                        
                 getDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
+                setDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
                 root.locationAutoDetectable(false);                          
             } else {
                 root.locationAutoDetectable(true);
+
+                // calculates distances and sets on the UI so that use sees something while deciding whether or not to enable geoloocation
+                //setDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
 
                 navigator.geolocation.getCurrentPosition(
                     _.bind(function (position) { // user allowed access to location
