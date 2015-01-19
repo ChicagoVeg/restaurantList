@@ -19,7 +19,7 @@
 
         // due to Google Map, IE 8 and lower are not supported
         if (document.all && !document.addEventListener) { //http://stackoverflow.com/a/16110481/178550
-            window.alert('This application does not support IE8 and older. Please, update your browser- \nhttp://windows.microsoft.com/en-US/internet-explorer/download-ie');
+            window.alert('This application does not support IE8 and older. Please, update your browser- \n\nhttp://windows.microsoft.com/en-US/internet-explorer/download-ie');
 
             return; 
         }
