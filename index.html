@@ -53,7 +53,7 @@
                                 ChicagoVeg Choice
                             </span> 
                         </a>
-                    </li>                   
+                    </li>
                     <li>
                         <a href="#aboutModal" data-toggle="modal">
                             <span class="bolder">        
@@ -70,7 +70,7 @@
     <section>
         <article>
             <div class="container body-content">
-                <div class="container">                   
+                <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="text-center whiteFont bolder mbm">
@@ -277,28 +277,37 @@
                 <div class="text-center">
                     <div>
                         <ul class="list-inline">
-                        <li>
-                            <img src="./Lib/Veg/dist/img/facebook.png" />
-                        </li>
-                        <li>
-                            <img src="./Lib/Veg/dist/img/twitter.png" />
-                        </li>
-                        <li>
-                            <img src="./Lib/Veg/dist/img/google_plus.png" />
-                        </li>
-                        <li>
-                            <img src="./Lib/Veg/dist/img/email.png" />
-                        </li>
+                            <li>
+                                <a href="javascript:void(0)" data-bind="socialMediaIconClick: {  'socialMedialurl': 'http://www.facebook.com/sharer.php?u=', 'top':'500', 'left':'500', 'width':'400', 'height':'400' }">
+                                    <img src="./Lib/Veg/dist/img/facebook.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-bind="socialMediaIconClick: {  'socialMedialurl': 'http://twitter.com/share?text=List%20of%20Chicagoland Vegan,%20Vegetarian%20and%20Raw%20Vegan%20Restaurants&url=', 'top':'500', 'left':'500', 'width':'400', 'height':'400' }">
+                                    <img src="./Lib/Veg/dist/img/twitter.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-bind="socialMediaIconClick: {  'socialMedialurl': 'https://plus.google.com/share?url=', 'top':'500', 'left':'500', 'width':'600', 'height':'400' }">
+                                    <img src="./Lib/Veg/dist/img/google_plus.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" target="_blank">
+                                    <img src="./Lib/Veg/dist/img/email.png" />
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div>
-                        &copy; <span class="s-currentYear"></span> - <a href="http://chicagoveg.com/" target="_blank"><span class="s-pageTitle"></span></a> &nbsp; | &nbsp; <a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" target="_blank"> Feedback</a> 
-                    <!-- &nbsp; | &nbsp; <a href="#" data-toggle="modal" data-target="#feedbackModel"> Feedback</a> -->
-                </div>
+                        &copy; <span class="s-currentYear"></span> - <a href="http://chicagoveg.com/" target="_blank"><span class="s-pageTitle"></span></a> &nbsp; | &nbsp; <a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application"
+                        target="_blank"> Feedback</a> 
+                        <!-- &nbsp; | &nbsp; <a href="#" data-toggle="modal" data-target="#feedbackModel"> Feedback</a> -->
+                    </div>
                 </div>
             </footer>
 
-           <!-- Modal -->
+            <!-- Modal -->
             <div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -312,7 +321,7 @@
                                 &copy; <span class="s-currentYear"></span> - <a href="http://chicagoveg.com/" target="_blank"> ChicagoVeg </a>. All Rights reserved.
                             </p>
                             <p>
-                                ChicagoVeg – Chicagoland Vegetarian, Vegan, & Raw Foodist Community is non-for-profit organization to support all vegans/vegetarians and educate the public about advantageous of a plant-based diet. 
+                                ChicagoVeg – Chicagoland Vegetarian, Vegan, & Raw Foodist Community is non-for-profit organization to support all vegans/vegetarians and educate the public about advantageous of a plant-based diet.
                             </p>
                         </div>
                         <div class="modal-footer">
@@ -323,7 +332,7 @@
                 </div>
                 <!-- /.modal-dialog -->
             </div>
-            <!-- /.modal -->           
+            <!-- /.modal -->
         </article>
     </section>
 </body>
@@ -360,6 +369,7 @@
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.sortRestaurants.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.invisible.js"></script>
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.updateAddress.js"></script>
+<script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.socialMediaIconClick.js"></script>
 
 <script src="./Lib/Veg/dist/js/veg.binding.js"></script>
 
