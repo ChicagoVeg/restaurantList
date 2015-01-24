@@ -1,5 +1,29 @@
 ﻿body {
-	background-image: url('http://chicagoveg.com/images/green_bg.jpg')
+	 padding-top: 50px;  /* twitter bootstrap nav requires this so as to not overlay content*/
+	 	background-image: url('http://chicagoveg.com/images/green_bg.jpg');
+}
+
+.brand {
+	margin-top: -12px;
+	height: 45px;
+	width: 120px;
+}
+
+.nav-listing {
+	margin-right: 20px;
+}
+
+menuOption {
+	padding-left:5%;
+	padding-right:5%
+
+}
+
+
+menuOption a {
+	font-weight: bolder;
+	font-size: 1.2em;
+	color: Black;
 }
 
 .pas { 
@@ -10,20 +34,24 @@
 	padding: 5px;
 }
 
+.mbm {
+	margin-bottom: 5px;
+}
+
 .whiteFont {
 	color: white;
 }
 
+.bolder {
+	font-weight: bolder; 
+}
+
 .legend {
-	font-size: 80%
+	font-weight: bolder;
 }
 
 .displayInline {
 	display:inline !important;
-}
-
-.thicker {
-	font-weight: bolder;
 }
 
 .green {
@@ -38,21 +66,20 @@
 	color: orange;
 }
 
-.w12pc {
+.cityTextBox {
 	width: 12%;
 }
 
-.w6pc {
+.stateDropDown {
 	width: 6%;
 }
 
-.w7pc {
+.zipTextBox {
 	width: 7%;
 }
 
-
-.w35pc {
-	width: 35%
+.userAddressTextBox {
+	width: 100px;
 }
 
 .fsler {
@@ -72,4 +99,70 @@
 .activeSorter {
 	text-decoration: underline;
 	font-weight: bold;
+}
+
+#map-canvas {
+		height: 570px !important;
+		width: 100% !important;
+		margin: 0; 
+		padding: 0;
+	}
+
+.directions {
+	width: 100%;
+}
+
+
+/* tablet (styles whic differ from desktop) */
+@media only screen and (max-width: 1100px) {
+#map-canvas {
+		height: 570px !important;
+		width: 100%important;
+		margin: 0; 
+		padding: 0;
+	}
+}
+
+
+/* Phone-size screens */
+@media only screen and (max-width: 768px) {
+	#map-canvas {
+		height: 350px !important; 
+		width: 100% !important; 
+		margin: 0; 
+		padding: 0;
+	}	
+
+	.userAddressTextBox {
+		width: 145px;
+		margin-bottom: 3px;
+		padding-left: 1px; 
+		padding-right: 1px;
+	}
+
+	.cityTextBox {
+		width: 70px;
+		margin-bottom: 3px;
+		padding-left: 1px; 
+		padding-right: 1px;
+	}
+
+	.stateDropDown {
+		width: 45px;
+		margin-bottom: 3px;
+		padding-left: 1px; 
+		padding-right: 1px;
+	}
+
+	.zipTextBox {
+		width: 60px;
+		margin-bottom: 3px;
+		padding-left: 1px; 
+		padding-right: 1px;
+	}
+
+	.directions {
+		overflow-x: scroll; 
+		width: 100%;
+	}
 }
