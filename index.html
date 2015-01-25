@@ -165,17 +165,28 @@
                                 <div>
                                     <div class="panel panel-success">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title displayInline">Map</h3> 
+                                            <h3 class="panel-title displayInline">Map</h3>
+                                            <ul class="list-inline legend pull-right hidden-xs">
+                                                <li>
+                                                    <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegetarian" checked /> <span class="orange"> Vegetarian (VT) </span> 
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegan" checked /> <span class="green">Vegan (VG)  </span> 
+                                                </li>                                                  
+                                                <li>
+                                                    <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="raw vegan" checked /> <span class="blue"> Raw Vegan (RV) </span>
+                                                </li>
+                                            </ul>                                          
                                         </div>
                                         <div class="panel-body pam">
                                             <div>
-                                                <ul class="list-inline legend pull-right">
-                                                    <li>
-                                                        <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegan" checked /> <span class="green">Vegan (VG)  </span> 
-                                                    </li>
+                                                <ul class="list-inline legend pull-right visible-xs-inline">
                                                     <li>
                                                         <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegetarian" checked /> <span class="orange"> Vegetarian (VT) </span> 
                                                     </li>
+                                                    <li>
+                                                        <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegan" checked /> <span class="green">Vegan (VG)  </span> 
+                                                    </li>                                                  
                                                     <li>
                                                         <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="raw vegan" checked /> <span class="blue"> Raw Vegan (RV) </span>
                                                     </li>
@@ -187,11 +198,24 @@
                                     <div class="panel panel-success">
                                         <div class="panel-heading">
                                             <div class="inline">
-                                                <h3 class="panel-title">Directions</h3>
+                                                <h3 class="panel-title displayInline ">Directions</h3>
+                                                <div class="pull-right legend hidden-xs">
+                                                    <!--Object {DRIVING: "DRIVING", WALKING: "WALKING", BICYCLING: "BICYCLING", TRANSIT: "TRANSIT"} -->
+                                                    <ul class="list-inline">
+                                                        <li>
+                                                            <input type="radio" data-bind="directionType: {}" name="directionType" value="DRIVING" checked="classhecked" />Driving</li>
+                                                        <li>
+                                                            <input type="radio" data-bind="directionType: {}" name="directionType" value="WALKING" />Walking</li>
+                                                        <li>
+                                                            <input type="radio" data-bind="directionType: {}" name="directionType" value="BICYCLING" />Bicycling</li>
+                                                        <li>
+                                                            <input type="radio" data-bind="directionType: {}" name="directionType" value="TRANSIT" />Transit</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="panel-body pam">
-                                            <div class="pull-right legend">
+                                            <div class="pull-right legend visible-xs-inline">
                                                 <!--Object {DRIVING: "DRIVING", WALKING: "WALKING", BICYCLING: "BICYCLING", TRANSIT: "TRANSIT"} -->
                                                 <ul class="list-inline">
                                                     <li>
@@ -203,8 +227,9 @@
                                                     <li>
                                                         <input type="radio" data-bind="directionType: {}" name="directionType" value="TRANSIT" />Transit</li>
                                                 </ul>
+                                                <br />
                                             </div>
-                                            <br />
+                                            
                                             <div class="v-noRestaurantSelected">Select a restaurant</div>
                                             <div class="v-directions directions" data-bind="directions: $root.direction"></div>
                                         </div>
@@ -216,15 +241,14 @@
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h3 class="panel-title displayInline">Restaurants</h3>
-                                </div>
-
-                                <div class="panel-body pam">
-                                    <div class="legend pull-right" role="Sorter">
+                                     <div class="legend pull-right" role="Sorter">
                                         <span class="activeSorter  pointer" data-bind="sortRestaurants: 'name'" role="ByName">Name</span> 
                                         <span class="bolder">|</span> 
                                         <span class="pointer" data-bind="sortRestaurants: 'byDistance'" role="ByDistance">Distance</span> 
                                     </div>
-                                    <br />
+                                </div>
+
+                                <div class="panel-body pam">
                                     <div>
                                         <ul class="list-unstyled" role="restaurantListing" data-bind="foreach: restaurants">
                                             <li data-bind="attr: {'data-restaurant-type': Type }">
