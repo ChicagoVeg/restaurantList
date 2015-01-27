@@ -3,6 +3,10 @@
 	 	background-image: url('http://chicagoveg.com/images/green_bg.jpg');
 }
 
+.header-text { 
+	margin-top: 10px;
+}
+
 .brand {
 	margin-top: -12px;
 	height: 45px;
