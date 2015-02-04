@@ -28,15 +28,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <!-- <a href="http://restaurants.chicagoveg.com" class="navbar-brand">
-                    <img class="brand" src="./Lib/Veg/dist/img/brand.png" />
-                </a> -->
+                <div>
+                    <a href="http://restaurants.chicagoveg.com" class="navbar-brand pull-left">
+                        <img class="brand" src="./Lib/Veg/dist/img/brand.png" alt="ChicagoVeg Restaurants" title ="ChicagoVeg Restaurants" />
+                    </a>
+                </div>
+
+                <div class="clearFix"></div>
+
                 <div class="text-center  bolder mbm header-text">
                                 <h2 class="visible-sm-inline visible-md-inline visible-lg-inline">
-                                    Chicagoland Vegetarian and Vegan Restaurants 
+                                    Chicagoland Vegetarian, Vegan and Raw Restaurants 
                                 </h2>
                                 <span class="visible-xs-block">
-                                    Chicagolan Vegetarian and Vegan Restaurants
+                                    Chicagoland Vegetarian, Vegan and Raw Restaurants 
                                 </span>
                 </div>
 
@@ -74,8 +79,8 @@
                 </ul>
             </div>
         </nav>
-
     </header>
+  <br class="visible-xs-block" />
 
     <section>
         <article>
@@ -101,13 +106,13 @@
                                 </div>
                                 <div class="panel-body pam">
                                     <div data-bind="if: $root.locationAutoDetectable">
-                                        <input type="radio" name="location" value="auto" />Auto-detect
+                                        <input type="radio" name="location" value="auto" /> Auto-detect
                                         <div>
-                                            <input type="radio" name="location" value="manual" checked="checked" />Address
+                                            <input type="radio" name="location" value="manual" checked="checked" /> Address
                                             <input type="text" name="userAddress" class="userAddressTextBox" maxlength="100" />&nbsp;
-                                            <br class="visible-xs-inline" />City
+                                            <br class="visible-sm-inline visible-xs-inline" />City
                                             <input type="text" name="userCity" class="cityTextBox" value="Chicago" maxlength="50" />&nbsp;
-                                            <br class="visible-xs-inline" />State
+                                            <br class="visible-sm-inline visible-xs-inline" />State
                                             <select name="state" class="stateDropDown">
                                                 <option value="AK">AK</option>
                                                 <option value="AL">AL</option>
@@ -162,9 +167,9 @@
                                                 <option value="WY">WY</option>
                                             </select>
                                             &nbsp;
-                                            <br class="visible-xs-inline" />Zip
+                                            <br class="visible-sm-inline visible-xs-inline" />Zip
                                             <input type="text" name="userZipCode" class="zipTextBox" maxlength="5" />&nbsp;
-                                            <br class="visible-xs-inline" />
+                                            <br class="visible-sm-inline visible-xs-inline" />
                                             <button class="pas" data-bind="updateAddress: {}">GO</button>
                                         </div>
 
@@ -176,7 +181,7 @@
                                     <div class="panel panel-success">
                                         <div class="panel-heading">
                                             <h3 class="panel-title displayInline">Map</h3>
-                                            <ul class="list-inline legend pull-right hidden-xs">
+                                            <ul class="list-inline pull-right hidden-xs">
                                                 <li>
                                                     <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegetarian" checked /> <span class="orange"> Vegetarian (VT) </span> 
                                                 </li>
@@ -190,7 +195,7 @@
                                         </div>
                                         <div class="panel-body pam">
                                             <div>
-                                                <ul class="list-inline legend pull-right visible-xs-inline">
+                                                <ul class="list-inline pull-right visible-xs-inline">
                                                     <li>
                                                         <input type="checkbox" name="restaurantType" data-bind="filterRestaurants: {}" value="vegetarian" checked /> <span class="orange"> Vegetarian (VT) </span> 
                                                     </li>
@@ -209,7 +214,7 @@
                                         <div class="panel-heading">
                                             <div class="inline">
                                                 <h3 class="panel-title displayInline ">Directions</h3>
-                                                <div class="pull-right legend hidden-xs">
+                                                <div class="pull-right hidden-xs">
                                                     <!--Object {DRIVING: "DRIVING", WALKING: "WALKING", BICYCLING: "BICYCLING", TRANSIT: "TRANSIT"} -->
                                                     <ul class="list-inline">
                                                         <li>
@@ -225,7 +230,7 @@
                                             </div>
                                         </div>
                                         <div class="panel-body pam">
-                                            <div class="pull-right legend visible-xs-inline">
+                                            <div class="pull-right visible-xs-inline">
                                                 <!--Object {DRIVING: "DRIVING", WALKING: "WALKING", BICYCLING: "BICYCLING", TRANSIT: "TRANSIT"} -->
                                                 <ul class="list-inline">
                                                     <li>
@@ -251,7 +256,7 @@
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h3 class="panel-title displayInline">Restaurants</h3>
-                                     <div class="legend pull-right" role="Sorter">
+                                     <div class="pull-right" role="Sorter">
                                         <span class="activeSorter  pointer" data-bind="sortRestaurants: 'name'" role="ByName">Name</span> 
                                         <span class="bolder">|</span> 
                                         <span class="pointer" data-bind="sortRestaurants: 'byDistance'" role="ByDistance">Distance</span> 
