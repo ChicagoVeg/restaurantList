@@ -70,20 +70,33 @@ menuOption a {
 	color: orange;
 }
 
+
+.userAddressTextBox {
+	width: 145px;
+	margin-bottom: 3px;
+	padding-left: 1px; 
+	padding-right: 1px;
+}
+
 .cityTextBox {
-	width: 12%;
+	width: 70px;
+	margin-bottom: 3px;
+	padding-left: 1px; 
+	padding-right: 1px;
 }
 
 .stateDropDown {
-	width: 6%;
+	width: 45px;
+	margin-bottom: 3px;
+	padding-left: 1px; 
+	padding-right: 1px;
 }
 
 .zipTextBox {
-	width: 7%;
-}
-
-.userAddressTextBox {
-	width: 100px;
+	width: 60px;
+	margin-bottom: 3px;
+	padding-left: 1px; 
+	padding-right: 1px;
 }
 
 .fsler {
@@ -135,34 +148,6 @@ menuOption a {
 		margin: 0; 
 		padding: 0;
 	}	
-
-	.userAddressTextBox {
-		width: 145px;
-		margin-bottom: 3px;
-		padding-left: 1px; 
-		padding-right: 1px;
-	}
-
-	.cityTextBox {
-		width: 70px;
-		margin-bottom: 3px;
-		padding-left: 1px; 
-		padding-right: 1px;
-	}
-
-	.stateDropDown {
-		width: 45px;
-		margin-bottom: 3px;
-		padding-left: 1px; 
-		padding-right: 1px;
-	}
-
-	.zipTextBox {
-		width: 60px;
-		margin-bottom: 3px;
-		padding-left: 1px; 
-		padding-right: 1px;
-	}
 
 	.directions {
 		overflow-x: scroll; 
