@@ -6,7 +6,7 @@
         "latitude": "41.8814122",
         "longitude": "-87.641146",
         "Address": {
-            "Address": "14 S. Clinton",
+            "Address": "14 S. Clinton St",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60661"
@@ -31,8 +31,8 @@
     },
     {
         "Id": "3",
-        "Name": "Urban Vegan - Lakeview",
-        "Url": "http://www.urbanveganchicago.com",
+        "Name": "Vegan Plate - Lakeview",
+        "Url": "http://www.veganplatechicago.com",
         "latitude": "41.9614449",
         "longitude": "-87.66957350000001",
         "Address": {
@@ -66,7 +66,7 @@
         "latitude": "41.896132",
         "longitude": "-87.664099",
         "Address": {
-            "Address": "1460 W. Chicago",
+            "Address": "1460 W. Chicago Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60642"
@@ -136,12 +136,12 @@
     },
     {
         "Id": "12",
-        "Name": "Quesadilla La Reyna Del Sur",
+        "Name": "Quesadilla La Reyna Del Sur on Western",
         "Url": "http://quesadillalareinadelsur.com",
         "latitude": "41.922673",
         "longitude": "-87.687749",
         "Address": {
-            "Address": "2235 N. Western",
+            "Address": "2235 N. Western Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60647"              
@@ -156,7 +156,7 @@
         "latitude": "41.938352",
         "longitude": "-87.649354",
         "Address": {
-            "Address": "3109 N. Halsted",
+            "Address": "3109 N. Halsted St",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60657"
@@ -171,7 +171,7 @@
         "latitude": "41.943232",
         "longitude": "-87.680955",
         "Address": {
-            "Address": "2100 W. Roscoe",
+            "Address": "2100 W. Roscoe St",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60618"
@@ -186,7 +186,7 @@
         "latitude": "41.993916",
         "longitude": "-87.784523",
         "Address": {
-            "Address": "6207 N. Milwaukee",
+            "Address": "6207 N. Milwaukee Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": ""
@@ -201,7 +201,7 @@
         "latitude": "41.951297",
         "longitude": "-87.676891",
         "Address": {
-            "Address": "3827 N. Lincoln",
+            "Address": "3827 N. Lincoln Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60646"
@@ -216,27 +216,12 @@
         "latitude": "41.8959243",
         "longitude": "-87.63446320000003",
         "Address": {
-            "Address": "738 N. Wells",
+            "Address": "738 N. Wells St",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60657"
         },
         "PhoneNumber": "312.587.1050",
-        "Type": "Vegan"
-    },
-    {
-        "Id": "18",
-        "Name": "Karyn's on Green",
-        "Url": "http://karynsongreen.com",
-        "latitude": "41.879509",
-        "longitude": "-87.64879480000002",
-        "Address": {
-            "Address": "130 S. Green St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60607"
-        },
-        "PhoneNumber": "312.226.6155",
         "Type": "Vegan"
     },
     {
@@ -276,7 +261,7 @@
         "latitude": "41.9874327",
         "longitude": "-87.66020309999999",
         "Address": {
-            "Address": "5812 N. Broadway",
+            "Address": "5812 N. Broadway St",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60660"
@@ -306,7 +291,7 @@
         "latitude": "41.939637",
         "longitude": "-87.6550775",
         "Address": {
-            "Address": "1023 W. Belmont",
+            "Address": "1023 W. Belmont Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60657"
@@ -381,7 +366,7 @@
         "latitude": "41.8909794",
         "longitude": "-87.67907560000003",
         "Address": {
-            "Address": "2054 W Grand",
+            "Address": "2054 W Grand Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60614"
@@ -391,12 +376,12 @@
     },
     {
         "Id": "30",
-        "Name": "Urban Vegan - Lincoln Park",
-        "Url": "http://www.urbanveganchicago.com",
+        "Name": "Vegan Plate - Lincoln Park",
+        "Url": "http://www.veganplatechicago.com",
         "latitude": "41.925369",
         "longitude": "-87.66772509999998",
         "Address": {
-            "Address": "1550 W. Fullerton",
+            "Address": "1550 W. Fullerton Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60614"
@@ -426,7 +411,7 @@
         "latitude": "41.9615985",
         "longitude": "-87.6777821",
         "Address": {
-            "Address": "1942 W. Montrose",
+            "Address": "1942 W. Montrose Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60613"
@@ -441,7 +426,7 @@
         "latitude": "41.9160336",
         "longitude": "-87.64814130000002",
         "Address": {
-            "Address": "1901 N. Halsted",
+            "Address": "1901 N. Halsted St",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60614"
@@ -471,7 +456,7 @@
         "latitude": "41.9978471",
         "longitude": "-87.6951148",
         "Address": {
-            "Address": "2608 W. Devon",
+            "Address": "2608 W. Devon Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60659"
@@ -486,13 +471,13 @@
         "latitude": "41.9979058",
         "longitude": "-87.692816900000038",
         "Address": {
-            "Address": "2508 W. Devon",
+            "Address": "2508 W. Devon Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60659"
         },
         "PhoneNumber": "773.274.5800",
-        "Type": "Vegetarian"
+        "Type": "Vegan"
     },
     {
         "Id": "39",
@@ -501,7 +486,7 @@
         "latitude": "41.9978937",
         "longitude": "-87.69435149999998",
         "Address": {
-            "Address": "2548 W. Devon",
+            "Address": "2548 W. Devon Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": ""
@@ -516,7 +501,7 @@
         "latitude": "41.9976267",
         "longitude": "-87.69452609999996",
         "Address": {
-            "Address": "2559 W. Devon",
+            "Address": "2559 W. Devon Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60659"
@@ -531,7 +516,7 @@
         "latitude": "41.9974375",
         "longitude": "-87.6940093",
         "Address": {
-            "Address": "2557 W. Devon",
+            "Address": "2557 W. Devon Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60659"
@@ -546,7 +531,7 @@
         "latitude": "41.9973381",
         "longitude": "-87.6957979",
         "Address": {
-            "Address": "2629 W. Devon",
+            "Address": "2629 W. Devon Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60659"
@@ -561,7 +546,7 @@
         "latitude": "41.8876256",
         "longitude": "-87.80215650000002",
         "Address": {
-            "Address": "104 North Marion Street",
+            "Address": "104 North Marion St",
             "City": "Oak Park",
             "StateAbbreviation": "IL",
             "ZipCode": "60301"
@@ -651,7 +636,7 @@
         "latitude": "42.314448",
         "longitude": "-88.44838700000003",
         "Address": {
-            "Address": "110 S. Johnson St.",
+            "Address": "110 S. Johnson St",
             "City": "Woodstock",
             "StateAbbreviation": "IL",
             "ZipCode": "60098"
@@ -681,7 +666,7 @@
         "latitude": "41.5808757",
         "longitude": "-88.05093219999998",
         "Address": {
-            "Address": "928 S. State St..",
+            "Address": "928 S. State St",
             "City": "Lockport",
             "StateAbbreviation": "IL",
             "ZipCode": "60441"
@@ -777,6 +762,37 @@
             "ZipCode": "60018"
         },
         "PhoneNumber": "847.678.8834",
+        "Type": "Vegetarian"
+    },
+
+     {
+        "Id": "58",
+        "Name": "The Amazing Kale Burger",
+        "Url": "http://www.amazingkaleburger.com",
+        "latitude": "42.019471",
+        "longitude": "-87.682298",
+        "Address": {
+            "Address": "741 Howard St",
+            "City": "Evanston",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60202"
+        },
+        "PhoneNumber": "773.992.8411",
+        "Type": "Vegan" 
+    },
+    {
+        "Id": "59",
+        "Name": "Quesadilla La Reyna Del Sur on Howard",
+        "Url": "http://quesadillalareinadelsur.com",
+        "latitude": "42.019372",
+        "longitude": "-87.666959",
+        "Address": {
+            "Address": "1418 W. Howard St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60626"
+        },
+        "PhoneNumber": "773.381.8011",
         "Type": "Vegetarian"
     }
 ]
