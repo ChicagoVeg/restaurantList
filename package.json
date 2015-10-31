@@ -40,6 +40,7 @@
     "dependencies": {
       "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.18.0",
       "aurelia-framework": "github:aurelia/framework@^0.17.0",
+      "bootstrap": "github:twbs/bootstrap@^3.3.5",
       "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha"
     },
     "devDependencies": {

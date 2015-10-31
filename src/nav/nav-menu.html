@@ -1,0 +1,67 @@
+<template>
+    <require from="../../jspm_packages/github/twbs/bootstrap@3.3.5/css/bootstrap.min.css"></require> 
+    <require from="../../styles/veggieBugerMenu.css"></require>
+
+    <header>
+        <!-- Do not delete. This is used for hosting data source and providing facebook with an image  -->
+        <div>
+            <img src="../img/GreenTarget.jpg" width="1" height="1" alt="information link image">
+        </div>
+
+        <!-- This is always collapsed via a CSS hack () -->
+        <nav class="navbar navbar-default navbar-fixed-top menuOptions">
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div>
+                    <a href="../../index.html" class="navbar-brand pull-left">
+                        <img class="brand" src="./img/brand.jpg" alt="ChicagoVeg Restaurants" title ="ChicagoVeg Restaurants" width="209" height="154" />
+                    </a>
+                </div>              
+                <div class="text-center  bolder mbm header-text">
+                    <h2 class="visible-sm-inline visible-md-inline visible-lg-inline">
+                        Chicagoland Vegetarian, Vegan and Raw Restaurants 
+                    </h2>
+                </div>
+
+            </div>
+            <div id="navbarCollapse" class="collapse navbar-collapse nav-listing">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="http://www.chicagoveg.com" target="_blank">
+                            <span class="bolder">        
+                                ChicagoVeg Home
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.chicagoveg.org" target="_blank">
+                            <span class="bolder">            
+                                ChicagoVeg Events
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice" target="_blank">
+                            <span class="bolder">        
+                                ChicagoVeg Choice
+                            </span> 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#aboutModal" data-toggle="modal">
+                            <span class="bolder">        
+                                About
+                            </span> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br class="visible-xs-block" />
+</template>

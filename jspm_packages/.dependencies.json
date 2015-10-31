@@ -171,5 +171,8 @@
   "github:components/jquery@2.1.4": {},
   "github:twbs/bootstrap@4.0.0-alpha": {
     "jquery": "github:components/jquery"
+  },
+  "github:twbs/bootstrap@3.3.5": {
+    "jquery": "github:components/jquery"
   }
 }
