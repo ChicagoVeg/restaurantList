@@ -5,7 +5,8 @@ System.config({
   babelOptions: {
     "optional": [
       "runtime",
-      "optimisation.modules.system"
+      "optimisation.modules.system",
+      "es7.decorators"
     ]
   },
   paths: {
@@ -15,7 +16,9 @@ System.config({
 
   map: {
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.18.0",
+    "aurelia-fetch-client": "github:aurelia/fetch-client@0.3.0",
     "aurelia-framework": "github:aurelia/framework@0.17.0",
+    "aurelia-http-client": "github:aurelia/http-client@0.12.0",
     "babel": "npm:babel-core@5.8.33",
     "babel-runtime": "npm:babel-runtime@5.8.29",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
@@ -52,6 +55,9 @@ System.config({
     "github:aurelia/event-aggregator@0.9.0": {
       "aurelia-logging": "github:aurelia/logging@0.8.0"
     },
+    "github:aurelia/fetch-client@0.3.0": {
+      "core-js": "npm:core-js@0.9.18"
+    },
     "github:aurelia/framework@0.17.0": {
       "aurelia-binding": "github:aurelia/binding@0.10.2",
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.11.2",
@@ -67,6 +73,11 @@ System.config({
     "github:aurelia/history-browser@0.9.0": {
       "aurelia-history": "github:aurelia/history@0.8.0",
       "aurelia-pal": "github:aurelia/pal@0.2.0",
+      "core-js": "npm:core-js@0.9.18"
+    },
+    "github:aurelia/http-client@0.12.0": {
+      "aurelia-pal": "github:aurelia/pal@0.2.0",
+      "aurelia-path": "github:aurelia/path@0.10.0",
       "core-js": "npm:core-js@0.9.18"
     },
     "github:aurelia/loader-default@0.11.2": {

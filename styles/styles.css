@@ -13,6 +13,14 @@ body {
 	width: 120px;
 }
 
+.contentHeader {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	padding:10px;
+	overflow: auto;
+}
+
 .nav-listing {
 	margin-right: 20px;
 }
@@ -128,6 +136,9 @@ menuOption a {
 	width: 100%;
 }
 
+.restaurantListing-address {
+	margin-bottom: 5px;
+}
 
 /* tablet  */
 @media only screen and (max-width: 1100px) {

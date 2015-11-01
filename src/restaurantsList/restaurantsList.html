@@ -1,0 +1,63 @@
+<template>
+	<require from="../../jspm_packages/github/twbs/bootstrap@3.3.5/css/bootstrap.min.css"></require> 
+	<require from="../../styles/styles.css"></require>
+
+	<div class="panel">
+		<div class="panel-heading contentHeader">
+			<h3 class=" displayInline">Restaurants</h3>
+			<div class="pull-right">
+				<ul class="list-inline">
+					<li>
+						<input type="radio" id="filterRestaurantsByName" name="filterRestaurants" value="byName" checked>
+						<label for="filterRestaurantsByName">Name</label>
+					</li>
+					<li>
+						<input type="radio" id="filterRestaurantsByDistance" name="filterRestaurants" value="byDistance">
+						<label for="filterRestaurantsByDistance">Distance</label>
+					</li>
+				</ul>				
+				<ul class="list-inline">
+					<li>
+						<input type="checkbox" id="getVegetarianRestaurants" name="restaurantType" value="vegetarian" check=""> 
+						<label for="getVegetarianRestaurants" class="orange"> Vegetarian (VT) </label> 
+					</li>
+					<li>
+						<input type="checkbox" id="getVeganRestaurants" name="restaurantType" value="vegan" checked=""> 
+						<label for class="green" id="getVeganRestaurants">&nbsp; Vegan (VG)  </label> 
+					</li>                                                  
+					<li>
+						<input type="checkbox" id="getRawVeganRestaurants" name="restaurantType" value="raw vegan" checked=""> 
+						<label for="getRawVeganRestaurants" class="blue">&nbsp;  Raw Vegan (RV) </label>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div>
+				<table class="table">
+					<tr repeat.for="restaurant of restaurants">
+						<td>
+							<span class="lead"> 
+								${restaurant.Name}
+							</span>
+							<br />	
+							<address class="restaurantListing-address ">
+								${restaurant.Address.Address} <br />
+								${restaurant.Address.City},
+								${restaurant.Address.StateAbbreviation} <br />
+								${restaurant.Address.ZipCode}
+							</address>
+						</td>
+						<td>
+							${restaurant.Type} <br />
+							<span>Map</span> |
+							<span>Review</span> |
+							<span>Website</span>
+						</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</template>

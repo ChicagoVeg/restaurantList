@@ -174,5 +174,13 @@
   },
   "github:twbs/bootstrap@3.3.5": {
     "jquery": "github:components/jquery"
+  },
+  "github:aurelia/fetch-client@0.3.0": {
+    "core-js": "npm:core-js@^0.9.5"
+  },
+  "github:aurelia/http-client@0.12.0": {
+    "aurelia-pal": "github:aurelia/pal@^0.2.0",
+    "aurelia-path": "github:aurelia/path@^0.10.0",
+    "core-js": "npm:core-js@^0.9.5"
   }
 }
