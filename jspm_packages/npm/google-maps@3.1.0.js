@@ -1,0 +1,1 @@
+module.exports = require("npm:google-maps@3.1.0/lib/Google");

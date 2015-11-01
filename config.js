@@ -23,6 +23,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.29",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "core-js": "npm:core-js@1.2.3",
+    "google-maps": "npm:google-maps@3.1.0",
     "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
     "github:aurelia/binding@0.10.2": {
       "aurelia-metadata": "github:aurelia/metadata@0.9.0",

@@ -3,6 +3,10 @@ body {
 	background-image: url('http://chicagoveg.com/images/green_bg.jpg');
 }
 
+.appContainer {
+	width: 90%;
+}
+
 .header-text { 
 	margin-top: 10px;
 }
