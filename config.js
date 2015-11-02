@@ -16,6 +16,7 @@ System.config({
 
   map: {
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.18.0",
+    "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.9.0",
     "aurelia-fetch-client": "github:aurelia/fetch-client@0.3.0",
     "aurelia-framework": "github:aurelia/framework@0.17.0",
     "aurelia-http-client": "github:aurelia/http-client@0.12.0",

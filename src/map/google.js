@@ -18,8 +18,4 @@ export class Google {
 	get maps() {
 		return this.google.maps;
 	}
-
-	set maps (value) {
-		this.google.maps = value;
-	}
 }
