@@ -1,15 +1,22 @@
 import {inject} from "aurelia-framework";
 import {Navigator} from './navigator'
-import {EventAggregator} from 'aurelia-event-aggregator';
+import _ from './../../jspm_packages/npm/underscore@1.8.3/underscore-min.js'
 
-@inject(Navigator, EventAggregator)
+@inject(Navigator)
 export class Location {
-	constructor(navigator, eventAggregator) {
+	constructor(navigator, _) {
 		this.navigator = navigator;
-		this.eventAggregator = eventAggregator;
+		this.locationAutoDetectable = true;
+		this.updateAddress; // used for signifying address needs updating- "auto" for current location and "manual" for user inputed
 		this.position = { // default values
 			latitude: '41.878114',
-			longitude: '-87.629798'
+			longitude: '-87.629798',
+			locationType: 'auto', // auto means auto-detect, manual means user inputs in an address
+			addressOneLine: '',
+			address: {},
+
+			autoDectedLatitude: 0, 
+			autoDetectedLongitude: 0
 		};
 	}
 
@@ -27,43 +34,33 @@ export class Location {
 		this.position.latitude = position.coords.latitude;
 		this.position.longitude = position.coords.longitude;	
 
-		this.publish();
+		this.position.autoDectedLatitude = position.coords.latitude;
+		this.position.autoDetectedLongitude = position.coords.longitude;
+
+		this.position.locationType = 'auto';
+
+		this.update();
 	}
 
 	locationDetectedDisallowed() {
-		this.publish();
+		this.position.locationType = 'manual';
+		this.locationAutoDetectable = false;
+
+		this.update();
 	}
 
-	publish() {
-		const LOCATION_UPDATED_EVENT = 'LOCATION_UPDATED_EVENT';
-		
-		this.eventAggregator.publish(LOCATION_UPDATED_EVENT , this.position);		
-	}
+	update() {
+		// (1) tells custom attribute (searchLocation) to get busy 
+		// (2) _.clone is used so object is always unique, and thus, custom attribute is always called 
+		// (3) A means to pass a variable to it
+		this.updateAddress =  _.clone(this.position); 
 
-	updateAddress() {
+		return true; //Needed. See: https://github.com/aurelia/binding/issues/19
 	}
 }
 
 ///////
 /*
-import {EventAggregator} from 'aurelia-event-aggregator';
-
-export class APublisher{
-    static inject = [EventAggregator];
-    constructor(eventAggregator){
-        this.eventAggregator = eventAggregator;
-    }
-
-    publish(){
-        var payload = {}; //any object
-        this.eventAggregator.publish('channel name here', payload);
-    }
-}
-  publish(){
-        var payload = {}; //any object
-        this.eventAggregator.publish('channel name here', payload);
-    }
-
 
                 navigator.geolocation.getCurrentPosition(
                     _.bind(function (position) { // user allowed access to location

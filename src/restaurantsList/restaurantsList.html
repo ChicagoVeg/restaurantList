@@ -8,11 +8,11 @@
 			<div class="pull-right">
 				<ul class="list-inline">
 					<li>
-						<input type="radio" id="filterRestaurantsByName" name="filterRestaurants" value="byName" checked>
+						<input type="radio" id="filterRestaurantsByName" name="filterRestaurants" value="byName" click.trigger="orderby('name')" checked >
 						<label for="filterRestaurantsByName">Name</label>
 					</li>
 					<li>
-						<input type="radio" id="filterRestaurantsByDistance" name="filterRestaurants" value="byDistance">
+						<input type="radio" id="filterRestaurantsByDistance" name="filterRestaurants" value="byDistance" click.trigger="orderby('distance')">
 						<label for="filterRestaurantsByDistance">Distance</label>
 					</li>
 				</ul>				
@@ -37,16 +37,20 @@
 				<table class="table">
 					<tr repeat.for="restaurant of restaurants">
 						<td>
-							<span class="lead"> 
-								${restaurant.Name}
-							</span>
-							<br />	
-							<address class="restaurantListing-address ">
-								${restaurant.Address.Address} <br />
-								${restaurant.Address.City},
-								${restaurant.Address.StateAbbreviation} <br />
-								${restaurant.Address.ZipCode}
-							</address>
+							<input type="radio" name="restaurant" id.bind="'restaurantId' + restaurant.Id"  /> 
+							&nbsp; &nbsp;
+							<label for.bind="'restaurantId' + restaurant.Id">
+								<span class="lead"> 
+									${restaurant.Name}
+								</span>
+								<br />	
+								<address class="restaurantListing-address ">
+									${restaurant.Address.Address} <br />
+									${restaurant.Address.City},
+									${restaurant.Address.StateAbbreviation} <br />
+									${restaurant.Address.ZipCode}
+								</address>
+							</label>
 						</td>
 						<td>
 							${restaurant.Type} <br />

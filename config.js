@@ -25,7 +25,9 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "core-js": "npm:core-js@1.2.3",
     "google-maps": "npm:google-maps@3.1.0",
+    "jquery": "github:components/jquery@2.1.4",
     "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
+    "underscore": "npm:underscore@1.8.3",
     "github:aurelia/binding@0.10.2": {
       "aurelia-metadata": "github:aurelia/metadata@0.9.0",
       "aurelia-pal": "github:aurelia/pal@0.2.0",

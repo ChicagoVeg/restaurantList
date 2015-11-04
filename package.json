@@ -45,7 +45,9 @@
       "aurelia-http-client": "github:aurelia/http-client@^0.12.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.5",
       "google-maps": "npm:google-maps@^3.1.0",
-      "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha"
+      "jquery": "github:components/jquery@^2.1.4",
+      "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
+      "underscore": "npm:underscore@^1.8.3"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

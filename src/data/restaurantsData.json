@@ -1,20 +1,5 @@
 ﻿[
     {
-        "Id": "1",
-        "Name": "Native Foods Café - West Loop",
-        "Url": "https://www.nativefoods.com/locations/locations/west-loop",
-        "latitude": "41.8814122",
-        "longitude": "-87.641146",
-        "Address": {
-            "Address": "14 S. Clinton St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60661"
-        },
-        "PhoneNumber": "312.382.8600",
-        "Type": "vegan"
-    },
-    {
         "Id": "2",
         "Name": "Chicago Raw - French Market",
         "Url": "http://www.chicagorawfood.com",
@@ -569,7 +554,7 @@
         "PhoneNumber": "773.935.6696",
         "Type": "Vegetarian"
     },
-	{
+    {
         "Id": "45",
         "Name": "Blind Faith Café",
         "Url": "http://www.blindfaithcafe.com",
@@ -584,7 +569,7 @@
         "PhoneNumber": "847.328.6875",
         "Type": "Vegetarian"
     },
-	 {
+     {
         "Id": "46",
         "Name": "Native Foods Café - River Forest",
         "Url": "https://www.nativefoods.com/locations/locations/river-forest",
@@ -599,7 +584,7 @@
         "PhoneNumber": "708.689.4777",
         "Type": "vegan"
     },
-	{
+    {
         "Id": "47",
         "Name": "Borrowed Earth Café",
         "Url": "http://www.borrowedearthcafe.com",
@@ -614,7 +599,7 @@
         "PhoneNumber": "630.795.1729",
         "Type": "Raw Vegan"
     },
-	{
+    {
         "Id": "48",
         "Name": "Chowpatti",
         "Url": "http://www.tpsiclients.com/chowpatti",
@@ -644,7 +629,7 @@
         "PhoneNumber": "815.338.2833",
         "Type": "Vegetarian"
     },
-	{
+    {
         "Id": "50",
         "Name": "Shree",
         "Url": "http://www.shreerestaurant.com",
@@ -659,7 +644,7 @@
         "PhoneNumber": "630.655.1021",
         "Type": "Vegetarian"
     },
-	{
+    {
         "Id": "51",
         "Name": "The Vegan Café",
         "Url": "http://www.rawvegancafe.org",

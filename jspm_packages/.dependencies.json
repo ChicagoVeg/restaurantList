@@ -183,5 +183,6 @@
     "aurelia-path": "github:aurelia/path@^0.10.0",
     "core-js": "npm:core-js@^0.9.5"
   },
-  "npm:google-maps@3.1.0": {}
+  "npm:google-maps@3.1.0": {},
+  "npm:underscore@1.8.3": {}
 }
