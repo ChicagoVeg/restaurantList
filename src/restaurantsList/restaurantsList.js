@@ -24,9 +24,6 @@ export class RestaurantsList {
     	return true;
     }
 
-
-
-
     InitializeSubscription() {
 		const LOCATION_UPDATED_EVENT = 'LOCATION_UPDATED_EVENT';
 		
@@ -34,4 +31,11 @@ export class RestaurantsList {
             let x = 0;
         });
 	}
+
+    selectedTo1() {
+        //let x = 0;
+
+        return true;
+    }
+
 }
