@@ -58,27 +58,3 @@ export class Location {
 		return true; //Needed. See: https://github.com/aurelia/binding/issues/19
 	}
 }
-
-///////
-/*
-
-                navigator.geolocation.getCurrentPosition(
-                    _.bind(function (position) { // user allowed access to location
-                        root.userLocation.latitude = position.coords.latitude;
-                        root.userLocation.longitude = position.coords.longitude;                        
-                        drawUserLocationOnMap(root, mapOptions, infoDisplay);
-                        $('[value="auto"]').prop('checked', true);
-                        setDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
-                        toastr.info('Your browser supports geolocation and current location has been identified. No need to add your address');
-                    }, { root: root, drawUserLocationOnMap: drawUserLocationOnMap, mapOptions: mapOptions, infoDisplay: infoDisplay }),
-                    _.bind(function () { // user disallowed access to location. Bummer!
-                        // some location in Chicago
-                        root.userLocation.latitude = defaultCoordinates.latitude;
-                        root.userLocation.longitude = defaultCoordinates.longitude;
-                        drawUserLocationOnMap(root, mapOptions, infoDisplay);
-                        $('[value="manual"]').prop('checked', true);
-                        setDistanceInMiles(root.restaurants(), root.userLocation.latitude,  root.userLocation.longitude);
-                        toastr.info('Permission to use geolocation was denied. An present location was selected automatically');
-                    }, { root: root, drawUserLocationOnMap: drawUserLocationOnMap, defaultCoordinates: defaultCoordinates, mapOptions: mapOptions, infoDisplay: infoDisplay }));
-*/
-///////

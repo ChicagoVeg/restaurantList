@@ -26,6 +26,9 @@ export class Map {
 
 	attached() {
 		this.map = new this.Google.maps.Map(this.mapElement, this.mapProp); // this.mapElement comes from DOM via ref
+
+		this.publishMapInitialized(this.map);
+
 		this.Google.maps.event.addDomListener(window, 'load', this.initialize());
 
 		this.restaurantsData
@@ -126,6 +129,12 @@ export class Map {
 		const LOCATION_MAP_POSITION_UPDATED = 'LOCATION_MAP_POSITION_UPDATED';
 
 		this.eventAggregator.publish(LOCATION_MAP_POSITION_UPDATED, this.position);	
+	}
+
+	publishMapInitialized(map) {
+		const MAP_MAP_INITIALIZED = 'MAP_MAP_INITIALIZED';
+
+		this.eventAggregator.publish(MAP_MAP_INITIALIZED, map);	
 	}
 
 	subscribeToPositionUpdate() {
