@@ -37,7 +37,7 @@
 				<table class="table">
 					<tr repeat.for="restaurant of restaurants">
 						<td>
-							<input type="radio" name="restaurant" id.bind="'restaurantId' + restaurant.Id" click.trigger="selectTo1('name')">			
+							<input type="radio" name="restaurant" id.bind="'restaurantId' + restaurant.Id" click.trigger="$parent.newRestaurantSelected(restaurant)">
 						</td>
 						<td>
 							<label for.bind="'restaurantId' + restaurant.Id">
@@ -57,7 +57,7 @@
 							${restaurant.Type} <br />
 							<span>Map</span> |
 							<span>Review</span> |
-							<span>Website</span>
+							<a href.bind="restaurant.Url" target="_blank">Website</a>
 						</td>
 					</tr>
 				</table>

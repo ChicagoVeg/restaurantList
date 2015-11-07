@@ -8,6 +8,7 @@ export class RestaurantsList {
 		this.restaurantsData = restaurantsData;
 		this.restaurants;
 		this.eventAggregator = eventAggregator;
+        this.selectedRestaurant = null;
 
 		this.InitializeSubscription();
 	}
@@ -32,10 +33,18 @@ export class RestaurantsList {
         });
 	}
 
-    selectedTo1() {
-        //let x = 0;
+    newRestaurantSelected(restaurant) {
+        this.selectedRestaurant = restaurant
+
+        this.publishNewRestaurantSelection(restaurant);
 
         return true;
+    }
+
+    publishNewRestaurantSelection(restaurant) { 
+        const RESTAURANTLIST_NEW_RESTAURANT_SELECTED = 'RESTAURANTLIST_NEW_RESTAURANT_SELECTED';
+
+        this.eventAggregator.publish(RESTAURANTLIST_NEW_RESTAURANT_SELECTED, restaurant); 
     }
 
 }
