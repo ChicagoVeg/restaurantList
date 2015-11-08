@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<div class="panel-body">
-			<div>
+			<div id="restaurantListing">
 				<table class="table table-condensed table-hover">
 					<tr repeat.for="restaurant of restaurants">
 						<td>
@@ -55,7 +55,7 @@
 						</td>
 						<td>
 							${restaurant.Type} <br />
-							<span>Distance away: </span> ${restaurant.distance} mi<br>
+							${restaurant.distance} mi<br>
 							<span>Map</span> |
 							<span>Review</span> |
 							<a href.bind="restaurant.Url" target="_blank">Website</a>

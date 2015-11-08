@@ -57,6 +57,8 @@
     }
   },
   "devDependencies": {
+    "aurelia-bundler": "^0.1.8",
+    "aurelia-cli": "^0.3.1",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.12.0"
   }
