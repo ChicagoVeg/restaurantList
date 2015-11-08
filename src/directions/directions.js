@@ -53,6 +53,28 @@ export class Directions {
 		});
 	}
 
+	setDirectionType(directionType) {
+		switch(directionType) {
+			case 'bicyling':
+				this.travelMode= this.google.maps.DirectionsTravelMode.BICYCLING;
+				break;
+			case 'transit':
+				this.travelMode= this.google.maps.DirectionsTravelMode.TRANSIT;
+				break;
+			case 'walking':
+				this.travelMode= this.google.maps.DirectionsTravelMode.WALKING;
+				break;
+			default:
+				this.travelMode= this.google.maps.DirectionsTravelMode.DRIVING;
+		}
+
+		if (!!this.restaurant) {
+			this.updateDirections();	
+		}
+
+		return true;
+	}
+
 	updateDirections() {
 		if (!this.position) {
 			return;

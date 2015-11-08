@@ -1,12 +1,40 @@
 <template>
 	<div>
 		<require from="../../styles/styles.css"></require>
+		<require from="font-awesome/css/font-awesome.css"></require>
+
 		<div class="panel panel-success">
 			<div class="panel-heading contentHeader">
-				<h3>Directions</h3>
+				<h3 class="displayInline">Directions</h3>
+				<ul class="list-inline pull-right">
+					<li>
+						<input type="radio" id="driving" name="directionType" value="DRIVING" click.trigger="setDirectionType('driving')" checked>&nbsp;
+						<label for="driving">
+						<span class="fa fa-car fa-lg"></span>
+					</label>
+					</li>
+					<li>
+						<input type="radio" id="transit"  name="directionType" value="TRANSIT" click.trigger="setDirectionType('transit')">&nbsp; 
+						<label for="transit">	
+							<span class="fa fa-subway fa-lg"></span>
+						</label>
+					</li>
+					<li>
+						<input type="radio" id="walking" name="directionType" value="WALKING" click.trigger="setDirectionType('walking')">&nbsp;
+							<label for="walking">
+						<span class="zmdi zmdi-walk zmdi-hc-lg"></span>
+					</label>
+					</li>
+					<li>
+						<input type="radio" id="bicyling" name="directionType" value="BICYCLING" click.trigger="setDirectionType('bicyling')">&nbsp;
+						<label for="bicyling">
+						<span class="fa fa-bicycle fa-lg"></span>
+					</label>
+					</li>					
+				</ul>
 			</div>
 			<div class="panel-body" ref="directionElement">
-				
+
 			</div>
 
 		</div>

@@ -8,11 +8,11 @@
 			<div class="pull-right">
 				<ul class="list-inline">
 					<li>
-						<input type="radio" id="filterRestaurantsByName" name="filterRestaurants" value="byName" click.trigger="orderby('name')" checked >
+						<input type="radio" id="filterRestaurantsByName" name="filterRestaurants" value="byName" click.trigger="orderBy('name')" checked >
 						<label for="filterRestaurantsByName">Name</label>
 					</li>
 					<li>
-						<input type="radio" id="filterRestaurantsByDistance" name="filterRestaurants" value="byDistance" click.trigger="orderby('distance')">
+						<input type="radio" id="filterRestaurantsByDistance" name="filterRestaurants" value="byDistance" click.trigger="orderBy('distance')">
 						<label for="filterRestaurantsByDistance">Distance</label>
 					</li>
 				</ul>				
@@ -34,7 +34,7 @@
 		</div>
 		<div class="panel-body">
 			<div>
-				<table class="table">
+				<table class="table table-condensed table-hover">
 					<tr repeat.for="restaurant of restaurants">
 						<td>
 							<input type="radio" name="restaurant" id.bind="'restaurantId' + restaurant.Id" click.trigger="$parent.newRestaurantSelected(restaurant)">
@@ -55,6 +55,7 @@
 						</td>
 						<td>
 							${restaurant.Type} <br />
+							<span>Distance away: </span> ${restaurant.distance} mi<br>
 							<span>Map</span> |
 							<span>Review</span> |
 							<a href.bind="restaurant.Url" target="_blank">Website</a>

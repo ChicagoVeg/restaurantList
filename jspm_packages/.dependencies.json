@@ -184,5 +184,9 @@
     "core-js": "npm:core-js@^0.9.5"
   },
   "npm:google-maps@3.1.0": {},
-  "npm:underscore@1.8.3": {}
+  "npm:underscore@1.8.3": {},
+  "npm:font-awesome@4.4.0": {
+    "css": "jspm:css@0.1"
+  },
+  "github:systemjs/plugin-css@0.1.19": {}
 }
