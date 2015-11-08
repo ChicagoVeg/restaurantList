@@ -10,7 +10,7 @@ export class RestaurantsList {
 		this.restaurants; // list of restaurants sorted and filter
         this.eventAggregator = eventAggregator;
         this.selectedRestaurant = null;
-        this.sortBy = 'name'
+        this.sortBy = 'distance';
 
         this.InitializeSubscription();
     }
@@ -19,7 +19,7 @@ export class RestaurantsList {
      this.restaurantsData
      .getAll()
      .then(restaurants => { 
-        this.restaurants = restaurants.sort(this.sortByName);
+        this.restaurants = restaurants;
     });
  }
 
@@ -65,11 +65,16 @@ locationSubscription() {
                 restaurant.longitude, 
                 position.latitude,
                 position.longitude
-            ).toFixed(2)); 
+            )).toFixedNumber(2); 
         });
+
+        if (this.sortBy === 'distance') {
+            this.restaurants.sort(this.sortByDistance);
+        }
     });
 }
 
+// Based on: http://stackoverflow.com/a/27943/178550
 getDistanceFromLatLngInKm(lat1,lon1,lat2,lon2) {
         var R, dLat, dLon, a, c, d;
 
