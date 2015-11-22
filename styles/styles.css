@@ -1,10 +1,11 @@
 body {
 	padding-top: 50px;  /* twitter bootstrap nav requires this so as to not overlay content*/
-	background-image: url('http://chicagoveg.com/images/green_bg.jpg');
+	background-color: #1DA06A; 
+	/*background-image: url('http://chicagoveg.com/images/green_bg.jpg'); */
 }
 
 .appContainer {
-	width: 93%;
+	width: 90%;
 }
 
 .header-text { 
@@ -143,6 +144,11 @@ menuOption a {
 .restaurantListing-address {
 	margin-bottom: 5px;
 }
+
+#restaurantListing {
+		max-height: 1200px;
+		overflow: scroll;
+	}
 
 /* tablet  */
 @media only screen and (max-width: 1100px) {

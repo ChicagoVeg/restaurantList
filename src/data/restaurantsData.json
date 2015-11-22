@@ -779,5 +779,20 @@
         },
         "PhoneNumber": "773.381.8011",
         "Type": "Vegetarian"
-    }
+    },
+    {
+        "Id": "60",
+        "Name": "Purple Sprout Cafe",
+        "Url": "https://www.facebook.com/PurpleSproutCafe.com",
+        "latitude": "42.1396937",
+        "longitude": "-87.90621829999998",
+        "Address": {
+            "Address": "341 E. Dundee Rd",
+            "City": "Wheeling",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60626"
+        },
+        "PhoneNumber": "224.223.7133",
+        "Type": "Vegan"
+    } 
 ]

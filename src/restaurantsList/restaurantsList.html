@@ -50,15 +50,16 @@
 									${restaurant.Address.City},
 									${restaurant.Address.StateAbbreviation} <br />
 									${restaurant.Address.ZipCode}
-								</address>
+								</address> 
+								<br />
+								<span>Review</span> | 
+								<a href.bind="restaurant.Url" target="_blank">Website</a>
 							</label>
 						</td>
 						<td>
-							${restaurant.Type} <br />
-							${restaurant.distance} mi<br>
-							<span>Map</span> |
-							<span>Review</span> |
-							<a href.bind="restaurant.Url" target="_blank">Website</a>
+							${restaurant.Type} <br /> <br class="visible-xs-inline"/>
+							${restaurant.distance} mi away<br> <br class="visible-xs-inline"/>
+							<span class="visible-xs-inline">Map</span> 
 						</td>
 					</tr>
 				</table>
