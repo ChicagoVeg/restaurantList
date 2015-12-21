@@ -195,21 +195,6 @@
         "Type": "Vegan"
     },
     {
-        "Id": "17",
-        "Name": "Karyn's Cooked",
-        "Url": "http://www.karynraw.com/Cooked/",
-        "latitude": "41.8959243",
-        "longitude": "-87.63446320000003",
-        "Address": {
-            "Address": "738 N. Wells St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60657"
-        },
-        "PhoneNumber": "312.587.1050",
-        "Type": "Vegan"
-    },
-    {
         "Id": "19",
         "Name": "Kitchen 17",
         "Url": "http://www.kitchen17.com",
@@ -569,36 +554,6 @@
         "PhoneNumber": "847.328.6875",
         "Type": "Vegetarian"
     },
-     {
-        "Id": "46",
-        "Name": "Native Foods Café - River Forest",
-        "Url": "https://www.nativefoods.com/locations/locations/river-forest",
-        "latitude": "41.8884727",
-        "longitude": "-87.80835939999997",
-        "Address": {
-            "Address": "7343 Lake St",
-            "City": "River Forest",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60305"
-        },
-        "PhoneNumber": "708.689.4777",
-        "Type": "vegan"
-    },
-    {
-        "Id": "47",
-        "Name": "Borrowed Earth Café",
-        "Url": "http://www.borrowedearthcafe.com",
-        "latitude": "41.7962339",
-        "longitude": "-88.00991019999998",
-        "Address": {
-            "Address": "970 Warren Ave",
-            "City": "Downers Grove",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60515"
-        },
-        "PhoneNumber": "630.795.1729",
-        "Type": "Raw Vegan"
-    },
     {
         "Id": "48",
         "Name": "Chowpatti",
@@ -783,7 +738,7 @@
     {
         "Id": "60",
         "Name": "Purple Sprout Cafe",
-        "Url": "https://www.facebook.com/PurpleSproutCafe.com",
+        "Url": "https://www.facebook.com/PurpleSproutCafe",
         "latitude": "42.1396937",
         "longitude": "-87.90621829999998",
         "Address": {
