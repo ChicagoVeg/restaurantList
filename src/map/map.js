@@ -13,6 +13,7 @@ export class Map {
 		this.position = null;
 		this.locationDetectionData = locationDetectionData;
 		this.restaurantsData = restaurantsData;
+		this.restaurantInMap = []; // preserve collection of restaurants in map
 		this.userLocationMarker = null;
 		this.mapProp = {
 			center:new this.Google.maps.LatLng(41.878114,-87.629798),
@@ -20,7 +21,7 @@ export class Map {
 			mapTypeId: this.Google.maps.MapTypeId.ROADMAP,
 			marker: this.userLocationMarker 
 		};
-	
+
 		this.initializeSubscription();
 	}
 
@@ -29,27 +30,36 @@ export class Map {
 
 		this.publishMapInitialized(this.map);
 
-		this.Google.maps.event.addDomListener(window, 'load', this.initialize());
+		this.Google.maps.event.addDomListener(window, 'load', this.addUserToMap());
 
 		this.restaurantsData
 		.getAll()
 		.then(restaurants => {
 			restaurants.forEach(restaurant => {
-                   		this.displayRestaurantOnMap(restaurant);
-                   	});	
+				this.displayRestaurantOnMap(restaurant);
+			});	
 		});
-
 	}	
 
-	initialize() {
-		let coordinates = {
-			latitude: '41.878114',
-			longitude: '-87.629798'
-		}, 
-		iconUrl = "http://maps.google.com/mapfiles/kml/shapes/man.png",
-		message = 'Present Location';
+	addUserToMap() {
+		let coordinates = { // default
+				latitude: '41.878114',
+				longitude: '-87.629798'
+			},
+			message = 'Present Location';
 
-		this.addItemToMap(coordinates, iconUrl, message);
+		this.userLocationMarker = new this.Google.maps.Marker({
+			position: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
+			map: this.map,
+			icon: {
+				url: "http://maps.google.com/mapfiles/kml/shapes/man.png", 
+			    scaledSize: new this.Google.maps.Size(30, 30), // scaled size
+			    origin: new this.Google.maps.Point(0,0), // origin
+			    anchor: new this.Google.maps.Point(0, 0) // anchor
+			},
+		});
+		
+		this.infoDisplay(this.userLocationMarker, message);
 	}
 
 	displayRestaurantOnMap(restaurant) {
@@ -68,41 +78,37 @@ export class Map {
 			iconUrl = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|FFA500';
 		}
 
-		this.addItemToMap(coordinates, iconUrl, message);
+		this.addRestaurantToMap(coordinates, iconUrl, message, restaurant);
 	}
 
-	addItemToMap(coordinates, iconUrl, message) {
-		
-		let userCurrentLatlng = new google.maps.LatLng(coordinates.latitude, coordinates.longitude), 
-		userMarkerIcon = {
-			url: iconUrl, 
-			    scaledSize: new this.Google.maps.Size(30, 30), // scaled size
+	addRestaurantToMap(coordinates, iconUrl, message, restaurant) {	
+		let latLng = new google.maps.LatLng(coordinates.latitude, coordinates.longitude), 
+			markIcon = {
+				url: iconUrl, 
 			    origin: new this.Google.maps.Point(0,0), // origin
 			    anchor: new this.Google.maps.Point(0, 0) // anchor
-			};	
+			},
+			marker = new this.Google.maps.Marker({
+				position: latLng,
+				map: this.map,
+				icon: markIcon
+			});
 
-		this.userLocationMarker = new this.Google.maps.Marker({
-			position: userCurrentLatlng,
-			map: this.map,
-			icon: userMarkerIcon
-		});
+		if (!!restaurant) {
+			this.restaurantInMap.push({ // preserve items in map. Makes deleting markers easier
+				'restaurantId' : restaurant.Id,
+				'marker': marker
+			});
+		}
 
-		this.infoDisplay(this.userLocationMarker, message);
+		this.infoDisplay(marker, message);
 	}
 
-	infoDisplay (marker, message, restaurantId) {
+	infoDisplay (marker, message) {
 		let infoWindow = new this.Google.maps.InfoWindow();
 
 		this.Google.maps.event.addListener(marker, 'click', (function (marker) {
-			
 			return function () {
-
-				if (!restaurantId) {
-                             //   return;
-                         } 
-
-                            //$('[type="radio"][data-id="' +  restaurantId +'"]').prop('checked', true);
-                            //$('[type="radio"][data-id="' + restaurantId + '"]').trigger('change');
                         }                            
                     })(marker));
 
@@ -121,8 +127,13 @@ export class Map {
 		})(infoWindow));
 	}
 
+	//***********   Pub/Sub ***********
 	initializeSubscription() {
-		this.subscribeToPositionUpdate();		
+		this.subscriptionToPositionUpdate();	
+		this.subscriptionToRestaurantListingToHide();
+		this.subscriptionToRestaurantListingToShow();	
+		this.subscriptionToClearDirections();
+		//this.subscriptionToMapNeedUpdating();
 	}
 
 	publishMapUpdate(position) { 
@@ -137,7 +148,7 @@ export class Map {
 		this.eventAggregator.publish(MAP_MAP_INITIALIZED, map);	
 	}
 
-	subscribeToPositionUpdate() {
+	subscriptionToPositionUpdate() {
 		const LOCATION_UPDATED_EVENT = 'LOCATION_UPDATED_EVENT';
 		
 		this.eventAggregator.subscribe(LOCATION_UPDATED_EVENT, (position => {
@@ -163,4 +174,66 @@ export class Map {
 				});
 		}).bind(this));
 	}
+
+	subscriptionToRestaurantListingToHide() {
+		const RESTAURANTLIST_LISTING_TO_HIDE = 'RESTAURANTLIST_LISTING_TO_HIDE';
+
+		this.eventAggregator.subscribe(RESTAURANTLIST_LISTING_TO_HIDE, (restaurants => {
+			if (!restaurants) {
+				return;
+			}
+
+			restaurants.forEach(restaurant => {
+				this.setMarkerVisibility(restaurant, false);
+			});
+
+		}));
+
+	}
+
+	subscriptionToRestaurantListingToShow() {
+		const RESTAURANTLIST_TO_SHOW = 'RESTAURANTLIST_TO_SHOW';
+
+		this.eventAggregator.subscribe(RESTAURANTLIST_TO_SHOW, (restaurants => {
+			if (!restaurants) {
+				return;
+			}
+
+			restaurants.forEach(restaurant => {
+				this.setMarkerVisibility(restaurant, true);
+			});
+
+		}));
+
+	}
+
+/*
+	subscriptionToMapNeedUpdating() {
+		const MAP_DIRECTION_CHANGED = 'MAP_DIRECTION_CHANGED';
+
+        this.eventAggregator.subscribe(MAP_DIRECTION_CHANGED, (m =>  {
+        	m(this.map)
+        }).bind(this));
+	}
+	*/
+	subscriptionToClearDirections() {
+		const DIRECTIONS_CLEAR = 'DIRECTIONS_CLEAR';
+
+		this.eventAggregator.subscribe(DIRECTIONS_CLEAR, (() => {
+			//this.directionsDisplay.setMap(null);
+		}).bind(this));
+	}
+
+	//***********   Marker visibilty ***********
+	setMarkerVisibility(restaurant, visibility) {
+		let restaurantInMapItem = this.restaurantInMap.find(item => restaurant.Id === item.restaurantId );
+
+		if (!restaurantInMapItem) {
+			return;
+		}
+
+		restaurantInMapItem.marker.setVisible(visibility);
+	}
+
+
 }

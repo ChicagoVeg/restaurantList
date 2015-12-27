@@ -18,15 +18,15 @@
 				</ul>				
 				<ul class="list-inline">
 					<li>
-						<input type="checkbox" id="getVegetarianRestaurants" name="restaurantType" value="vegetarian" checked> 
+						<input type="checkbox" id="getVegetarianRestaurants" name="restaurantType" value="vegetarian" click.trigger="filter('vegetarian')" checked.one-way="isVegetarianRestaurantsVisible"> 
 						<label for="getVegetarianRestaurants" class="orange"> Vegetarian (VT) </label> 
 					</li>
 					<li>
-						<input type="checkbox" id="getVeganRestaurants" name="restaurantType" value="vegan" checked> 
+						<input type="checkbox" id="getVeganRestaurants" name="restaurantType" value="vegan" click.trigger="filter('vegan')" checked.one-way="isVeganRestaurantsVisible"> 
 						<label for="getVeganRestaurants" class="green">&nbsp; Vegan (VG)  </label> 
 					</li>                                                  
 					<li>
-						<input type="checkbox" id="getRawVeganRestaurants" name="restaurantType" value="raw vegan" checked> 
+						<input type="checkbox" id="getRawVeganRestaurants" name="restaurantType" value="raw vegan" click.trigger="filter('raw vegan')" checked.one-way="isRawRestaurantsVisible"> 
 						<label for="getRawVeganRestaurants" class="blue">&nbsp;  Raw Vegan (RV) </label>
 					</li>
 				</ul>

@@ -46,6 +46,8 @@ export class Location {
 		this.position.locationType = 'manual';
 		this.locationAutoDetectable = false;
 
+		//TODO: Alert/remind user that location detection was disallowed
+
 		this.update();
 	}
 

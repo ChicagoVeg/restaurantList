@@ -20,7 +20,8 @@ export class Directions {
 	initializeSubscriptions() {
 		this.locationUpdatedSubscription();
 		this.restaurantSelectedSubscription();
-		this.subscribeToMapInitalization();
+		this.subscriptionToMapInitalization();
+		this.subscriptionToClearDirections();
 	}
 
 	locationUpdatedSubscription() {
@@ -35,12 +36,34 @@ export class Directions {
 		});
 	}
 
-	subscribeToMapInitalization() {
+	/*
+	publishMapDirectionNeedsUpdating() {
+		   const MAP_DIRECTION_CHANGED = 'MAP_DIRECTION_CHANGED';
+
+        this.eventAggregator.publish(MAP_DIRECTION_CHANGED, ({
+        	'setMap': this.directionsDisplay.setMap, 
+        	'map': this.map
+        }));
+	}
+	*/
+
+	subscriptionToMapInitalization() {
 		const MAP_MAP_INITIALIZED = 'MAP_MAP_INITIALIZED';
 		
-		this.eventAggregator.subscribe(MAP_MAP_INITIALIZED, map => {
+		this.eventAggregator.subscribe(MAP_MAP_INITIALIZED, (map => {
 			this.map = map;
-		});
+		}).bind(this));
+	}
+
+	subscriptionToClearDirections() {
+		const DIRECTIONS_CLEAR = 'DIRECTIONS_CLEAR';
+
+		// TODO: move map change functionality to map class
+		this.eventAggregator.subscribe(DIRECTIONS_CLEAR, (() => {
+			this.directionsDisplay.setPanel(null);
+			this.directionsDisplay.setMap(null); // move to map
+			this.map.setZoom(10); 
+		}).bind(this));
 	}
 
 	restaurantSelectedSubscription() {
@@ -56,16 +79,16 @@ export class Directions {
 	setDirectionType(directionType) {
 		switch(directionType) {
 			case 'bicyling':
-				this.travelMode= this.google.maps.DirectionsTravelMode.BICYCLING;
-				break;
+			this.travelMode= this.google.maps.DirectionsTravelMode.BICYCLING;
+			break;
 			case 'transit':
-				this.travelMode= this.google.maps.DirectionsTravelMode.TRANSIT;
-				break;
+			this.travelMode= this.google.maps.DirectionsTravelMode.TRANSIT;
+			break;
 			case 'walking':
-				this.travelMode= this.google.maps.DirectionsTravelMode.WALKING;
-				break;
+			this.travelMode= this.google.maps.DirectionsTravelMode.WALKING;
+			break;
 			default:
-				this.travelMode= this.google.maps.DirectionsTravelMode.DRIVING;
+			this.travelMode= this.google.maps.DirectionsTravelMode.DRIVING;
 		}
 
 		if (!!this.restaurant) {
@@ -90,14 +113,16 @@ export class Directions {
 
 		directionsService.route(directionsRequest, (function (response, status) { // this-keyword was null when arrow function was used
 			if (status === google.maps.DirectionsStatus.OK) {
+				//this.publishMapDirectionNeedsUpdating();
 				this.directionsDisplay.setMap(this.map);
-					this.directionsDisplay.setPanel(this.directionElement); // this.directionElement is from DOM via ref
-					this.directionsDisplay.setDirections(response);
-				} else {
-					let x = 0;
-				}
+				
+				this.directionsDisplay.setPanel(this.directionElement); // this.directionElement is from DOM via ref
+				this.directionsDisplay.setDirections(response);
+			} else {
+				let x = 0; //TODO: warn user
+			}
 
-			}).bind(this));
+		}).bind(this));
 
 	}
 
