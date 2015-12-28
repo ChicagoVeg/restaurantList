@@ -1,0 +1,35 @@
+<template>
+	<require from="./socialmedia"></require>
+	<article class="footer-text-color">
+		<div class="text-center">
+			<div>
+				<ul class="list-inline">
+					<li>
+						<a href="javascript:void(0)" social-media="{'url':'http://www.facebook.com/sharer.php?u=', 'top':'500', 'left':'500', 'width':'400', 'height':'400' }">
+							<img src="../img/facebook.png">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" social-media="{'url': 'http://twitter.com/share?text=List%20of%20Chicagoland Vegan,%20Vegetarian%20and%20Raw%20Vegan%20Restaurants&amp;url=', 'top':'500', 'left':'500', 'width':'400', 'height':'400' }">
+							<img src="../img/twitter.png">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" social-media="{'url': 'https://plus.google.com/share?url=', 'top':'500', 'left':'500', 'width':'600', 'height':'400' }">
+							<img src="../img/google_plus.png">
+						</a>
+					</li>
+					<li>
+						<a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" target="_blank">
+							<img src="../img/email.png">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				© <span>${year}</span> - <a href="http://chicagoveg.com/" target="_blank"><span class="">ChicagoVeg</span></a> &nbsp; | &nbsp; <a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" target="_blank"> Feedback</a> 
+				<!-- &nbsp; | &nbsp; <a href="#"> Feedback</a> -->
+			</div>
+		</div>
+	</article>
+</template>

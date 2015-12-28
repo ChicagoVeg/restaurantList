@@ -227,6 +227,10 @@ export class RestaurantsList {
         return !!restaurant && !!restaurant.BestInTownAward && restaurant.BestInTownAward.toLocaleLowerCase().trim()  === 'runnerup';
     }
 
+    isBestInTownAward(restaurant) {
+        return !!restaurant && !!restaurant.BestInTownAward && restaurant.BestInTownAward.toLocaleLowerCase().trim()  === 'top';
+    }
+
     //***********   Distance ***********
     // Based on: http://stackoverflow.com/a/27943/178550
     getDistanceFromLatLngInKm(lat1, lon1, lat2, lon2) {
