@@ -218,6 +218,15 @@ export class RestaurantsList {
         return true;
     }
 
+    //***********   Awards/Sponsors ***********
+    isGoldSponsor(restaurant) {
+        return !!restaurant && !!restaurant.Sponsor && restaurant.Sponsor.toLocaleLowerCase().trim() === 'gold';
+    }
+
+    isBestInTownAwardRunnerUp(restaurant) {
+        return !!restaurant && !!restaurant.BestInTownAward && restaurant.BestInTownAward.toLocaleLowerCase().trim()  === 'runnerup';
+    }
+
     //***********   Distance ***********
     // Based on: http://stackoverflow.com/a/27943/178550
     getDistanceFromLatLngInKm(lat1, lon1, lat2, lon2) {

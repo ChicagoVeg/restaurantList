@@ -58,7 +58,17 @@
 						</td>
 						<td>
 							${restaurant.Type} <br /> <br class="visible-xs-inline"/>
-							${restaurant.distance} mi away<br> <br class="visible-xs-inline"/>
+							${restaurant.distance} mi away<br> <br class="visible-xs-inline"/> 
+							<br>
+							<div if.bind="$parent.isGoldSponsor(restaurant)">
+								<i class="fa fa-trophy fa-lg fa-gold" title="ChicagoVeg Sponsor"></i> <span>ChicagoVeg Sponsor</span><br>
+							</div>
+							<div if.bind="$parent.isBestInTownAwardRunnerUp(restaurant)">
+								<i class="fa fa-trophy fa-lg fa-bestInTownAwardRunnerUp" title="Top 3 ChicagoVeg Choices"></i> <span>Top 3 ChicagoVeg Choices</span><br>
+							</div>
+							<div if.bind="$parent.isBestInTownAward(restaurant)">
+								<i class="fa fa-trophy fa-lg fa-bestInTownAward" title="Top ChicagoVeg Choice "></i> <span>Top ChicagoVeg Choice </span><br>
+							</div>
 							<span class="visible-xs-inline">Map</span> 
 						</td>
 					</tr>

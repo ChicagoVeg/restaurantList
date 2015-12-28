@@ -42,7 +42,9 @@
             "ZipCode": "60647"
         },
         "PhoneNumber": " 773.252.3211",
-        "Type": "Vegetarian"
+        "Type": "Vegetarian",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "7",
@@ -132,7 +134,9 @@
             "ZipCode": "60647"              
         },
         "PhoneNumber": "773.235.8807",
-        "Type": "Vegetarian"
+        "Type": "Vegetarian",
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
     },
     {
         "Id": "13",
@@ -207,7 +211,9 @@
             "ZipCode": "60657"
         },
         "PhoneNumber": "773.661.1757",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Top" 
     },
     {
         "Id": "20",
@@ -267,7 +273,9 @@
             "ZipCode": "60657"
         },
         "PhoneNumber": "773.549.4904",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "24",
@@ -282,7 +290,9 @@
             "ZipCode": "60604"
         },
         "PhoneNumber": "312.332.6332",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "25",
@@ -297,7 +307,9 @@
             "ZipCode": "60615"
         },
         "PhoneNumber": "773-241-7800",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "26",
@@ -312,7 +324,9 @@
             "ZipCode": "60622"
         },
         "PhoneNumber": "773.489.8480",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "27",
@@ -537,7 +551,9 @@
             "ZipCode": "60657"
         },
         "PhoneNumber": "773.935.6696",
-        "Type": "Vegetarian"
+        "Type": "Vegetarian",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "45",
@@ -718,7 +734,9 @@
             "ZipCode": "60202"
         },
         "PhoneNumber": "773.992.8411",
-        "Type": "Vegan" 
+        "Type": "Vegan" ,
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
     },
     {
         "Id": "59",
@@ -733,7 +751,9 @@
             "ZipCode": "60626"
         },
         "PhoneNumber": "773.381.8011",
-        "Type": "Vegetarian"
+        "Type": "Vegetarian",
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
     },
     {
         "Id": "60",
@@ -748,6 +768,8 @@
             "ZipCode": "60626"
         },
         "PhoneNumber": "224.223.7133",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
     } 
 ]

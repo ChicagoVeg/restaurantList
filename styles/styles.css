@@ -67,6 +67,10 @@ menuOption a {
 	font-weight: bolder;
 }
 
+.font-weight-normal {
+	font-weight: normal;
+}
+
 .displayInline {
 	display:inline !important;
 }
@@ -148,7 +152,40 @@ menuOption a {
 #restaurantListing {
 		max-height: 1200px;
 		overflow: scroll;
-	}
+}
+
+
+.fa-bestInTownAwardTop {
+	color: #ccac00;
+	text-stroke-width: 1px;
+    text-stroke-color: #ccac00;
+
+}
+
+.fa-bestInTownAwardRunnerUp {	
+	color: #008080;
+	text-stroke-width: 1px;
+    text-stroke-color: #008080;
+}
+
+.fa-bronze {
+    color: #CD7F32;
+    text-stroke-width: 1px;
+    text-stroke-color: #CD7F32;
+}
+
+.fa-silver {
+    color: 	#C0C0C0;
+    text-stroke-width: 1px;
+    text-stroke-color: 	#C0C0C0;
+}
+
+.fa-gold {
+    color: 	#DAA520;
+    text-stroke-width: 1px;
+    text-stroke-color: 	#DAA520;
+}
+
 
 /* tablet  */
 @media only screen and (max-width: 1100px) {
