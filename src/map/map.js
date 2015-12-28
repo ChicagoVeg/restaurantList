@@ -43,8 +43,7 @@ export class Map {
 
 	initializeSubscription() {
 		this.subscriptionToPositionUpdate();	
-		this.subscriptionToRestaurantListingToHide();
-		this.subscriptionToRestaurantListingToShow();	
+		this.subscriptionToRestaurantListing();	
 		this.subscriptionToClearDirections();
 		this.subscriptionToUpdateUserPosition();
 		//this.subscriptionToUserMarkerShouldBeHidden();
@@ -169,7 +168,7 @@ export class Map {
 			return;
 		}
 
-		//restaurantInMapItem.marker.setVisible(visibility);
+		restaurantInMapItem.marker.setVisible(visibility);
 	}
 
 	//***********   Pub/Sub ***********
@@ -195,23 +194,7 @@ export class Map {
 			}).bind(this));
 	}
 
-	subscriptionToRestaurantListingToHide() {
-		const RESTAURANTLIST_LISTING_TO_HIDE = 'RESTAURANTLIST_LISTING_TO_HIDE';
-
-		this.eventAggregator.subscribe(RESTAURANTLIST_LISTING_TO_HIDE, (restaurants => {
-			if (!restaurants) {
-				return;
-			}
-
-			restaurants.forEach(restaurant => {
-				this.setMarkerVisibility(restaurant, false);
-			});
-
-		}));
-
-	}
-
-	subscriptionToRestaurantListingToShow() {
+	subscriptionToRestaurantListing() {
 		const RESTAURANTLIST_TO_SHOW = 'RESTAURANTLIST_TO_SHOW';
 
 		this.eventAggregator.subscribe(RESTAURANTLIST_TO_SHOW, (restaurants => {
@@ -220,11 +203,10 @@ export class Map {
 			}
 
 			restaurants.forEach(restaurant => {
-				this.setMarkerVisibility(restaurant, true);
+				this.setMarkerVisibility(restaurant, restaurant.isVisible);
 			});
 
 		}));
-
 	}
 
 	subscriptionToUpdateUserPosition() {
@@ -236,11 +218,8 @@ export class Map {
 			let latlng = new google.maps.LatLng(position.latitude, position.longitude);
 				this.userLocationMarker.setPosition(latlng); // note, this may be hidden on map. It only shows when there is no direction 
 			}).bind(this));
-
-
 	}
 
-	
 	subscriptionToRestaurantSelected() {
 		const RESTAURANTLIST_NEW_RESTAURANT_SELECTED = 'RESTAURANTLIST_NEW_RESTAURANT_SELECTED';
 	

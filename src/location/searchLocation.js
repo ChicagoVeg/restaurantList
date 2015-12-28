@@ -1,6 +1,7 @@
 import {inject, customAttribute} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {LocationDetectionData} from './../data/locationDetectionData'
+import {LocationDetectionData} from './../data/locationDetectionData';
+import _ from 'underscore';
 
 @customAttribute('searchlocation')
 @inject(Element, EventAggregator, LocationDetectionData)
@@ -9,16 +10,19 @@ export class SearchLocation {
 		this.element = element;
 		this.eventAggregator = eventAggregator;
 		this.locationDetectionData = locationDetectionData;
+		this.latLng; 
 	}
 
 	valueChanged(position){
 		position.locationType = document.querySelector('[name="location"]:checked').value === 'manual' ? 'manual' : 'auto';
 
 		if (position.locationType === "auto") {
-			this.publishNewLocation({
-				'lat': position.autoDectedLatitude,
-				'lng': position.autoDetectedLongitude
-			});
+			this.latLng = {
+					'lat': position.autoDectedLatitude,
+					'lng': position.autoDetectedLongitude
+				};
+
+			this.publishNewLocation(this.latLng);
 
 			return; // stop code from proceeding
 		} 
@@ -35,7 +39,6 @@ export class SearchLocation {
 
 		this.locationDetectionData.getLatitudeAndLongitudeFromAddress(position.addressOneLine) 
 			.then((response => {
-
 				let place = response.results[0];
 
 				if (!place || !place.geometry || !place.geometry.location) {
@@ -43,10 +46,12 @@ export class SearchLocation {
 					return;
 				}
 
-				this.publishNewLocation({
+				this.latLng = {
 					'lat': place.geometry.location.lat,
 					'lng': place.geometry.location.lng 
-				});
+				};
+
+				this.publishNewLocation(this.latLng);
 
 			}).bind(this));
 	}
@@ -54,6 +59,6 @@ export class SearchLocation {
 	publishNewLocation(latLng) {
 		const LOCATION_UPDATED_EVENT = 'LOCATION_UPDATED_EVENT';
 		
-		this.eventAggregator.publish(LOCATION_UPDATED_EVENT , latLng);		
+		this.eventAggregator.publish(LOCATION_UPDATED_EVENT , _.clone(this.latLng));		
 	}
 }

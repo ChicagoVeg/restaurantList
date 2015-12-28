@@ -35,7 +35,7 @@
 		<div class="panel-body">
 			<div id="restaurantListing">
 				<table class="table table-condensed table-hover">
-					<tr repeat.for="restaurant of restaurants">
+					<tr repeat.for="restaurant of restaurantList">
 						<td>
 							<input type="radio" name="restaurant" id.bind="'restaurantId' + restaurant.Id" click.trigger="$parent.newRestaurantSelected(restaurant)">
 						</td>

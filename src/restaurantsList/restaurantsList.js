@@ -1,14 +1,15 @@
 import { inject } from "aurelia-framework";
 import { RestaurantsData } from "./../data/restaurantsData";
 import { EventAggregator } from 'aurelia-event-aggregator';
+import {computedFrom} from 'aurelia-framework';
 import _ from 'underscore'
 
 @inject(RestaurantsData, EventAggregator)
 export class RestaurantsList {
     constructor(restaurantsData, eventAggregator, _) {
         this.restaurantsData = restaurantsData; // means of getting all restaurants
-        this.restaurantsMainSource; // all restaurants, unfiltered and unsorted, not meant for display
-        this.restaurants; // list of restaurants sorted and filtered, meant for display
+        this.restaurants; // list of restaurants sorted and filtered, NOT meant for display
+        this.restaurantsDisplayedOnScreen = []; // meant for display. Used so that UI is not unintentionally updated everytime this.restaurants get updated (e.g when distance is getting calculated)
         this.eventAggregator = eventAggregator;
         this.selectedRestaurant = null;
         this.sortBy = 'distance';
@@ -23,10 +24,31 @@ export class RestaurantsList {
     activate() {
         this.restaurantsData
             .getAll()
-            .then(restaurants => {
-                this.restaurantsMainSource = restaurants; // reference to all restaurants
-                this.restaurants = _.map(this.restaurantsMainSource,  _.clone); // for displaying. Code made this way for deep copying (http://stackoverflow.com/a/21003060/178550)
-            });
+            .then((restaurants => {
+                this.restaurants = _.map(restaurants,  _.clone); // for displaying. Code made this way for deep copying (http://stackoverflow.com/a/21003060/178550)
+
+                // add properties 
+                this.restaurants.forEach(restaurant => {
+                    restaurant.isVisible = true;
+                    restaurant.distance = 0.0;
+                });
+
+                this.restaurantsDisplayedOnScreen = _.map(this.restaurants,  _.clone);
+
+            }).bind(this));
+    }
+
+    @computedFrom('restaurantsDisplayedOnScreen')
+    get restaurantList() {
+        return this.restaurantsDisplayedOnScreen.filter(r => r.isVisible === true);
+    }
+
+    set restaurantList(value) {
+        this.restaurantsDisplayedOnScreen = value;
+    }
+
+    updateRestaurantListUI() {
+        this.restaurantList = _.clone(this.restaurants); // for the reference to change, so the object changes
     }
 
     //***********   Sorting ***********
@@ -52,6 +74,7 @@ export class RestaurantsList {
             this.sortBy = 'name';
             this.restaurants = this.restaurants.sort(this.sortByName);
         }
+        this.updateRestaurantListUI();
 
         return true;
     }
@@ -111,11 +134,15 @@ export class RestaurantsList {
             return;
         }
 
-        restaurantToAdd = this.restaurantsMainSource.filter(r => r.Type.toLocaleLowerCase() === type); // get type of restaurant from unfiltered source
-        
-        this.restaurants = this.restaurants.concat(restaurantToAdd);
+        this.restaurants.forEach(restaurant => {
+            if (restaurant.Type.toLocaleLowerCase() === type) {
+                restaurant.isVisible = true; 
+            }
+        });
+
         this.orderBy(option); // re-sort
-        this.publishRestaurantListingToShow(restaurantToAdd);
+        this.updateRestaurantListUI();
+        this.publishRestaurantListing();
     }
 
     removeTypeFromList(type) {        
@@ -123,8 +150,14 @@ export class RestaurantsList {
             return;
         }
 
-        this.restaurants = this.restaurants.filter(r => r.Type.toLocaleLowerCase() !== type);
-        this.publishRestaurantListingToHide(this.restaurantsMainSource.filter(r => r.Type.toLocaleLowerCase() === type));
+        this.restaurants.forEach(restaurant => {
+            if (restaurant.Type.toLocaleLowerCase() === type) {
+                restaurant.isVisible = false; 
+            }
+        });
+
+        this.updateRestaurantListUI();
+        this.publishRestaurantListing();
     }
 
     //***********   Pub/Sub ***********
@@ -135,31 +168,25 @@ export class RestaurantsList {
     subscriptionToNewPosition() {
         const LOCATION_UPDATED_EVENT = 'LOCATION_UPDATED_EVENT';
 
-        this.eventAggregator.subscribe((LOCATION_UPDATED_EVENT, position => {
+        this.eventAggregator.subscribe(LOCATION_UPDATED_EVENT, (latLng => {
             let x = 0;
 
             this.restaurants.forEach(restaurant => {
                 restaurant.distance = (this.getDistanceFromLatLngInMiles( // this is a property added 
                     restaurant.latitude,
                     restaurant.longitude,
-                    position.latitude,
-                    position.longitude
+                    latLng.lat,
+                    latLng.lng
                 )).toFixedNumber(2);
             });
 
             if (this.sortBy === 'distance') {
                 this.restaurants.sort(this.sortByDistance);
+            } else {
+                this.restaurants.sort(this.sortByName);
             }
 
-            // calcuate distances in main collection too
-            this.restaurantsMainSource.forEach(restaurant => {
-                restaurant.distance = (this.getDistanceFromLatLngInMiles( // this is a property added 
-                    restaurant.latitude,
-                    restaurant.longitude,
-                    position.latitude,
-                    position.longitude
-                )).toFixedNumber(2);
-            });
+            this.updateRestaurantListUI();
 
         }).bind(this));
     }
@@ -176,16 +203,10 @@ export class RestaurantsList {
         this.eventAggregator.publish(RESTAURANTLIST_NEW_RESTAURANT_SELECTED, _.clone(restaurant));
     }
 
-    publishRestaurantListingToHide(restaurants) {
-        const RESTAURANTLIST_LISTING_TO_HIDE = 'RESTAURANTLIST_LISTING_TO_HIDE';
-
-        this.eventAggregator.publish(RESTAURANTLIST_LISTING_TO_HIDE, _.clone(restaurants));   
-    }
-
-    publishRestaurantListingToShow(restaurants) {
+    publishRestaurantListing() {
         const RESTAURANTLIST_TO_SHOW = 'RESTAURANTLIST_TO_SHOW';
 
-        this.eventAggregator.publish(RESTAURANTLIST_TO_SHOW, _.clone(restaurants));   
+        this.eventAggregator.publish(RESTAURANTLIST_TO_SHOW, _.clone(this.restaurants));   
     }
 
     //***********   New Restaurant selected ***********
