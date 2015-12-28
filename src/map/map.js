@@ -2,19 +2,19 @@ import {inject} from "aurelia-framework";
 import {Google} from './google'
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {RestaurantsData} from "./../data/restaurantsData";
-import {LocationDetectionData} from './../data/locationDetectionData'
-import _ from './../../jspm_packages/npm/underscore@1.8.3/underscore-min.js'
+import _ from 'underscore'
 
-@inject(Google, EventAggregator, LocationDetectionData, RestaurantsData)
+@inject(Google, EventAggregator, RestaurantsData)
 export class Map {
-	constructor(Google,  eventAggregator, locationDetectionData, restaurantsData, _) {
+	constructor(Google,  eventAggregator, restaurantsData, locationDetectionData, _) {
 		this.Google = Google;
 		this.eventAggregator = eventAggregator;
 		this.position = null;
-		this.locationDetectionData = locationDetectionData;
 		this.restaurantsData = restaurantsData;
 		this.restaurantInMap = []; // preserve collection of restaurants in map
 		this.userLocationMarker = null;
+		this.selectedRestaurant = null; // selected restaurant, comes from a publish message from restaurant listing
+		this.directionsDisplay = null // from directions.js
 		this.mapProp = {
 			center:new this.Google.maps.LatLng(41.878114,-87.629798),
 			zoom:10,
@@ -28,7 +28,7 @@ export class Map {
 	attached() {
 		this.map = new this.Google.maps.Map(this.mapElement, this.mapProp); // this.mapElement comes from DOM via ref
 
-		this.publishMapInitialized(this.map);
+		this.publishHasBeenMapInitialized(this.map); // provide reference to map to those that need it
 
 		this.Google.maps.event.addDomListener(window, 'load', this.addUserToMap());
 
@@ -41,12 +41,25 @@ export class Map {
 		});
 	}	
 
+	initializeSubscription() {
+		this.subscriptionToPositionUpdate();	
+		this.subscriptionToRestaurantListingToHide();
+		this.subscriptionToRestaurantListingToShow();	
+		this.subscriptionToClearDirections();
+		this.subscriptionToUpdateUserPosition();
+		//this.subscriptionToUserMarkerShouldBeHidden();
+		this.subscriptionToRestaurantSelected();
+		this.subscriptionToDirectionDisplay();
+		//this.subscriptionToMapNeedUpdating();
+	}
+
+	//***********   Map operations ***********
 	addUserToMap() {
-		let coordinates = { // default
-				latitude: '41.878114',
-				longitude: '-87.629798'
-			},
-			message = 'Present Location';
+		let coordinates =  { // default
+			latitude: '41.878114',
+			longitude: '-87.629798'
+		},
+		message = 'Your Present Location';
 
 		this.userLocationMarker = new this.Google.maps.Marker({
 			position: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
@@ -83,8 +96,8 @@ export class Map {
 
 	addRestaurantToMap(coordinates, iconUrl, message, restaurant) {	
 		let latLng = new google.maps.LatLng(coordinates.latitude, coordinates.longitude), 
-			markIcon = {
-				url: iconUrl, 
+		markIcon = {
+			url: iconUrl, 
 			    origin: new this.Google.maps.Point(0,0), // origin
 			    anchor: new this.Google.maps.Point(0, 0) // anchor
 			},
@@ -94,7 +107,7 @@ export class Map {
 				icon: markIcon
 			});
 
-		if (!!restaurant) {
+			if (!!restaurant) {
 			this.restaurantInMap.push({ // preserve items in map. Makes deleting markers easier
 				'restaurantId' : restaurant.Id,
 				'marker': marker
@@ -109,8 +122,8 @@ export class Map {
 
 		this.Google.maps.event.addListener(marker, 'click', (function (marker) {
 			return function () {
-                        }                            
-                    })(marker));
+			}                            
+		})(marker));
 
 		this.Google.maps.event.addListener(marker, 'mouseover', (function(marker, infoWindow) {
 			return function () {
@@ -127,52 +140,59 @@ export class Map {
 		})(infoWindow));
 	}
 
+	update(latLng) {
+		let currentLatlng = new google.maps.LatLng(latLng.lat, latLng.lng);
+			
+		this.userLocationMarker.setPosition(currentLatlng); // note, this may be hidden on map. It only shows when there is no direction 
+
+
+
+		if (!this.selectedRestaurant) {
+			if (!!this.directionsDisplay) {
+				this.directionsDisplay.setMap(null); // ensure map is cleared
+			}
+			this.userLocationMarker.setVisible(true);
+			// change user position
+		} else {
+			if (!!this.directionsDisplay) {
+				this.directionsDisplay.setMap(this.map);
+			}
+			this.userLocationMarker.setVisible(false);
+		}
+	}
+
+	//***********   Marker visibilty ***********
+	setMarkerVisibility(restaurant, visibility) {
+		let restaurantInMapItem = this.restaurantInMap.find(item => restaurant.Id === item.restaurantId );
+
+		if (!restaurantInMapItem) {
+			return;
+		}
+
+		//restaurantInMapItem.marker.setVisible(visibility);
+	}
+
 	//***********   Pub/Sub ***********
-	initializeSubscription() {
-		this.subscriptionToPositionUpdate();	
-		this.subscriptionToRestaurantListingToHide();
-		this.subscriptionToRestaurantListingToShow();	
-		this.subscriptionToClearDirections();
-		//this.subscriptionToMapNeedUpdating();
-	}
-
-	publishMapUpdate(position) { 
-		const LOCATION_MAP_POSITION_UPDATED = 'LOCATION_MAP_POSITION_UPDATED';
-
-		this.eventAggregator.publish(LOCATION_MAP_POSITION_UPDATED, this.position);	
-	}
-
-	publishMapInitialized(map) {
+	publishHasBeenMapInitialized(map) {
 		const MAP_MAP_INITIALIZED = 'MAP_MAP_INITIALIZED';
 
 		this.eventAggregator.publish(MAP_MAP_INITIALIZED, map);	
 	}
 
+	subscriptionToDirectionDisplay() { //TODO: Is this needed?
+		const DIRECTIONS_PROVIDE_DIRECTION_DISPLAY = 'DIRECTIONS_PROVIDE_DIRECTION_DISPLAY';
+
+        this.eventAggregator.subscribe(DIRECTIONS_PROVIDE_DIRECTION_DISPLAY, (d => {
+        	this.directionsDisplay = d;
+        }).bind(this));
+	}
+
 	subscriptionToPositionUpdate() {
 		const LOCATION_UPDATED_EVENT = 'LOCATION_UPDATED_EVENT';
-		
-		this.eventAggregator.subscribe(LOCATION_UPDATED_EVENT, (position => {
-			this.position = position;
 
-			if (this.position.locationType === 'auto') {
-				this.publishMapUpdate(this.position);
-				return;
-			} 
-
-			this.locationDetectionData.getLatitudeAndLongitudeFromAddress(this.position.addressOneLine)
-			.then(response => {
-				let place = response.content.results[0];
-
-				if (!place || !place.geometry) {
-					return;
-				}
-
-				this.position.latitude = place.geometry.lat;
-				this.position.longitude = place.geometry.lng;
-
-					this.publishMapUpdate(this.position); // this is needed, its in a callback
-				});
-		}).bind(this));
+		this.eventAggregator.subscribe(LOCATION_UPDATED_EVENT, (latLng => {
+				this.update(latLng);
+			}).bind(this));
 	}
 
 	subscriptionToRestaurantListingToHide() {
@@ -207,33 +227,58 @@ export class Map {
 
 	}
 
-/*
-	subscriptionToMapNeedUpdating() {
-		const MAP_DIRECTION_CHANGED = 'MAP_DIRECTION_CHANGED';
+	subscriptionToUpdateUserPosition() {
+		const UPDATE_USER_POSITION_IN_MAP = 'UPDATE_USER_POSITION_IN_MAP';
 
-        this.eventAggregator.subscribe(MAP_DIRECTION_CHANGED, (m =>  {
-        	m(this.map)
-        }).bind(this));
+
+		this.eventAggregator.subscribe(UPDATE_USER_POSITION_IN_MAP, (position => {
+			
+			let latlng = new google.maps.LatLng(position.latitude, position.longitude);
+				this.userLocationMarker.setPosition(latlng); // note, this may be hidden on map. It only shows when there is no direction 
+			}).bind(this));
+
+
 	}
-	*/
+
+	
+	subscriptionToRestaurantSelected() {
+		const RESTAURANTLIST_NEW_RESTAURANT_SELECTED = 'RESTAURANTLIST_NEW_RESTAURANT_SELECTED';
+	
+		this.eventAggregator.subscribe(RESTAURANTLIST_NEW_RESTAURANT_SELECTED, restaurant => {
+			this.selectedRestaurant = restaurant;	
+	
+			this.userLocationMarker.setVisible(false);	
+		});
+	}
+	
+	/*
+		subscriptionToMapNeedUpdating() {
+			const MAP_DIRECTION_CHANGED = 'MAP_DIRECTION_CHANGED';
+	
+	        this.eventAggregator.subscribe(MAP_DIRECTION_CHANGED, (m =>  {
+	        	m(this.map)
+	        }).bind(this));
+		}
+		*/
+
 	subscriptionToClearDirections() {
 		const DIRECTIONS_CLEAR = 'DIRECTIONS_CLEAR';
-
+	
 		this.eventAggregator.subscribe(DIRECTIONS_CLEAR, (() => {
 			//this.directionsDisplay.setMap(null);
+			this.selectedRestaurant = null; // no direction, so no restaurant is selected
+			this.userLocationMarker.setVisible(true); // direction cleared, so marker needs to show
 		}).bind(this));
 	}
-
-	//***********   Marker visibilty ***********
-	setMarkerVisibility(restaurant, visibility) {
-		let restaurantInMapItem = this.restaurantInMap.find(item => restaurant.Id === item.restaurantId );
-
-		if (!restaurantInMapItem) {
-			return;
-		}
-
-		restaurantInMapItem.marker.setVisible(visibility);
+	
+	/*
+	subscriptionToUserMarkerShouldBeHidden() {
+		const USER_MAKER_SHOULD_BE_HIDDEN = 'USER_MAKER_SHOULD_BE_HIDDEN';
+	
+		this.eventAggregator.subscribe(USER_MAKER_SHOULD_BE_HIDDEN, () => {
+		//this.userLocationMarker.setVisible(false);
+		});
 	}
-
+	*/
 
 }

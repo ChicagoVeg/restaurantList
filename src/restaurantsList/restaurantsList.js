@@ -95,6 +95,7 @@ export class RestaurantsList {
         
         if (isDirectionsToBeCleared) {
            // this.publishNewRestaurantSelection(null);
+           this.selectedRestaurant = null; 
            this.publishToClearDirections();
         }
 
@@ -126,15 +127,15 @@ export class RestaurantsList {
         this.publishRestaurantListingToHide(this.restaurantsMainSource.filter(r => r.Type.toLocaleLowerCase() === type));
     }
 
-    //***********   Eventing ***********
+    //***********   Pub/Sub ***********
     InitializeSubscription() {
-        this.locationSubscription();
+        this.subscriptionToNewPosition();
     }
 
-    locationSubscription() {
+    subscriptionToNewPosition() {
         const LOCATION_UPDATED_EVENT = 'LOCATION_UPDATED_EVENT';
 
-        this.eventAggregator.subscribe(LOCATION_UPDATED_EVENT, position => {
+        this.eventAggregator.subscribe((LOCATION_UPDATED_EVENT, position => {
             let x = 0;
 
             this.restaurants.forEach(restaurant => {
@@ -149,7 +150,18 @@ export class RestaurantsList {
             if (this.sortBy === 'distance') {
                 this.restaurants.sort(this.sortByDistance);
             }
-        });
+
+            // calcuate distances in main collection too
+            this.restaurantsMainSource.forEach(restaurant => {
+                restaurant.distance = (this.getDistanceFromLatLngInMiles( // this is a property added 
+                    restaurant.latitude,
+                    restaurant.longitude,
+                    position.latitude,
+                    position.longitude
+                )).toFixedNumber(2);
+            });
+
+        }).bind(this));
     }
 
     publishToClearDirections() {
