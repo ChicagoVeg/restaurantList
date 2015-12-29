@@ -43,6 +43,10 @@ menuOption a {
 	color: Black;
 }
 
+.selected-restaurant {
+	background-color: #E4D96F !important; /* needed to prevent twitter boostrap table-hover from changing this*/
+}
+
 .pas { 
 	padding: 2px;
 }

@@ -94,7 +94,7 @@ export class Map {
 	}
 
 	addRestaurantToMap(coordinates, iconUrl, message, restaurant) {	
-		let latLng = new google.maps.LatLng(coordinates.latitude, coordinates.longitude), 
+		let latLng = new this.Google.maps.LatLng(coordinates.latitude, coordinates.longitude), 
 		markIcon = {
 			url: iconUrl, 
 			    origin: new this.Google.maps.Point(0,0), // origin
@@ -114,6 +114,8 @@ export class Map {
 		}
 
 		this.infoDisplay(marker, message);
+
+		this.addClickEvent(marker, restaurant); //TODO: This is not at the right place
 	}
 
 	infoDisplay (marker, message) {
@@ -137,6 +139,16 @@ export class Map {
 				infoWindow.close();
 			};
 		})(infoWindow));
+	}
+
+	addClickEvent(marker, restaurant) {
+		// TODO: Fix. Bad id to directly refer to DOM in view model
+		this.Google.maps.event.addListener(marker, 'click', () => {
+			let radio = `input[id="restaurantId${restaurant.Id}"]`;
+
+			document.querySelector(radio).scrollIntoView();
+			document.querySelector(radio).click();
+		});
 	}
 
 	update(latLng) {

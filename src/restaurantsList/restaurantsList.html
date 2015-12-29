@@ -1,6 +1,7 @@
 <template>
 	<require from="../../jspm_packages/github/twbs/bootstrap@3.3.5/css/bootstrap.min.css"></require> 
 	<require from="../../styles/styles.css"></require>
+	<require from="./highlight-active-selection"></require>
 
 	<div class="panel">
 		<div class="panel-heading contentHeader">
@@ -34,7 +35,7 @@
 		</div>
 		<div class="panel-body">
 			<div id="restaurantListing">
-				<table class="table table-condensed table-hover">
+				<table class="table table-condensed table-hover" highlight-active-selection="">
 					<tr repeat.for="restaurant of restaurantList">
 						<td>
 							<input type="radio" name="restaurant" id.bind="'restaurantId' + restaurant.Id" click.trigger="$parent.newRestaurantSelected(restaurant)">
