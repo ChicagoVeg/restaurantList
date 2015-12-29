@@ -1,4 +1,4 @@
-import {bootstrap} from './../../jspm_packages/github/twbs/bootstrap@3.3.5/js/bootstrap'
+import {bootstrap} from 'bootstrap'
 
 export class Navmenu {
 	
