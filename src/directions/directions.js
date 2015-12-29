@@ -1,6 +1,7 @@
 import {inject} from "aurelia-framework";
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {Google} from './../map/google'
+import {Google} from './../map/google';
+import bootbox from 'bootbox';
 
 @inject(EventAggregator, Google)
 export class Directions {
@@ -70,7 +71,10 @@ export class Directions {
 				this.directionsDisplay.setDirections(response);
 				//this.publishUserMarkerShouldBeHidden();
 			} else {
-				window.alert('Error getting route') //TODO: add better alert
+				bootbox.alert({
+						"title": "Error with Route",
+						"message": "Google Maps could not determine directions"
+					});
 			}
 
 		}).bind(this));

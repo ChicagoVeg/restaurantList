@@ -1,0 +1,1 @@
+module.exports = require("npm:bootbox@4.4.0/bootbox");

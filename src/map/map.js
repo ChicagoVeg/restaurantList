@@ -2,7 +2,7 @@ import {inject} from "aurelia-framework";
 import {Google} from './google'
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {RestaurantsData} from "./../data/restaurantsData";
-import _ from 'underscore'
+import _ from 'underscore';
 
 @inject(Google, EventAggregator, RestaurantsData)
 export class Map {

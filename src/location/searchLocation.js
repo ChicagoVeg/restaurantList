@@ -2,6 +2,7 @@ import {inject, customAttribute} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {LocationDetectionData} from './../data/locationDetectionData';
 import _ from 'underscore';
+import bootbox from 'bootbox';
 
 @customAttribute('searchlocation')
 @inject(Element, EventAggregator, LocationDetectionData)
@@ -14,7 +15,19 @@ export class SearchLocation {
 	}
 
 	valueChanged(position){
-		position.locationType = document.querySelector('[name="location"]:checked').value === 'manual' ? 'manual' : 'auto';
+		let alertAddressTitle = 'Error with Address', 
+			selectedCheckBox = document.querySelector('[name="location"]:checked');
+
+		if (!selectedCheckBox) {
+			bootbox.alert({
+				"title": 'Error with Address',
+				"message": "No address option is selected"
+			});
+
+			return;
+		}
+
+		position.locationType = selectedCheckBox.value === 'manual' ? 'manual' : 'auto';
 
 		if (position.locationType === "auto") {
 			this.latLng = {
@@ -39,10 +52,24 @@ export class SearchLocation {
 
 		this.locationDetectionData.getLatitudeAndLongitudeFromAddress(position.addressOneLine) 
 			.then((response => {
-				let place = response.results[0];
+				let place;
+
+				if (!response || !response.results || response.status !== 'OK') {
+					bootbox.alert({
+						"title": alertAddressTitle,
+						"message": "Google Maps could not find address"
+					});
+
+					return;
+				}
+
+				place = response.results[0];
 
 				if (!place || !place.geometry || !place.geometry.location) {
-					window.alert('Error. Could not find latitude and longitude'); // TODO: replace with proper notification
+					bootbox.alert({
+						"title": alertAddressTitle,
+						"message": "Google Maps could not find address geometric coordinates"
+					});
 					return;
 				}
 

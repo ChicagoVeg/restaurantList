@@ -1,7 +1,8 @@
 import {inject} from "aurelia-framework";
-import {Navigator} from './navigator'
+import {Navigator} from './navigator';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import _ from 'underscore'
+import _ from 'underscore';
+import bootbox from 'bootbox';
 
 @inject(Navigator, EventAggregator)
 export class Location {
@@ -48,7 +49,12 @@ export class Location {
 		this.position.locationType = 'manual';
 		this.locationAutoDetectable = false;
 
-		//TODO: Alert/remind user that location detection was disallowed
+		document.querySelector('#manualLocationSelection').click(); // TODO: move out of here
+
+		bootbox.alert({
+			"title": 'Permission Denied',
+			"message": "Denied permission to use Brower\'s geolocation"
+		});
 
 		this.update();
 	}
