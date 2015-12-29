@@ -1,5 +1,5 @@
 System.config({
-  "baseURL": "/",
+  "baseURL": "./",
   "defaultJSExtensions": true,
   "transpiler": "babel",
   "babelOptions": {
@@ -15,8 +15,6 @@ System.config({
   },
   "bundles": {
     "dist/app-build.js": [
-      "app.html!github:systemjs/plugin-text@0.0.4",
-      "app.js",
       "config.js",
       "gulpfile.js",
       "index.html!github:systemjs/plugin-text@0.0.4"
@@ -32,6 +30,8 @@ System.config({
       "github:aurelia/event-aggregator@0.9.0/aurelia-event-aggregator",
       "github:aurelia/fetch-client@0.3.0",
       "github:aurelia/fetch-client@0.3.0/aurelia-fetch-client",
+      "github:aurelia/framework@0.17.0",
+      "github:aurelia/framework@0.17.0/aurelia-framework",
       "github:aurelia/history-browser@0.9.0",
       "github:aurelia/history-browser@0.9.0/aurelia-history-browser",
       "github:aurelia/history@0.8.0",
@@ -83,6 +83,8 @@ System.config({
       "github:aurelia/templating-router@0.17.0/router-view",
       "github:aurelia/templating@0.16.0",
       "github:aurelia/templating@0.16.0/aurelia-templating",
+      "github:components/jquery@2.1.4",
+      "github:components/jquery@2.1.4/jquery",
       "github:jspm/nodelibs-process@0.1.2",
       "github:jspm/nodelibs-process@0.1.2/index",
       "github:twbs/bootstrap@3.3.6/css/bootstrap.css!github:systemjs/plugin-text@0.0.4",
@@ -92,10 +94,6 @@ System.config({
       "npm:aurelia-binding@1.0.0-beta.1.0.3/aurelia-binding",
       "npm:aurelia-dependency-injection@1.0.0-beta.1",
       "npm:aurelia-dependency-injection@1.0.0-beta.1/aurelia-dependency-injection",
-      "npm:aurelia-event-aggregator@1.0.0-beta.1",
-      "npm:aurelia-event-aggregator@1.0.0-beta.1/aurelia-event-aggregator",
-      "npm:aurelia-history@1.0.0-beta.1",
-      "npm:aurelia-history@1.0.0-beta.1/aurelia-history",
       "npm:aurelia-loader@1.0.0-beta.1",
       "npm:aurelia-loader@1.0.0-beta.1/aurelia-loader",
       "npm:aurelia-logging@1.0.0-beta.1",
@@ -106,10 +104,6 @@ System.config({
       "npm:aurelia-pal@1.0.0-beta.1.0.1/aurelia-pal",
       "npm:aurelia-path@1.0.0-beta.1",
       "npm:aurelia-path@1.0.0-beta.1/aurelia-path",
-      "npm:aurelia-route-recognizer@1.0.0-beta.1",
-      "npm:aurelia-route-recognizer@1.0.0-beta.1/aurelia-route-recognizer",
-      "npm:aurelia-router@1.0.0-beta.1",
-      "npm:aurelia-router@1.0.0-beta.1/aurelia-router",
       "npm:aurelia-task-queue@1.0.0-beta.1.0.1",
       "npm:aurelia-task-queue@1.0.0-beta.1.0.1/aurelia-task-queue",
       "npm:aurelia-templating@1.0.0-beta.1.0.2",

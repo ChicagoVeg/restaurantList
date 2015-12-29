@@ -1,0 +1,25 @@
+<template>
+	<<require from="../jspm_packages/github/twbs/bootstrap@3.3.6/css/bootstrap.min.css"></require>  
+
+	<compose view-model="./nav/nav-menu"></compose>
+	
+	<section>
+		<article>
+			<div class="container appContainer">
+				<div class="row">
+					<div class="col-lg-7 col-md-7 col-sm-7">
+						<compose view-model="./location/location"></compose>
+						<compose view-model="./restaurantsList/restaurantsList"></compose>
+					</div>
+					<div class="col-lg-5 col-md-5 col-sm-5">
+						<compose view-model="./map/map"></compose>
+						<compose view-model="./directions/directions"></compose>
+					</div>
+				</div>
+			</div>
+			<div>
+				<compose view-model="./footer/footer"></compose>
+			</div>	
+		</article>
+	</section>
+</template>
