@@ -1,20 +1,5 @@
 ﻿[
     {
-        "Id": "1",
-        "Name": "Native Foods Café - West Loop",
-        "Url": "https://www.nativefoods.com/locations/locations/west-loop",
-        "latitude": "41.8814122",
-        "longitude": "-87.641146",
-        "Address": {
-            "Address": "14 S. Clinton St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60661"
-        },
-        "PhoneNumber": "312.382.8600",
-        "Type": "vegan"
-    },
-    {
         "Id": "2",
         "Name": "Chicago Raw - French Market",
         "Url": "http://www.chicagorawfood.com",
@@ -31,8 +16,8 @@
     },
     {
         "Id": "3",
-        "Name": "Vegan Plate - Lakeview",
-        "Url": "http://www.veganplatechicago.com",
+        "Name": "Urban Vegan",
+        "Url": " http://www.urbanveganchicago.com",
         "latitude": "41.9614449",
         "longitude": "-87.66957350000001",
         "Address": {
@@ -57,7 +42,9 @@
             "ZipCode": "60647"
         },
         "PhoneNumber": " 773.252.3211",
-        "Type": "Vegetarian"
+        "Type": "Vegetarian",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "7",
@@ -147,7 +134,9 @@
             "ZipCode": "60647"              
         },
         "PhoneNumber": "773.235.8807",
-        "Type": "Vegetarian"
+        "Type": "Vegetarian",
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
     },
     {
         "Id": "13",
@@ -210,21 +199,6 @@
         "Type": "Vegan"
     },
     {
-        "Id": "17",
-        "Name": "Karyn's Cooked",
-        "Url": "http://www.karynraw.com/Cooked/",
-        "latitude": "41.8959243",
-        "longitude": "-87.63446320000003",
-        "Address": {
-            "Address": "738 N. Wells St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60657"
-        },
-        "PhoneNumber": "312.587.1050",
-        "Type": "Vegan"
-    },
-    {
         "Id": "19",
         "Name": "Kitchen 17",
         "Url": "http://www.kitchen17.com",
@@ -237,7 +211,9 @@
             "ZipCode": "60657"
         },
         "PhoneNumber": "773.661.1757",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Top" 
     },
     {
         "Id": "20",
@@ -256,8 +232,8 @@
     },
     {
         "Id": "21",
-        "Name": "Loving Hut",
-        "Url": "http://lovinghut.us/chicago/",
+        "Name": "Alice & Friends' Vegan Kitchen",
+        "Url": "http://aliceandfriendsvegankitchen.com",
         "latitude": "41.9874327",
         "longitude": "-87.66020309999999",
         "Address": {
@@ -297,7 +273,9 @@
             "ZipCode": "60657"
         },
         "PhoneNumber": "773.549.4904",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "24",
@@ -312,7 +290,9 @@
             "ZipCode": "60604"
         },
         "PhoneNumber": "312.332.6332",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "25",
@@ -327,7 +307,9 @@
             "ZipCode": "60615"
         },
         "PhoneNumber": "773-241-7800",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "26",
@@ -342,7 +324,9 @@
             "ZipCode": "60622"
         },
         "PhoneNumber": "773.489.8480",
-        "Type": "Vegan"
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "27",
@@ -567,9 +551,11 @@
             "ZipCode": "60657"
         },
         "PhoneNumber": "773.935.6696",
-        "Type": "Vegetarian"
+        "Type": "Vegetarian",
+        "Sponsor": "",
+        "BestInTownAward": "Runnerup"
     },
-	{
+    {
         "Id": "45",
         "Name": "Blind Faith Café",
         "Url": "http://www.blindfaithcafe.com",
@@ -584,37 +570,7 @@
         "PhoneNumber": "847.328.6875",
         "Type": "Vegetarian"
     },
-	 {
-        "Id": "46",
-        "Name": "Native Foods Café - River Forest",
-        "Url": "https://www.nativefoods.com/locations/locations/river-forest",
-        "latitude": "41.8884727",
-        "longitude": "-87.80835939999997",
-        "Address": {
-            "Address": "7343 Lake St",
-            "City": "River Forest",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60305"
-        },
-        "PhoneNumber": "708.689.4777",
-        "Type": "vegan"
-    },
-	{
-        "Id": "47",
-        "Name": "Borrowed Earth Café",
-        "Url": "http://www.borrowedearthcafe.com",
-        "latitude": "41.7962339",
-        "longitude": "-88.00991019999998",
-        "Address": {
-            "Address": "970 Warren Ave",
-            "City": "Downers Grove",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60515"
-        },
-        "PhoneNumber": "630.795.1729",
-        "Type": "Raw Vegan"
-    },
-	{
+    {
         "Id": "48",
         "Name": "Chowpatti",
         "Url": "http://www.tpsiclients.com/chowpatti",
@@ -644,7 +600,7 @@
         "PhoneNumber": "815.338.2833",
         "Type": "Vegetarian"
     },
-	{
+    {
         "Id": "50",
         "Name": "Shree",
         "Url": "http://www.shreerestaurant.com",
@@ -659,7 +615,7 @@
         "PhoneNumber": "630.655.1021",
         "Type": "Vegetarian"
     },
-	{
+    {
         "Id": "51",
         "Name": "The Vegan Café",
         "Url": "http://www.rawvegancafe.org",
@@ -778,7 +734,9 @@
             "ZipCode": "60202"
         },
         "PhoneNumber": "773.992.8411",
-        "Type": "Vegan" 
+        "Type": "Vegan" ,
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
     },
     {
         "Id": "59",
@@ -793,6 +751,42 @@
             "ZipCode": "60626"
         },
         "PhoneNumber": "773.381.8011",
-        "Type": "Vegetarian"
-    }
+        "Type": "Vegetarian",
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
+    },
+    {
+        "Id": "60",
+        "Name": "Purple Sprout Cafe",
+        "Url": "https://www.facebook.com/PurpleSproutCafe",
+        "latitude": "42.1396937",
+        "longitude": "-87.90621829999998",
+        "Address": {
+            "Address": "341 E. Dundee Rd",
+            "City": "Wheeling",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60626"
+        },
+        "PhoneNumber": "224.223.7133",
+        "Type": "Vegan",
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
+    },
+    {
+        "Id": "61",
+        "Name": "Cinnamon Bistro",
+        "Url": "http://cinnamonbistro.com",
+        "latitude": "42.190251",
+        "longitude": "-88.10938870000001",
+        "Address": {
+            "Address": "751 W. Route 22",
+            "City": "Lake Zurich",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60047"
+        },
+        "PhoneNumber": "224-662-4138",
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    } 
 ]

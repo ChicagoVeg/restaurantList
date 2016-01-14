@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="favicon.ico" type="image/ico" />
     <link href="./Lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="./Lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="./Lib/Veg/dist/css/restaurantFinder.css" rel="stylesheet" type="text/css" />
     <link href="./Lib/Veg/dist/css/page.css" rel="stylesheet" />
     <link href="./Lib/toastr/toastr.min.css" rel="stylesheet" />
@@ -272,6 +273,18 @@
                                                 <input type="radio" name="restaurantList" data-bind="value: Id, selectRestaurant: $root.newRestaurantSelected, attr: { 'data-id': Id }"> <span data-bind="text: Name"></span>
                                                 &nbsp; <span class="bolder"><span data-bind="html: $root.getRestaurantType(Type), css: $root.getRestaurantLegendColorClass(Type)"></span> </span>
                                                 &nbsp;&nbsp;<span data-bind="text: $root.getDistanceText($data.DistanceInMiles())"></span>
+
+                                                <span data-bind="visible:$root.isSponsor($data)">
+                                                    <span data-bind="attr: {'title': $root.getSponsorLevel($data)}">
+                                                    <i class="fa fa-star fa-lg" data-bind="css:$root.getSponsorStyle($data)"></i>
+                                                    </span>
+                                                </span>
+
+                                                <span data-bind="visible:$root.isLocalContestWinner($data)">
+                                                    <span data-bind="attr: {'title': $root.getLocalContestWinnerAwardName($data)}">                                                   
+                                                        <i class="fa fa-trophy fa-lg" data-bind="css:$root.getContestWonStyle($data)"></i>
+                                                    </span>
+                                                </span>
                                             </li>
                                         </ul>
                                     </div>
@@ -286,6 +299,17 @@
                                         <div data-bind="if: ($root.selectedRestaurantInfo().Name)">
                                             <span data-bind="text: $root.selectedRestaurantInfo().Name"></span>
                                             <span class="bolder"><span data-bind="html: $root.getRestaurantType($root.selectedRestaurantInfo().Type), css: $root.getRestaurantLegendColorClass($root.selectedRestaurantInfo().Type)"></span> </span>
+                                            <span data-bind="visible:$root.isSponsor($root.selectedRestaurantInfo)">
+                                                    <span data-bind="attr: {'title': $root.getSponsorLevel($root.selectedRestaurantInfo)}">
+                                                    <i class="fa fa-star fa-lg" data-bind="css:$root.getSponsorStyle($root.selectedRestaurantInfo)"></i>
+                                                    </span>
+                                                </span>
+
+                                                <span data-bind="visible:$root.isLocalContestWinner($root.selectedRestaurantInfo)">
+                                                    <span data-bind="attr: {'title': $root.getLocalContestWinnerAwardName($root.selectedRestaurantInfo)}">
+                                                        <i class="fa fa-trophy fa-lg" data-bind="css:$root.getContestWonStyle($root.selectedRestaurantInfo)"></i>
+                                                    </span>
+                                                </span>
                                         </div>
                                         <div data-bind="if: ($root.selectedRestaurantInfo().Address1)">
                                             <span data-bind="text: $root.selectedRestaurantInfo().Address1"></span>
@@ -308,6 +332,20 @@
                                     Select a restaurant
                                 </div>
                             </div>
+                            <div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Legend</h3>
+    </div>
+    <div class="panel-body pam">
+        <div>
+        </div>
+    </div>
+    <div class="panel-body pam">
+        <i class="fa fa-trophy fa-lg fa-bestInTownAwardTop"></i> &nbsp; Top ChicagoVeg Choice <br />
+        <i class="fa fa-trophy fa-lg fa-bestInTownAwardRunnerUp"></i> &nbsp; Top 3 ChicagoVeg Choices <br />
+        <i class="fa fa-star fa-lg fa-gold"></i> &nbsp; ChicagoVeg Sponsor
+    </div>
+</div>
                         </div>
                     </div>
                 </div>
@@ -413,3 +451,4 @@
 <script src="./Lib/Veg/dist/js/ko/ko.bindingHandlers.socialMediaIconClick.js"></script>
 
 <script src="./Lib/Veg/dist/js/veg.binding.js"></script>
+

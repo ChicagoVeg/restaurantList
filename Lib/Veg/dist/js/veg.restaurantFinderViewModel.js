@@ -124,9 +124,68 @@
                 "Type": selectedRestaurant.Type, 
                 "Address1": address.Address,
                 "Address2": [address.City, ', ', address.StateAbbreviation, ' ',address.ZipCode ].join(''),
-                "DistanceInMiles": ko.observable()
+                "DistanceInMiles": ko.observable(), 
+                "Sponsor": selectedRestaurant.Sponsor, 
+                "BestInTownAward": selectedRestaurant.BestInTownAwards
             }
         });
+
+        self.isSponsor = function (restaurant) {
+                return !!(restaurant && restaurant.Sponsor);
+        };
+
+        self.getSponsorLevel = function (restaurant) {
+            var sponsorLevel = '';
+
+            if (!restaurant.Sponsor) {
+                return '';
+            } 
+
+            return 'ChicagoVeg Sponsor';
+        };
+
+        self.getSponsorStyle = function (restaurant) {
+            var sponsorLevel = self.isSponsor(restaurant) ? restaurant.Sponsor.toLowerCase() : '';
+
+            if (sponsorLevel === "bronze") {
+                return "fa-bronze";
+            } else if (sponsorLevel === "silver") {
+                return "fa-silver";
+            } else if (sponsorLevel === "gold") {
+                return "fa-gold";
+            } else "hide";
+        };
+
+       self.isLocalContestWinner = function (restaurant) {
+             return !!(restaurant && restaurant.BestInTownAward);
+        };
+
+       self.getLocalContestWinnerAwardName = function (restaurant) {
+            var award = self.isLocalContestWinner(restaurant) ? restaurant.BestInTownAward.trim().toLowerCase() : '';
+
+            if (award === 'top') {
+                return 'Top ChicagoVeg Choice';
+            } else if (award === 'runnerup') {
+                return 'Top 3 ChicagoVeg Choices';
+            } else {
+                return '';
+            }
+
+        };
+
+        self.getContestWonStyle = function (restaurant) {
+            var award = self.isLocalContestWinner(restaurant) ? restaurant.BestInTownAward.toLowerCase() : '';
+
+            if (award === 'top') {
+                return 'fa-bestInTownAwardTop';
+            } else if (award === 'runnerup') {
+                return 'fa-bestInTownAwardRunnerUp';
+            } else {
+                return '';
+            }
+
+            return self.isLocalContestWinner(restaurant) ? "fa-bestInTownAward" : '';
+        };
 
         self.newRestaurantSelected = function (restaurant) {
             if (!restaurant) {
