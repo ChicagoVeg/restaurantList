@@ -232,8 +232,8 @@
     },
     {
         "Id": "21",
-        "Name": "Loving Hut",
-        "Url": "http://lovinghut.us/chicago/",
+        "Name": "Alice & Friends' Vegan Kitchen",
+        "Url": "http://aliceandfriendsvegankitchen.com",
         "latitude": "41.9874327",
         "longitude": "-87.66020309999999",
         "Address": {
@@ -770,6 +770,23 @@
         "PhoneNumber": "224.223.7133",
         "Type": "Vegan",
         "Sponsor": "Gold",
+        "BestInTownAward": ""
+    },
+    {
+        "Id": "61",
+        "Name": "Cinnamon Bistro",
+        "Url": "http://cinnamonbistro.com",
+        "latitude": "42.190251",
+        "longitude": "-88.10938870000001",
+        "Address": {
+            "Address": "751 W. Route 22",
+            "City": "Lake Zurich",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60047"
+        },
+        "PhoneNumber": "224-662-4138",
+        "Type": "Vegan",
+        "Sponsor": "",
         "BestInTownAward": ""
     } 
 ]
