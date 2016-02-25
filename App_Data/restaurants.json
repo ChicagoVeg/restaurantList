@@ -123,7 +123,7 @@
     },
     {
         "Id": "12",
-        "Name": "Quesadilla La Reyna Del Sur on Western",
+        "Name": "Quesadilla La Reyna Del Sur - Western",
         "Url": "http://quesadillalareinadelsur.com",
         "latitude": "41.922673",
         "longitude": "-87.687749",
@@ -140,8 +140,8 @@
     },
     {
         "Id": "13",
-        "Name": "Vegetarian Express",
-        "Url": "http://www.thevegetarianexpress.com",
+        "Name": "Vegetarian Express - Halsted",
+        "Url": "http://vegetarian-express.com",
         "latitude": "41.938352",
         "longitude": "-87.649354",
         "Address": {
@@ -740,7 +740,7 @@
     },
     {
         "Id": "59",
-        "Name": "Quesadilla La Reyna Del Sur on Howard",
+        "Name": "Quesadilla La Reyna Del Sur - Howard",
         "Url": "http://quesadillalareinadelsur.com",
         "latitude": "42.019372",
         "longitude": "-87.666959",
@@ -788,5 +788,22 @@
         "Type": "Vegan",
         "Sponsor": "",
         "BestInTownAward": ""
-    } 
+    },
+     {
+        "Id": "62",
+        "Name": "Vegetarian Express - Damen",
+        "Url": " https://www.facebook.com/pages/Vegetarian-Express-Ravenswood/866452050100299",
+        "latitude": "41.9683258",
+        "longitude": "-87.67881369999998",
+        "Address": {
+            "Address": "4747 N Damen Ave",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60624"
+        },
+        "PhoneNumber": "773.989.1030",
+        "Type": "Vegetarian",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    }  
 ]

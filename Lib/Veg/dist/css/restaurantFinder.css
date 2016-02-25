@@ -1,6 +1,6 @@
 ﻿body {
 	 padding-top: 50px;  /* twitter bootstrap nav requires this so as to not overlay content*/
-	 	background-image: url('http://chicagoveg.com/images/green_bg.jpg');
+     background-color: green;
 }
 
 .header-text { 
