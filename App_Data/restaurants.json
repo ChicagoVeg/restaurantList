@@ -805,5 +805,22 @@
         "Type": "Vegetarian",
         "Sponsor": "",
         "BestInTownAward": ""
-    }  
+    },
+     {
+        "Id": "63",
+        "Name": "Kalish - Short Order Vegan",
+        "Url": " http://www.kalishvegan.com/",
+        "latitude": "41.965091",
+        "longitude": "-87.662877",
+        "Address": {
+            "Address": "1313 W. Wilson Ave",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60640"
+        },
+        "PhoneNumber": "773.293.7768",
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    }
 ]
