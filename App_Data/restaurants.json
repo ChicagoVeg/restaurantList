@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "Id": "2",
         "Name": "Chicago Raw - French Market",
@@ -131,7 +131,7 @@
             "Address": "2235 N. Western Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
-            "ZipCode": "60647"              
+            "ZipCode": "60647"
         },
         "PhoneNumber": "773.235.8807",
         "Type": "Vegetarian",
@@ -213,7 +213,7 @@
         "PhoneNumber": "773.661.1757",
         "Type": "Vegan",
         "Sponsor": "",
-        "BestInTownAward": "Top" 
+        "BestInTownAward": "Top"
     },
     {
         "Id": "20",
@@ -274,7 +274,7 @@
         },
         "PhoneNumber": "773.549.4904",
         "Type": "Vegan",
-        "Sponsor": "",
+      "Sponsor": "Gold",
         "BestInTownAward": "Runnerup"
     },
     {
@@ -291,7 +291,7 @@
         },
         "PhoneNumber": "312.332.6332",
         "Type": "Vegan",
-        "Sponsor": "",
+    "Sponsor": "Gold",
         "BestInTownAward": "Runnerup"
     },
     {
@@ -308,7 +308,7 @@
         },
         "PhoneNumber": "773-241-7800",
         "Type": "Vegan",
-        "Sponsor": "",
+        "Sponsor": "Gold",
         "BestInTownAward": "Runnerup"
     },
     {
@@ -325,7 +325,7 @@
         },
         "PhoneNumber": "773.489.8480",
         "Type": "Vegan",
-        "Sponsor": "",
+      "Sponsor": "Gold",
         "BestInTownAward": "Runnerup"
     },
     {
