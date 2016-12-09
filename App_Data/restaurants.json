@@ -44,7 +44,7 @@
         "PhoneNumber": " 773.252.3211",
         "Type": "Vegetarian",
         "Sponsor": "",
-        "BestInTownAward": "Runnerup"
+        "BestInTownAward": ""
     },
     {
         "Id": "7",
@@ -136,7 +136,7 @@
         "PhoneNumber": "773.235.8807",
         "Type": "Vegetarian",
         "Sponsor": "Gold",
-        "BestInTownAward": ""
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "13",
@@ -243,7 +243,8 @@
             "ZipCode": "60660"
         },
         "PhoneNumber": "773.275.8797",
-        "Type": "Vegan"
+        "Type": "Vegan",
+                "BestInTownAward": "Runnerup"
     },
     {
         "Id": "22",
@@ -275,7 +276,7 @@
         "PhoneNumber": "773.549.4904",
         "Type": "Vegan",
       "Sponsor": "Gold",
-        "BestInTownAward": "Runnerup"
+        "BestInTownAward": ""
     },
     {
         "Id": "24",
@@ -292,7 +293,7 @@
         "PhoneNumber": "312.332.6332",
         "Type": "Vegan",
     "Sponsor": "Gold",
-        "BestInTownAward": "Runnerup"
+        "BestInTownAward": ""
     },
     {
         "Id": "25",
@@ -309,7 +310,7 @@
         "PhoneNumber": "773-241-7800",
         "Type": "Vegan",
         "Sponsor": "Gold",
-        "BestInTownAward": "Runnerup"
+        "BestInTownAward": ""
     },
     {
         "Id": "26",
@@ -326,7 +327,7 @@
         "PhoneNumber": "773.489.8480",
         "Type": "Vegan",
       "Sponsor": "Gold",
-        "BestInTownAward": "Runnerup"
+        "BestInTownAward": ""
     },
     {
         "Id": "27",
@@ -553,7 +554,7 @@
         "PhoneNumber": "773.935.6696",
         "Type": "Vegetarian",
         "Sponsor": "",
-        "BestInTownAward": "Runnerup"
+        "BestInTownAward": ""
     },
     {
         "Id": "45",
@@ -753,7 +754,7 @@
         "PhoneNumber": "773.381.8011",
         "Type": "Vegetarian",
         "Sponsor": "Gold",
-        "BestInTownAward": ""
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "60",
