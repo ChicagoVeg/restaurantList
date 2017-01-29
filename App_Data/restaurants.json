@@ -390,21 +390,6 @@
         "Type": "Raw Vegan"
     },
     {
-        "Id": "33",
-        "Name": "Earth's Healing Café - Ravenwoods",
-        "Url": "http://www.ehcafe.com",
-        "latitude": "41.9615985",
-        "longitude": "-87.6777821",
-        "Address": {
-            "Address": "1942 W. Montrose Ave",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60613"
-        },
-        "PhoneNumber": "773.728.0598",
-        "Type": "Raw Vegan"
-    },
-    {
         "Id": "34",
         "Name": "Karyn's",
         "Url": "http://www.karynraw.com",
@@ -632,21 +617,6 @@
         "Type": "Raw Vegan"
     },
     {
-        "Id": "52",
-        "Name": "Earth's Healing Café - Downtown",
-        "Url": "http://www.ehcafe.com",
-        "latitude": "41.8879004",
-        "longitude": "-87.62371830000001",
-        "Address": {
-            "Address": "111 E Upper Wacker Dr",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60601"
-        },
-        "PhoneNumber": "312.540.1440",
-        "Type": "Raw Vegan"
-    },
-    {
         "Id": "53",
         "Name": "Daisy's Cafe",
         "Url": "https://www.facebook.com/pages/Daisys-Catering-Cafe/433315993366810",
@@ -689,21 +659,6 @@
             "ZipCode": "60139"
         },
         "PhoneNumber": "630.529.3344",
-        "Type": "Vegetarian"
-    },
-    {
-        "Id": "56",
-        "Name": "True Nature Foods Juice Bar and Cafe",
-        "Url": "http://www.truenaturefoods.com",
-        "latitude": "41.9919444",
-        "longitude": "-87.66067570000001",
-        "Address": {
-            "Address": "6034 N Broadway St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60660"
-        },
-        "PhoneNumber": "773.465.6400",
         "Type": "Vegetarian"
     },
     {
@@ -821,6 +776,40 @@
         },
         "PhoneNumber": "773.293.7768",
         "Type": "Vegan",
+        "Sponsor": "Gold",
+        "BestInTownAward": ""
+    },
+     {
+        "Id": "64",
+        "Name": "Vegan Now",
+        "Url": "http://www.facebook.com/EatVeganNow",
+        "latitude": "41.884077",
+        "longitude": "-87.640852",
+        "Address": {
+            "Address": "131 N Clinton St",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60661"
+        },
+        "PhoneNumber": "312.575.0306",
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    },
+     {
+        "Id": "66",
+        "Name": "Hunter's Brewing",
+        "Url": "info@huntersbrewing.com",
+        "latitude": "41.597244",
+        "longitude": "-87.046342",
+        "Address": {
+            "Address": "1535 S. Calumet Rd",
+            "City": "Chesterton",
+            "StateAbbreviation": "In",
+            "ZipCode": "46304"
+        },
+        "PhoneNumber": "219.728.6729 ",
+        "Type": "Vegetarian",
         "Sponsor": "",
         "BestInTownAward": ""
     }
