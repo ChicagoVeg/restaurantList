@@ -695,23 +695,6 @@
         "BestInTownAward": ""
     },
     {
-        "Id": "59",
-        "Name": "Quesadilla La Reyna Del Sur - Howard",
-        "Url": "http://quesadillalareinadelsur.com",
-        "latitude": "42.019372",
-        "longitude": "-87.666959",
-        "Address": {
-            "Address": "1418 W. Howard St",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60626"
-        },
-        "PhoneNumber": "773.381.8011",
-        "Type": "Vegetarian",
-        "Sponsor": "Gold",
-        "BestInTownAward": "Runnerup"
-    },
-    {
         "Id": "60",
         "Name": "Purple Sprout Cafe",
         "Url": "https://www.facebook.com/PurpleSproutCafe",
@@ -810,6 +793,23 @@
         },
         "PhoneNumber": "219.728.6729 ",
         "Type": "Vegetarian",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    }, 
+     {
+        "Id": "67",
+        "Name": "Majani",
+        "Url": "https://www.majani.biz",
+        "latitude": "41.764758",
+        "longitude": "-87.564944",
+        "Address": {
+            "Address": "7167 S. Exchange Ave",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60649"
+        },
+        "PhoneNumber": "773.359.4019",
+        "Type": "Vegan",
         "Sponsor": "",
         "BestInTownAward": ""
     }
