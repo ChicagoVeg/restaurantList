@@ -812,5 +812,22 @@
         "Type": "Vegan",
         "Sponsor": "",
         "BestInTownAward": ""
+    }, 
+    {
+        "Id": "68",
+        "Name": "The Chicago House of 'Za",
+        "Url": "https://www.majani.biz",
+        "latitude": "41.954620",
+        "longitude": "-87.665007",
+        "Address": {
+            "Address": "1416 Irving Park Rd",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60613"
+        },
+        "PhoneNumber": "773.904.7937",
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": ""
     }
 ]
