@@ -44,7 +44,7 @@
         "PhoneNumber": " 773.252.3211",
         "Type": "Vegetarian",
         "Sponsor": "",
-        "BestInTownAward": ""
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "7",
@@ -136,7 +136,7 @@
         "PhoneNumber": "773.235.8807",
         "Type": "Vegetarian",
         "Sponsor": "Gold",
-        "BestInTownAward": "Runnerup"
+        "BestInTownAward": ""
     },
     {
         "Id": "13",
@@ -212,8 +212,7 @@
         },
         "PhoneNumber": "773.661.1757",
         "Type": "Vegan",
-        "Sponsor": "",
-        "BestInTownAward": "Top"
+        "Sponsor": ""
     },
     {
         "Id": "20",
@@ -244,7 +243,7 @@
         },
         "PhoneNumber": "773.275.8797",
         "Type": "Vegan",
-                "BestInTownAward": "Runnerup"
+	 "BestInTownAward": "Runnerup"
     },
     {
         "Id": "22",
@@ -393,16 +392,16 @@
         "Id": "34",
         "Name": "Karyn's",
         "Url": "http://www.karynraw.com",
-        "latitude": "41.9160336",
-        "longitude": "-87.64814130000002",
+        "latitude": "41.913072",
+        "longitude": "-87.66736019999996",
         "Address": {
-            "Address": "1901 N. Halsted St",
+            "Address": "1717 N. Ashland Avenue",
             "City": "Chicago",
             "StateAbbreviation": "IL",
-            "ZipCode": "60614"
+            "ZipCode": "60622"
         },
         "PhoneNumber": "312.255.1590",
-        "Type": "Raw Vegan"
+        "Type": "Vegetarian"
     },
     {
         "Id": "35",
@@ -539,7 +538,7 @@
         "PhoneNumber": "773.935.6696",
         "Type": "Vegetarian",
         "Sponsor": "",
-        "BestInTownAward": ""
+        "BestInTownAward": "Runnerup"
     },
     {
         "Id": "45",
@@ -760,7 +759,7 @@
         "PhoneNumber": "773.293.7768",
         "Type": "Vegan",
         "Sponsor": "Gold",
-        "BestInTownAward": ""
+        "BestInTownAward": "Top"
     },
      {
         "Id": "64",
@@ -816,7 +815,7 @@
     {
         "Id": "68",
         "Name": "The Chicago House of 'Za",
-        "Url": "https://www.majani.biz",
+        "Url": "http://the-chicago-house-of-za-vegan-pizzeria.business.site",
         "latitude": "41.954620",
         "longitude": "-87.665007",
         "Address": {
@@ -826,6 +825,22 @@
             "ZipCode": "60613"
         },
         "PhoneNumber": "773.904.7937",
+        "Type": "Vegan",
+        "Sponsor": ""
+    }, 
+    {
+        "Id": "69",
+        "Name": "Bot Bakery",
+        "Url": "bettybotbakery.wordpress.com",
+        "latitude": "41.7659977",
+        "longitude": "-87.56310919999999",
+        "Address": {
+            "Address": "7100 S. South Shore Drive",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60649"
+        },
+        "PhoneNumber": "773.495.4615",
         "Type": "Vegan",
         "Sponsor": "",
         "BestInTownAward": ""
