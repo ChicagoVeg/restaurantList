@@ -401,7 +401,7 @@
             "ZipCode": "60622"
         },
         "PhoneNumber": "312.255.1590",
-        "Type": "Vegetarian"
+        "Type": "Vegan"
     },
     {
         "Id": "35",
@@ -831,7 +831,7 @@
     {
         "Id": "69",
         "Name": "Bot Bakery",
-        "Url": "bettybotbakery.wordpress.com",
+        "Url": "https://www.facebook.com/botbakery/",
         "latitude": "41.7659977",
         "longitude": "-87.56310919999999",
         "Address": {
