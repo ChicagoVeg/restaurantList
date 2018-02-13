@@ -390,7 +390,7 @@
     },
     {
         "Id": "34",
-        "Name": "Karyn's",
+        "Name": "Karyn's (opens in Spring)",
         "Url": "http://www.karynraw.com",
         "latitude": "41.913072",
         "longitude": "-87.66736019999996",
@@ -676,23 +676,6 @@
         "Type": "Vegetarian"
     },
 
-     {
-        "Id": "58",
-        "Name": "The Amazing Kale Burger",
-        "Url": "http://www.amazingkaleburger.com",
-        "latitude": "42.019471",
-        "longitude": "-87.682298",
-        "Address": {
-            "Address": "741 Howard St",
-            "City": "Evanston",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60202"
-        },
-        "PhoneNumber": "773.992.8411",
-        "Type": "Vegan" ,
-        "Sponsor": "Gold",
-        "BestInTownAward": ""
-    },
     {
         "Id": "60",
         "Name": "Purple Sprout Cafe",
