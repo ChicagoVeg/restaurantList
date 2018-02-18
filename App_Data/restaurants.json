@@ -15,13 +15,13 @@
         "Type": "Raw Vegan"
     },
     {
-        "Id": "3",
+       "Id": "3",
         "Name": "Urban Vegan",
         "Url": " http://www.urbanveganchicago.com",
-        "latitude": "41.9614449",
-        "longitude": "-87.66957350000001",
+        "latitude": "41.96144899999999",
+        "longitude": "-87.66945429999998",
         "Address": {
-            "Address": "1605 W Montrose Ave",
+            "Address": "1601 W Montrose Ave",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60613"
