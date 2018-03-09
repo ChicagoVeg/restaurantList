@@ -87,7 +87,7 @@
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60622"
-        },
+        }, 
         "PhoneNumber": "773.342.1742",
         "Type": "Vegetarian"
     },
@@ -202,15 +202,15 @@
         "Id": "19",
         "Name": "Kitchen 17",
         "Url": "http://www.kitchen17.com",
-        "latitude": "41.9389869",
-        "longitude": "-87.64491279999999",
+        "latitude": "41.93870159999999",
+        "longitude": "-87.64460330000003",
         "Address": {
-            "Address": "613 W. Briar Pl",
+            "Address": "3132 N Broadway",
             "City": "Chicago",
             "StateAbbreviation": "IL",
             "ZipCode": "60657"
         },
-        "PhoneNumber": "773.661.1757",
+        "PhoneNumber": "(312) 391-8654",
         "Type": "Vegan",
         "Sponsor": ""
     },
@@ -824,6 +824,24 @@
             "ZipCode": "60649"
         },
         "PhoneNumber": "773.495.4615",
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    },
+ 
+    {
+        "Id": "70",
+        "Name": "Veggie Grill",
+        "Url": "https://www.veggiegrill.com",
+        "latitude": "41.9329614",
+        "longitude": "-87.64432750000003",
+        "Address": {
+            "Address": "614 W Diversey Pkwy",
+            "City": "Chicago",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60614"
+        },
+        "PhoneNumber": "773.868.1863",
         "Type": "Vegan",
         "Sponsor": "",
         "BestInTownAward": ""
