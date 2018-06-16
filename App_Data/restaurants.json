@@ -47,21 +47,6 @@
         "BestInTownAward": "Runnerup"
     },
     {
-        "Id": "7",
-        "Name": "Green Zebra",
-        "Url": "http://greenzebrachicago.com",
-        "latitude": "41.896132",
-        "longitude": "-87.664099",
-        "Address": {
-            "Address": "1460 W. Chicago Ave",
-            "City": "Chicago",
-            "StateAbbreviation": "IL",
-            "ZipCode": "60642"
-        },
-        "PhoneNumber": "312.243.7100",
-        "Type": "Vegetarian"
-    },
-    {
         "Id": "8",
         "Name": "Ground Control",
         "Url": "http://www.groundcontrolchicago.com",
@@ -686,7 +671,7 @@
             "Address": "341 E. Dundee Rd",
             "City": "Wheeling",
             "StateAbbreviation": "IL",
-            "ZipCode": "60626"
+            "ZipCode": "60090"
         },
         "PhoneNumber": "224.223.7133",
         "Type": "Vegan",
@@ -828,7 +813,6 @@
         "Sponsor": "",
         "BestInTownAward": ""
     },
- 
     {
         "Id": "70",
         "Name": "Veggie Grill",
@@ -843,6 +827,74 @@
         },
         "PhoneNumber": "773.868.1863",
         "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    }, 
+    {
+        "Id": "71",
+        "Name": "Fresh Cafe",
+        "Url": "https://www.facebook.com/freshcafemundelein/",
+        "latitude": "42.271200",
+        "longitude": "-88.003600",
+        "Address": {
+            "Address": "461 N Lake St",
+            "City": "Mundelein",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60060"
+        },
+        "PhoneNumber": "224.804.8966",
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    },
+    {
+        "Id": "72",
+        "Name": "Pine Food Company",
+        "Url": "http://www.pinefoodcompany.com/",
+        "latitude": "42.153517",
+        "longitude": "-88.135468",
+        "Address": {
+            "Address": "100 Station St",
+            "City": "Barrington",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60010"
+        },
+        "PhoneNumber": "847.302.1531",
+        "Type": "Vegetarian",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    }, 
+    {
+        "Id": "73",
+        "Name": "Melted Co.",
+        "Url": "http://www.pinefoodcompany.com/",
+        "latitude": "42.138453",
+        "longitude": "-87.963758",
+        "Address": {
+            "Address": "249 W Dundee Rd",
+            "City": "Buffalo Grove",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60089"
+        },
+        "PhoneNumber": " 847.668.6316",
+        "Type": "Vegan",
+        "Sponsor": "",
+        "BestInTownAward": ""
+    },
+   {
+        "Id": "74",
+        "Name": "Mingle Juice Bar",
+        "Url": "http://minglejuicebar.com/",
+        "latitude": "42.088338",
+        "longitude": "-87.823872",
+        "Address": {
+            "Address": "1830 Tower Dr (at The Glen Town Center)",
+            "City": "Glenview",
+            "StateAbbreviation": "IL",
+            "ZipCode": "60026"
+        },
+        "PhoneNumber": " 847.668.6316",
+        "Type": "Vegetarian",
         "Sponsor": "",
         "BestInTownAward": ""
     }
