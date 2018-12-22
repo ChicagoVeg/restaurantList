@@ -1,1 +1,0 @@
-Standards are not yet finalized and licensing is still being decided. They will be published when the details are ironed out. This withstanding, feel free to contribute fixes and make suggestions. 

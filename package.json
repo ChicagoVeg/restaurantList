@@ -1,26 +1,25 @@
 {
-  "name": "ChicagoVeganAndVegetarianRestaurants",
-  "description": "List of Chicagoland Vegan and Vegetarian Restaurants",
-  "version": "0.1.0-alpha",
-  "license": "MIT",
-  "author": "ChicagoVeg Group",
-  "contributors": [
-    {
-      "name": "ChicagoVeg Group Development Team",
-      "email": "chicagoVegGroup@gmail.com"
-    },
-    {
-      "name": "Phil Adenekan",
-      "email": ""
-    }
-  ],
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-htmlhint": "^0.4.1",
-    "grunt-contrib-qunit": "^0.5.2"
+  "name": "restaurant-list",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-scripts": "2.1.1"
   },
   "scripts": {
-    "test": "grunt travis --verbose"
-  }
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
