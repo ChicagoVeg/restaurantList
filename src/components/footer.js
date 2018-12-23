@@ -1,7 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const footer = props => {
+const Footer = props =>  {
+    console.log(props.details)
+    const {orgName, links} = props.details;
+    const linkItems = links.map(link => {
+        return (<li>
+            <a href={link.url}>{link.text}</a>                                    
+        </li>)
+    });
+
     return (
-        <div></div>
+        <footer>
+            <div className="container">
+                <div className="row">
+                     <div className="col-sm-8">
+                        <p>{orgName}</p>
+                        <ul>
+                            {linkItems}
+                        </ul> 
+                     </div>
+                     <div className="col-sm-4">
+                     </div>
+                </div>
+            </div>
+        </footer>
     );
 }
+
+Footer.propTypes = {
+    'orgName': PropTypes.string,
+    'links': PropTypes.array,
+    'socialMedia': PropTypes.array,
+}
+
+Footer.defaultProps = {
+    'orgName': '',
+    'links': [],
+    'socialMedia': [],
+}
+
+export default Footer

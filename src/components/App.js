@@ -1,30 +1,63 @@
 import React, { Component } from 'react';
-//import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-import logo from '../images/logo.svg';
-import '../styles/App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../styles/App.scss';
+import Footer from  './footer';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = { 
+      'header': {
+        'title': 'Chicagoland Vegetarian, Vegan and Raw Restaurants',
+        'brandLogoUrl': '../images/brand.jpg'
+      },
+       'footer': { 
+        'orgName': 'ChicagoVeg', 
+          'links': [
+            {
+              'url': 'http://www.chicagoveg.com',
+              'text': 'ChicagoVeg Link'
+            }
+          ], 
+        }
+      };  
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload. oo
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <section>
+          <article>
+            <header>
+              <nav className="navbar navbar-default navbar-fixed-top">
+                <div className="navbar-header">
+                  <a href="/" class="navbar-brand pull-left">
+                    <img className="brand" src="../images/brand.jpg" alt="ChicagoVeg Restaurants" title="ChicagoVeg Restaurants" width="209" height="154" />
+                  </a>
+                </div>
+                <div>
+                <span>
+                  {this.state.header.title}
+                </span>  
+              </div>
+              </nav>
+            </header>
+            <div>
+              <div className= "container">
+                <div className="row">
+                  <div className="col-md-5">
+                  List
+                  </div>
+                  <div className="col-md-7">
+                    Map
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Footer details={this.state.footer}></Footer>
+            </article>
+        </section>
+        </div>
     );
   }
 }
