@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Footer = props =>  {
-    console.log(props.details)
     const {orgName, links} = props.details;
-    const linkItems = links.map(link => {
-        return (<li>
+    const linkItems = links.map((link, i) => {
+        return (<li key={i}>
             <a href={link.url}>{link.text}</a>                                    
         </li>)
     });

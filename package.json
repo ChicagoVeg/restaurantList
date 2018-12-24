@@ -5,7 +5,9 @@
   "dependencies": {
     "bootstrap": "^4.2.1",
     "node-sass": "^4.11.0",
+    "pubsub-js": "^1.7.0",
     "react": "^16.7.0",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0"
