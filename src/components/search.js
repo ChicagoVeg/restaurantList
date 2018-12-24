@@ -28,6 +28,7 @@ const Search = () => {
                 autoFocus 
                 className="form-control"
                 name="main-search"
+                placeholder="Search by address"
                 type="search"
                 />
         </div>

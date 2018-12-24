@@ -10,6 +10,8 @@ export class List extends Component {
     this.update = this.update.bind(this);
     this.addressAutoDetectToggled = this.addressAutoDetectToggled.bind(this);
     this.restaurantSelected = this.restaurantSelected.bind(this);
+    this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
+    this.sort = this.sort.bind(this);
     PubSub.subscribe('pubsub-update-restaurants-list', this.update)
     PubSub.subscribe('pubsub-address-auto-detect-toggled', this.addressAutoDetectToggled);
   }
@@ -45,6 +47,20 @@ export class List extends Component {
     PubSub.publish('pubsub-restaurant-selected', restaurants[index]); 
   }
 
+  restaurantTypeToggled(e) {
+    const isChecked = e.target.isChecked;
+    const value = e.target.value;
+    PubSub.publish('pubsub-restaurant-type-toggled', {
+      'isChecked': isChecked, 
+      'value': value,
+    });
+  }
+
+  sort(e) {
+    const sortBy = e.target.name;
+    console.log(`Sorting by: ${sortBy}`);
+  }
+
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => 
         <li className="list-group-item" key={index}> 
@@ -62,6 +78,58 @@ export class List extends Component {
 
     return (
       <div>
+        <div>
+          <ul className="list-group">
+            <li className="list-group-item">
+              <label>  
+                <input
+                  checked
+                  name="restaurantType" 
+                  onChange={this.restaurantTypeToggled}  
+                  type="checkbox" 
+                  value="vegetarian" /> 
+                <span> Vegetarian (VT) </span>
+              </label>
+            </li>
+            <li className="list-group-item">
+              <label>
+                <input 
+                  checked
+                  name="restaurantType"
+                  onChange={this.restaurantTypeToggled}
+                  type="checkbox" 
+                  value="vegan" /> 
+                <span> Vegan (VG) </span>
+            </label>
+        </li>
+        <li className="list-group-item">
+          <label>
+            <input 
+              checked
+              name="restaurantType"
+              onChange={this.restaurantTypeToggled}
+              type="checkbox" 
+              value="raw-vegan" /> 
+            <span> Raw Vegan (RV)</span>
+          </label>
+        </li>
+    </ul>
+        </div>
+        <div className="pull-right">
+          <input 
+            name="name"
+            onClick={this.sort} 
+            type="button" 
+            value="Name" 
+          /> 
+          <span>|</span> 
+          <input 
+            name="distance" 
+            onClick={this.sort}
+            type="button" 
+            value="Distance" 
+          />
+        </div>
         <ul className="list-group">
             {restaurants}
         </ul>

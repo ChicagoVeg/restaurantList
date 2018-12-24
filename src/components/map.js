@@ -6,8 +6,10 @@ export class Map extends Component {
     super(props);
     this.restaurantSelected = this.restaurantSelected.bind(this);
     this.addressAutoDetectToggled = this.addressAutoDetectToggled.bind(this);
+    this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     PubSub.subscribe('pubsub-address-auto-detect-toggled', this.addressAutoDetectToggled);
-    PubSub.subscribe('pubsub-restaurant-selected', this.restaurantSelected)
+    PubSub.subscribe('pubsub-restaurant-selected', this.restaurantSelected);
+    PubSub.subscribe('pubsub-restaurant-type-toggled', this.restaurantTypeToggled)
   }
 
   addressAutoDetectToggled(message, isChecked){
@@ -24,6 +26,13 @@ export class Map extends Component {
     }
     console.log(`New restaurant selected: ${restaurant}`);
   } 
+
+  restaurantTypeToggled(message, type) {
+    if (message !== 'pubsub-restaurant-type-toggled') {
+      console.warn(`Restaurant type recieved in unexpected subscription broadcast. The broadcast is: ${message}.`);
+    }
+    console.log(`sortBy: ${type}`);
+  }
 
   render() {
     return (
