@@ -8,8 +8,7 @@ export class GoogleMaps extends Component {
       <div>
         <GoogleMap
           defaultZoom={8}
-          defaultCenter={{ lat: -34.397, lng: 150.644 }}
-        >
+          defaultCenter={{ lat: -34.397, lng: 150.644 }}>
           {this.props.isMarkerShown && 
             <Marker position={{ lat: -34.397, lng: 150.644 }} />
           }
