@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
+import GoogleMaps from './googleMaps';
 
 export class Map extends Component {
   constructor(props) {
@@ -36,8 +37,16 @@ export class Map extends Component {
 
   render() {
     return (
+      // Separating Maps and GoogleMaps compnents makes it easier to
+      // replace Google Maps if the need arises
       <div>
-        Map        
+        <GoogleMaps 
+          isMarkerShown
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }}></div>}
+          containerElement={<div style={{ height: `400px` }}></div>}
+          mapElement={<div style={{ height: `100%` }}></div> }>
+        </GoogleMaps>         
       </div>
     )
   }

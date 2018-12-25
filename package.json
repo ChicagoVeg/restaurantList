@@ -9,6 +9,7 @@
     "react": "^16.7.0",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.7.0",
+    "react-google-maps": "^9.4.5",
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0"
   },
