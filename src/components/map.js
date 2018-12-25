@@ -5,9 +5,17 @@ import GoogleMaps from './googleMaps';
 export class Map extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      'latitude': 41.954420, 
+      'longitude': -87.669250,
+      'mapUrl': 'http://maps.googleapis.com/maps/api/js?sensor=false',
+    };
+
     this.restaurantSelected = this.restaurantSelected.bind(this);
     this.addressAutoDetectToggled = this.addressAutoDetectToggled.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
+    
     PubSub.subscribe('pubsub-address-auto-detect-toggled', this.addressAutoDetectToggled);
     PubSub.subscribe('pubsub-restaurant-selected', this.restaurantSelected);
     PubSub.subscribe('pubsub-restaurant-type-toggled', this.restaurantTypeToggled)
@@ -41,10 +49,12 @@ export class Map extends Component {
       // replace Google Maps if the need arises
       <div>
         <GoogleMaps 
-          isMarkerShown
-          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-          loadingElement={<div style={{ height: `100%` }}></div>}
           containerElement={<div style={{ height: `400px` }}></div>}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+          isMarkerShown
+          latitude={this.state.latitude}
+          longitude={this.state.longitude}
+          loadingElement={<div style={{ height: `100%` }}></div>}
           mapElement={<div style={{ height: `100%` }}></div> }>
         </GoogleMaps>         
       </div>

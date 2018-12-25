@@ -98,4 +98,5 @@ App.defaultProps = {
   'detailsFile': 'details-chicago-il.json',
   'details': {},
 }
+
 export default App;
