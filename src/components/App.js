@@ -8,7 +8,6 @@ import List from './list';
 import Map from './map';
 import Search from './search';
 
-
 class App extends Component {
   constructor() {
     super();
@@ -44,7 +43,12 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    PubSub.publish('pubsub-update-restaurants-list', this.state.restaurants);
+    const details = Object.assign({}, this.state);
+    PubSub.publish('pubsub-update-restaurants-list', details.restaurants);
+    PubSub.publish('mapInitDetailsAvailable', {
+      'map': details.map, 
+      'restaurants': details.restaurants
+    });
   }
 
   render() {

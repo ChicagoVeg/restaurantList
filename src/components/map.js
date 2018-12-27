@@ -10,15 +10,18 @@ export class Map extends Component {
       'latitude': 41.954420, 
       'longitude': -87.669250,
       'mapUrl': 'http://maps.googleapis.com/maps/api/js?sensor=false',
+      'restaurants': [],
     };
 
     this.restaurantSelected = this.restaurantSelected.bind(this);
     this.addressAutoDetectToggled = this.addressAutoDetectToggled.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
+    this.loadFullMap = this.loadFullMap.bind(this);
     
     PubSub.subscribe('pubsub-address-auto-detect-toggled', this.addressAutoDetectToggled);
     PubSub.subscribe('pubsub-restaurant-selected', this.restaurantSelected);
     PubSub.subscribe('pubsub-restaurant-type-toggled', this.restaurantTypeToggled)
+    PubSub.subscribe('mapInitDetailsAvailable', this.loadFullMap)
   }
 
   addressAutoDetectToggled(message, isChecked){
@@ -43,6 +46,14 @@ export class Map extends Component {
     console.log(`sortBy: ${type}`);
   }
 
+  loadFullMap(message, mapDetails){
+    if (message !== 'mapInitDetailsAvailable') {
+      console.warn(`Unexpected subscription. Expected: mapInitDetailsAvailable. Provided: ${message}`);
+    }
+
+    this.setState(mapDetails);
+  }
+
   render() {
     return (
       // Separating Maps and GoogleMaps compnents makes it easier to
@@ -55,7 +66,9 @@ export class Map extends Component {
           latitude={this.state.latitude}
           longitude={this.state.longitude}
           loadingElement={<div style={{ height: `100%` }}></div>}
-          mapElement={<div style={{ height: `100%` }}></div> }>
+          mapElement={<div style={{ height: `100%` }}></div> }
+          restaurants={this.state.restaurants}
+        >
         </GoogleMaps>         
       </div>
     )
