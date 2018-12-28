@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
 import restaurantsUtils from '../utils/restaurants';
 import './../styles/list.scss';
+import 'font-awesome/css/font-awesome.min.css';
 
 export class List extends Component {
   constructor() {
@@ -78,7 +79,16 @@ export class List extends Component {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
         const colorClass = restaurantsUtils.colorClass(restaurant.type);
         const restaurantDistanceDisplay = !!restaurant.distance; 
-    
+        let choiceAward = '';
+        
+        if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'top') {
+          choiceAward = 'fa fa-trophy fa-lg choice-award-top';
+        } else if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'runnerup') {
+          choiceAward = 'fa fa-trophy fa-lg choice-award-runner';
+        } else if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'gold') {
+          choiceAward = 'fa fa-star fa-lg choice-award-gold';
+        } 
+
         return (<li className="list-group-item" key={index}> 
           <label>
             <input 
@@ -91,9 +101,8 @@ export class List extends Component {
             {' '}
             <span className={colorClass}>{restaurant.icon.code}</span>
             {' '}
-            {
-              restaurantDistanceDisplay && <span>({restaurant.distance})</span> 
-            }
+            {restaurantDistanceDisplay && <span>({restaurant.distance})</span>}
+            {<i class={choiceAward}></i>}
           </label>
         </li>)
     });
@@ -110,7 +119,9 @@ export class List extends Component {
                   onChange={this.restaurantTypeToggled}  
                   type="checkbox" 
                   value="vegetarian" /> 
-                <span> Vegetarian (VT) </span>
+                <span className={restaurantsUtils.colorClass('vegetarian')}> 
+                  Vegetarian ({restaurantsUtils.code('vegetarian')}) 
+                </span>
               </label>
             </li>
             <li className="list-group-item">
@@ -121,7 +132,9 @@ export class List extends Component {
                   onChange={this.restaurantTypeToggled}
                   type="checkbox" 
                   value="vegan" /> 
-                <span> Vegan (VG) </span>
+                <span className={restaurantsUtils.colorClass('vegan')}> 
+                  Vegan ({restaurantsUtils.code('vegan')}) 
+                </span>
             </label>
         </li>
         <li className="list-group-item">
@@ -132,7 +145,9 @@ export class List extends Component {
               onChange={this.restaurantTypeToggled}
               type="checkbox" 
               value="raw-vegan" /> 
-            <span> Raw Vegan (RV)</span>
+            <span className={restaurantsUtils.colorClass('raw vegan')}> 
+              Raw Vegan ({restaurantsUtils.code('raw vegan')}))
+              </span>
           </label>
         </li>
     </ul>
