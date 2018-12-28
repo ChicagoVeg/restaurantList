@@ -12,40 +12,23 @@ export class Search extends Component {
             'autoDetect': true,
         };
 
-        this.autoDetectRequested = this.autoDetectRequested.bind(this);
         this.showNotification = this.showNotification.bind(this);
+        this.canGeolocate = this.canGeolocate.bind(this);
+        this.geolocate = this.geolocate.bind(this);
     } 
     
-    autoDetectRequested(e) {
-        this.geoLocate();
-        //const isChecked = e.target.checked;
-        //PubSub.publish('pubsub-address-auto-detect-toggled', isChecked)
-    }
-
     showNotification(options) {
         const notification = this.geolocationUnsupportedSystem.current;
         notification.addNotification(options);
       }
 
-    geoLocate() {
-        const geolocation = window.navigator.geolocation;
+    canGeolocate() {
+        return !!window.navigator.geolocation;
+    }
 
-        if (!window.navigator.geolocation) {
-            console.log('Geolocation is not supported by the browser');
-            this.showNotification(
-                {
-                    'autoDismiss': 6,
-                    'level': 'warning',
-                    'message': 'Geolocation is not supported by your browser',
-                    'position': 'tc',
-                }
-            );
-            this.setState({ 
-                'autoDetect':  false
-            });
-    
-            return;
-        }
+
+    geolocate() {
+        const geolocation = window.navigator.geolocation;
 
         geolocation.getCurrentPosition(
             (function(position) {
@@ -56,7 +39,7 @@ export class Search extends Component {
                     'message': 'Address automatically detected',
                     'position': 'tc',
                 });
-                PubSub.publish('pubsub-geolocation-obtained', position);  
+                PubSub.publish('pubsub-geolocation-available', position);  
             }).bind(this), 
             (function(error) {
                 console.warn(`Geolocation code: ${error.code}. Geolocation message: ${error.message}`);
@@ -89,7 +72,26 @@ export class Search extends Component {
     }
 
     componentDidMount() {
-        this.geoLocate();
+        const canGeolocate = this.canGeolocate();
+
+        this.setState({ 
+            'autoDetect':  canGeolocate
+        });
+
+        if (canGeolocate) {
+            this.geolocate();
+        } else {
+            console.log('Geolocation is not supported by the browser');
+            this.showNotification(
+                {
+                    'autoDismiss': 6,
+                    'level': 'warning',
+                    'message': 'Geolocation is not supported by your browser',
+                    'position': 'tc',
+                }
+            );
+        }
+
     }
 
     render() {
@@ -101,7 +103,9 @@ export class Search extends Component {
                         <div className="input-group-text">
                             <input type="button" 
                                 name="auto-detect-address"
-                                onClick={this.autoDetectRequested}
+                                onClick={() =>{
+                                    this.geolocate();
+                                }}
                                 value="Auto Detect"
                             />
                         </div>

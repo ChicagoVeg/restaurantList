@@ -3,6 +3,7 @@ import PubSub from 'pubsub-js';
 import restaurantsUtils from '../utils/restaurants';
 import './../styles/list.scss';
 import 'font-awesome/css/font-awesome.min.css';
+import GeoCoordinates from './../services/geoCoordinates';
 
 export class List extends Component {
   constructor() {
@@ -12,13 +13,16 @@ export class List extends Component {
     };
 
     this.initialize = this.initialize.bind(this);
-    this.addressAutoDetectToggled = this.addressAutoDetectToggled.bind(this);
     this.restaurantSelected = this.restaurantSelected.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     this.sort = this.sort.bind(this);  
+    this.setupGeolocation = this.setupGeolocation.bind(this);
+    this.setDistance = this.setDistance.bind(this);
+
+    this.geoCordinates = new GeoCoordinates();
 
     PubSub.subscribe('restaurantListAvailable', this.initialize)
-    PubSub.subscribe('pubsub-address-auto-detect-toggled', this.addressAutoDetectToggled);
+    PubSub.subscribe('pubsub-geolocation-available', this.setupGeolocation); 
   }
 
   initialize(message, restaurants) {
@@ -36,14 +40,6 @@ export class List extends Component {
     });
 
     this.setState({'restaurants': restaurants});    
-  }
-
-  addressAutoDetectToggled(message, isChecked){
-    if (message !== 'pubsub-address-auto-detect-toggled') {
-      console.warn(`You may have miswired a pub/sub in list. The event is: ${message}`);
-    }
-
-    console.log(`Address auto detect recognized by list.js with value: ${isChecked}`);
   }
 
   restaurantSelected(e) {
@@ -98,6 +94,39 @@ export class List extends Component {
     return restaurants;
   }
 
+  setupGeolocation(message, position) {
+    if (message !== 'pubsub-geolocation-available') {
+      console.warn(`Unexpected subscription name. Provided: ${message}. Expected: pubsub-geolocation-available`);
+    }
+    console.log(`message: ${message}, Position: ${position}`);
+    this.setDistance(position);
+  }
+
+  setDistance(position) {
+    if (!position) {
+      console.warn(`Provided with falsy position`);
+      return;
+    }
+
+    let restaurants = this.state.restaurants;
+
+    restaurants.map((restaurant, index) => {
+      const distance = this.geoCordinates.getDistanceInMiles(
+        restaurant.latitude, 
+        restaurant.longitude,
+        position.coords.latitude, 
+        position.coords.longitude,
+      );
+      restaurant.distance = distance.toFixed(2);
+
+      return restaurant;
+    });
+    
+    this.setState({
+      restaurants: restaurants,
+    });
+  }
+
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
         const colorClass = restaurantsUtils.colorClass(restaurant.type);
@@ -124,7 +153,7 @@ export class List extends Component {
             {' '}
             <span className={colorClass}>{restaurant.icon.code}</span>
             {' '}
-            {restaurantDistanceDisplay && <span>({restaurant.distance})</span>}
+            {restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>}
             {<i class={choiceAward}></i>}
           </label>
         </li>)
