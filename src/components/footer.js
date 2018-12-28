@@ -34,6 +34,7 @@ const Footer = props =>  {
                                         'width':'400', 
                                         'height':'400', 
                                     })} 
+                                    type="button"
                                 >
                                     <img alt="post-to-facebook" src={require('./../images/facebook.png')} />
                                 </button>
@@ -47,6 +48,7 @@ const Footer = props =>  {
                                         'width':'400', 
                                         'height':'400',                             
                                     })} 
+                                    type="button"
                                 >
                                     <img alt="post-to-twitter" src={require('./../images/twitter.png')} />
                                 </button>
