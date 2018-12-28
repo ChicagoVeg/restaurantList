@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
+import restaurantsUtils from '../utils/restaurants';
+import './../styles/list.scss';
 
 export class List extends Component {
   constructor() {
@@ -7,21 +9,32 @@ export class List extends Component {
     this.state = {
         'restaurants': []
     };
-    this.update = this.update.bind(this);
+
+    this.initialize = this.initialize.bind(this);
     this.addressAutoDetectToggled = this.addressAutoDetectToggled.bind(this);
     this.restaurantSelected = this.restaurantSelected.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
-    this.sort = this.sort.bind(this);
-    PubSub.subscribe('pubsub-update-restaurants-list', this.update)
+    this.sort = this.sort.bind(this);  
+
+    PubSub.subscribe('restaurantListAvailable', this.initialize)
     PubSub.subscribe('pubsub-address-auto-detect-toggled', this.addressAutoDetectToggled);
   }
 
-  update(message, restaurants) {
-    if (message !== 'pubsub-update-restaurants-list') {
+  initialize(message, restaurants) {
+    if (message !== 'restaurantListAvailable') {
         console.warn('List update may be miswired');
     }
 
-    this.setState({'restaurants': restaurants});
+    // augment
+    restaurants.map(restaurant => {
+      restaurant.distance = null;
+      restaurant.icon = restaurantsUtils.iconInfo(restaurant.type);
+      restaurant.show = true;
+
+      return restaurant;
+    });
+
+    this.setState({'restaurants': restaurants});    
   }
 
   addressAutoDetectToggled(message, isChecked){
@@ -62,8 +75,11 @@ export class List extends Component {
   }
 
   render() {
-    const restaurants = this.state.restaurants.map((restaurant, index) => 
-        <li className="list-group-item" key={index}> 
+    const restaurants = this.state.restaurants.map((restaurant, index) => { 
+        const colorClass = restaurantsUtils.colorClass(restaurant.type);
+        const restaurantDistanceDisplay = !!restaurant.distance; 
+    
+        return (<li className="list-group-item" key={index}> 
           <label>
             <input 
               onChange={this.restaurantSelected}
@@ -71,10 +87,16 @@ export class List extends Component {
               type="radio" 
               value={index}  
             /> 
-            {restaurant.name}
+            <span>{restaurant.name}</span>
+            {' '}
+            <span className={colorClass}>{restaurant.icon.code}</span>
+            {' '}
+            {
+              restaurantDistanceDisplay && <span>({restaurant.distance})</span> 
+            }
           </label>
-        </li>
-    );
+        </li>)
+    });
 
     return (
       <div>

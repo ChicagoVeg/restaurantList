@@ -44,7 +44,7 @@ class App extends Component {
 
   componentDidUpdate() {
     const details = Object.assign({}, this.state);
-    PubSub.publish('pubsub-update-restaurants-list', details.restaurants);
+    PubSub.publish('restaurantListAvailable', details.restaurants);
     PubSub.publish('mapInitDetailsAvailable', {
       'map': details.map, 
       'restaurants': details.restaurants
