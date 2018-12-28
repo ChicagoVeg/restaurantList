@@ -7,6 +7,19 @@ const Search = () => {
         PubSub.publish('pubsub-address-auto-detect-toggled', isChecked)
     }
 
+    const geoLocate = callBack => {
+        if (!callBack) {
+            console.error('A callback is required');
+            return null; 
+        } 
+
+        if (!window.navigator.geolocation) {
+            console.log('Geolocation is not supported by the browser');
+            callBack(null);
+            return;
+        }
+    }
+
     return (
         <div className="input-group mb-3">
             <div className="input-group-prepend">

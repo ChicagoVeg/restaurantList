@@ -71,8 +71,31 @@ export class List extends Component {
   }
 
   sort(e) {
-    const sortBy = e.target.name;
-    console.log(`Sorting by: ${sortBy}`);
+    const key = e.target.name;
+  
+    if (key !== 'name' && key !== 'distance') {
+      console.error(`Unknown sorting request. The request was to sort by: ${key}. Request cannot proceed`);
+      return;
+    }
+ 
+    const restaurants = this.state.restaurants;
+ 
+    this.setState({
+      'restaurants': this.sortBy(key, restaurants)
+    });
+  
+  }
+
+  sortBy(key, restaurants) {
+    restaurants.sort((a, b) => {
+      const aKey = a[key];
+      const bKey = b[key]; 
+
+      if (aKey < bKey) { return -1; } 
+      else if (aKey > bKey) { return 1;} 
+      return 0;
+    })
+    return restaurants;
   }
 
   render() {
