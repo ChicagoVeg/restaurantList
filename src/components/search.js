@@ -3,6 +3,7 @@ import PubSub from 'pubsub-js';
 import NotificationSystem from 'react-notification-system';
 import './../styles/search.scss';
 import { GeoCoordinates } from '../services/geoCoordinates';
+import pubSub from '../services/pubsub';
 
 export class Search extends Component { 
     constructor(props) {
@@ -26,7 +27,7 @@ export class Search extends Component {
         this.keyPress = this.keyPress.bind(this);
         this.mapInitDetailsAvailable = this.mapInitDetailsAvailable.bind(this);
 
-        PubSub.subscribe('mapInitDetailsAvailable', this.mapInitDetailsAvailable);
+        PubSub.subscribe(pubSub.mapInitDetailsAvailable, this.mapInitDetailsAvailable);
     } 
     
     showNotification(options) {
@@ -50,7 +51,7 @@ export class Search extends Component {
                     'message': 'Address automatically detected',
                     'position': 'tc',
                 });
-                PubSub.publish('pubsub-geolocation-available', position);  
+                PubSub.publish(pubSub.geolocationAvailable, position);  
             }).bind(this), 
             (function(error) {
                 console.warn(`Geolocation code: ${error.code}. Geolocation message: ${error.message}`);
@@ -83,7 +84,7 @@ export class Search extends Component {
     }
 
     mapInitDetailsAvailable(message, details) {
-        if (message !== 'mapInitDetailsAvailable') {
+        if (message !== pubSub.mapInitDetailsAvailable) {
             console.warn(`Unexpected map details. Expected: mapInitDetailsAvailable. Provided ${message}`);
         }
 
@@ -112,7 +113,7 @@ export class Search extends Component {
                     'longitude': location.lng,
                 }
             }
-            PubSub.publish('pubsub-geolocation-available', geoCoordinates);
+            PubSub.publish(pubSub.geolocationAvailable, geoCoordinates);
         };
 
         this.geoCoordinates.getGeocoordinatesFromAddress(

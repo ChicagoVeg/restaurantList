@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
 import GoogleMaps from './googleMaps';
+import pubSub from '../services/pubsub';
 
 export class Map extends Component {
   constructor(props) {
@@ -19,14 +20,15 @@ export class Map extends Component {
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     this.loadFullMap = this.loadFullMap.bind(this);
     
-    PubSub.subscribe('pubsub-address-auto-detect-toggled', this.addressAutoDetectToggled);
-    PubSub.subscribe('pubsub-restaurant-selected', this.restaurantSelected);
-    PubSub.subscribe('pubsub-restaurant-type-toggled', this.restaurantTypeToggled)
-    PubSub.subscribe('mapInitDetailsAvailable', this.loadFullMap)
+    PubSub.subscribe(pubSub.autoDetectionRequested, this.addressAutoDetectToggled);
+    PubSub.subscribe(pubSub.restaurantSelected, this.restaurantSelected);
+    PubSub.subscribe(pubSub.restaurantTypeToggle, this.restaurantTypeToggled)
+    PubSub.subscribe(pubSub.mapInitDetailsAvailable, this.loadFullMap)
   }
 
+  // TODO: find out who puublishes this
   addressAutoDetectToggled(message, isChecked){
-    if (message !== 'pubsub-address-auto-detect-toggled') {
+    if (message !== pubSub.autoDetectionRequested) {
       console.warn(`You may have miswired a pub/sub in list. The event is: ${message}`);
     }
 
@@ -34,21 +36,21 @@ export class Map extends Component {
   }
 
   restaurantSelected(message, restaurant) {
-    if (message !== 'pubsub-restaurant-selected') {
+    if (message !== pubSub.restaurantSelected) {
       console.warn(`Map received an unexpected subscription in restaurant selection. It is: ${message}`);
     }
     console.log(`New restaurant selected: ${restaurant}`);
   } 
 
   restaurantTypeToggled(message, type) {
-    if (message !== 'pubsub-restaurant-type-toggled') {
+    if (message !== pubSub.restaurantTypeToggle) {
       console.warn(`Restaurant type recieved in unexpected subscription broadcast. The broadcast is: ${message}.`);
     }
     console.log(`sortBy: ${type}`);
   }
 
   loadFullMap(message, mapDetails){
-    if (message !== 'mapInitDetailsAvailable') {
+    if (message !== pubSub.mapInitDetailsAvailable) {
       console.warn(`Unexpected subscription. Expected: mapInitDetailsAvailable. Provided: ${message}`);
     }
 

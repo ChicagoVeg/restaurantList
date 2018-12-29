@@ -4,6 +4,8 @@ import conversion from '../services/conversion';
 import './../styles/list.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import GeoCoordinates from './../services/geoCoordinates';
+import pubSub from '../services/pubsub';
+
 
 export class List extends Component {
   constructor() {
@@ -21,12 +23,12 @@ export class List extends Component {
 
     this.geoCordinates = new GeoCoordinates();
 
-    PubSub.subscribe('restaurantListAvailable', this.initialize)
-    PubSub.subscribe('pubsub-geolocation-available', this.setupGeolocation); 
+    PubSub.subscribe(pubSub.restaurantListAvailable, this.initialize)
+    PubSub.subscribe(pubSub.geolocationAvailable, this.setupGeolocation); 
   }
 
   initialize(message, restaurants) {
-    if (message !== 'restaurantListAvailable') {
+    if (message !== pubSub.restaurantListAvailable) {
         console.warn('List update may be miswired');
     }
 
@@ -54,13 +56,13 @@ export class List extends Component {
     if (!restaurants || restaurants.length < index-1) {
       console.warn(`Invalid index passed to restarantSelection. The index is: ${index}`);  
     }
-    PubSub.publish('pubsub-restaurant-selected', restaurants[index]); 
+    PubSub.publish(pubSub.restaurantSelected, restaurants[index]); 
   }
 
   restaurantTypeToggled(e) {
     const isChecked = e.target.isChecked;
     const value = e.target.value;
-    PubSub.publish('pubsub-restaurant-type-toggled', {
+    PubSub.publish(pubSub.restaurantTypeToggle, {
       'isChecked': isChecked, 
       'value': value,
     });
@@ -95,7 +97,7 @@ export class List extends Component {
   }
 
   setupGeolocation(message, position) {
-    if (message !== 'pubsub-geolocation-available') {
+    if (message !== pubSub.geolocationAvailable) {
       console.warn(`Unexpected subscription name. Provided: ${message}. Expected: pubsub-geolocation-available`);
     }
     console.log(`message: ${message}, Position: ${position}`);
