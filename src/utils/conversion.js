@@ -15,6 +15,8 @@ export default {
             return 'V'
         } else if (type === 'vegetarian') {
             return 'VG';
+        } else  if (type === 'user') {
+            return 'U';
         } else {
             return '';
         } 
@@ -28,6 +30,8 @@ export default {
             return '00FF00'
         } else if (code === 'VG') {
             return 'FF8000';
+        } else if (code === 'U') { 
+            return 'FFFFFF';
         } else {
             console.warn(`Unknown type. Provided: ${type}`);
             return 'FFFFFF'; 

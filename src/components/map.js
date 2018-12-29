@@ -54,8 +54,18 @@ export class Map extends Component {
 
     // Markers contain same field as restaurants but can contains user-info, 
     // So it was cloned into a new array
+    let marker = mapDetails.restaurants.map(r => ({...r}));
+    const userMaker = {
+      'id': 'userMaker',
+      'name': 'You are here',
+      'latitude': mapDetails.map.startingLatitude,
+      'longitude': mapDetails.map.startingLongitude,
+      'type': 'user',
+    };
+
+    marker.push(userMaker);
     this.setState({
-      'markers': mapDetails.restaurants.map(r => ({...r})),
+      'markers': marker,
       'map': mapDetails.map,
     });
   }
