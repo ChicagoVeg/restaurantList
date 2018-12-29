@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
-import conversion from '../utils/conversion';
+import conversion from '../services/conversion';
 import './../styles/list.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import GeoCoordinates from './../services/geoCoordinates';

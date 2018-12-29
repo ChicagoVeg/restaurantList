@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleMap, Marker, withScriptjs, withGoogleMap, InfoWindow } from 'react-google-maps';
 import PropTypes from 'prop-types'
-import conversion from '../utils/conversion';
+import conversion from '../services/conversion';
 
 export class GoogleMaps extends Component {
   constructor(props) {
