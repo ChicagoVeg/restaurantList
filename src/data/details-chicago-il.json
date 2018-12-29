@@ -1030,7 +1030,40 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": ""
+        },
+        {
+            "id": "82",
+            "name": "Heritage Cafe",
+            "url": "https://heritage1849.com",
+            "latitude": "41.7513008",
+            "longitude": "-87.578960",
+            "address": {
+                "address": "1849 E 79th St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60649"
+            },
+            "phone": "773-530-0045",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": ""
+        },
+        {
+            "id": "83",
+            "name": "No Bones Beach Club",
+            "url": "https://heritage1849.com",
+            "latitude": "41.910403",
+            "longitude": "-87.676409",
+            "address": {
+                "address": "1943 W North Av",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60618"
+            },
+            "phone": "",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": ""
         }
-    
     ]
 }
