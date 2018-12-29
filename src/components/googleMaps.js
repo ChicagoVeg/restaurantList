@@ -1,47 +1,47 @@
-
 import React, { Component } from 'react';
 import { GoogleMap, Marker, withScriptjs, withGoogleMap, InfoWindow } from 'react-google-maps';
 import PropTypes from 'prop-types'
-import restaurantsUtils from '../utils/restaurants';
+import conversion from '../utils/conversion';
 
 export class GoogleMaps extends Component {
   constructor(props) {
     super(props)
-    this.latitude = Number.parseFloat(this.props.latitude) || 41.954418;
-    this.longitude = Number.parseFloat(this.props.longitude) || -87.669250;
+    this.latitude = Number.parseFloat(this.props.map.startingLatitude) || 41.954418;
+    this.longitude = Number.parseFloat(this.props.startingLongitude) || -87.669250;
 
     this.setInfoWindow = this.setInfoWindow.bind(this);
 
     this.state = {
-      'restaurants': this.props.restaurants,
+      'markers': this.props.markers,
       'map': this.props.map,
+      
     };
 
     // augmentation to support mapping features
-    this.state.restaurants.map(restaurant => {
-      restaurant.showInfoWindow = false;
-      return restaurant;
+    this.state.markers.map(marker => {
+      marker.showInfoWindow = false;
+      return marker;
     });
   }
 
   setInfoWindow(flag, index){
-    let restaurants = this.state.restaurants;
+    let markers = this.state.markers;
 
-    restaurants[index].showInfoWindow = flag;
+    markers[index].showInfoWindow = flag;
     this.setState({
-      'restaurants': restaurants
+      'markers': markers
     });
   }
 
-  markerClicked(restaurant) {
+  markerClicked(marker) {
     console.log('====================================')
     console.log('Maker clicked');
-    restaurant.showInfoWindow = true;
+    marker.showInfoWindow = true;
     console.log('====================================')
   }
 
   render() {
-    //const {restaurants, map} = this.props;
+    //const {markers, map} = this.props;
 
     return (
       <div>
@@ -54,8 +54,8 @@ export class GoogleMaps extends Component {
           latitude="">
           
           {
-            this.state.restaurants.map((restaurant, index) => {
-              const colorCode = restaurantsUtils.colorCode(restaurant.type);
+            this.state.markers.map((marker, index) => {
+              const colorCode = conversion.colorCode(marker.type);
               const iconUrl= 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|';
             
               return <Marker
@@ -65,13 +65,13 @@ export class GoogleMaps extends Component {
                 onMouseOver={() => this.setInfoWindow(true, index)}
                 onMouseOut={() => this.setInfoWindow(false, index)}
                 position={{
-                  lat: Number.parseFloat(restaurant.latitude),
-                  lng: Number.parseFloat(restaurant.longitude),
+                  lat: Number.parseFloat(marker.latitude),
+                  lng: Number.parseFloat(marker.longitude),
                 }}
               >
               {
-                restaurant.showInfoWindow && (<InfoWindow key={index}>
-                  <h4>{restaurant.name}</h4>
+                marker.showInfoWindow && (<InfoWindow key={index}>
+                  <h4>{marker.name}</h4>
                 </InfoWindow>)
               }              
               </Marker>
@@ -84,13 +84,12 @@ export class GoogleMaps extends Component {
 }
 
 GoogleMaps.propTypes = {
-  'latitude': PropTypes.string,
-  'longitude': PropTypes.string,
-}
-
-GoogleMaps.defaultProps = {
-  'latitude': '41.954418',
-  'longitude': '-87.669250',
+  'containerElement': PropTypes.element,
+  'googleMapURL': PropTypes.string,
+  'loadingElement': PropTypes.element,
+  'mapElement': PropTypes.element,
+  'markers': PropTypes.array,
+  'map': PropTypes.object,
 }
 
 export default withScriptjs(withGoogleMap(GoogleMaps))

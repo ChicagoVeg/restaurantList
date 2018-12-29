@@ -11,6 +11,7 @@ export class Map extends Component {
       'longitude': -87.669250,
       'map': 'http://maps.googleapis.com/maps/api/js?sensor=false',
       'restaurants': [],
+      'markers': [],
     };
 
     this.restaurantSelected = this.restaurantSelected.bind(this);
@@ -51,7 +52,12 @@ export class Map extends Component {
       console.warn(`Unexpected subscription. Expected: mapInitDetailsAvailable. Provided: ${message}`);
     }
 
-    this.setState(mapDetails);
+    // Markers contain same field as restaurants but can contains user-info, 
+    // So it was cloned into a new array
+    this.setState({
+      'markers': mapDetails.restaurants.map(r => ({...r})),
+      'map': mapDetails.map,
+    });
   }
 
   render() {
@@ -67,7 +73,7 @@ export class Map extends Component {
           longitude={this.state.longitude}
           loadingElement={<div style={{ height: `100%` }}></div>}
           mapElement={<div style={{ height: `100%` }}></div> }
-          restaurants={this.state.restaurants}
+          markers={this.state.markers}
           map={this.state.map}
         >
         </GoogleMaps>         

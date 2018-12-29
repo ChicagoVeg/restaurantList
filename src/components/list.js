@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
-import restaurantsUtils from '../utils/restaurants';
+import conversion from '../utils/conversion';
 import './../styles/list.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import GeoCoordinates from './../services/geoCoordinates';
@@ -33,7 +33,7 @@ export class List extends Component {
     // augment
     restaurants.map(restaurant => {
       restaurant.distance = null;
-      restaurant.icon = restaurantsUtils.iconInfo(restaurant.type);
+      restaurant.icon = conversion.iconInfo(restaurant.type);
       restaurant.show = true;
 
       return restaurant;
@@ -129,7 +129,7 @@ export class List extends Component {
 
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
-        const colorClass = restaurantsUtils.colorClass(restaurant.type);
+        const colorClass = conversion.colorClass(restaurant.type);
         const restaurantDistanceDisplay = !!restaurant.distance; 
         let choiceAward = '';
         
@@ -154,7 +154,7 @@ export class List extends Component {
             <span className={colorClass}>{restaurant.icon.code}</span>
             {' '}
             {restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>}
-            {<i class={choiceAward}></i>}
+            {<i className={choiceAward}></i>}
           </label>
         </li>)
     });
@@ -171,8 +171,8 @@ export class List extends Component {
                   onChange={this.restaurantTypeToggled}  
                   type="checkbox" 
                   value="vegetarian" /> 
-                <span className={restaurantsUtils.colorClass('vegetarian')}> 
-                  Vegetarian ({restaurantsUtils.code('vegetarian')}) 
+                <span className={conversion.colorClass('vegetarian')}> 
+                  Vegetarian ({conversion.code('vegetarian')}) 
                 </span>
               </label>
             </li>
@@ -184,8 +184,8 @@ export class List extends Component {
                   onChange={this.restaurantTypeToggled}
                   type="checkbox" 
                   value="vegan" /> 
-                <span className={restaurantsUtils.colorClass('vegan')}> 
-                  Vegan ({restaurantsUtils.code('vegan')}) 
+                <span className={conversion.colorClass('vegan')}> 
+                  Vegan ({conversion.code('vegan')}) 
                 </span>
             </label>
         </li>
@@ -197,8 +197,8 @@ export class List extends Component {
               onChange={this.restaurantTypeToggled}
               type="checkbox" 
               value="raw-vegan" /> 
-            <span className={restaurantsUtils.colorClass('raw vegan')}> 
-              Raw Vegan ({restaurantsUtils.code('raw vegan')}))
+            <span className={conversion.colorClass('raw vegan')}> 
+              Raw Vegan ({conversion.code('raw vegan')}))
               </span>
           </label>
         </li>
