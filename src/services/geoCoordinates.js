@@ -34,6 +34,30 @@ export class GeoCoordinates {
 
         return d;
       };
+
+    getGeocoordinatesFromAddress(address, key, done) {
+        if (!address || !address.trim()) {
+            console.error('Falsy address provided. Cannot continue');
+            return;
+        }
+
+        if (!done) {
+            console.error('There needs to be a callback function. The one provided is falsy. Cannot continue');
+            return;
+        }
+
+        address = encodeURI(address.trim());
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${key}&sensor=false`;
+        fetch(url)
+            .then(response => response.json())
+            .then(addressDetails => {
+                console.log('coordinates');
+                done(addressDetails);
+            })
+            .catch(error => {
+                console.error(`Error getting latitude and longitude from address. The error is: ${error}`);
+            });
+    }
 }
 
 export default GeoCoordinates

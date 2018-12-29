@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
 import NotificationSystem from 'react-notification-system';
 import './../styles/search.scss';
+import { GeoCoordinates } from '../services/geoCoordinates';
 
 export class Search extends Component { 
     constructor(props) {
@@ -12,7 +13,10 @@ export class Search extends Component {
 
         this.state = {
             'autoDetect': true,
+            'details': {}
         };
+
+        this.geoCoordinates = new GeoCoordinates();
 
         this.showNotification = this.showNotification.bind(this);
         this.canGeolocate = this.canGeolocate.bind(this);
@@ -20,6 +24,9 @@ export class Search extends Component {
         this.performSearch = this.performSearch.bind(this);
         this.resetSearchBox = this.resetSearchBox.bind(this);
         this.keyPress = this.keyPress.bind(this);
+        this.mapInitDetailsAvailable = this.mapInitDetailsAvailable.bind(this);
+
+        PubSub.subscribe('mapInitDetailsAvailable', this.mapInitDetailsAvailable);
     } 
     
     showNotification(options) {
@@ -75,6 +82,16 @@ export class Search extends Component {
             }).bind(this));
     }
 
+    mapInitDetailsAvailable(message, details) {
+        if (message !== 'mapInitDetailsAvailable') {
+            console.warn(`Unexpected map details. Expected: mapInitDetailsAvailable. Provided ${message}`);
+        }
+
+        this.setState({
+            'details': details,
+        });
+    }
+
     performSearch() {
         const value = this.searchBox.value;
         const searchText = value ?
@@ -85,6 +102,24 @@ export class Search extends Component {
             return;
         }
         console.log('begin search');
+
+        const done = (addressDetails) => {
+            console.log('address info');
+            const location = addressDetails.results[0].geometry.location;
+            const geoCoordinates = {
+                'coords': {
+                    'latitude':  location.lat,
+                    'longitude': location.lng,
+                }
+            }
+            PubSub.publish('pubsub-geolocation-available', geoCoordinates);
+        };
+
+        this.geoCoordinates.getGeocoordinatesFromAddress(
+            searchText, 
+            this.state.details.map.key,
+            done
+        );
     }
 
     resetSearchBox() {

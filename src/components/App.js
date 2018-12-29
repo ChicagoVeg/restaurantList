@@ -27,7 +27,9 @@ class App extends Component {
               'text': ''
             }
           ], 
-        }
+        }, 
+        'map': {}, 
+        'restaurants': [],
       };  
   }
  

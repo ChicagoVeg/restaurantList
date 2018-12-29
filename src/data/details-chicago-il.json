@@ -12,6 +12,9 @@
             }
         ] 
     },
+    "map": {
+        "key": "AIzaSyBtKinaroy-zATTzX5ts17OuphpmXPAq1A"
+    },
     "restaurants": [
         {
             "id": "2",

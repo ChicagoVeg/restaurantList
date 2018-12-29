@@ -9,7 +9,7 @@ export class Map extends Component {
     this.state = {
       'latitude': 41.954420, 
       'longitude': -87.669250,
-      'mapUrl': 'http://maps.googleapis.com/maps/api/js?sensor=false',
+      'map': 'http://maps.googleapis.com/maps/api/js?sensor=false',
       'restaurants': [],
     };
 
@@ -68,6 +68,7 @@ export class Map extends Component {
           loadingElement={<div style={{ height: `100%` }}></div>}
           mapElement={<div style={{ height: `100%` }}></div> }
           restaurants={this.state.restaurants}
+          map={this.state.map}
         >
         </GoogleMaps>         
       </div>

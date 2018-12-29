@@ -13,7 +13,8 @@ export class GoogleMaps extends Component {
     this.setInfoWindow = this.setInfoWindow.bind(this);
 
     this.state = {
-      "restaurants": this.props.restaurants,
+      'restaurants': this.props.restaurants,
+      'map': this.props.map,
     };
 
     // augmentation to support mapping features
@@ -76,13 +77,10 @@ export class GoogleMaps extends Component {
               </Marker>
               })
           }
-
           </GoogleMap>
       </div>
     )
   }
-
-
 }
 
 GoogleMaps.propTypes = {
