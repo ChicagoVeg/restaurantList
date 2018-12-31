@@ -7,7 +7,7 @@ import Footer from  './footer';
 import List from './list';
 import Map from './map';
 import Search from './search';
-import pubSub from '../services/pubsub';
+import pubSub from '../services/pubSub';
 
 class App extends Component {
   constructor() {

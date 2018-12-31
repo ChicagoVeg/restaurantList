@@ -16,7 +16,8 @@
         "key": "AIzaSyBtKinaroy-zATTzX5ts17OuphpmXPAq1A",
         "defaultLocation": "Chicago, IL",
         "startingLatitude": "41.954418",
-        "startingLongitude": "-87.669250"
+        "startingLongitude": "-87.669250",
+        "zoom": 10
     },
     "restaurants": [
         {

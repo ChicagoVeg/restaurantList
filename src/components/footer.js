@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Footer = props =>  {
-    const {orgName, links} = props.details;
+    const {orgName} = props.details;
     
     const socialMediaPost = (socialMedia) => {
         //based on: http://blog.socialsourcecommons.org/2011/03/creating-share-this-on-facebooktwitter-links/
@@ -54,7 +54,11 @@ const Footer = props =>  {
                                 </button>
                             </li>
                             <li>  
-                                <a href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" target="_blank">
+                                <a 
+                                    href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" 
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
                                     <img alt="email-others-about-veg-restaurants" src={require('./../images/email.png')} />
                                 </a>
                             </li>

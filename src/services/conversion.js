@@ -37,7 +37,7 @@ export default {
             return 'FFFFFF'; 
         } 
     },
-    iconInfo: function(type) {
+    getIconDetails: function(type) {
         const code = this.code(type);
         const colorCode = this.colorCode(type);
 
@@ -46,7 +46,7 @@ export default {
             colorCode
         };
     },
-    colorClass: function(type) {
+    getColorClass: function(type) {
         const code = this.code(type);
         let className = '';
 
@@ -60,5 +60,5 @@ export default {
             console.log(`Received an unknown type: ${type}`);
         }
         return className;
-    } 
+    }
 }

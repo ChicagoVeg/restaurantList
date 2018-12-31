@@ -3,7 +3,7 @@ import PubSub from 'pubsub-js';
 import NotificationSystem from 'react-notification-system';
 import './../styles/search.scss';
 import { GeoCoordinates } from '../services/geoCoordinates';
-import pubSub from '../services/pubsub';
+import pubSub from '../services/pubSub';
 
 export class Search extends Component { 
     constructor(props) {
@@ -111,7 +111,8 @@ export class Search extends Component {
                 'coords': {
                     'latitude':  location.lat,
                     'longitude': location.lng,
-                }
+                },
+                'formatted_address': addressDetails.results[0].formatted_address,
             }
             PubSub.publish(pubSub.geolocationAvailable, geoCoordinates);
         };
