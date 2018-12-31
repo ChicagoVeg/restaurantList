@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types'
 import conversion from '../services/conversion';
 import PubSub from 'pubsub-js';
 import pubSub from '../services/pubSub';
+import MapProviderBase from '../components/mapProviderBase';
 
 
 /**
@@ -13,7 +14,7 @@ import pubSub from '../services/pubSub';
  * @class GoogleMaps
  * @extends {Component}
  */
-export class GoogleMaps extends Component {
+export class GoogleMaps extends MapProviderBase {
   constructor(props) {
     super(props)
 
