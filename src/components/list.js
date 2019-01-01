@@ -20,6 +20,7 @@ export class List extends Component {
     this.sort = this.sort.bind(this);  
     this.setupGeolocation = this.setupGeolocation.bind(this);
     this.setDistance = this.setDistance.bind(this);
+    this.toogleDirection = this.toogleDirection.bind(this);
 
     this.geoCordinates = new GeoCoordinates();
 
@@ -129,6 +130,14 @@ export class List extends Component {
     });
   }
 
+  toogleDirection(e) {
+    const element = e.currentTarget;
+    element.classList.toggle('active');
+    let panel = element.nextElementSibling;
+    const display = panel.style.display;
+    panel.style.display = display === 'block' ? 'none': 'block';
+  }
+
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
         const getColorClass = conversion.getColorClass(restaurant.type);
@@ -158,6 +167,12 @@ export class List extends Component {
             {restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>}
             {<i className={choiceAward}></i>}
           </label>
+          <div>
+            <button className="accordion" onClick={this.toogleDirection}>Direction</button>
+            <div className="panel">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
         </li>)
     });
 
