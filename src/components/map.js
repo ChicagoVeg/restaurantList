@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
 import GoogleMaps from './googleMaps';
-import pubSub from '../services/pubSub';
+import topics from '../services/topics';
 
 export class Map extends Component {
   constructor(props) {
@@ -22,47 +22,51 @@ export class Map extends Component {
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     this.loadFullMap = this.loadFullMap.bind(this);
     this.addressUpdated = this.addressUpdated.bind(this);
-    
-    PubSub.subscribe(pubSub.autoDetectionRequested, this.addressAutoDetectToggled);
-    PubSub.subscribe(pubSub.restaurantSelected, this.restaurantSelected);
-    PubSub.subscribe(pubSub.restaurantTypeToggle, this.restaurantTypeToggled)
-    PubSub.subscribe(pubSub.mapInitDetailsAvailable, this.loadFullMap)
-    PubSub.subscribe(pubSub.geolocationAvailable, this.addressUpdated);
+    this.travelModeSelected = this.travelModeSelected.bind(this);
+    this.directionRefUpdated = this.directionRefUpdated.bind(this);
+
+    PubSub.subscribe(topics.autoDetectionRequested, this.addressAutoDetectToggled);
+    PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
+    PubSub.subscribe(topics.restaurantTypeToggle, this.restaurantTypeToggled)
+    PubSub.subscribe(topics.mapInitDetailsAvailable, this.loadFullMap)
+    PubSub.subscribe(topics.geolocationAvailable, this.addressUpdated);
+    PubSub.subscribe(topics.travelModeSelected, this.travelModeSelected);
+    PubSub.subscribe(topics.directionRefUpdated, this.directionRefUpdated);
   }
 
   // TODO: find out who puublishes this
   addressAutoDetectToggled(message, isChecked){
-    if (message !== pubSub.autoDetectionRequested) {
+    if (message !== topics.autoDetectionRequested) {
       console.warn(`You may have miswired a pub/sub in list. The event is: ${message}`);
     }
     console.log(`Address auto detect recognized by search.js with value: ${isChecked}`);
   }
 
   restaurantSelected(message, restaurant) {
-    if (message !== pubSub.restaurantSelected) {
+    if (message !== topics.restaurantSelected) {
       console.warn(`Map received an unexpected subscription in restaurant selection. It is: ${message}`);
     }
     console.log(`New restaurant selected: ${restaurant}`);
-    PubSub.publish(pubSub.ThirdPartyProviderReceiveSelectedRestaurant, restaurant);
+    PubSub.publish(topics.ThirdPartyProviderReceiveSelectedRestaurant, restaurant);
   } 
 
   restaurantTypeToggled(message, type) {
-    if (message !== pubSub.restaurantTypeToggle) {
+    if (message !== topics.restaurantTypeToggle) {
       console.warn(`Restaurant type recieved in unexpected subscription broadcast. The broadcast is: ${message}.`);
     }
     console.log(`sortBy: ${type}`);
   }
 
   addressUpdated(message, position) {
-    if (message !== pubSub.geolocationAvailable) {
-      console.warn(`Unexpected subscription received. Expected: ${pubSub.geolocationAvailable}. Received: ${message}`);
+    if (message !== topics.geolocationAvailable) {
+      console.warn(`Unexpected subscription received. Expected: ${topics.geolocationAvailable}. Received: ${message}`);
     }
-    PubSub.publish(pubSub.ThirdPartyProviderUserAddressUpdated, position);
+    PubSub.publish(topics.ThirdPartyProviderUserAddressUpdated, position);
   }
 
   loadFullMap(message, mapDetails){
-    if (message !== pubSub.mapInitDetailsAvailable) {
-      console.warn(`Unexpected subscription. Expected: mapInitDetailsAvailable. Provided: ${message}`);
+    if (message !== topics.mapInitDetailsAvailable) {
+      console.warn(`Unexpected topics. Expected: mapInitDetailsAvailable. Provided: ${message}`);
     }
 
     // Markers contain same field as restaurants but can contains user-info, 
@@ -84,7 +88,22 @@ export class Map extends Component {
     });
 
     mapDetails.markers = markers; // augment
-    PubSub.publish(pubSub.ThirdPartyProviderMapInitDetailsAvailable, mapDetails)
+    PubSub.publish(topics.ThirdPartyProviderMapInitDetailsAvailable, mapDetails)
+  }
+
+  travelModeSelected(message, travelMode) {
+    if (message !== topics.travelModeSelected) {
+      console.warn(`Unexpected topics. Provided: ${message}. Expected: ${topics.travelModeSelected}`);
+    }
+    
+    PubSub.publish(topics.ThirdPartyProviderUpdateTravelMode, travelMode);
+  }
+
+  directionRefUpdated(message, directionClass) {
+    if (message !== topics.directionRefUpdated) {
+      console.warn(`Unexpected topics. Provided: ${message}. Expected: ${topics.directionRefUpdated}`);
+    }
+    PubSub.publish(topics.ThirdPartyProviderDirectionRefUpdated, directionClass);  
   }
 
   render() {

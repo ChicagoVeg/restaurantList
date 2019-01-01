@@ -7,7 +7,7 @@ import Footer from  './footer';
 import List from './list';
 import Map from './map';
 import Search from './search';
-import pubSub from '../services/pubSub';
+import topics from '../services/topics';
 
 class App extends Component {
   constructor() {
@@ -47,8 +47,8 @@ class App extends Component {
 
   componentDidUpdate() {
     const details = Object.assign({}, this.state);
-    PubSub.publish(pubSub.restaurantListAvailable, details.restaurants);
-    PubSub.publish(pubSub.mapInitDetailsAvailable, {
+    PubSub.publish(topics.restaurantListAvailable, details.restaurants);
+    PubSub.publish(topics.mapInitDetailsAvailable, {
       'map': details.map, 
       'restaurants': details.restaurants
     });

@@ -5,10 +5,12 @@ export class MapProviderBase extends Component {
         super(props);
     }
 
-    restaurantSelected() {}
-    updateUserAddress() {}
+    restaurantSelected(message, restaurant) {}
+    updateUserAddress(message, position) {}
     setDirectionsOnMap() {}
-    loadFullMap() {}
+    loadFullMap(message, mapDetail) {}
+    directionUpdate(message, direction) {}
+    directionRefUpdated(message, direction){}
 }
 
 export default MapProviderBase;

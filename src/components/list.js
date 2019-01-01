@@ -4,7 +4,7 @@ import conversion from '../services/conversion';
 import './../styles/list.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import GeoCoordinates from './../services/geoCoordinates';
-import pubSub from '../services/pubSub';
+import topics from '../services/topics';
 
 
 export class List extends Component {
@@ -21,15 +21,16 @@ export class List extends Component {
     this.setupGeolocation = this.setupGeolocation.bind(this);
     this.setDistance = this.setDistance.bind(this);
     this.toogleDirection = this.toogleDirection.bind(this);
+    this.travelModeSelected = this.travelModeSelected.bind(this);
 
     this.geoCordinates = new GeoCoordinates();
 
-    PubSub.subscribe(pubSub.restaurantListAvailable, this.initialize)
-    PubSub.subscribe(pubSub.geolocationAvailable, this.setupGeolocation); 
+    PubSub.subscribe(topics.restaurantListAvailable, this.initialize)
+    PubSub.subscribe(topics.geolocationAvailable, this.setupGeolocation); 
   }
 
   initialize(message, restaurants) {
-    if (message !== pubSub.restaurantListAvailable) {
+    if (message !== topics.restaurantListAvailable) {
         console.warn('List update may be miswired');
     }
 
@@ -57,13 +58,14 @@ export class List extends Component {
     if (!restaurants || restaurants.length < index-1) {
       console.warn(`Invalid index passed to restarantSelection. The index is: ${index}`);  
     }
-    PubSub.publish(pubSub.restaurantSelected, restaurants[index]); 
+    PubSub.publish(topics.restaurantSelected, restaurants[index]); 
+    PubSub.publish(topics.directionRefUpdated, `js-direction-${index}`);
   }
 
   restaurantTypeToggled(e) {
     const isChecked = e.target.isChecked;
     const value = e.target.value;
-    PubSub.publish(pubSub.restaurantTypeToggle, {
+    PubSub.publish(topics.restaurantTypeToggle, {
       'isChecked': isChecked, 
       'value': value,
     });
@@ -98,7 +100,7 @@ export class List extends Component {
   }
 
   setupGeolocation(message, position) {
-    if (message !== pubSub.geolocationAvailable) {
+    if (message !== topics.geolocationAvailable) {
       console.warn(`Unexpected subscription name. Provided: ${message}. Expected: pubsub-geolocation-available`);
     }
     console.log(`message: ${message}, Position: ${position}`);
@@ -138,6 +140,12 @@ export class List extends Component {
     panel.style.display = display === 'block' ? 'none': 'block';
   }
 
+  travelModeSelected(e) {
+    const travelMode = e.currentTarget.value;
+
+    PubSub.publish(topics.travelModeSelected, travelMode);
+  }
+
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
         const getColorClass = conversion.getColorClass(restaurant.type);
@@ -168,9 +176,51 @@ export class List extends Component {
             {<i className={choiceAward}></i>}
           </label>
           <div>
+          <ul>
+            <li>
+              <label> 
+                <input 
+                  name="direction-type"
+                  onClick={this.travelModeSelected} 
+                  type="radio" 
+                  value="DRIVING"
+                /> Drive
+              </label>
+            </li>
+            <li>
+              <label> 
+                <input 
+                  name="direction-type"
+                  onClick={this.travelModeSelected} 
+                  type="radio" 
+                  value="TRANSITING"
+                /> Transit
+              </label>
+            </li>
+            <li>
+             <label> 
+               <input 
+                 name="direction-type"
+                 onClick={this.travelModeSelected} 
+                 type="radio" 
+                 value="WALKING"
+               /> Walk
+             </label>
+            </li>
+            <li>
+              <label> 
+                <input 
+                  name="direction-type"
+                  onClick={this.travelModeSelected}
+                  type="radio" 
+                  value="BICYCLING"
+                /> Bike
+              </label>
+            </li>
+          </ul>
             <button className="accordion" onClick={this.toogleDirection}>Direction</button>
             <div className="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div className={`js-direction-${index}`}></div>
             </div>
           </div>
         </li>)
