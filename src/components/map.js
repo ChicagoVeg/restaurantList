@@ -54,7 +54,7 @@ export class Map extends Component {
     if (message !== topics.restaurantTypeToggle) {
       console.warn(`Restaurant type recieved in unexpected subscription broadcast. The broadcast is: ${message}.`);
     }
-    console.log(`sortBy: ${type}`);
+    PubSub.publish(topics.ThirdPartyProviderFilterRestaurantType, type);
   }
 
   addressUpdated(message, position) {

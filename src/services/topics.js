@@ -13,5 +13,6 @@ export default {
     'ThirdPartyProviderMapInitDetailsAvailable': 'ThirdPartyProviderMapInitDetailsAvailable',
     'ThirdPartyProviderUpdateTravelMode': 'ThirdPartyProviderUpdateTravelMode',
     'ThirdPartyProviderDirectionRefUpdated': 'ThirdPartyProviderDirectionRefUpdated',
+    'ThirdPartyProviderFilterRestaurantType': 'ThirdPartyProviderFilterRestaurantType',
 };
 

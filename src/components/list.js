@@ -38,7 +38,7 @@ export class List extends Component {
     restaurants.map(restaurant => {
       restaurant.distance = null;
       restaurant.icon = conversion.getIconDetails(restaurant.type);
-      restaurant.show = true;
+      restaurant.visible = true;
 
       return restaurant;
     });
@@ -63,11 +63,24 @@ export class List extends Component {
   }
 
   restaurantTypeToggled(e) {
-    const isChecked = e.target.isChecked;
-    const value = e.target.value;
-    PubSub.publish(topics.restaurantTypeToggle, {
-      'isChecked': isChecked, 
-      'value': value,
+    const restaurantType = {
+      'checked': e.target.checked,
+      'name': e.target.value,
+    };
+    PubSub.publish(topics.restaurantTypeToggle, restaurantType);
+    this.filterRestaurants(restaurantType);
+  }
+
+  filterRestaurants(restaurantType) {
+    let restaurants = this.state.restaurants
+    
+    restaurants.forEach(restaurant => {
+      if (restaurant.type.toLowerCase() === restaurantType.name) {
+        restaurant.visible = restaurantType.checked;
+      }
+    });
+    this.setState({
+      'restaurants': restaurants
     });
   }
 
@@ -160,7 +173,10 @@ export class List extends Component {
           choiceAward = 'fa fa-star fa-lg choice-award-gold';
         } 
 
-        return (<li className="list-group-item" key={index}> 
+        return (restaurant.visible && <li 
+            className="list-group-item" 
+            key={index}
+          > 
           <label>
             <input 
               onChange={this.restaurantSelected}
@@ -233,7 +249,7 @@ export class List extends Component {
             <li className="list-group-item">
               <label>  
                 <input
-                  checked
+                  defaultChecked={true}
                   name="restaurantType" 
                   onChange={this.restaurantTypeToggled}  
                   type="checkbox" 
@@ -246,7 +262,7 @@ export class List extends Component {
             <li className="list-group-item">
               <label>
                 <input 
-                  checked
+                defaultChecked={true}
                   name="restaurantType"
                   onChange={this.restaurantTypeToggled}
                   type="checkbox" 
@@ -259,11 +275,11 @@ export class List extends Component {
         <li className="list-group-item">
           <label>
             <input 
-              checked
+              defaultChecked={true}
               name="restaurantType"
               onChange={this.restaurantTypeToggled}
               type="checkbox" 
-              value="raw-vegan" /> 
+              value="raw vegan" /> 
             <span className={conversion.getColorClass('raw vegan')}> 
               Raw Vegan ({conversion.code('raw vegan')}))
               </span>

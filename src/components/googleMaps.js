@@ -26,16 +26,18 @@ export class GoogleMaps extends MapProviderBase {
     this.setDirectionsOnMap = this.setDirectionsOnMap.bind(this); 
     this.travelModeUpdated = this.travelModeUpdated.bind(this);
     this.directionRefUpdated = this.directionRefUpdated.bind(this);
+    this.filterRestaurants = this.filterRestaurants.bind(this)
 
     PubSub.subscribe(topics.ThirdPartyProviderReceiveSelectedRestaurant, this.restaurantSelected);
     PubSub.subscribe(topics.ThirdPartyProviderUserAddressUpdated, this.updateUserAddress);
     PubSub.subscribe(topics.ThirdPartyProviderMapInitDetailsAvailable, this.loadFullMap);
     PubSub.subscribe(topics.ThirdPartyProviderUpdateTravelMode, this.travelModeUpdated);
-    PubSub.subscribe(topics.ThirdPartyProviderDirectionRefUpdated, this.directionRefUpdated)
+    PubSub.subscribe(topics.ThirdPartyProviderDirectionRefUpdated, this.directionRefUpdated);
+    PubSub.subscribe(topics.ThirdPartyProviderFilterRestaurantType, this.filterRestaurants);
+
 
     this.defaultLatitude = Number.parseFloat(this.props.map.startingLatitude) || 41.954418;
     this.defaultLongitude = Number.parseFloat(this.props.map.startingLongitude) || -87.669250;
-
 
     this.state = {
       'markers': this.props.markers,
@@ -89,6 +91,25 @@ export class GoogleMaps extends MapProviderBase {
     const formatted_address = `${address.address}, ${address.city}, ${address.state} ${address.zip}`
     this.destination= formatted_address;
     this.setDirectionsOnMap();
+  }
+
+  filterRestaurants(message, type) {
+    if (message !== topics.ThirdPartyProviderFilterRestaurantType) {
+      console.warn(`Unexpected topics. Expected: ${topics.ThirdPartyProviderFilterRestaurantType}. Received: ${message}`);
+    }
+    let markers = this.markers;
+
+    if (!markers || markers.length === 0) {
+      console.warn('No markers to filter');
+      return;
+    }
+
+    markers.forEach(marker => {
+      if (marker.type.toLowerCase() !== type.name) {
+        return;
+      }
+      marker.setVisible(type.checked);
+    });
   }
 
   updateUserAddress(message, position) {
@@ -192,6 +213,7 @@ export class GoogleMaps extends MapProviderBase {
         'map': this.map, 
         'title': marker.name,
         'icon': pin,
+        'type': marker.type,
       }));
     }); 
 
