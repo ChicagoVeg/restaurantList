@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
 import conversion from '../services/conversion';
-import './../styles/list.scss';
+import './../styles/main.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import GeoCoordinates from './../services/geoCoordinates';
 import topics from '../services/topics';
+import 'material-design-icons/iconfont/material-icons.css';
 
 
 export class List extends Component {
@@ -192,45 +193,45 @@ export class List extends Component {
             {<i className={choiceAward}></i>}
           </label>
           <div>
-          <ul>
-            <li>
+          <ul className="list-inline">
+            <li className="list-inline-item">
               <label> 
                 <input 
                   name="direction-type"
                   onClick={this.travelModeSelected} 
                   type="radio" 
                   value="DRIVING"
-                /> Drive
+                /> <i class="material-icons">directions_car</i>
               </label>
             </li>
-            <li>
+            <li className="list-inline-item">
               <label> 
                 <input 
                   name="direction-type"
                   onClick={this.travelModeSelected} 
                   type="radio" 
                   value="TRANSITING"
-                /> Transit
+                /> <i class="material-icons">directions_transit</i>
               </label>
             </li>
-            <li>
+            <li className="list-inline-item">
              <label> 
                <input 
                  name="direction-type"
                  onClick={this.travelModeSelected} 
                  type="radio" 
                  value="WALKING"
-               /> Walk
+               /> <i className="material-icons">directions_walk</i>
              </label>
             </li>
-            <li>
+            <li className="list-inline-item">
               <label> 
                 <input 
                   name="direction-type"
                   onClick={this.travelModeSelected}
                   type="radio" 
                   value="BICYCLING"
-                /> Bike
+                /> <i class="material-icons">directions_bike</i>
               </label>
             </li>
           </ul>
@@ -245,8 +246,8 @@ export class List extends Component {
     return (
       <div>
         <div>
-          <ul className="list-group">
-            <li className="list-group-item">
+          <ul className="list-inline">
+            <li className="list-inline-item">
               <label>  
                 <input
                   defaultChecked={true}
@@ -259,7 +260,7 @@ export class List extends Component {
                 </span>
               </label>
             </li>
-            <li className="list-group-item">
+            <li className="list-inline-item">
               <label>
                 <input 
                 defaultChecked={true}
@@ -268,11 +269,11 @@ export class List extends Component {
                   type="checkbox" 
                   value="vegan" /> 
                 <span className={conversion.getColorClass('vegan')}> 
-                  Vegan ({conversion.code('vegan')}) 
+                 Vegan ({conversion.code('vegan')}) 
                 </span>
             </label>
         </li>
-        <li className="list-group-item">
+        <li className="list-inline-item">
           <label>
             <input 
               defaultChecked={true}
@@ -281,7 +282,7 @@ export class List extends Component {
               type="checkbox" 
               value="raw vegan" /> 
             <span className={conversion.getColorClass('raw vegan')}> 
-              Raw Vegan ({conversion.code('raw vegan')}))
+            {' '} Raw Vegan ({conversion.code('raw vegan')})
               </span>
           </label>
         </li>
@@ -289,19 +290,22 @@ export class List extends Component {
         </div>
         <div className="pull-right">
           <input 
+            className="button-link"
             name="name"
             onClick={this.sort} 
             type="button" 
             value="Name" 
           /> 
-          <span>|</span> 
+          <span> | </span> 
           <input 
+            className="button-link"
             name="distance" 
             onClick={this.sort}
             type="button" 
             value="Distance" 
           />
         </div>
+        <br />
         <ul className="list-group">
             {restaurants}
         </ul>

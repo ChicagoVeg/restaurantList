@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import PubSub from 'pubsub-js';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../styles/App.scss';
 import Footer from  './footer';
 import List from './list';
 import Map from './map';
@@ -79,10 +78,10 @@ class App extends Component {
               </div>
               <div className= "container">
                 <div className="row">
-                  <div className="col-md-5">
+                  <div className="col-md-7">
                   <List></List>
                   </div>
-                  <div className="col-md-7">
+                  <div className="col-md-5">
                     <Map></Map>
                   </div>
                 </div>

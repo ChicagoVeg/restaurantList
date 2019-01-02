@@ -24,9 +24,10 @@ const Footer = props =>  {
                 <div className="row">
                      <div className="col-sm-8">
                         <p>{orgName}</p>
-                        <ul>
-                            <li>
+                        <ul className="list-inline">
+                            <li className="list-inline-item">
                                 <button 
+                                    className="button-link"
                                     onClick={() => socialMediaPost({
                                         'url': 'http://www.facebook.com/sharer.php?u=http://restaurants.chicagoveg.com', 
                                         'top':'500', 
@@ -39,8 +40,9 @@ const Footer = props =>  {
                                     <img alt="post-to-facebook" src={require('./../images/facebook.png')} />
                                 </button>
                             </li>
-                            <li>  
+                            <li className="list-inline-item">  
                                 <button 
+                                    className="button-link"
                                     onClick={() => socialMediaPost({
                                         'url': 'http://twitter.com/share?text=List%20of%20Chicagoland Vegan,%20Vegetarian%20and%20Raw%20Vegan%20Restaurants&amp;url=', 
                                         'top':'500', 
@@ -53,7 +55,7 @@ const Footer = props =>  {
                                     <img alt="post-to-twitter" src={require('./../images/twitter.png')} />
                                 </button>
                             </li>
-                            <li>  
+                            <li className="list-inline-item">  
                                 <a 
                                     href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" 
                                     rel="noopener noreferrer"

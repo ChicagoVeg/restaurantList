@@ -1,0 +1,30 @@
+.raw-vegan-token {
+    color: $raw-vegan-color;
+    font-weight: bold;
+}
+
+.vegan-token {
+    color: $vegan-color; 
+    font-weight: bold; 
+}
+
+.vegetarian-token {
+    color: $vegetarian-color;
+    font-weight: bold;
+} 
+
+.choice-award-top {
+    color: $choice-award-top-color;
+}
+
+.choice-award-runner {
+    color: $choice-award-runner-up;
+}
+
+.choice-award-gold {
+    color: $choice-award-gold-color;
+}
+
+.active-sort {
+    //border-bottom:1px solid #444; 
+}
