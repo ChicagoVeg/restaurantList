@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
 import NotificationSystem from 'react-notification-system';
-import './../styles/search.scss';
 import { GeoCoordinates } from '../services/geoCoordinates';
 import topics from '../services/topics';
 
@@ -163,11 +162,15 @@ export class Search extends Component {
                 <NotificationSystem ref={this.geolocationUnsupportedSystem} />
                 <div className="input-group mb-3">
                     {this.state.autoDetect && <div className="input-group-prepend">
-                        <div className="input-group-text">
-                            <input type="button" 
+                        <div className="auto-detect-region input-group-text">
+                            <button 
+                                className="button-link"
+                                type="button" 
                                 name="auto-detect-address"
-                                value="Auto Detect"
-                            />
+                                value="Auto Detect">
+                                <i className="auto-detect-icon material-icons">location_on</i>
+                            </button>
+ 
                         </div>
                     </div>}
                     {/* search icon and box */}
@@ -188,8 +191,7 @@ export class Search extends Component {
                     >
                         <div role="search" className="sbx-custom__wrapper">
                             <input 
-                                autoComplete="off" 
-                                className="sbx-custom__input"
+                                className="js-address sbx-custom__input"
                                 name="search"
                                 placeholder="Add an address"
                                 ref={el => this.searchBox = el}
