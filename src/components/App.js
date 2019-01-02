@@ -62,13 +62,18 @@ class App extends Component {
               <nav className="navbar navbar-default navbar-fixed-top">
                 <div className="navbar-header">
                   <a href="/" className="navbar-brand pull-left">
-                    <img className="brand" src="../images/brand.jpg" alt="ChicagoVeg Restaurants" title="ChicagoVeg Restaurants" width="209" height="154" />
+                    <img 
+                      alt="ChicagoVeg Restaurants" 
+                      className="brand" 
+                      src={require('../images/brand.jpg')} 
+                      title="ChicagoVeg Restaurants" 
+                    />
                   </a>
                 </div>
-                <div>
-                <span>
-                  {this.state.header.title}
-                </span>  
+                <div class="mx-auto page-title">
+                  <h2>    
+                    {this.state.header.title}
+                  </h2>
               </div>
               </nav>
             </header>

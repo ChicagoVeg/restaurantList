@@ -175,25 +175,26 @@ export class List extends Component {
         } 
 
         return (restaurant.visible && <li 
-            className="list-group-item" 
+            className="list-group-item list-item" 
             key={index}
           > 
-          <label>
-            <input 
-              onChange={this.restaurantSelected}
-              name="restaurant-selected"  
-              type="radio" 
-              value={index}  
-            /> 
-            <span>{restaurant.name}</span>
-            {' '}
-            <span className={getColorClass}>{restaurant.icon.code}</span>
-            {' '}
-            {restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>}
-            {<i className={choiceAward}></i>}
-          </label>
-          <div>
-          <ul className="list-inline">
+          <div className="rounded-corner">
+            <label>
+              <input 
+                onChange={this.restaurantSelected}
+                name="restaurant-selected"  
+                type="radio" 
+                value={index}  
+              /> 
+              <span>{restaurant.name}</span>
+              {' '}
+              <span className={getColorClass}>{restaurant.icon.code}</span>
+              {' '}
+              {restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>}
+              {<i className={choiceAward}></i>}
+            </label>
+            <div>
+            <ul className="list-inline">
             <li className="list-inline-item">
               <label> 
                 <input 
@@ -235,9 +236,10 @@ export class List extends Component {
               </label>
             </li>
           </ul>
-            <button className="accordion" onClick={this.toogleDirection}>Direction</button>
-            <div className="panel">
-              <div className={`js-direction-${index}`}></div>
+              <button className="accordion" onClick={this.toogleDirection}>Direction</button>
+              <div className="panel">
+                <div className={`js-direction-${index}`}></div>
+              </div>
             </div>
           </div>
         </li>)
@@ -245,7 +247,7 @@ export class List extends Component {
 
     return (
       <div>
-        <div>
+        <div class="mx-auto restaurant-type">
           <ul className="list-inline">
             <li className="list-inline-item">
               <label>  

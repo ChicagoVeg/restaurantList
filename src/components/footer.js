@@ -20,54 +20,63 @@ const Footer = props =>  {
 
     return (
         <footer>
-            <div className="container">
-                <div className="row">
-                     <div className="col-sm-8">
-                        <p>{orgName}</p>
-                        <ul className="list-inline">
-                            <li className="list-inline-item">
-                                <button 
-                                    className="button-link"
-                                    onClick={() => socialMediaPost({
-                                        'url': 'http://www.facebook.com/sharer.php?u=http://restaurants.chicagoveg.com', 
-                                        'top':'500', 
-                                        'left':'500', 
-                                        'width':'400', 
-                                        'height':'400', 
-                                    })} 
-                                    type="button"
-                                >
-                                    <img alt="post-to-facebook" src={require('./../images/facebook.png')} />
-                                </button>
-                            </li>
-                            <li className="list-inline-item">  
-                                <button 
-                                    className="button-link"
-                                    onClick={() => socialMediaPost({
-                                        'url': 'http://twitter.com/share?text=List%20of%20Chicagoland Vegan,%20Vegetarian%20and%20Raw%20Vegan%20Restaurants&amp;url=', 
-                                        'top':'500', 
-                                        'left':'500', 
-                                        'width':'400', 
-                                        'height':'400',                             
-                                    })} 
-                                    type="button"
-                                >
-                                    <img alt="post-to-twitter" src={require('./../images/twitter.png')} />
-                                </button>
-                            </li>
-                            <li className="list-inline-item">  
-                                <a 
-                                    href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" 
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
-                                    <img alt="email-others-about-veg-restaurants" src={require('./../images/email.png')} />
-                                </a>
-                            </li>
-                        </ul> 
-                     </div>
-                     <div className="col-sm-4">
-                     </div>
+            <div class="text-center">
+                <div>
+                    <ul className="list-inline">
+                        <li className="list-inline-item">
+                            <button 
+                                className="button-link"
+                                onClick={() => socialMediaPost({
+                                    'url': 'http://www.facebook.com/sharer.php?u=http://restaurants.chicagoveg.com', 
+                                    'top':'500', 
+                                    'left':'500', 
+                                    'width':'400', 
+                                    'height':'400', 
+                                })} 
+                                type="button"
+                            >
+                                <img alt="post-to-facebook" src={require('./../images/facebook.png')} />
+                            </button>
+                        </li>
+                        <li className="list-inline-item">  
+                            <button 
+                                className="button-link"
+                                onClick={() => socialMediaPost({
+                                    'url': 'http://twitter.com/share?text=List%20of%20Chicagoland Vegan,%20Vegetarian%20and%20Raw%20Vegan%20Restaurants&amp;url=', 
+                                    'top':'500', 
+                                    'left':'500', 
+                                    'width':'400', 
+                                    'height':'400',                             
+                                })} 
+                                type="button"
+                            >
+                                <img alt="post-to-twitter" src={require('./../images/twitter.png')} />
+                            </button>
+                        </li>
+                        <li className="list-inline-item">  
+                            <a 
+                                href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" 
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                <img alt="email-others-about-veg-restaurants" src={require('./../images/email.png')} />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    © <span>{new Date().getFullYear()}</span> - <a 
+                        href="http://chicagoveg.com/" 
+                        rel="noopener noreferrer" 
+                        target="_blank">
+                    <span>ChicagoVeg</span></a> &nbsp; | &nbsp; 
+                    <a 
+                        href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    > 
+                        Feedback
+                    </a>
                 </div>
             </div>
         </footer>
