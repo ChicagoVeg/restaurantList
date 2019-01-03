@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Footer = props =>  {
-    const {orgName} = props.details;
-    
+const Footer = props =>  {    
     const socialMediaPost = (socialMedia) => {
         //based on: http://blog.socialsourcecommons.org/2011/03/creating-share-this-on-facebooktwitter-links/
         window.open(
@@ -20,7 +18,7 @@ const Footer = props =>  {
 
     return (
         <footer>
-            <div class="text-center">
+            <div className="text-center">
                 <div>
                     <ul className="list-inline">
                         <li className="list-inline-item">
@@ -84,13 +82,11 @@ const Footer = props =>  {
 }
 
 Footer.propTypes = {
-    'orgName': PropTypes.string,
     'links': PropTypes.array,
     'socialMedia': PropTypes.array,
 }
 
 Footer.defaultProps = {
-    'orgName': '',
     'links': [],
     'socialMedia': [],
 }

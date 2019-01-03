@@ -131,7 +131,7 @@ export class Search extends Component {
         const key = e.key;
         
         if (key === 'Enter') {
-            this.performSearch()
+            //this.performSearch()
         }
     }
     componentDidMount() {
@@ -193,35 +193,11 @@ export class Search extends Component {
                             <input 
                                 className="js-address sbx-custom__input"
                                 name="search"
-                                placeholder="Add an address"
+                                placeholder="Add address OR Auto-detect (button to right)"
                                 ref={el => this.searchBox = el}
                                 required="required" 
                                 type="search"
-                            />
-                            <button 
-                                className="sbx-custom__submit"
-                                title="Submit your search query." 
-                                type="button" 
-                            >
-                                {/*See- https://stackoverflow.com/a/27326082/178550 */}
-                                <svg 
-                                    dangerouslySetInnerHTML={{__html:'<use xlink:href="#sbx-icon-search-14"></use>'}}
-                                    onClick={() =>{
-                                        this.geolocate();
-                                    }}
-                                    role="img" aria-label="Search" 
-                                >                                  
-                                </svg>
-                            </button>
-                            <button 
-                                className="sbx-custom__reset"
-                                onClick={this.resetSearchBox}
-                                type="button" 
-                                title="Clear the search query."
-                            >
-                                <svg role="img" aria-label="Reset"  dangerouslySetInnerHTML={{__html:'<use xlink:href="#sbx-icon-clear-5"></use>'}}>
-                                </svg>
-                            </button>    
+                            />  
                         </div>
                     </div>
                 </div>    

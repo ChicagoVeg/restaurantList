@@ -202,7 +202,7 @@ export class List extends Component {
                   onClick={this.travelModeSelected} 
                   type="radio" 
                   value="DRIVING"
-                /> <i class="material-icons">directions_car</i>
+                /> <i className="icon-shift-driving material-icons">directions_car</i>
               </label>
             </li>
             <li className="list-inline-item">
@@ -212,7 +212,7 @@ export class List extends Component {
                   onClick={this.travelModeSelected} 
                   type="radio" 
                   value="TRANSITING"
-                /> <i class="material-icons">directions_transit</i>
+                /> <i className="icon-shift-transit material-icons">directions_transit</i>
               </label>
             </li>
             <li className="list-inline-item">
@@ -222,7 +222,7 @@ export class List extends Component {
                  onClick={this.travelModeSelected} 
                  type="radio" 
                  value="WALKING"
-               /> <i className="material-icons">directions_walk</i>
+               /> <i className="icon-shift-walking material-icons">directions_walk</i>
              </label>
             </li>
             <li className="list-inline-item">
@@ -232,7 +232,7 @@ export class List extends Component {
                   onClick={this.travelModeSelected}
                   type="radio" 
                   value="BICYCLING"
-                /> <i class="material-icons">directions_bike</i>
+                /> <i className="icon-shift-bicycle material-icons">directions_bike</i>
               </label>
             </li>
           </ul>
@@ -247,7 +247,7 @@ export class List extends Component {
 
     return (
       <div>
-        <div class="mx-auto restaurant-type">
+        <div className="mx-auto restaurant-type">
           <ul className="list-inline">
             <li className="list-inline-item">
               <label>  

@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types'
 import conversion from '../services/conversion';
 import PubSub from 'pubsub-js';
 import topics from '../services/topics';
 import MapProviderBase from '../components/mapProviderBase';
 
+// Codebase has lot of experiment-code. It needs cleaning.
 
 /**
  *
@@ -26,7 +26,8 @@ export class GoogleMaps extends MapProviderBase {
     this.setDirectionsOnMap = this.setDirectionsOnMap.bind(this); 
     this.travelModeUpdated = this.travelModeUpdated.bind(this);
     this.directionRefUpdated = this.directionRefUpdated.bind(this);
-    this.filterRestaurants = this.filterRestaurants.bind(this)
+    this.filterRestaurants = this.filterRestaurants.bind(this);
+    this.setAutocomplete = this.setAutocomplete.bind(this);
 
     PubSub.subscribe(topics.ThirdPartyProviderReceiveSelectedRestaurant, this.restaurantSelected);
     PubSub.subscribe(topics.ThirdPartyProviderUserAddressUpdated, this.updateUserAddress);
@@ -34,10 +35,6 @@ export class GoogleMaps extends MapProviderBase {
     PubSub.subscribe(topics.ThirdPartyProviderUpdateTravelMode, this.travelModeUpdated);
     PubSub.subscribe(topics.ThirdPartyProviderDirectionRefUpdated, this.directionRefUpdated);
     PubSub.subscribe(topics.ThirdPartyProviderFilterRestaurantType, this.filterRestaurants);
-
-
-    this.defaultLatitude = Number.parseFloat(this.props.map.startingLatitude) || 41.954418;
-    this.defaultLongitude = Number.parseFloat(this.props.map.startingLongitude) || -87.669250;
 
     this.state = {
       'markers': this.props.markers,
@@ -58,7 +55,7 @@ export class GoogleMaps extends MapProviderBase {
     this.origin = null;
     this.google = null;
     this.travelMode = 'DRIVING';
-    this.directionClass = null; 
+    this.directionClass = null;
 
     // augmentation to support mapping features
     this.state.markers.map(marker => {
@@ -143,6 +140,19 @@ export class GoogleMaps extends MapProviderBase {
     }).bind(this));
   }
 
+  setAutocomplete() {
+    const autocompleteInit = (function() {
+      const element = document.querySelector('.js-address');
+      const places = new window.google.maps.places.Autocomplete(element);  
+      this.google.maps.event.addListener(places, 'place_changed', (function() {
+        const place = places.getPlace();
+        this.origin = place.formatted_address;
+        this.setDirectionsOnMap();
+      }).bind(this));
+    }).bind(this);
+    this.google.maps.event.addDomListener(window, 'load', autocompleteInit);
+  }
+
   loadFullMap(message, mapDetails) {
     if (message !== topics.ThirdPartyProviderMapInitDetailsAvailable) {
       console.warn(`Unexpected topics. Expected: ${topics.ThirdPartyProviderMapInitDetailsAvailable}. Received: ${message}`);
@@ -152,6 +162,8 @@ export class GoogleMaps extends MapProviderBase {
     this.setState({
       'mapIsReady': true,
     });
+
+
   }
 
   travelModeUpdated(message, travelMode) {
@@ -172,7 +184,7 @@ export class GoogleMaps extends MapProviderBase {
   componentDidMount() {
     const ApiKey = 'AIzaSyBtKinaroy-zATTzX5ts17OuphpmXPAq1A';
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${ApiKey}`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${ApiKey}&libraries=places`;
     script.async = true;
     script.defer = true;
     script.addEventListener('load', () => {
@@ -221,7 +233,7 @@ export class GoogleMaps extends MapProviderBase {
     this.directionsDisplay = new this.google.maps.DirectionsRenderer();
     this.directionsDisplay.setMap(this.map);
 
-
+    this.setAutocomplete();
   }
 
   render() {
