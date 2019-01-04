@@ -159,48 +159,38 @@ export class Search extends Component {
     render() {
         return (
             <div>
-                <NotificationSystem ref={this.geolocationUnsupportedSystem} />
-                <div className="input-group mb-3">
-                    {this.state.autoDetect && <div className="input-group-prepend">
-                        <div className="auto-detect-region input-group-text">
-                            <button 
-                                className="button-link"
-                                type="button" 
-                                name="auto-detect-address"
-                                value="Auto Detect">
-                                <i className="auto-detect-icon material-icons">location_on</i>
-                            </button>
- 
+                <div>
+                    <NotificationSystem ref={this.geolocationUnsupportedSystem} />
+                </div>
+                <div>
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <span 
+                                class="input-group-text" 
+                                id="basic-addon1">
+                                {this.state.autoDetect && <div className="input-group-prepend">
+                                    <div className="auto-detect-region">
+                                        <button 
+                                            className="button-link"
+                                            type="button" 
+                                            name="auto-detect-address"
+                                            value="Auto Detect">
+                                                <i className="auto-detect-icon material-icons">location_on</i>
+                                        </button> 
+                                    </div>
+                                </div>}
+                            </span>
                         </div>
-                    </div>}
-                    {/* search icon and box */}
-                    <svg xmlns="http://www.w3.org/2000/svg" style={{display:'none'}}>
-                        <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-search-14" viewBox="0 0 40 40">
-                            <path d="M26.51 28.573c-2.803 2.34-6.412 3.748-10.35 3.748C7.236 32.32 0 25.087 0 16.16 0 7.236 7.235 0 16.16 0c8.926 0 16.16 7.235 16.16 16.16 0 4.213-1.61 8.048-4.25 10.925L40 39.015l-1.524 1.524L26.51 28.572zm-10.35 2.132c8.033 0 14.545-6.512 14.545-14.544S24.193 1.617 16.16 1.617 1.617 8.128 1.617 16.16c0 8.033 6.512 14.545 14.545 14.545z"
-                                fillRule="evenodd" />
-                        </symbol>
-                        <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-clear-5" viewBox="0 0 20 20">
-                         <path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm1.35-10.123l3.567 3.568-1.225 1.226-3.57-3.568-3.567 3.57-1.226-1.227 3.568-3.568-3.57-3.57 1.227-1.224 3.568 3.568 3.57-3.567 1.224 1.225-3.568 3.57zM10 18.272c4.568 0 8.272-3.704 8.272-8.272S14.568 1.728 10 1.728 1.728 5.432 1.728 10 5.432 18.272 10 18.272z"
-                            fillRule="evenodd" />
-                        </symbol>
-                    </svg>
-                    <div 
-                        className="searchbox sbx-custom"
-                        onClick={this.performSearch}
-                        onKeyPress={this.keyPress}
-                    >
-                        <div role="search" className="sbx-custom__wrapper">
-                            <input 
-                                className="js-address sbx-custom__input"
-                                name="search"
-                                placeholder="Add address OR Auto-detect (button to right)"
-                                ref={el => this.searchBox = el}
-                                required="required" 
-                                type="search"
-                            />  
-                        </div>
+                        <input 
+                            type="search" 
+                            class="form-control js-address search-box" 
+                            placeholder="Type address OR Auto-detect (button to left)" 
+                            aria-label="search" 
+                            required="required"
+                            aria-describedby="basic-addon1" 
+                        />
                     </div>
-                </div>    
+                </div>
             </div>
         );
     }

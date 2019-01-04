@@ -1,10 +1,11 @@
-.auto-detect-region {
-  background-color: $background-color; 
-  border-color: $background-color;
-}
 
 .auto-detect-icon {
-  font-size:36px !important;
+  font-size: $search-box-size !important;
+ 
+}
+
+.search-box {
+  padding: 25px 10px;
 }
 
 // source- https://shipow.github.io/searchbox/
