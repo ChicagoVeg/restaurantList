@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 import GoogleMaps from './googleMaps';
 import topics from '../services/topics';
@@ -8,13 +8,12 @@ export class Map extends Component {
     super(props);
 
     this.state = {
-      'map': {
-        'startingLatitude': 41.954420, 
-        'startingLongitude': -87.669250,
+      map: {
+        startingLatitude: 41.954420,
+        startingLongitude: -87.669250,
       },
-      'restaurants': [],
-      'markers': [],
-      'mapIsReady': false,
+      restaurants: [],
+      markers: [],
     };
 
     this.restaurantSelected = this.restaurantSelected.bind(this);
@@ -27,15 +26,15 @@ export class Map extends Component {
 
     PubSub.subscribe(topics.autoDetectionRequested, this.addressAutoDetectToggled);
     PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
-    PubSub.subscribe(topics.restaurantTypeToggle, this.restaurantTypeToggled)
-    PubSub.subscribe(topics.mapInitDetailsAvailable, this.loadFullMap)
+    PubSub.subscribe(topics.restaurantTypeToggle, this.restaurantTypeToggled);
+    PubSub.subscribe(topics.mapInitDetailsAvailable, this.loadFullMap);
     PubSub.subscribe(topics.geolocationAvailable, this.addressUpdated);
     PubSub.subscribe(topics.travelModeSelected, this.travelModeSelected);
     PubSub.subscribe(topics.directionRefUpdated, this.directionRefUpdated);
   }
 
   // TODO: find out who puublishes this
-  addressAutoDetectToggled(message, isChecked){
+  addressAutoDetectToggled(message, isChecked) {
     if (message !== topics.autoDetectionRequested) {
       console.warn(`You may have miswired a pub/sub in list. The event is: ${message}`);
     }
@@ -48,7 +47,7 @@ export class Map extends Component {
     }
     console.log(`New restaurant selected: ${restaurant}`);
     PubSub.publish(topics.ThirdPartyProviderReceiveSelectedRestaurant, restaurant);
-  } 
+  }
 
   restaurantTypeToggled(message, type) {
     if (message !== topics.restaurantTypeToggle) {
@@ -64,38 +63,38 @@ export class Map extends Component {
     PubSub.publish(topics.ThirdPartyProviderUserAddressUpdated, position);
   }
 
-  loadFullMap(message, mapDetails){
+  loadFullMap(message, mapDetails) {
     if (message !== topics.mapInitDetailsAvailable) {
       console.warn(`Unexpected topics. Expected: mapInitDetailsAvailable. Provided: ${message}`);
     }
 
-    // Markers contain same field as restaurants but can contains user-info, 
+    // Markers contain same field as restaurants but can contains user-info,
     // So it was cloned into a new array
-    let markers = mapDetails.restaurants.map(r => ({...r}));
+    const markers = mapDetails.restaurants.map(r => ({ ...r }));
     const userMaker = {
-      'id': 'userMaker',
-      'name': 'You are here',
-      'latitude': mapDetails.map.startingLatitude,
-      'longitude': mapDetails.map.startingLongitude,
-      'type': 'user',
+      id: 'userMaker',
+      name: 'You are here',
+      latitude: mapDetails.map.startingLatitude,
+      longitude: mapDetails.map.startingLongitude,
+      type: 'user',
     };
 
     markers.push(userMaker);
     this.setState({
-      'markers': markers,
-      'map': mapDetails.map,
-      'mapIsReady': true,
+      markers,
+      map: mapDetails.map,
+      mapIsReady: true,
     });
 
     mapDetails.markers = markers; // augment
-    PubSub.publish(topics.ThirdPartyProviderMapInitDetailsAvailable, mapDetails)
+    PubSub.publish(topics.ThirdPartyProviderMapInitDetailsAvailable, mapDetails);
   }
 
   travelModeSelected(message, travelMode) {
     if (message !== topics.travelModeSelected) {
       console.warn(`Unexpected topics. Provided: ${message}. Expected: ${topics.travelModeSelected}`);
     }
-    
+
     PubSub.publish(topics.ThirdPartyProviderUpdateTravelMode, travelMode);
   }
 
@@ -103,29 +102,28 @@ export class Map extends Component {
     if (message !== topics.directionRefUpdated) {
       console.warn(`Unexpected topics. Provided: ${message}. Expected: ${topics.directionRefUpdated}`);
     }
-    PubSub.publish(topics.ThirdPartyProviderDirectionRefUpdated, directionClass);  
+    PubSub.publish(topics.ThirdPartyProviderDirectionRefUpdated, directionClass);
   }
 
   render() {
     return (
       // Separating Maps and GoogleMaps compnents makes it easier to
       // replace Google Maps if the need arises
-      //See: https://github.com/tomchentw/tomchentw.github.io/blob/master/src/Pages/Demos/ReactGoogleMaps.jsx
+      // See: https://github.com/tomchentw/tomchentw.github.io/blob/master/src/Pages/Demos/ReactGoogleMaps.jsx
       <div>
-        <GoogleMaps 
-          containerElement={<div style={{ height: `400px` }}></div>}
+        <GoogleMaps
+          containerElement={<div style={{ height: '400px' }} />}
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
           isMarkerShown
-          loadingElement={<div style={{ height: `100%` }}></div>}
-          mapElement={<div style={{ height: `100%` }}></div> }
+          loadingElement={<div style={{ height: '100%' }} />}
+          mapElement={<div style={{ height: '100%' }} />}
           markers={this.state.markers}
           map={this.state.map}
           zoom={3}
-        >
-        </GoogleMaps>         
+        />
       </div>
-    )
+    );
   }
 }
 
-export default Map
+export default Map;
