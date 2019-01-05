@@ -8,6 +8,7 @@ export default {
     'mapInitDetailsAvailable': 'mapInitDetailsAvailable',
     'travelModeSelected': 'travelModeSelected',
     'directionRefUpdated': 'directionRefUpdated',
+    'directionsUpdated': 'directionsUpdated',    
     'ThirdPartyProviderReceiveSelectedRestaurant': 'ThirdPartyProviderReceiveSelectedRestaurant',
     'ThirdPartyProviderUserAddressUpdated': 'ThirdPartyProviderUserAddressUpdated',
     'ThirdPartyProviderMapInitDetailsAvailable': 'ThirdPartyProviderMapInitDetailsAvailable',

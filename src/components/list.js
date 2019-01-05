@@ -23,11 +23,14 @@ export class List extends Component {
     this.setDistance = this.setDistance.bind(this);
     this.toogleDirection = this.toogleDirection.bind(this);
     this.travelModeSelected = this.travelModeSelected.bind(this);
+    this.directionsUpdated = this.directionsUpdated.bind(this);
 
     this.geoCordinates = new GeoCoordinates();
+    this.selectedRestaurant = null;
 
     PubSub.subscribe(topics.restaurantListAvailable, this.initialize)
     PubSub.subscribe(topics.geolocationAvailable, this.setupGeolocation); 
+    PubSub.subscribe(topics.directionsUpdated, this.directionsUpdated);
   }
 
   initialize(message, restaurants) {
@@ -40,6 +43,7 @@ export class List extends Component {
       restaurant.distance = null;
       restaurant.icon = conversion.getIconDetails(restaurant.type);
       restaurant.visible = true;
+      restaurant.showDirection = false;
 
       return restaurant;
     });
@@ -59,7 +63,8 @@ export class List extends Component {
     if (!restaurants || restaurants.length < index-1) {
       console.warn(`Invalid index passed to restarantSelection. The index is: ${index}`);  
     }
-    PubSub.publish(topics.restaurantSelected, restaurants[index]); 
+    this.selectedRestaurant = restaurants[index];
+    PubSub.publish(topics.restaurantSelected, this.selectedRestaurant); 
     PubSub.publish(topics.directionRefUpdated, `js-direction-${index}`);
   }
 
@@ -150,8 +155,11 @@ export class List extends Component {
     const element = e.currentTarget;
     element.classList.toggle('active');
     let panel = element.nextElementSibling;
-    const display = panel.style.display;
-    panel.style.display = display === 'block' ? 'none': 'block';
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
   }
 
   travelModeSelected(e) {
@@ -159,6 +167,18 @@ export class List extends Component {
 
     PubSub.publish(topics.travelModeSelected, travelMode);
   }
+
+  directionsUpdated() {
+    let restaurants = this.state.restaurants.map(restaurant => {
+      restaurant.showDirection = restaurant.id === this.selectedRestaurant.id;
+      
+      return restaurant;
+    }); 
+      
+    this.setState({
+      'restaurants': restaurants
+    });
+ }
 
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
@@ -194,52 +214,54 @@ export class List extends Component {
               {<i className={choiceAward}></i>}
             </label>
             <div>
-            <ul className="list-inline">
-            <li className="list-inline-item">
-              <label> 
-                <input 
-                  name="direction-type"
-                  onClick={this.travelModeSelected} 
-                  type="radio" 
-                  value="DRIVING"
-                /> <i className="icon-shift-driving material-icons">directions_car</i>
-              </label>
-            </li>
-            <li className="list-inline-item">
-              <label> 
-                <input 
-                  name="direction-type"
-                  onClick={this.travelModeSelected} 
-                  type="radio" 
-                  value="TRANSITING"
-                /> <i className="icon-shift-transit material-icons">directions_transit</i>
-              </label>
-            </li>
-            <li className="list-inline-item">
-             <label> 
-               <input 
-                 name="direction-type"
-                 onClick={this.travelModeSelected} 
-                 type="radio" 
-                 value="WALKING"
-               /> <i className="icon-shift-walking material-icons">directions_walk</i>
-             </label>
-            </li>
-            <li className="list-inline-item">
-              <label> 
-                <input 
-                  name="direction-type"
-                  onClick={this.travelModeSelected}
-                  type="radio" 
-                  value="BICYCLING"
-                /> <i className="icon-shift-bicycle material-icons">directions_bike</i>
-              </label>
-            </li>
-          </ul>
-              <button className="accordion" onClick={this.toogleDirection}>Direction</button>
-              <div className="panel">
-                <div className={`js-direction-${index}`}></div>
-              </div>
+                <div style={{display: restaurant.showDirection ? 'block' : 'none' }}>                
+                  <button className="accordion"  onClick={this.toogleDirection}>Direction</button>
+                  <div className="panel">
+                  <ul className="list-inline">
+                  <li className="list-inline-item">
+                 <label> 
+                   <input 
+                     name="direction-type"
+                     onClick={this.travelModeSelected} 
+                     type="radio" 
+                     value="DRIVING"
+                   /> <i className="icon-shift-driving material-icons">directions_car</i>
+                 </label>
+               </li>
+                  <li className="list-inline-item">
+                 <label> 
+                   <input 
+                     name="direction-type"
+                     onClick={this.travelModeSelected} 
+                     type="radio" 
+                     value="TRANSITING"
+                   /> <i className="icon-shift-transit material-icons">directions_transit</i>
+                 </label>
+               </li>
+                  <li className="list-inline-item">
+                <label> 
+                  <input 
+                    name="direction-type"
+                    onClick={this.travelModeSelected} 
+                    type="radio" 
+                    value="WALKING"
+                  /> <i className="icon-shift-walking material-icons">directions_walk</i>
+                </label>
+               </li>
+                  <li className="list-inline-item">
+                 <label> 
+                   <input 
+                     name="direction-type"
+                     onClick={this.travelModeSelected}
+                     type="radio" 
+                     value="BICYCLING"
+                   /> <i className="icon-shift-bicycle material-icons">directions_bike</i>
+                 </label>
+               </li>
+                 </ul>
+                    <div className={`js-direction-${index}`}></div>
+                  </div>
+                </div>  
             </div>
           </div>
         </li>)
@@ -297,7 +319,7 @@ export class List extends Component {
             onClick={this.sort} 
             type="button" 
             value="Name" 
-          /> 
+          />
           <span> | </span> 
           <input 
             className="button-link"

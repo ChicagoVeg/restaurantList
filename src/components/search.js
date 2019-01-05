@@ -23,7 +23,6 @@ export class Search extends Component {
     this.geolocate = this.geolocate.bind(this);
     this.performSearch = this.performSearch.bind(this);
     this.resetSearchBox = this.resetSearchBox.bind(this);
-    this.keyPress = this.keyPress.bind(this);
     this.mapInitDetailsAvailable = this.mapInitDetailsAvailable.bind(this);
 
     PubSub.subscribe(topics.mapInitDetailsAvailable, this.mapInitDetailsAvailable);
@@ -94,7 +93,7 @@ export class Search extends Component {
   }
 
   performSearch() {
-    const value = this.searchBox.value;
+    const { value } = this.searchBox;
     const searchText = value
       ? value.trim()
       : '';
@@ -104,7 +103,7 @@ export class Search extends Component {
     }
   
     const done = (addressDetails) => {
-      const location = addressDetails.results[0].geometry.location;
+      const { location } = addressDetails.results[0].geometry;
       const geoCoordinates = {
         coords: {
           latitude: location.lat,
@@ -115,6 +114,7 @@ export class Search extends Component {
       PubSub.publish(topics.geolocationAvailable, geoCoordinates);
     };
 
+    
     this.geoCoordinates.getGeocoordinatesFromAddress(
       searchText,
       this.state.details.map.key,
@@ -124,14 +124,6 @@ export class Search extends Component {
 
   resetSearchBox() {
     this.searchBox.value = '';
-  }
-
-  keyPress(e) {
-    const key = e.key;
-
-    if (key === 'Enter') {
-      // this.performSearch()
-    }
   }
 
   componentDidMount() {
@@ -144,7 +136,6 @@ export class Search extends Component {
     if (canGeolocate) {
       this.geolocate();
     } else {
-      console.log('Geolocation is not supported by the browser');
       this.showNotification(
         {
           autoDismiss: 6,

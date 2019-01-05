@@ -56,6 +56,7 @@ export class GoogleMaps extends MapProviderBase {
     this.google = null;
     this.travelMode = 'DRIVING';
     this.directionClass = null;
+    this.directionsUpdated = this.props.directionsUpdated;
 
     // augmentation to support mapping features
     this.state.markers.map((marker) => {
@@ -129,15 +130,16 @@ export class GoogleMaps extends MapProviderBase {
       destination: this.destination,
       travelMode: this.travelMode,
     };
-    this.directionsService.route(request, (result, status) => {
-      const element = window.document.querySelector(`.${this.directionClass}`);
+    this.directionsService.route(request, (function(result, status) {
       if (status === 'OK') {
+        this.directionsUpdated();
+        const element = window.document.querySelector(`.${this.directionClass}`);
         this.directionsDisplay.setDirections(result);
         this.directionsDisplay.setPanel(element);
       } else {
         console.error(`Error loading direction service. The error is: ${status}`);
       }
-    });
+    }).bind(this));
   }
 
   setAutocomplete() {

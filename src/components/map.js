@@ -23,6 +23,7 @@ export class Map extends Component {
     this.addressUpdated = this.addressUpdated.bind(this);
     this.travelModeSelected = this.travelModeSelected.bind(this);
     this.directionRefUpdated = this.directionRefUpdated.bind(this);
+    this.directionsUpdated = this.directionsUpdated.bind(this);
 
     PubSub.subscribe(topics.autoDetectionRequested, this.addressAutoDetectToggled);
     PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
@@ -61,6 +62,10 @@ export class Map extends Component {
       console.warn(`Unexpected subscription received. Expected: ${topics.geolocationAvailable}. Received: ${message}`);
     }
     PubSub.publish(topics.ThirdPartyProviderUserAddressUpdated, position);
+  }
+
+  directionsUpdated() {
+    PubSub.publish(topics.directionsUpdated, null);
   }
 
   loadFullMap(message, mapDetails) {
@@ -113,6 +118,7 @@ export class Map extends Component {
       <div>
         <GoogleMaps
           containerElement={<div style={{ height: '400px' }} />}
+          directionsUpdated={this.directionsUpdated}
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
           isMarkerShown
           loadingElement={<div style={{ height: '100%' }} />}
