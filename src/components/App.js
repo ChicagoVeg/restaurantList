@@ -12,9 +12,12 @@ class App extends Component {
   constructor() {
     super();
 
+    this.yelpData = null;
+
     // default values for displaying page prior to data load
     this.state = {
       detailsFile: 'details-chicago-il.json',
+      yelpData: 'yelp-data-chicago.json',
       header: {
         title: 'Vegetarian, Vegan and Raw Restaurants',
         brandLogoUrl: '',
@@ -41,15 +44,20 @@ class App extends Component {
    */
   componentDidMount() {
     const details = require(`./../data/${this.state.detailsFile}`);
+    this.yelpData = require(`./../data/${this.state.yelpData}`);
     this.setState(details);
   }
 
   componentDidUpdate() {
     const details = Object.assign({}, this.state);
-    PubSub.publish(topics.restaurantListAvailable, details.restaurants);
+    PubSub.publish(topics.restaurantListAvailable, { 
+      restaurants: details.restaurants,
+      yelpData: this.yelpData,
+    });
     PubSub.publish(topics.mapInitDetailsAvailable, {
       map: details.map,
       restaurants: details.restaurants,
+
     });
   }
 

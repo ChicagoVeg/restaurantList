@@ -34,7 +34,7 @@
             },
             "phone": "312.831.2729",
             "type": "Raw Vegan",
-            "yelpId": "chicago-raw-chicago"
+            "yelpAlias": "chicago-raw-chicago"
         },
         {
            "id": "3",
@@ -50,7 +50,7 @@
             },
             "phone": "773.404.1109",
             "type": "Vegan",
-            "yelpId": "urban-vegan-chicago-2"
+            "yelpAlias": "urban-vegan-chicago-2"
         },
         {
             "id": "5",
@@ -68,7 +68,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "Runnerup",
-            "yelpId": "the-chicago-diner-chicago-2"
+            "yelpAlias": "the-chicago-diner-chicago-2"
         },
         {
             "id": "8",
@@ -84,7 +84,7 @@
             },
             "phone": "773.772.9446",
             "type": "Vegetarian",
-            "yelpId": "ground-control-chicago"
+            "yelpAlias": "ground-control-chicago"
         },
         {
             "id": "10",
@@ -100,7 +100,7 @@
             },
             "phone": "630.922.5880",
             "type": "Vegetarian",
-            "yelpId": "chataka-masti-naperville"
+            "yelpAlias": "chataka-masti-naperville"
         },
         {
             "id": "11",
@@ -117,7 +117,7 @@
             "phone": "312.922.0077",
             "type": "Vegetarian",
             "closed": "true",
-            "yelpId": ""
+            "yelpAlias": ""
         },
         {
             "id": "12",
@@ -135,7 +135,7 @@
             "type": "Vegetarian",
             "sponsor": "Gold",
             "bestInTownAward": "",
-            "yelpId": "quesadilla-la-reyna-del-sur-chicago-2"
+            "yelpAlias": "quesadilla-la-reyna-del-sur-chicago-2"
         },
         {
             "id": "13",
@@ -151,7 +151,7 @@
             },
             "phone": "773.880.9155",
             "type": "Vegetarian",
-            "yelpId": "vegetarian-express-chicago"
+            "yelpAlias": "vegetarian-express-chicago"
         },
         {
             "id": "14",
@@ -168,7 +168,7 @@
             "phone": "773.665.0227",
             "type": "Vegetarian",
             "closed": true,
-            "yelpId": ""
+            "yelpAlias": ""
         },
         {
             "id": "15",
@@ -184,7 +184,7 @@
             },
             "phone": "773.774.0276",
             "type": "Vegan",
-            "yelpId": "amitabul-chicago-5"
+            "yelpAlias": "amitabul-chicago-5"
         },
         {
             "id": "16",
@@ -201,7 +201,7 @@
             "phone": "773.477.9840",
             "type": "Vegan",
             "closed": "true",
-            "yelpId": ""
+            "yelpAlias": ""
         },
         {
             "id": "19",
@@ -218,7 +218,7 @@
             "phone": "312.391.8654",
             "type": "Vegan",
             "sponsor": "",
-            "yelpId": "kitchen-17-chicago"
+            "yelpAlias": "kitchen-17-chicago"
         },
         {
             "id": "20",
@@ -234,7 +234,7 @@
             },
             "phone": "773.561.5399",
             "type": "Vegan",
-            "yelpId": "loving-heart-chicago"
+            "yelpAlias": "loving-heart-chicago"
         },
         {
             "id": "21",
@@ -251,7 +251,7 @@
             "phone": "773.275.8797",
             "type": "Vegan",
             "bestInTownAward": "Runnerup",
-            "yelpId": "alice-and-friends-vegan-kitchen-chicago-2"
+            "yelpAlias": "alice-and-friends-vegan-kitchen-chicago-2"
         },
         {
             "id": "22",
@@ -267,7 +267,7 @@
             },
             "phone": "773.342.6585",
             "type": "Vegan",
-            "yelpId": "marianos-fresh-market-chicago-12"
+            "yelpAlias": "marianos-fresh-market-chicago-12"
         },
         {
             "id": "23",
@@ -285,7 +285,7 @@
             "type": "Vegan",
             "sponsor": "Gold",
             "bestInTownAward": "",
-            "yelpId": "native-foods-cafe-chicago-2"
+            "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
             "id": "24",
@@ -303,7 +303,7 @@
             "type": "Vegan",
             "sponsor": "Gold",
             "bestInTownAward": "",
-            "yelpId": "native-foods-cafe-chicago-2"
+            "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
             "id": "25",
@@ -321,7 +321,7 @@
             "type": "Vegan",
             "sponsor": "Gold",
             "bestInTownAward": "",
-            "yelpId": "native-foods-cafe-chicago-2"
+            "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
             "id": "26",
@@ -339,7 +339,7 @@
             "type": "Vegan",
             "sponsor": "Gold",
             "bestInTownAward": "",
-            "yelpId": "native-foods-cafe-chicago-2"
+            "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
             "id": "27",
@@ -355,7 +355,7 @@
             },
             "phone": "773.224.0104",
             "type": "Vegan",
-            "yelpId": "soul-vegetarian-east-chicago"
+            "yelpAlias": "soul-vegetarian-east-chicago"
         },
         {
             "id": "29",
@@ -371,7 +371,7 @@
             },
             "phone": "312.666.7838",
             "type": "Vegan",
-            "yelpId": "uptons-breakroom-chicago"
+            "yelpAlias": "uptons-breakroom-chicago"
         },
         {
             "id": "30",
@@ -387,7 +387,7 @@
             },
             "phone": "773.472.8208",
             "type": "Vegan",
-            "yelpId": "vegan-plate-chicago"
+            "yelpAlias": "vegan-plate-chicago"
         },
         {
             "id": "32",
@@ -403,7 +403,7 @@
             },
             "phone": "773.256.1000",
             "type": "Raw Vegan",
-            "yelpId": "bgabs-goodies-chicago-2"
+            "yelpAlias": "bgabs-goodies-chicago-2"
         },
         {
             "id": "34",
@@ -419,7 +419,7 @@
             },
             "phone": "312.255.1590",
             "type": "Vegan",
-            "yelpId": "karyns-inner-beauty-center-chicago-2"
+            "yelpAlias": "karyns-inner-beauty-center-chicago-2"
         },
         {
             "id": "35",
@@ -435,7 +435,7 @@
             },
             "phone": "312.831.2729",
             "type": "Raw Vegan",
-            "yelpId": "chicago-raw-chicago-2"
+            "yelpAlias": "chicago-raw-chicago-2"
         },
         {
             "id": "36",
@@ -451,7 +451,7 @@
             },
             "phone": "773.764.1858",
             "type": "Vegetarian",
-            "yelpId": "annapurna-chicago"
+            "yelpAlias": "annapurna-chicago"
         },
         {
             "id": "37",
@@ -467,7 +467,7 @@
             },
             "phone": "773.274.5800",
             "type": "Vegan",
-            "yelpId": "arya-bhavan-chicago"
+            "yelpAlias": "arya-bhavan-chicago"
         },
         {
             "id": "39",
@@ -483,7 +483,7 @@
             },
             "phone": "773.338.8160",
             "type": "Vegetarian",
-            "yelpId": ""
+            "yelpAlias": ""
         },
         {
             "id": "40",
@@ -499,7 +499,7 @@
             },
             "phone": "773.338.5400",
             "type": "Vegetarian",
-            "yelpId": "sukhadias-chicago"
+            "yelpAlias": "sukhadias-chicago"
         },
         {
             "id": "41",
@@ -515,7 +515,7 @@
             },
             "phone": "773.338.2152",
             "type": "Vegetarian",
-            "yelpId": "udupi-palace-restaurant-chicago"
+            "yelpAlias": "udupi-palace-restaurant-chicago"
         },
         {
             "id": "42",
@@ -531,7 +531,7 @@
             },
             "phone": "773.262.5280",
             "type": "Vegetarian",
-            "yelpId": "uru-swati-chicago"
+            "yelpAlias": "uru-swati-chicago"
         },
         {
             "id": "43",
@@ -547,7 +547,7 @@
             },
             "phone": "708.848.4226",
             "type": "Vegetarian",
-            "yelpId": "munch-oak-park-2"
+            "yelpAlias": "munch-oak-park-2"
         },
         {
             "id": "44",
@@ -565,7 +565,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "Runnerup",
-            "yelpId": "the-chicago-diner-chicago"
+            "yelpAlias": "the-chicago-diner-chicago"
         },
         {
             "id": "45",
@@ -581,7 +581,7 @@
             },
             "phone": "847.328.6875",
             "type": "Vegetarian",
-            "yelpId": "blind-faith-cafe-evanston-3"
+            "yelpAlias": "blind-faith-cafe-evanston-3"
         },
         {
             "id": "48",
@@ -598,7 +598,7 @@
             "phone": "847.640.9554",
             "type": "Vegetarian",
             "closed": "true",
-            "yelpId": ""
+            "yelpAlias": ""
         },
         {
             "id": "49",
@@ -614,7 +614,7 @@
             },
             "phone": "815.338.2833",
             "type": "Vegetarian",
-            "yelpId": "expressly-leslie-vegetarian-specialties-woodstock"
+            "yelpAlias": "expressly-leslie-vegetarian-specialties-woodstock"
         },
         {
             "id": "50",
@@ -630,7 +630,7 @@
             },
             "phone": "630.655.1021",
             "type": "Vegetarian",
-            "yelpId": "shree-restaurant-westmont"
+            "yelpAlias": "shree-restaurant-westmont"
         },
         {
             "id": "51",
@@ -646,7 +646,7 @@
             },
             "phone": "815.838.4626",
             "type": "Raw Vegan",
-            "yelpId": "vegan-café-lockport"
+            "yelpAlias": "vegan-café-lockport"
         },
         {
             "id": "53",
@@ -662,7 +662,7 @@
             },
             "phone": "708.250.6334",
             "type": "Vegan",
-            "yelpId": "daisys-catering-cafe-phoenix"
+            "yelpAlias": "daisys-catering-cafe-phoenix"
         },
         {
             "id": "54",
@@ -678,7 +678,7 @@
             },
             "phone": "847.873.0942",
             "type": "Raw Vegan",
-            "yelpId": "pure-juice-café-arlington-heights-2"
+            "yelpAlias": "pure-juice-café-arlington-heights-2"
         },
         {
             "id": "55",
@@ -695,7 +695,7 @@
             "phone": "630.529.3344",
             "type": "Vegetarian",
             "closed":"true",
-            "yelpId": ""
+            "yelpAlias": ""
         },
         {
             "id": "57",
@@ -711,7 +711,7 @@
             },
             "phone": "847.678.8834",
             "type": "Vegetarian",
-            "yelpId": "maoz-rosemont"
+            "yelpAlias": "maoz-rosemont"
         },
     
         {
@@ -730,7 +730,7 @@
             "type": "Vegan",
             "sponsor": "Gold",
             "bestInTownAward": "",
-            "yelpId": "purple-sprout-cafe-wheeling-2"
+            "yelpAlias": "purple-sprout-cafe-wheeling-2"
         },
         {
             "id": "61",
@@ -749,7 +749,7 @@
             "sponsor": "",
             "bestInTownAward": "",
             "closed": "true",
-            "yelpId": ""
+            "yelpAlias": ""
         },
          {
             "id": "62",
@@ -767,7 +767,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "vegetarian-express-chicago-3"
+            "yelpAlias": "vegetarian-express-chicago-3"
         },
          {
             "id": "63",
@@ -785,7 +785,7 @@
             "type": "Vegan",
             "sponsor": "Gold",
             "bestInTownAward": "Top",
-            "yelpId": "kāl-ish-chicago"
+            "yelpAlias": "kāl-ish-chicago"
         },
          {
             "id": "64",
@@ -803,7 +803,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "vegan-now-chicago"
+            "yelpAlias": "vegan-now-chicago"
         },
          {
             "id": "66",
@@ -821,7 +821,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "hunters-brewing-chesterton"
+            "yelpAlias": "hunters-brewing-chesterton"
         }, 
          {
             "id": "67",
@@ -839,7 +839,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "majani-restaurant-chicago"
+            "yelpAlias": "majani-restaurant-chicago"
         }, 
         {
             "id": "68",
@@ -856,7 +856,7 @@
             "phone": "773.904.7937",
             "type": "Vegan",
             "sponsor": "",
-            "yelpId": "the-chicago-house-of-za-vegan-pizzeria-chicago"
+            "yelpAlias": "the-chicago-house-of-za-vegan-pizzeria-chicago"
         }, 
         {
             "id": "69",
@@ -874,7 +874,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "bot-bakery-chicago"
+            "yelpAlias": "bot-bakery-chicago"
         },
         {
             "id": "70",
@@ -892,7 +892,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "veggie-grill-chicago"
+            "yelpAlias": "veggie-grill-chicago"
         }, 
         {
             "id": "71",
@@ -910,7 +910,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "fresh-cafe-mundelein"
+            "yelpAlias": "fresh-cafe-mundelein"
         },
         {
             "id": "72",
@@ -928,7 +928,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "pine-food-company-barrington"
+            "yelpAlias": "pine-food-company-barrington"
         }, 
         {
             "id": "73",
@@ -947,7 +947,7 @@
             "sponsor": "",
             "bestInTownAward": "",
             "closed":"true",
-            "yelpId": ""
+            "yelpAlias": ""
         },
        {
             "id": "74",
@@ -965,7 +965,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "mingle-juice-bar-glenview"
+            "yelpAlias": "mingle-juice-bar-glenview"
         }, {
             "id": "75",
             "name": "Healthy Substance",
@@ -982,7 +982,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "healthy-substance-chicago"
+            "yelpAlias": "healthy-substance-chicago"
         }, {
             "id": "76",
             "name": "Veggie Grill - West Loop (Spring 2019)",
@@ -999,7 +999,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": ""
+            "yelpAlias": ""
         }, 
         {
             "id": "77",
@@ -1017,7 +1017,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "veggie-grill-chicago-3"      
+            "yelpAlias": "veggie-grill-chicago-3"      
         }, 
         {
             "id": "77",
@@ -1035,7 +1035,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": ""
+            "yelpAlias": ""
         },
         {
             "id": "78",
@@ -1053,7 +1053,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "shree-restaurant-naperville"
+            "yelpAlias": "shree-restaurant-naperville"
         },
         {
             "id": "79",
@@ -1071,7 +1071,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "the-joy-bar-glen-ellyn"
+            "yelpAlias": "the-joy-bar-glen-ellyn"
         }, {
             "id": "80",
             "name": "Honest - Naperville ",
@@ -1088,7 +1088,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "honest-naperville"
+            "yelpAlias": "honest-naperville"
         }, 
         {
             "id": "81",
@@ -1106,7 +1106,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "honest-schaumburg"
+            "yelpAlias": "honest-schaumburg"
         },
         {
             "id": "82",
@@ -1124,7 +1124,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "heritage-cafe-chicago"
+            "yelpAlias": "heritage-cafe-chicago"
         },
         {
             "id": "83",
@@ -1142,7 +1142,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpId": "no-bones-beach-club-chicago"
+            "yelpAlias": "no-bones-beach-club-chicago"
         }, 
         {
             "id": "84",
@@ -1158,7 +1158,7 @@
             },
             "phone": "847.884.9510",
             "type": "Vegetarian",
-            "yelpId": "udupi-palace-restaurant-schaumburg"
+            "yelpAlias": "udupi-palace-restaurant-schaumburg"
         }
     ]
 }

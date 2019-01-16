@@ -24,6 +24,9 @@ export class List extends Component {
     this.toogleDirection = this.toogleDirection.bind(this);
     this.travelModeSelected = this.travelModeSelected.bind(this);
     this.directionsUpdated = this.directionsUpdated.bind(this);
+    this.formatTransactions = this.formatTransactions.bind(this);
+    this.formatOpenHours = this.formatOpenHours.bind(this);
+    this.convertNumberStringToDay = this.convertNumberStringToDay.bind(this);
 
     this.geoCordinates = new GeoCoordinates();
     this.selectedRestaurant = null;
@@ -33,19 +36,27 @@ export class List extends Component {
     PubSub.subscribe(topics.directionsUpdated, this.directionsUpdated);
   }
 
-  initialize(message, restaurants) {
+  initialize(message, restaurantsData) {
     if (message !== topics.restaurantListAvailable) {
         console.warn('List update may be miswired');
     }
 
-    // augment
-    restaurants.map(restaurant => {
-      restaurant.distance = null;
-      restaurant.icon = conversion.getIconDetails(restaurant.type);
-      restaurant.visible = true;
-      restaurant.showDirection = false;
+    // see: https://www.yelp.com/developers/documentation/v3/business
+    const yelpData = restaurantsData.yelpData;
 
-      return restaurant;
+    // augment
+    let restaurants = restaurantsData.restaurants
+      .filter(restaurant => {
+          return restaurant.closed !== 'true';
+      })
+      .map(restaurant => {
+        restaurant.distance = null;
+        restaurant.icon = conversion.getIconDetails(restaurant.type);
+        restaurant.visible = true;
+        restaurant.showDirection = false;
+        restaurant.yelpData = yelpData[restaurant.yelpAlias] || {};
+
+        return restaurant;
     });
 
     this.setState({'restaurants': restaurants});    
@@ -180,11 +191,77 @@ export class List extends Component {
     });
  }
 
+  formatTransactions(transactions) {
+    if (!transactions) {
+      return '';
+    }
+
+    transactions = transactions.sort()
+    transactions = transactions.join(', ').replace('_', ' ');
+    transactions = transactions.charAt(0).toUpperCase() + transactions.slice(1);  
+    transactions = transactions.replace(/,\s*([a-z])/g, function(d,e) { return ", "+e.toUpperCase() });
+
+    return transactions;
+  }
+
+  convertNumberStringToDay(day) {
+    switch(day) {
+      case 0: 
+        day = 'Mon';
+        break;
+      case 1:
+        day = 'Tue';
+        break;
+      case 2:
+        day = 'Wed';
+        break;
+      case 3:
+        day = 'Thu';
+        break;
+      case 4:
+        day = 'Fri';
+        break;
+      case 5:
+        day = 'Sat';
+        break;
+      case 6:
+        day = 'Sun';
+        break;
+      default:
+        day = '';
+        console.warn(`Received an unexpected day. The value is: ${day}`);  
+    }
+    return day;
+  }
+
+  formatOpenHours(openHours) {
+    if (!openHours || openHours.length === 0) {
+      return;
+    }
+
+    let hours= [];
+
+    openHours.forEach(h => {
+      hours.push(this.convertNumberStringToDay(h.day));
+      hours.push(': ')
+      hours.push(h.start);
+      hours.push(' - ');
+      hours.push(h.end);
+      hours.push(', ') 
+    });
+
+    return hours.join('').trimEnd(',');
+  }
+
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
         const getColorClass = conversion.getColorClass(restaurant.type);
-        const restaurantDistanceDisplay = !!restaurant.distance; 
+        const restaurantDistanceDisplay =  true; //!!restaurant.distance; 
         let choiceAward = '';
+        const yelpData = restaurant.yelpData || {};
+        const restaurant_image = yelpData ? restaurant.yelpData.image_url : "";
+        const transactions = this.formatTransactions(yelpData.transactions);
+        const openHours = this.formatOpenHours(Object.keys(yelpData).length === 0 ? '' : yelpData.hours[0].open);
         
         if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'top') {
           choiceAward = 'fa fa-trophy fa-lg choice-award-top';
@@ -198,22 +275,43 @@ export class List extends Component {
             className="list-group-item list-item" 
             key={index}
           > 
-          <div className="rounded-corner">
-            <label>
-              <input 
-                onChange={this.restaurantSelected}
-                name="restaurant-selected"  
-                type="radio" 
-                value={index}  
-              /> 
-              <span>{restaurant.name}</span>
-              {' '}
-              <span className={getColorClass}>{restaurant.icon.code}</span>
-              {' '}
-              {restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>}
-              {<i className={choiceAward}></i>}
-            </label>
-            <div>
+          <div className="container rounded-corner">
+            <div className="row">
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-7">
+                    <label>
+                    <input 
+                      onChange={this.restaurantSelected}
+                      name="restaurant-selected"  
+                      type="radio" 
+                      value={index}  
+                    /> 
+                    {' '}
+                    <span className="restaurant-name">{restaurant.name}</span>
+                    {'   '}
+                    <span className={getColorClass}>{restaurant.icon.code}</span>
+                    {' '}
+                    {<i className={choiceAward}></i>} <br />
+                    <span className="restaurant-number">{restaurant.phone}</span> <br />
+                    {restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>} <br />
+                    {openHours} <br />
+                    <span>Transactions: {transactions}</span>
+
+                  </label>
+                  </div>
+                  <div className="col-md-5">
+                    <img 
+                      alt="restaurant" 
+                      className="restaurant-image"
+                      src={restaurant_image}height="280" 
+                      width="200" />
+                  </div> 
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div>
                 <div style={{display: restaurant.showDirection ? 'block' : 'none' }}>                
                   <button className="accordion"  onClick={this.toogleDirection}>Direction</button>
                   <div className="panel">
@@ -262,6 +360,7 @@ export class List extends Component {
                     <div className={`js-direction-${index}`}></div>
                   </div>
                 </div>  
+            </div>
             </div>
           </div>
         </li>)
