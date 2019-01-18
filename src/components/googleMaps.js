@@ -29,6 +29,7 @@ export class GoogleMaps extends MapProviderBase {
     this.filterRestaurants = this.filterRestaurants.bind(this);
     this.setAutocomplete = this.setAutocomplete.bind(this);
 
+    // TODO: move these to map.js
     PubSub.subscribe(topics.ThirdPartyProviderReceiveSelectedRestaurant, this.restaurantSelected);
     PubSub.subscribe(topics.ThirdPartyProviderUserAddressUpdated, this.updateUserAddress);
     PubSub.subscribe(topics.ThirdPartyProviderMapInitDetailsAvailable, this.loadFullMap);
@@ -57,6 +58,7 @@ export class GoogleMaps extends MapProviderBase {
     this.travelMode = 'DRIVING';
     this.directionClass = null;
     this.directionsUpdated = this.props.directionsUpdated;
+    this.noAddress = this.props.noAddress;
 
     // augmentation to support mapping features
     this.state.markers.map((marker) => {
@@ -122,6 +124,10 @@ export class GoogleMaps extends MapProviderBase {
   setDirectionsOnMap() {
     if (!this.origin || !this.destination) {
       console.warn(`Both origin and destination must not be falsy. Origin is: ${this.origin}. Destination is: ${this.destination}`);
+      
+      if (!this.origin) {
+        this.noAddress();
+      }
       return;
     }
 

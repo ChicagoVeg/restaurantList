@@ -9,6 +9,8 @@ export default {
     'travelModeSelected': 'travelModeSelected',
     'directionRefUpdated': 'directionRefUpdated',
     'directionsUpdated': 'directionsUpdated',    
+    'warningNotification': 'warningNotification',
+    'infoNotification': 'infoNotification',
     'ThirdPartyProviderReceiveSelectedRestaurant': 'ThirdPartyProviderReceiveSelectedRestaurant',
     'ThirdPartyProviderUserAddressUpdated': 'ThirdPartyProviderUserAddressUpdated',
     'ThirdPartyProviderMapInitDetailsAvailable': 'ThirdPartyProviderMapInitDetailsAvailable',

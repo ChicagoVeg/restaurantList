@@ -12,3 +12,8 @@
     border: 1px solid $border-color;
     padding: 15px;
 }
+
+.vertically-align-center {
+    align-items:center;
+    display:flex;
+}

@@ -1,3 +1,6 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 .brand {
     height: 50;
     width: 100px;
@@ -5,9 +8,4 @@
 
 .title {
     font-weight: bolder;
-}
-
-.vertically-align-center {
-    align-items:center;
-    display:flex;
 }

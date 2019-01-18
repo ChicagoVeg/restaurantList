@@ -24,6 +24,7 @@ export class Map extends Component {
     this.travelModeSelected = this.travelModeSelected.bind(this);
     this.directionRefUpdated = this.directionRefUpdated.bind(this);
     this.directionsUpdated = this.directionsUpdated.bind(this);
+    this.noAddress = this.noAddress.bind(this);
 
     PubSub.subscribe(topics.autoDetectionRequested, this.addressAutoDetectToggled);
     PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
@@ -55,6 +56,11 @@ export class Map extends Component {
       console.warn(`Restaurant type recieved in unexpected subscription broadcast. The broadcast is: ${message}.`);
     }
     PubSub.publish(topics.ThirdPartyProviderFilterRestaurantType, type);
+  }
+
+  noAddress() {
+    const warning = 'Address needed. Auto detect it or select one from the address box'; 
+    PubSub.publish(topics.warningNotification, warning);
   }
 
   addressUpdated(message, position) {
@@ -122,6 +128,7 @@ export class Map extends Component {
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
           isMarkerShown
           loadingElement={<div style={{ height: '100%' }} />}
+          noAddress={this.noAddress}
           mapElement={<div style={{ height: '100%' }} />}
           markers={this.state.markers}
           map={this.state.map}

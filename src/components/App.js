@@ -7,12 +7,14 @@ import List from './list';
 import Map from './map';
 import Search from './search';
 import topics from '../services/topics';
+import NotificationSystem from 'react-notification-system';
 
 class App extends Component {
   constructor() {
     super();
 
     this.yelpData = null;
+    this.notification = React.createRef();
 
     // default values for displaying page prior to data load
     this.state = {
@@ -34,6 +36,12 @@ class App extends Component {
       map: {},
       restaurants: [],
     };
+
+    this.infoNotification = this.infoNotification.bind();
+    this.warningNotification = this.warningNotification.bind(this);
+    this.notificationModal = this.notificationModal.bind(this);
+
+    PubSub.subscribe(topics.warningNotification, this.warningNotification);
   }
 
   /**
@@ -61,10 +69,44 @@ class App extends Component {
     });
   }
 
+  infoNotification(message, info) {
+    if (message !== topics.infoNotification) {
+      console.warn(`Unexpected subscription received. Expected: ${topics.infoNotification}. Received: ${message}`);
+    }
+
+    this.notificationModal({
+      autoDismiss: 2,
+      level: 'info',
+      message: info,
+      position: 'tc',
+    }); 
+  }
+
+  warningNotification(message, warning) {
+    if (message !== topics.warningNotification) {
+      console.warn(`Unexpected subscription received. Expected: ${topics.warningNotification}. Received: ${message}`);
+    }
+
+    this.notificationModal({
+      autoDismiss: 6,
+      level: 'warning',
+      message: warning,
+      position: 'tc',
+    }); 
+  }
+
+  notificationModal(options) {
+    const notification = this.notification.current;
+    notification.addNotification(options); 
+  }
+
   render() {
     return (
       <div className="App">
         <section>
+          <article>
+          <NotificationSystem ref={this.notification} />
+          </article>
           <article>
             <header>
               <nav className="navbar navbar-default navbar-fixed-top">

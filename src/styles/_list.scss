@@ -3,6 +3,11 @@
     font-weight: bold;
 }
 
+.active-sortBy {
+    font-weight: bold;
+    text-decoration: underline !important;
+}
+
 .vegan-token {
     color: $vegan-color; 
     font-weight: bold; 
@@ -48,6 +53,15 @@
 
 .icon-shift-bicyle {
     margin-left: -15px;
+}
+
+.restaurant-list {
+    height: 1400px;
+    overflow: scroll;
+}
+
+.yelp-data-list {
+    font-size: smaller;
 }
 
 .restaurant-name {

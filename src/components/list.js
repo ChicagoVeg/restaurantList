@@ -114,7 +114,10 @@ export class List extends Component {
     this.setState({
       'restaurants': this.sortBy(key, restaurants)
     });
-  
+
+    this.setState({
+      'sortBy': key
+    }); 
   }
 
   sortBy(key, restaurants) {
@@ -295,7 +298,7 @@ export class List extends Component {
                     {<i className={choiceAward}></i>}        
                     <span className="restaurant-phone">{restaurant.phone}</span>
                     <div>{restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>} away </div>
-                    <div className="container-fluid">
+                    <div className="container-fluid yelp-data-list">
                       <div className="row vertically-align-center">
                         <div className="col-md-4"><span className="font-weight-bold">Rating: </span> </div>
                         <div className="col-md-8"> {yelpData.rating}/5 ({yelpData.review_count} reviews) </div>
@@ -318,8 +321,8 @@ export class List extends Component {
                     <img 
                       alt="restaurant" 
                       className="restaurant-image"
-                      src={restaurant_image}height="280" 
-                      width="200" />
+                      src={restaurant_image}height="250" 
+                      width="210" />
                   </div> 
                 </div>
               </div>
@@ -427,7 +430,7 @@ export class List extends Component {
         </div>
         <div className="pull-right">
           <input 
-            className="button-link"
+            className={`button-link ${this.state.sortBy === 'name' ? 'active-sortBy' : ''}`}
             name="name"
             onClick={this.sort} 
             type="button" 
@@ -435,7 +438,7 @@ export class List extends Component {
           />
           <span> | </span> 
           <input 
-            className="button-link"
+            className={`button-link ${this.state.sortBy === 'distance' ? 'active-sortBy' : ''}`}
             name="distance" 
             onClick={this.sort}
             type="button" 
@@ -443,7 +446,7 @@ export class List extends Component {
           />
         </div>
         <br />
-        <ul className="list-group">
+        <ul className="list-group restaurant-list">
             {restaurants}
         </ul>
       </div>

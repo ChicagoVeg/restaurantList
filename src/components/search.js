@@ -4,6 +4,7 @@ import NotificationSystem from 'react-notification-system';
 import { GeoCoordinates } from '../services/geoCoordinates';
 import topics from '../services/topics';
 
+//TODO: (1) Move notification to App.js. It is a sys concern
 export class Search extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,6 @@ export class Search extends Component {
 
     this.geoCoordinates = new GeoCoordinates();
 
-    this.showNotification = this.showNotification.bind(this);
     this.canGeolocate = this.canGeolocate.bind(this);
     this.geolocate = this.geolocate.bind(this);
     this.performSearch = this.performSearch.bind(this);
@@ -26,11 +26,6 @@ export class Search extends Component {
     this.mapInitDetailsAvailable = this.mapInitDetailsAvailable.bind(this);
 
     PubSub.subscribe(topics.mapInitDetailsAvailable, this.mapInitDetailsAvailable);
-  }
-
-  showNotification(options) {
-    const notification = this.geolocationUnsupportedSystem.current;
-    notification.addNotification(options);
   }
 
   canGeolocate() {
@@ -43,12 +38,7 @@ export class Search extends Component {
     geolocation.getCurrentPosition(
       (position) => {
         console.log(`Geolocation allowed with position: ${position}`);
-        this.showNotification({
-          autoDismiss: 2,
-          level: 'info',
-          message: 'Address automatically detected',
-          position: 'tc',
-        });
+        PubSub.publish(topics.infoNotification, 'Address automatically detected');
         PubSub.publish(topics.geolocationAvailable, position);
       },
       (error) => {
@@ -72,12 +62,8 @@ export class Search extends Component {
             message = 'Cannot determine position.';
             console.error(`The code has a geolocation constant that it not to. There may be a hidden bug. The code is ${error.code}`);
         }
-        this.showNotification({
-          autoDismiss: 6,
-          level: 'warning',
-          message: `${message} Please, manually add address`,
-          position: 'tc',
-        });
+        const warning = `${message} Please, manually add address`;
+        PubSub.publish(topics.warningNotification, warning);
       },
     );
   }
@@ -136,14 +122,8 @@ export class Search extends Component {
     if (canGeolocate) {
       this.geolocate();
     } else {
-      this.showNotification(
-        {
-          autoDismiss: 6,
-          level: 'warning',
-          message: 'Geolocation is not supported by your browser',
-          position: 'tc',
-        },
-      );
+      const warning = 'Geolocation is not supported by your browser';
+      PubSub.publish(topics.warningNotification, warning);
     }
   }
 
