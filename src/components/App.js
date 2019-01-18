@@ -8,6 +8,7 @@ import Map from './map';
 import Search from './search';
 import topics from '../services/topics';
 import NotificationSystem from 'react-notification-system';
+import 'font-awesome/css/font-awesome.min.css';
 
 class App extends Component {
   constructor() {

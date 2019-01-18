@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PubSub from 'pubsub-js';
 import conversion from '../services/conversion';
 import './../styles/main.scss';
-import 'font-awesome/css/font-awesome.min.css';
 import GeoCoordinates from './../services/geoCoordinates';
 import topics from '../services/topics';
 import 'material-design-icons/iconfont/material-icons.css';
@@ -258,6 +257,9 @@ export class List extends Component {
 
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
+        if (restaurant.closed && restaurant.closed === true) {
+          return;
+        }
         const getColorClass = conversion.getColorClass(restaurant.type);
         const restaurantDistanceDisplay =  true; //!!restaurant.distance; 
         let choiceAward = '';
@@ -336,10 +338,11 @@ export class List extends Component {
                   <li className="list-inline-item">
                  <label> 
                    <input 
-                     name="direction-type"
-                     onClick={this.travelModeSelected} 
-                     type="radio" 
-                     value="DRIVING"
+                    defaultChecked
+                    name="direction-type"
+                    onClick={this.travelModeSelected} 
+                    type="radio" 
+                    value="DRIVING"
                    /> <i className="icon-shift-driving material-icons">directions_car</i>
                  </label>
                </li>

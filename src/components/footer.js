@@ -34,7 +34,7 @@ const Footer = (props) => {
                           })}
                         type="button"
                       >
-                        <img alt="post-to-facebook" src={require('./../images/facebook.png')} />
+                      <i className="fa fa-facebook-square social-media"></i>
                       </button>
                   </li>
                 <li className="list-inline-item">
@@ -49,16 +49,17 @@ const Footer = (props) => {
                           })}
                         type="button"
                       >
-                        <img alt="post-to-twitter" src={require('./../images/twitter.png')} />
+                      <i className="fa fa-instagram social-media"></i>
                       </button>
                   </li>
                 <li className="list-inline-item">
                     <a
+                        className="social-media-link"
                         href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <img alt="email-others-about-veg-restaurants" src={require('./../images/email.png')} />
+                      <i className="fa fa-envelope-square social-media"></i>
                       </a>
                   </li>
               </ul>
