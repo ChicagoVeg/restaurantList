@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/ChicagoVeg/restaurantList.svg?branch=master)](https://travis-ci.org/ChicagoVeg/restaurantList)
 
 
+This version of the app is scheduled to be retired and uses old JavaScript ideas. Look out for a newer version. 
+
 This is the source code for the ChicagoVeg Group restaurant application. 
 
 
