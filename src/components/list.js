@@ -292,12 +292,26 @@ export class List extends Component {
                     {'   '}
                     <span className={getColorClass}>{restaurant.icon.code}</span>
                     {' '}
-                    {<i className={choiceAward}></i>} <br />
-                    <span className="restaurant-number">{restaurant.phone}</span> <br />
-                    {restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>} <br />
-                    {openHours} <br />
-                    <span>Transactions: {transactions}</span>
-
+                    {<i className={choiceAward}></i>}        
+                    <span className="restaurant-phone">{restaurant.phone}</span>
+                    <div>{restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>} away </div>
+                    <div className="container-fluid">
+                      <div className="row vertically-align-center">
+                        <div className="col-md-4"><span className="font-weight-bold">Rating: </span> </div>
+                        <div className="col-md-8"> {yelpData.rating}/5 ({yelpData.review_count} reviews) </div>
+                        <br /><br />
+                      </div>
+                      <div className="row vertically-align-center">
+                        <div className="col-md-4"><span className="font-weight-bold">Hours: </span></div>
+                        <div className="col-md-8"> {openHours} </div>
+                        <br / ><br />
+                      </div>
+                      <div className="row vertically-align-center">
+                        <div className="col-md-4"><span className="font-weight-bold">Service Options:</span> </div>
+                        <div className="col-md-8"><span className="">{transactions}</span> </div>
+                        <br /><br />
+                      </div>
+                    </div>
                   </label>
                   </div>
                   <div className="col-md-5">
