@@ -268,6 +268,7 @@ export class List extends Component {
         const transactions = this.formatTransactions(yelpData.transactions);
         const openHours = this.formatOpenHours(Object.keys(yelpData).length === 0 ? '' : yelpData.hours[0].open);
         const phoneNumber = restaurant.phone.replace(/\./, '-');
+        const address = `${restaurant.address.address}, ${restaurant.address.city}, ${restaurant.address.state} ${restaurant.address.zip}`;
 
         if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'top') {
           choiceAward = 'fa fa-trophy fa-lg choice-award-top';
@@ -285,7 +286,7 @@ export class List extends Component {
             <div className="row">
               <div className="container-fluid">
                 <div className="row">
-                  <div className="col-md-7">
+                  <div className="col-md-8">
                     <label>
                     <input 
                       onChange={this.restaurantSelected}
@@ -310,39 +311,45 @@ export class List extends Component {
                       </span>
                     </div>
                     <div>{restaurantDistanceDisplay && <span className="restaurant-distance">{restaurant.distance} miles away</span>}  </div>
+                    <br />
                     <div className="container-fluid yelp-data-list">
+                      <div className="row vertically-align-center yelp-data-item">
+                        <div className="col-md-3"><span className="font-weight-bold">Address: </span> </div>
+                        <div className="col-md-9"> {address} </div>
+                        <br />
+                      </div>
                       <div className="row vertically-align-center yelp-data-item">
                         <div className="col-md-3"><span className="font-weight-bold">Rating: </span> </div>
                         <div className="col-md-9"> {yelpData.rating}/5 ({yelpData.review_count} reviews) </div>
-                        <br /><br />
+                        <br />
                       </div>
                       <div className="row vertically-align-center yelp-data-item">
                         <div className="col-md-3"><span className="font-weight-bold">Hours: </span></div>
                         <div className="col-md-9"> {openHours} </div>
-                        <br / ><br />
+                        <br / >
                       </div>
                       <div className="row vertically-align-center yelp-data-item">
-                        <div className="col-md-3"><span className="font-weight-bold">Service Options:</span> </div>
+                        <div className="col-md-3"><span className="font-weight-bold">Options:</span> </div>
                         <div className="col-md-9"><span className="">{transactions}</span> </div>
-                        <br /><br />
+                        <br />
                       </div>
                     </div>
                   </label>
                   </div>
-                  <div className="col-md-5">
+                  <div className="col-md-4">
                     <img 
                       alt="restaurant" 
                       className="restaurant-image"
-                      src={restaurant_image}height="180" 
-                      width="160" />
+                      src={restaurant_image}height="160" 
+                      width="180" />
                   </div> 
                 </div>
               </div>
             </div>
-            <div className="row">
+            <div className="row mx-auto">
               <div>
                 <div style={{display: restaurant.showDirection ? 'block' : 'none' }}>                
-                  <button className="accordion"  onClick={this.toogleDirection}>Direction</button>
+                  <button className="accordion"  onClick={this.toogleDirection}>Directions</button>
                   <div className="panel">
                   <ul className="list-inline">
                   <li className="list-inline-item">
@@ -458,6 +465,10 @@ export class List extends Component {
             value="Distance" 
           />
         </div>
+        <br />
+        <p className="pull-left font-italic restaurants-note">
+          For directions, click on a restaurant
+        </p>
         <br />
         <ul className="list-group restaurant-list">
             {restaurants}

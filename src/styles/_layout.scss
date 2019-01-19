@@ -22,14 +22,14 @@
     float: right;
     font-weight: bold;
     font-size: 50px;
-    line-height: 0 !important;
+    line-height: 20px !important;
     margin-left: 5px;
   }
   
   .active:after {
     content: "\2212";
     font-size: 50px;
-    line-height: 0 !important;
+    line-height: 20px !important;
   }
   
   .panel {
