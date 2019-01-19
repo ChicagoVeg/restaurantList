@@ -467,13 +467,18 @@ export class List extends Component {
           />
         </div>
         <br />
-        <p className="pull-left font-italic restaurants-note">
+         <div>
+          <div className="restaurant-count mx-auto">
+            Restaurants need you: {this.state.restaurants.length}
+          </div>
+          <p className="pull-left font-italic restaurants-note">
           For directions, click on a restaurant
         </p>
         <br />
-        <ul className="list-group restaurant-list mx-auto">
-            {restaurants}
-        </ul>
+          <ul className="list-group restaurant-list mx-auto">
+              {restaurants}
+          </ul>
+        </div>
       </div>
     )
   }

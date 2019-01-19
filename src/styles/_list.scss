@@ -98,7 +98,6 @@ $restaurant-font-size: 0.8em;
     }
 }
 
-
 .yelp-data-item {
     div {
         padding-left: 2px;
@@ -126,6 +125,11 @@ $restaurant-font-size: 0.8em;
 
 .restaurant-image {
     border-radius: $border-radius;
+    padding-right: 10px;
+}
+
+.restaurant-count {
+    width: 200px;    
 }
 
 /* Phone-size screens */
