@@ -78,10 +78,20 @@ $restaurant-font-size: 0.8em;
 
 .restaurant-item {
     line-height: 15px;
+
+    .accordion {
+        border-radius: $border-radius;
+    }
 }
 
 .yelp-data-list {
     font-size: smaller;
+}
+
+.yelp-data-item {
+    div {
+        padding-left: 2px;
+    }
 }
 
 .restaurant-name {

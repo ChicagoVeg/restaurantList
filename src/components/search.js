@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
-import NotificationSystem from 'react-notification-system';
 import { GeoCoordinates } from '../services/geoCoordinates';
 import topics from '../services/topics';
 
@@ -136,7 +135,7 @@ export class Search extends Component {
 
   render() {
     return (
-        <div class="search-area">
+        <div className="search-area">
           <div className="input-group mb-4">
             <div className="input-group-prepend">
             { this.state.canGeolocate && <span

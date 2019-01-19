@@ -135,12 +135,14 @@ export class GoogleMaps extends MapProviderBase {
       if (status !== this.google.maps.GeocoderStatus.OK) {
         console.error(`Geocode getting address from latitude and longitude returned with an error: ${this.google.maps.GeocoderStatus}`);
         return;
-      } else if (!results[1]) {
+      } else if (!results || !results[1]) {
         console.error('No result found');
         return;
-      } else {
-        this.obtainedAddressFromLatAndLng(results[1]);
-      }     
+      } 
+      
+      const addressComponents = results[1];
+      this.origin = addressComponents.formatted_address;
+      this.obtainedAddressFromLatAndLng(addressComponents);     
     }).bind(this));
   }
 

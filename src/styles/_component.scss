@@ -8,9 +8,9 @@
 }
 
 .rounded-corner {
-    border-radius: 25px;
+    border-radius: $border-radius;
     border: 1px solid $border-color;
-    padding: 15px;
+    padding: 10px;
 }
 
 .vertically-align-center {

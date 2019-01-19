@@ -123,9 +123,9 @@ class App extends Component {
                   </a>
                 </div>
                 <div className="mx-auto page-title">
-                  <h2>
+                  <h1>
                     {this.state.header.title}
-                  </h2>
+                  </h1>
                 </div>
               </nav>
             </header>

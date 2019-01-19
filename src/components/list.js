@@ -258,8 +258,8 @@ export class List extends Component {
   render() {
     const restaurants = this.state.restaurants.map((restaurant, index) => { 
         if (restaurant.closed && restaurant.closed === true) {
-          return;
-        }
+          return null;
+        } 
         const getColorClass = conversion.getColorClass(restaurant.type);
         const restaurantDistanceDisplay =  !!restaurant.distance; 
         let choiceAward = '';
@@ -267,7 +267,8 @@ export class List extends Component {
         const restaurant_image = yelpData ? restaurant.yelpData.image_url : "";
         const transactions = this.formatTransactions(yelpData.transactions);
         const openHours = this.formatOpenHours(Object.keys(yelpData).length === 0 ? '' : yelpData.hours[0].open);
-        
+        const phoneNumber = restaurant.phone.replace(/\./, '-');
+
         if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'top') {
           choiceAward = 'fa fa-trophy fa-lg choice-award-top';
         } else if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'runnerup') {
@@ -293,29 +294,36 @@ export class List extends Component {
                       value={index}  
                     /> 
                     {' '}
-                    <span className="restaurant-name">{restaurant.name}</span>
+                    <a 
+                      href={restaurant.url}
+                      target="_blank"
+                    >
+                      <span className="restaurant-name">{restaurant.name}</span>
+                    </a>
                     {'   '}
                     <span className={getColorClass}>{restaurant.icon.code}</span>
                     {' '}
                     {<i className={choiceAward}></i>}  
                     <div>      
-                      <span className="restaurant-phone">{restaurant.phone}</span>
+                      <span className="restaurant-phone">
+                      <a href="tel:{phoneNumber}">{phoneNumber}</a>
+                      </span>
                     </div>
                     <div>{restaurantDistanceDisplay && <span className="restaurant-distance">{restaurant.distance} miles away</span>}  </div>
                     <div className="container-fluid yelp-data-list">
-                      <div className="row vertically-align-center">
-                        <div className="col-md-4"><span className="font-weight-bold">Rating: </span> </div>
-                        <div className="col-md-8"> {yelpData.rating}/5 ({yelpData.review_count} reviews) </div>
+                      <div className="row vertically-align-center yelp-data-item">
+                        <div className="col-md-3"><span className="font-weight-bold">Rating: </span> </div>
+                        <div className="col-md-9"> {yelpData.rating}/5 ({yelpData.review_count} reviews) </div>
                         <br /><br />
                       </div>
-                      <div className="row vertically-align-center">
-                        <div className="col-md-4"><span className="font-weight-bold">Hours: </span></div>
-                        <div className="col-md-8"> {openHours} </div>
+                      <div className="row vertically-align-center yelp-data-item">
+                        <div className="col-md-3"><span className="font-weight-bold">Hours: </span></div>
+                        <div className="col-md-9"> {openHours} </div>
                         <br / ><br />
                       </div>
-                      <div className="row vertically-align-center">
-                        <div className="col-md-4"><span className="font-weight-bold">Service Options:</span> </div>
-                        <div className="col-md-8"><span className="">{transactions}</span> </div>
+                      <div className="row vertically-align-center yelp-data-item">
+                        <div className="col-md-3"><span className="font-weight-bold">Service Options:</span> </div>
+                        <div className="col-md-9"><span className="">{transactions}</span> </div>
                         <br /><br />
                       </div>
                     </div>
