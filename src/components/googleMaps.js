@@ -285,7 +285,7 @@ export class GoogleMaps extends MapProviderBase {
   render() {
     return (
       <div 
-        className="map mx-auto" 
+        className="map mx-auto rounded-corner" 
         id="js-google-map-placeholder"
       />
     );

@@ -337,7 +337,7 @@ export class List extends Component {
                     </div>
                   </label>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-md-4 restaurant-image-region">
                     <img 
                       alt="restaurant" 
                       className="restaurant-image"
@@ -473,7 +473,7 @@ export class List extends Component {
           </div>
           <div className="restaurant-list mx-auto">
             <p className="pull-left font-italic restaurants-note">
-              For directions, click on a restaurant
+              For directions, click on a restaurant radio button
             </p>
             <br />
             <ul className="list-group">

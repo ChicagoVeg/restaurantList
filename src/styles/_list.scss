@@ -83,6 +83,7 @@ $restaurant-font-size: 0.8em;
 
 .restaurant-item {
     line-height: 15px;
+    padding: 18px;
 
     .accordion {
         border-radius: $border-radius;
@@ -126,6 +127,10 @@ $restaurant-font-size: 0.8em;
 .restaurant-image {
     border-radius: $border-radius;
     padding-right: 10px;
+}
+
+.restaurant-image-region {
+    margin-left:-5px;
 }
 
 .restaurant-count {

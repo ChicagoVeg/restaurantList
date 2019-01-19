@@ -1,10 +1,11 @@
 .button-link {
     background:none!important;
     border:none; 
-    color:inherit;
+    border-color: white;
     cursor: pointer;
     padding:0!important;
-    text-decoration: none !important;   
+    text-decoration: none !important; 
+    outline: none;  
 }
 
 .rounded-corner {
