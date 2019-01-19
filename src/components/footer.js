@@ -22,6 +22,15 @@ const Footer = (props) => {
       <div className="text-center">
         <div>
           <ul className="list-inline">
+            <li className="list-inline-item">
+              <a 
+              className="social-media-link"
+              href="https://www.meetup.com/ChicagoVeg/"
+              rel="noopener noreferrer"
+              target="_blank">
+                <i className="fa fa-meetup social-media"></i>
+              </a>
+            </li>
                 <li className="list-inline-item">
                     <button
                         className="button-link"

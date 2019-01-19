@@ -1,3 +1,6 @@
+.search-area{
+  margin-top: 25px;
+}
 
 .auto-detect-icon {
   font-size: $search-box-size !important;
@@ -5,6 +8,7 @@
 }
 
 .search-box {
+  font-weight: bold;
   padding: 25px 10px;
 }
 

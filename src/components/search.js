@@ -9,7 +9,6 @@ export class Search extends Component {
   constructor(props) {
     super(props);
 
-    this.geolocationUnsupportedSystem = React.createRef();
     this.searchBox = React.createRef();
 
     this.state = {
@@ -137,11 +136,7 @@ export class Search extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <NotificationSystem ref={this.geolocationUnsupportedSystem} />
-        </div>
-        <div>
+        <div class="search-area">
           <div className="input-group mb-4">
             <div className="input-group-prepend">
             { this.state.canGeolocate && <span
@@ -175,7 +170,6 @@ export class Search extends Component {
             />
           </div>
         </div>
-      </div>
     );
   }
 }

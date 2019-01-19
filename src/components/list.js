@@ -280,9 +280,9 @@ export class List extends Component {
             className="list-group-item list-item" 
             key={index}
           > 
-          <div className="container rounded-corner">
+          <div className="container rounded-corner restaurant-item">
             <div className="row">
-              <div className="container">
+              <div className="container-fluid">
                 <div className="row">
                   <div className="col-md-7">
                     <label>
@@ -301,7 +301,7 @@ export class List extends Component {
                     <div>      
                       <span className="restaurant-phone">{restaurant.phone}</span>
                     </div>
-                    <div>{restaurantDistanceDisplay && <span>{restaurant.distance} miles away</span>}  </div>
+                    <div>{restaurantDistanceDisplay && <span className="restaurant-distance">{restaurant.distance} miles away</span>}  </div>
                     <div className="container-fluid yelp-data-list">
                       <div className="row vertically-align-center">
                         <div className="col-md-4"><span className="font-weight-bold">Rating: </span> </div>
@@ -325,8 +325,8 @@ export class List extends Component {
                     <img 
                       alt="restaurant" 
                       className="restaurant-image"
-                      src={restaurant_image}height="250" 
-                      width="210" />
+                      src={restaurant_image}height="180" 
+                      width="160" />
                   </div> 
                 </div>
               </div>

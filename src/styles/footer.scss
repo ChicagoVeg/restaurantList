@@ -1,4 +1,6 @@
 footer {
+    background-color: $section-header-color;
+    padding-top: 25px;
     margin-top: 15px;
 }
 
@@ -8,4 +10,13 @@ footer {
 
 .social-media-link {
     color: black;
+}
+
+footer .list-inline-item {
+    margin-right: 1.6rem;   
+}
+
+footer a {
+    color: black;
+    text-decoration: underline;
 }

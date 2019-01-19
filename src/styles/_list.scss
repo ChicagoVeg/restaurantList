@@ -1,3 +1,6 @@
+$restaurant-name-font-size:1em;
+$restaurant-font-size: 0.8em;
+
 .raw-vegan-token {
     color: $raw-vegan-color;
     font-weight: bold;
@@ -32,6 +35,10 @@
 
 .restaurant-type {
     width: 500px;
+    
+    .list-inline-item {
+        margin-right: 1.5rem;
+    }
 }
 
 .list-item {
@@ -56,8 +63,21 @@
 }
 
 .restaurant-list {
+    border-color: $border-color;
+    border-style: groove;
+    border-radius: $border-radius;
+    border-width: 2px;
     height: 1400px;
     overflow: scroll;
+    padding: 10px;
+
+    li {
+        padding:2px;
+    }
+}
+
+.restaurant-item {
+    line-height: 15px;
 }
 
 .yelp-data-list {
@@ -65,12 +85,17 @@
 }
 
 .restaurant-name {
-    font-size: 1.3em;
+    font-size: $restaurant-name-font-size;
     font-weight: bold;
 }
 
 .restaurant-phone {
+    font-size: $restaurant-font-size;
     font-weight: bold;
+}
+
+.restaurant-distance {
+    font-size: $restaurant-font-size;
 }
 
 .restaurant-image {
