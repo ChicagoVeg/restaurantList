@@ -315,7 +315,7 @@ export class List extends Component {
                     <div className="container-fluid yelp-data-list">
                       <div className="row vertically-align-center yelp-data-item">
                         <div className="col-md-3"><span className="font-weight-bold">Address: </span> </div>
-                        <div className="col-md-9"> {address} </div>
+                        <div className="col-md-9"> <address>{address} </address></div>
                         <br />
                       </div>
                       <div className="row vertically-align-center yelp-data-item">

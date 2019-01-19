@@ -74,11 +74,11 @@ const Footer = (props) => {
               </ul>
         </div>
         <div>
-                    ©
+                   <span className="copyright"> © </span>
+           {' '}
+          <span className="year">- {new Date().getFullYear()}</span>
           {' '}
-          <span>{new Date().getFullYear()}</span>
-          {' '}
--
+
           {' '}
           <a
                 href="http://chicagoveg.com/"
@@ -89,7 +89,9 @@ const Footer = (props) => {
 
               </a>
           {' '}
-&nbsp; | &nbsp;
+          <span className="footer-pipe">
+            &nbsp; | &nbsp;
+          </span>
           <a
                 href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application"
                 target="_blank"

@@ -1,3 +1,5 @@
+$footer-text-color: white;
+
 footer {
     background-color: $section-header-color;
     padding-top: 25px;
@@ -5,11 +7,12 @@ footer {
 }
 
 .social-media {
+    color:$footer-text-color;
     font-size: 50px !important;
 }
 
 .social-media-link {
-    color: black;
+    color: $footer-text-color;
 }
 
 footer .list-inline-item {
@@ -17,6 +20,14 @@ footer .list-inline-item {
 }
 
 footer a {
-    color: black;
+    color: $footer-text-color;
     text-decoration: underline;
+}
+
+.copyright, .year {
+    color: $footer-text-color;
+}
+
+.footer-pipe {
+    color: $footer-text-color;
 }

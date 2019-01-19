@@ -6,8 +6,11 @@ nav {
     background-color: $section-header-color;
 }
 
-h1 {
-    font-weight: bold;   
+.page-title {  
+    h1 {
+        color: white;
+        font-weight: bold;   
+    }
 }
 
 .brand {
