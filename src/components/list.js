@@ -347,8 +347,8 @@ export class List extends Component {
               </div>
             </div>
             <div className="row mx-auto">
-              <div>
-                <div style={{display: restaurant.showDirection ? 'block' : 'none' }}>                
+              <div style={{width: '100%'}}>
+                <div style={{width: '100%', display: restaurant.showDirection ? 'block' : 'none' }}>                
                   <button className="accordion"  onClick={this.toogleDirection}>Directions</button>
                   <div className="panel">
                   <ul className="list-inline">
