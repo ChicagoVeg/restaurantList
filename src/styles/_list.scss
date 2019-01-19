@@ -117,3 +117,17 @@ $restaurant-font-size: 0.8em;
 .restaurant-image {
     border-radius: $border-radius;
 }
+
+/* Phone-size screens */
+@media only screen and (max-width: 768px) {
+    .restaurant-type {
+        width: initial;
+    }
+
+    .restaurant-list {
+        height: 500px;
+        margin-bottom: 20px;
+        width:85%;
+    }
+}
+

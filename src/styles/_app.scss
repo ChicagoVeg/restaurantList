@@ -18,3 +18,13 @@ h1 {
 .title {
     font-weight: bolder;
 }
+
+/* Phone-size screens */
+@media only screen and (max-width: 768px) {
+    .page-title {
+        h1 {
+            float: left;
+            font-size: 1.5em;
+        }
+    }
+}

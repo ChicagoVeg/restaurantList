@@ -470,7 +470,7 @@ export class List extends Component {
           For directions, click on a restaurant
         </p>
         <br />
-        <ul className="list-group restaurant-list">
+        <ul className="list-group restaurant-list mx-auto">
             {restaurants}
         </ul>
       </div>

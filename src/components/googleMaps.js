@@ -284,7 +284,10 @@ export class GoogleMaps extends MapProviderBase {
 
   render() {
     return (
-      <div id="js-google-map-placeholder" style={{ width: 600, height: 500 }} />
+      <div 
+        className="map mx-auto" 
+        id="js-google-map-placeholder"
+      />
     );
   }
 }

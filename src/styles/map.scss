@@ -1,0 +1,12 @@
+.map {
+    width: 100%;
+    height: 700px;
+}
+
+/* Phone-size screens */
+@media only screen and (max-width: 768px) {
+    .map {
+        width:85%;
+        height: 350px;
+    }
+}
