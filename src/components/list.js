@@ -297,6 +297,7 @@ export class List extends Component {
                     {' '}
                     <a 
                       href={restaurant.url}
+                      rel="noopener noreferrer"
                       target="_blank"
                     >
                       <span className="restaurant-name">{restaurant.name}</span>
