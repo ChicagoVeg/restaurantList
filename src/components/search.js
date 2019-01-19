@@ -13,37 +13,43 @@ export class Search extends Component {
     this.searchBox = React.createRef();
 
     this.state = {
-      autoDetect: true,
+      autoDetected: false,
       details: {},
+      'canGeolocate': !!window.navigator.geolocation
     };
 
     this.geoCoordinates = new GeoCoordinates();
 
-    this.canGeolocate = this.canGeolocate.bind(this);
     this.geolocate = this.geolocate.bind(this);
     this.performSearch = this.performSearch.bind(this);
     this.resetSearchBox = this.resetSearchBox.bind(this);
     this.mapInitDetailsAvailable = this.mapInitDetailsAvailable.bind(this);
+    this.gotAddressFromLatitudeAndLongitudeFromProvider = this.gotAddressFromLatitudeAndLongitudeFromProvider.bind(this);
 
     PubSub.subscribe(topics.mapInitDetailsAvailable, this.mapInitDetailsAvailable);
-  }
-
-  canGeolocate() {
-    return !!window.navigator.geolocation;
+    PubSub.subscribe(topics.gotAddressFromLatitudeAndLongitude, this.gotAddressFromLatitudeAndLongitudeFromProvider);
   }
 
   geolocate() {
     const geolocation = window.navigator.geolocation;
 
     geolocation.getCurrentPosition(
-      (position) => {
+      position => {
         console.log(`Geolocation allowed with position: ${position}`);
         PubSub.publish(topics.infoNotification, 'Address automatically detected');
+        position.isAutoDetected = true;
+        this.setState({
+          'autoDetected': true,
+        });
         PubSub.publish(topics.geolocationAvailable, position);
+        PubSub.publish(topics.needAddressfromLatitudeAndLongitude, position);
       },
-      (error) => {
+      error => {
         console.warn(`Geolocation code: ${error.code}. Geolocation message: ${error.message}`);
         let message = '';
+        this.setState({
+          'canGeolocate': false,
+        });
 
         switch (error.code) {
           case 0:
@@ -76,6 +82,14 @@ export class Search extends Component {
     this.setState({
       details,
     });
+  }
+
+  gotAddressFromLatitudeAndLongitudeFromProvider(message, address) {
+    if (message !== topics.gotAddressFromLatitudeAndLongitude) {
+      console.warn(`Unexpected subscription received. Expected: ${topics.gotAddressFromLatitudeAndLongitude}. Received: ${message}`);
+    }
+
+    this.searchBox.current.value = address;
   }
 
   performSearch() {
@@ -113,13 +127,7 @@ export class Search extends Component {
   }
 
   componentDidMount() {
-    const canGeolocate = this.canGeolocate();
-
-    this.setState({
-      autoDetect: canGeolocate,
-    });
-
-    if (canGeolocate) {
+    if (this.state.canGeolocate) {
       this.geolocate();
     } else {
       const warning = 'Geolocation is not supported by your browser';
@@ -136,33 +144,34 @@ export class Search extends Component {
         <div>
           <div className="input-group mb-4">
             <div className="input-group-prepend">
-              <span
+            { this.state.canGeolocate && <span
                     className="input-group-text"
                     id="basic-addon1"
-                  >
-                    {this.state.autoDetect && (
+                  >                  
                       <div className="input-group-prepend">
                             <div className="auto-detect-region">
                               <button
                                     className="button-link"
                                     type="button"
                                     name="auto-detect-address"
+                                    onClick={this.geolocate}
                                     value="Auto Detect"
                                   >
                                     <i className="auto-detect-icon material-icons">location_on</i>
                                   </button>
                             </div>
                           </div>
-                      )}
                   </span>
+              }
             </div>
             <input
-              type="search"
+              aria-describedby="basic-addon1"
+              aria-label="search"
               className="form-control js-address search-box"
               placeholder="Type address OR Auto-detect (button to left)"
-              aria-label="search"
+              ref={this.searchBox}
               required="required"
-              aria-describedby="basic-addon1"
+              type="search"
             />
           </div>
         </div>

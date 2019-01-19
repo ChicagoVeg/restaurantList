@@ -15,6 +15,7 @@ export class Map extends Component {
       restaurants: [],
       markers: [],
     };
+    this.isAutoDetected = false;
 
     this.restaurantSelected = this.restaurantSelected.bind(this);
     this.addressAutoDetectToggled = this.addressAutoDetectToggled.bind(this);
@@ -25,6 +26,9 @@ export class Map extends Component {
     this.directionRefUpdated = this.directionRefUpdated.bind(this);
     this.directionsUpdated = this.directionsUpdated.bind(this);
     this.noAddress = this.noAddress.bind(this);
+    this.newAddressFromAutoComplete = this.newAddressFromAutoComplete.bind(this);
+    this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
+    this.obtainedAddressFromLatAndLng = this.obtainedAddressFromLatAndLng.bind(this);
 
     PubSub.subscribe(topics.autoDetectionRequested, this.addressAutoDetectToggled);
     PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
@@ -33,6 +37,7 @@ export class Map extends Component {
     PubSub.subscribe(topics.geolocationAvailable, this.addressUpdated);
     PubSub.subscribe(topics.travelModeSelected, this.travelModeSelected);
     PubSub.subscribe(topics.directionRefUpdated, this.directionRefUpdated);
+    PubSub.subscribe(topics.needAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
   }
 
   // TODO: find out who puublishes this
@@ -59,19 +64,40 @@ export class Map extends Component {
   }
 
   noAddress() {
+    if (this.isAutoDetected) {
+      return;
+    }
+
     const warning = 'Address needed. Auto detect it or select one from the address box'; 
     PubSub.publish(topics.warningNotification, warning);
+  }
+
+  newAddressFromAutoComplete(position) {
+    PubSub.publish(topics.geolocationAvailable, position);
   }
 
   addressUpdated(message, position) {
     if (message !== topics.geolocationAvailable) {
       console.warn(`Unexpected subscription received. Expected: ${topics.geolocationAvailable}. Received: ${message}`);
     }
+    this.isAutoDetected = position.isAutoDetected;
     PubSub.publish(topics.ThirdPartyProviderUserAddressUpdated, position);
   }
 
   directionsUpdated() {
     PubSub.publish(topics.directionsUpdated, null);
+  }
+
+  getAddressFromLatAndLng(message, position) {
+    if (message !== topics.needAddressfromLatitudeAndLongitude) {
+      console.warn(`Unexpected subscription received. Expected: ${topics.needAddressfromLatitudeAndLongitude}. Received: ${message}`);
+    }
+    
+    PubSub.publish(topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude, position);
+  }
+
+  obtainedAddressFromLatAndLng(addressComponent) {
+    PubSub.publish(topics.gotAddressFromLatitudeAndLongitude, addressComponent.formatted_address);
   }
 
   loadFullMap(message, mapDetails) {
@@ -128,10 +154,12 @@ export class Map extends Component {
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
           isMarkerShown
           loadingElement={<div style={{ height: '100%' }} />}
-          noAddress={this.noAddress}
+          obtainedAddressFromLatAndLng={this.obtainedAddressFromLatAndLng}
           mapElement={<div style={{ height: '100%' }} />}
           markers={this.state.markers}
           map={this.state.map}
+          newAddressFromAutoComplete={this.newAddressFromAutoComplete}
+          noAddress={this.noAddress}
           zoom={3}
         />
       </div>

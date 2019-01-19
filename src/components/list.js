@@ -261,7 +261,7 @@ export class List extends Component {
           return;
         }
         const getColorClass = conversion.getColorClass(restaurant.type);
-        const restaurantDistanceDisplay =  true; //!!restaurant.distance; 
+        const restaurantDistanceDisplay =  !!restaurant.distance; 
         let choiceAward = '';
         const yelpData = restaurant.yelpData || {};
         const restaurant_image = yelpData ? restaurant.yelpData.image_url : "";
@@ -297,9 +297,11 @@ export class List extends Component {
                     {'   '}
                     <span className={getColorClass}>{restaurant.icon.code}</span>
                     {' '}
-                    {<i className={choiceAward}></i>}        
-                    <span className="restaurant-phone">{restaurant.phone}</span>
-                    <div>{restaurantDistanceDisplay && <span>({restaurant.distance} miles)</span>} away </div>
+                    {<i className={choiceAward}></i>}  
+                    <div>      
+                      <span className="restaurant-phone">{restaurant.phone}</span>
+                    </div>
+                    <div>{restaurantDistanceDisplay && <span>{restaurant.distance} miles away</span>}  </div>
                     <div className="container-fluid yelp-data-list">
                       <div className="row vertically-align-center">
                         <div className="col-md-4"><span className="font-weight-bold">Rating: </span> </div>

@@ -38,11 +38,12 @@ class App extends Component {
       restaurants: [],
     };
 
-    this.infoNotification = this.infoNotification.bind();
-    this.warningNotification = this.warningNotification.bind(this);
     this.notificationModal = this.notificationModal.bind(this);
+    this.infoNotification = this.infoNotification.bind(this);
+    this.warningNotification = this.warningNotification.bind(this);
 
     PubSub.subscribe(topics.warningNotification, this.warningNotification);
+    PubSub.subscribe(topics.infoNotification, this.infoNotification);
   }
 
   /**
@@ -76,7 +77,7 @@ class App extends Component {
     }
 
     this.notificationModal({
-      autoDismiss: 2,
+      autoDismiss: 4,
       level: 'info',
       message: info,
       position: 'tc',

@@ -28,6 +28,7 @@ export class GoogleMaps extends MapProviderBase {
     this.directionRefUpdated = this.directionRefUpdated.bind(this);
     this.filterRestaurants = this.filterRestaurants.bind(this);
     this.setAutocomplete = this.setAutocomplete.bind(this);
+    this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
 
     // TODO: move these to map.js
     PubSub.subscribe(topics.ThirdPartyProviderReceiveSelectedRestaurant, this.restaurantSelected);
@@ -36,6 +37,7 @@ export class GoogleMaps extends MapProviderBase {
     PubSub.subscribe(topics.ThirdPartyProviderUpdateTravelMode, this.travelModeUpdated);
     PubSub.subscribe(topics.ThirdPartyProviderDirectionRefUpdated, this.directionRefUpdated);
     PubSub.subscribe(topics.ThirdPartyProviderFilterRestaurantType, this.filterRestaurants);
+    PubSub.subscribe(topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
 
     this.state = {
       markers: this.props.markers,
@@ -59,6 +61,8 @@ export class GoogleMaps extends MapProviderBase {
     this.directionClass = null;
     this.directionsUpdated = this.props.directionsUpdated;
     this.noAddress = this.props.noAddress;
+    this.newAddressFromAutoComplete = this.props.newAddressFromAutoComplete;
+    this.obtainedAddressFromLatAndLng = this.props.obtainedAddressFromLatAndLng;
 
     // augmentation to support mapping features
     this.state.markers.map((marker) => {
@@ -112,6 +116,34 @@ export class GoogleMaps extends MapProviderBase {
     });
   }
 
+  getAddressFromLatAndLng(message, position) {
+    if (message !== topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude) {
+      console.warn(`Unexpected topics. Expected: ${topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude}. Received: ${message}`);
+    }
+
+    if (!position || !position.coords) {
+      console.warn('Position not found while getting address from latitide and longitude');
+      return;
+    }
+
+    const {latitude, longitude} = position.coords;
+    const latlng = new this.google.maps.LatLng(latitude, longitude);
+    const geocoder = new this.google.maps.Geocoder();
+    geocoder.geocode({
+      'latLng': latlng, 
+    }, (function(results, status) {
+      if (status !== this.google.maps.GeocoderStatus.OK) {
+        console.error(`Geocode getting address from latitude and longitude returned with an error: ${this.google.maps.GeocoderStatus}`);
+        return;
+      } else if (!results[1]) {
+        console.error('No result found');
+        return;
+      } else {
+        this.obtainedAddressFromLatAndLng(results[1]);
+      }     
+    }).bind(this));
+  }
+
   updateUserAddress(message, position) {
     if (message !== topics.ThirdPartyProviderUserAddressUpdated) {
       console.warn(`Unexpected topics. Expected: ${topics.ThirdPartyProviderUserAddressUpdated}. Received: ${message}`);
@@ -155,6 +187,12 @@ export class GoogleMaps extends MapProviderBase {
       this.google.maps.event.addListener(places, 'place_changed', () => {
         const place = places.getPlace();
         this.origin = place.formatted_address;
+        this.newAddressFromAutoComplete({
+          'coords': {
+            'latitude': place.geometry.location.lat(),
+            'longitude': place.geometry.location.lng()
+          }
+        });
         this.setDirectionsOnMap();
       });
     }).bind(this);
@@ -218,7 +256,6 @@ export class GoogleMaps extends MapProviderBase {
         mapTypeId: 'roadmap',
       },
     );
-
 
     const LatLng = this.google.maps.LatLng;
     this.state.markers.forEach((marker) => {
