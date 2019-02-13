@@ -475,7 +475,7 @@ export class List extends Component {
             <p className="pull-left font-italic restaurants-note">
               For directions, click on a restaurant radio button
             </p>
-            <br />
+            <br /><br />
             <ul className="list-group">
               {restaurants}
             </ul>
