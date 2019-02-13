@@ -469,7 +469,7 @@ export class List extends Component {
         <br />
          <div>
           <div className="restaurant-count mx-auto">
-            Restaurants need you: {this.state.restaurants.length}
+            Restaurants near you: {this.state.restaurants.length}
           </div>
           <div className="restaurant-list mx-auto">
             <p className="pull-left font-italic restaurants-note">
