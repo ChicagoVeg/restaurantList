@@ -285,9 +285,8 @@ export class List extends Component {
           <div className="container rounded-corner restaurant-item">
             <div className="row">
               <div className="container-fluid">
-                <div className="row">
-                  <div className="col-md-8">
-                    <label>
+                <div className="row">                  
+                  <label className="restaurant-list-label">
                     <input 
                       onChange={this.restaurantSelected}
                       name="restaurant-selected"  
@@ -306,44 +305,10 @@ export class List extends Component {
                     <span className={getColorClass}>{restaurant.icon.code}</span>
                     {' '}
                     {<i className={choiceAward}></i>}  
-                    <div>      
-                      <span className="restaurant-phone">
-                      <a href="tel:{phoneNumber}">{phoneNumber}</a>
-                      </span>
-                    </div>
-                    <div>{restaurantDistanceDisplay && <span className="restaurant-distance">{restaurant.distance} miles away</span>}  </div>
-                    <br />
-                    <div className="container-fluid yelp-data-list">
-                      <div className="row vertically-align-center yelp-data-item">
-                        <div className="col-md-3"><span className="font-weight-bold">Address: </span> </div>
-                        <div className="col-md-9"> <address>{address} </address></div>
-                        <br />
-                      </div>
-                      <div className="row vertically-align-center yelp-data-item">
-                        <div className="col-md-3"><span className="font-weight-bold">Rating: </span> </div>
-                        <div className="col-md-9"> {yelpData.rating}/5 ({yelpData.review_count} reviews) </div>
-                        <br />
-                      </div>
-                      <div className="row vertically-align-center yelp-data-item">
-                        <div className="col-md-3"><span className="font-weight-bold">Hours: </span></div>
-                        <div className="col-md-9"> {openHours} </div>
-                        <br / >
-                      </div>
-                      <div className="row vertically-align-center yelp-data-item">
-                        <div className="col-md-3"><span className="font-weight-bold">Options:</span> </div>
-                        <div className="col-md-9"><span className="">{transactions}</span> </div>
-                        <br />
-                      </div>
-                    </div>
+                     <br />
+
                   </label>
-                  </div>
-                  <div className="col-md-4 restaurant-image-region">
-                    <img 
-                      alt="restaurant" 
-                      className="restaurant-image"
-                      src={restaurant_image}height="160" 
-                      width="180" />
-                  </div> 
+                  
                 </div>
               </div>
             </div>
@@ -449,34 +414,34 @@ export class List extends Component {
         </li>
     </ul>
         </div>
-        <div className="pull-right">
-          <input 
-            className={`button-link ${this.state.sortBy === 'name' ? 'active-sortBy' : ''}`}
-            name="name"
-            onClick={this.sort} 
-            type="button" 
-            value="Name" 
-          />
-          <span> | </span> 
-          <input 
-            className={`button-link ${this.state.sortBy === 'distance' ? 'active-sortBy' : ''}`}
-            name="distance" 
-            onClick={this.sort}
-            type="button" 
-            value="Distance" 
-          />
-        </div>
-        <br />
-         <div>
-          <div className="restaurant-count mx-auto">
-            Restaurants near you: {this.state.restaurants.length}
+         <br />
+
+        <div className="card restaurant-list">
+          <div className="card-header card-header-color">
+            <i class="material-icons">
+              restaurant
+            </i>
+            <div className="pull-right inline">
+            <input 
+              className={`button-link ${this.state.sortBy === 'name' ? 'active-sortBy' : ''}`}
+              name="name"
+              onClick={this.sort} 
+              type="button" 
+              value="Name" 
+            />
+            <span> | </span> 
+            <input 
+              className={`button-link ${this.state.sortBy === 'distance' ? 'active-sortBy' : ''}`}
+              name="distance" 
+              onClick={this.sort}
+              type="button" 
+              value="Distance" 
+            />
           </div>
-          <div className="restaurant-list mx-auto">
-            <p className="pull-left font-italic restaurants-note">
-              For directions, click on a restaurant radio button
-            </p>
-            <br /><br />
-            <ul className="list-group">
+  
+          </div>
+          <div className="">
+            <ul className="list-group list-group-flush">
               {restaurants}
             </ul>
           </div>

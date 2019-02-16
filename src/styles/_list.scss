@@ -73,17 +73,20 @@ $restaurant-font-size: 0.8em;
     border-width: 2px;
     height: 1400px;
     overflow: scroll;
-    padding: 10px;
+    padding: 1px;
 
     li {
-        padding:2px;
-        margin-bottom: 10px;
+        padding:0 8px;
+        margin-bottom: 0;
     }
 }
 
+
+.restaurant-list-label  {
+    margin-bottom: 0  !important;
+}
 .restaurant-item {
-    line-height: 15px;
-    padding: 18px;
+    padding: 0 18px 0 0;
 
     .accordion {
         border-radius: $border-radius;

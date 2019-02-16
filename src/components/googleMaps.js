@@ -284,10 +284,15 @@ export class GoogleMaps extends MapProviderBase {
 
   render() {
     return (
-      <div 
-        className="map mx-auto rounded-corner" 
-        id="js-google-map-placeholder"
-      />
+      <div class="card">
+        <div class="card-header card-header-color">
+          <i class="material-icons">map</i>
+        </div>
+        <div 
+          className="map mx-auto rounded-corner" 
+          id="js-google-map-placeholder">
+        </div>
+      </div>
     );
   }
 }
