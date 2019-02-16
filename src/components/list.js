@@ -11,7 +11,8 @@ export class List extends Component {
   constructor() {
     super();
     this.state = {
-        'restaurants': []
+        'restaurants': [],
+        'sortBy': 'name',
     };
 
     this.initialize = this.initialize.bind(this);
@@ -55,6 +56,10 @@ export class List extends Component {
         restaurant.yelpData = yelpData[restaurant.yelpAlias] || {};
 
         return restaurant;
+    });
+    
+    restaurants.sort((a,b) => {
+      return a.name.localeCompare(b.name);
     });
 
     this.setState({'restaurants': restaurants});    
