@@ -23,7 +23,6 @@ export class Map extends Component {
     this.loadFullMap = this.loadFullMap.bind(this);
     this.addressUpdated = this.addressUpdated.bind(this);
     this.travelModeSelected = this.travelModeSelected.bind(this);
-    this.directionRefUpdated = this.directionRefUpdated.bind(this);
     this.directionsUpdated = this.directionsUpdated.bind(this);
     this.noAddress = this.noAddress.bind(this);
     this.newAddressFromAutoComplete = this.newAddressFromAutoComplete.bind(this);
@@ -36,7 +35,6 @@ export class Map extends Component {
     PubSub.subscribe(topics.mapInitDetailsAvailable, this.loadFullMap);
     PubSub.subscribe(topics.geolocationAvailable, this.addressUpdated);
     PubSub.subscribe(topics.travelModeSelected, this.travelModeSelected);
-    PubSub.subscribe(topics.directionRefUpdated, this.directionRefUpdated);
     PubSub.subscribe(topics.needAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
   }
 
@@ -133,13 +131,6 @@ export class Map extends Component {
     }
 
     PubSub.publish(topics.ThirdPartyProviderUpdateTravelMode, travelMode);
-  }
-
-  directionRefUpdated(message, directionClass) {
-    if (message !== topics.directionRefUpdated) {
-      console.warn(`Unexpected topics. Provided: ${message}. Expected: ${topics.directionRefUpdated}`);
-    }
-    PubSub.publish(topics.ThirdPartyProviderDirectionRefUpdated, directionClass);
   }
 
   render() {

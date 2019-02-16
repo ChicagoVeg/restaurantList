@@ -25,7 +25,6 @@ export class GoogleMaps extends MapProviderBase {
     this.loadFullMap = this.loadFullMap.bind(this);
     this.setDirectionsOnMap = this.setDirectionsOnMap.bind(this);
     this.travelModeUpdated = this.travelModeUpdated.bind(this);
-    this.directionRefUpdated = this.directionRefUpdated.bind(this);
     this.filterRestaurants = this.filterRestaurants.bind(this);
     this.setAutocomplete = this.setAutocomplete.bind(this);
     this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
@@ -35,7 +34,6 @@ export class GoogleMaps extends MapProviderBase {
     PubSub.subscribe(topics.ThirdPartyProviderUserAddressUpdated, this.updateUserAddress);
     PubSub.subscribe(topics.ThirdPartyProviderMapInitDetailsAvailable, this.loadFullMap);
     PubSub.subscribe(topics.ThirdPartyProviderUpdateTravelMode, this.travelModeUpdated);
-    PubSub.subscribe(topics.ThirdPartyProviderDirectionRefUpdated, this.directionRefUpdated);
     PubSub.subscribe(topics.ThirdPartyProviderFilterRestaurantType, this.filterRestaurants);
     PubSub.subscribe(topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
 
@@ -59,7 +57,6 @@ export class GoogleMaps extends MapProviderBase {
     this.google = null;
     this.travelMode = 'DRIVING';
     this.directionClass = null;
-    this.directionsUpdated = this.props.directionsUpdated;
     this.noAddress = this.props.noAddress;
     this.newAddressFromAutoComplete = this.props.newAddressFromAutoComplete;
     this.obtainedAddressFromLatAndLng = this.props.obtainedAddressFromLatAndLng;
@@ -172,8 +169,7 @@ export class GoogleMaps extends MapProviderBase {
     };
     this.directionsService.route(request, (function(result, status) {
       if (status === 'OK') {
-        this.directionsUpdated();
-        const element = window.document.querySelector(`.${this.directionClass}`);
+        const element = this.refs.directions;
         this.directionsDisplay.setDirections(result);
         this.directionsDisplay.setPanel(element);
       } else {
@@ -218,13 +214,6 @@ export class GoogleMaps extends MapProviderBase {
     }
     this.travelMode = travelMode;
     this.setDirectionsOnMap();
-  }
-
-  directionRefUpdated(message, directionClass) {
-    if (message !== topics.ThirdPartyProviderDirectionRefUpdated) {
-      console.warn(`Unexpected subscripion. Provided ${message}. Expected: ${topics.ThirdPartyProviderMapInitDetailsAvailable}`);
-    }
-    this.directionClass = directionClass;
   }
 
   componentDidMount() {
@@ -284,13 +273,66 @@ export class GoogleMaps extends MapProviderBase {
 
   render() {
     return (
-      <div class="card">
-        <div class="card-header card-header-color">
-          <i class="material-icons">map</i>
+      <div>
+        <div className="card">
+          <div className="card-header card-header-color">
+            <i className="material-icons">map</i>
+          </div>
+          <div 
+            className="map mx-auto rounded-corner" 
+            id="js-google-map-placeholder">
+          </div>
         </div>
-        <div 
-          className="map mx-auto rounded-corner" 
-          id="js-google-map-placeholder">
+        <br />
+        <div className="card">
+          <div className="card-header card-header-color">
+            <i className="material-icons">directions</i>
+            <ul className="list-inline pull-right">
+              <li className="list-inline-item">
+                 <label> 
+                   <input 
+                    defaultChecked
+                    name="direction-type"
+                    onClick={this.travelModeSelected} 
+                    type="radio" 
+                    value="DRIVING"
+                   /> <i className="icon-shift-driving material-icons">directions_car</i>
+                 </label>
+              </li>
+              <li className="list-inline-item">
+                 <label> 
+                   <input 
+                     name="direction-type"
+                     onClick={this.travelModeSelected} 
+                     type="radio" 
+                     value="TRANSITING"
+                   /> <i className="icon-shift-transit material-icons">directions_transit</i>
+                 </label>
+              </li>
+              <li className="list-inline-item">
+                <label> 
+                  <input 
+                    name="direction-type"
+                    onClick={this.travelModeSelected} 
+                    type="radio" 
+                    value="WALKING"
+                  /> <i className="icon-shift-walking material-icons">directions_walk</i>
+                </label>
+              </li>
+              <li className="list-inline-item">
+                 <label> 
+                   <input 
+                     name="direction-type"
+                     onClick={this.travelModeSelected}
+                     type="radio" 
+                     value="BICYCLING"
+                   /> <i className="icon-shift-bicycle material-icons">directions_bike</i>
+                 </label>
+              </li>
+            </ul>
+          </div>
+          <div ref="directions">
+          </div>
         </div>
       </div>
     );

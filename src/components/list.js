@@ -22,7 +22,6 @@ export class List extends Component {
     this.setDistance = this.setDistance.bind(this);
     this.toogleDirection = this.toogleDirection.bind(this);
     this.travelModeSelected = this.travelModeSelected.bind(this);
-    this.directionsUpdated = this.directionsUpdated.bind(this);
     this.formatTransactions = this.formatTransactions.bind(this);
     this.formatOpenHours = this.formatOpenHours.bind(this);
     this.convertNumberStringToDay = this.convertNumberStringToDay.bind(this);
