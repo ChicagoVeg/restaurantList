@@ -31,17 +31,20 @@ export class GoogleMaps extends MapProviderBase {
     this.newAddressFromAutoComplete = this.newAddressFromAutoComplete.bind(this);
     this.autocompleteInit = this.autocompleteInit.bind(this);
     this.noAddress = this.noAddress.bind(this);
+    this.obtainedAddressFromLatAndLng = this.obtainedAddressFromLatAndLng.bind(this);
  
-
     // TODO: move these to map.js
-    PubSub.subscribe(topics.ThirdPartyProviderReceiveSelectedRestaurant, this.restaurantSelected);
-    PubSub.subscribe(topics.ThirdPartyProviderMapInitDetailsAvailable, this.loadFullMap);
-    PubSub.subscribe(topics.ThirdPartyProviderFilterRestaurantType, this.filterRestaurants);
-    PubSub.subscribe(topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
+    PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
+    PubSub.subscribe(topics.mapInitDetailsAvailable, this.loadFullMap);
+    PubSub.subscribe(topics.needAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
 
     this.state = {
-      markers: this.props.markers,
-      map: this.props.map,
+      markers: [],
+      map: {
+        startingLatitude: 41.954420,
+        startingLongitude: -87.669250,
+        zoom: 3,
+      },
       direction: {},
       destination: '',
       origin: '',
@@ -56,10 +59,9 @@ export class GoogleMaps extends MapProviderBase {
     this.directionsDisplay = null;
     this.destination = null;
     this.origin = null;
-    this.google = null;
+    this.google = {};
     this.travelMode = 'DRIVING';
     this.directionClass = null;
-    this.obtainedAddressFromLatAndLng = this.props.obtainedAddressFromLatAndLng;
 
     // augmentation to support mapping features
     this.state.markers.map((marker) => {
@@ -78,10 +80,7 @@ export class GoogleMaps extends MapProviderBase {
   }
 
   markerClicked(marker) {
-    console.log('====================================');
-    console.log('Maker clicked');
     marker.showInfoWindow = true;
-    console.log('====================================');
   }
 
   restaurantSelected(message, restaurant) {
@@ -138,6 +137,10 @@ export class GoogleMaps extends MapProviderBase {
       this.origin = addressComponents.formatted_address;
       this.obtainedAddressFromLatAndLng(addressComponents);     
     }).bind(this));
+  }
+
+  obtainedAddressFromLatAndLng(addressComponent) {
+    PubSub.publish(topics.gotAddressFromLatitudeAndLongitude, addressComponent.formatted_address);
   }
 
   noAddress() {
@@ -208,6 +211,26 @@ export class GoogleMaps extends MapProviderBase {
     this.setState({
       mapIsReady: true,
     });
+
+        // Markers contain same field as restaurants but can contains user-info,
+    // So it was cloned into a new array
+    const markers = mapDetails.restaurants.map(r => ({ ...r }));
+    const userMaker = {
+      id: 'userMaker',
+      name: 'You are here',
+      latitude: mapDetails.map.startingLatitude,
+      longitude: mapDetails.map.startingLongitude,
+      type: 'user',
+    };
+
+    markers.push(userMaker);
+    this.setState({
+      markers,
+      map: mapDetails.map,
+      mapIsReady: true,
+    });
+
+    mapDetails.markers = markers; // augment
   }
 
   travelModeSelected(e) {
@@ -282,108 +305,70 @@ export class GoogleMaps extends MapProviderBase {
   render() {
     return (
       <div>
-        <div className="card">
+      <div className="card">
           <div className="card-header card-header-color">
-            <i className="material-icons">map</i>
-          <ul className="list-inline pull-right">
-            <li className="list-inline-item">
-              <label>  
-                <input
-                  defaultChecked={true}
-                  name="restaurantType" 
-                  onChange={this.restaurantTypeToggled}  
-                  type="checkbox" 
-                  value="vegetarian" /> 
-                <span className={conversion.getColorClass('vegetarian')}> 
-                  Vegetarian ({conversion.code('vegetarian')}) 
+              <i className="material-icons">map</i>
+              <ul className="list-inline pull-right">
+                  <li className="list-inline-item">
+                      <label>
+                          <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegetarian" />
+                          <span className={conversion.getColorClass( 'vegetarian')}> 
+                    Vegetarian ({conversion.code('vegetarian')}) 
+                  </span>
+                      </label>
+                  </li>
+                  <li className="list-inline-item">
+                      <label>
+                          <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegan" />
+                          <span className={conversion.getColorClass( 'vegan')}> 
+                   Vegan ({conversion.code('vegan')}) 
+                  </span>
+                      </label>
+                  </li>
+                  <li className="list-inline-item">
+                      <label>
+                          <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="raw vegan" />
+                          <span className={conversion.getColorClass( 'raw vegan')}> 
+              {' '} Raw Vegan ({conversion.code('raw vegan')})
                 </span>
-              </label>
-            </li>
-            <li className="list-inline-item">
-              <label>
-                <input 
-                defaultChecked={true}
-                  name="restaurantType"
-                  onChange={this.restaurantTypeToggled}
-                  type="checkbox" 
-                  value="vegan" /> 
-                <span className={conversion.getColorClass('vegan')}> 
-                 Vegan ({conversion.code('vegan')}) 
-                </span>
-            </label>
-        </li>
-        <li className="list-inline-item">
-          <label>
-            <input 
-              defaultChecked={true}
-              name="restaurantType"
-              onChange={this.restaurantTypeToggled}
-              type="checkbox" 
-              value="raw vegan" /> 
-            <span className={conversion.getColorClass('raw vegan')}> 
-            {' '} Raw Vegan ({conversion.code('raw vegan')})
-              </span>
-          </label>
-        </li>
-    </ul>
+                      </label>
+                  </li>
+              </ul>
           </div>
-          <div 
-            className="map mx-auto rounded-corner" 
-            id="js-google-map-placeholder">
+          <div className="map mx-auto rounded-corner" id="js-google-map-placeholder">
           </div>
-        </div>
-        <br />
-        <div className="card">
-          <div className="card-header card-header-color">
-            <i className="material-icons">directions</i>
-            <ul className="list-inline pull-right">
-              <li className="list-inline-item">
-                 <label> 
-                   <input 
-                    defaultChecked
-                    name="direction-type"
-                    onClick={this.travelModeSelected} 
-                    type="radio" 
-                    value="DRIVING"
-                   /> <i className="icon-shift-driving material-icons">directions_car</i>
-                 </label>
-              </li>
-              <li className="list-inline-item">
-                 <label> 
-                   <input 
-                     name="direction-type"
-                     onClick={this.travelModeSelected} 
-                     type="radio" 
-                     value="TRANSIT"
-                   /> <i className="icon-shift-transit material-icons">directions_transit</i>
-                 </label>
-              </li>
-              <li className="list-inline-item">
-                <label> 
-                  <input 
-                    name="direction-type"
-                    onClick={this.travelModeSelected} 
-                    type="radio" 
-                    value="WALKING"
-                  /> <i className="icon-shift-walking material-icons">directions_walk</i>
-                </label>
-              </li>
-              <li className="list-inline-item">
-                 <label> 
-                   <input 
-                     name="direction-type"
-                     onClick={this.travelModeSelected}
-                     type="radio" 
-                     value="BICYCLING"
-                   /> <i className="icon-shift-bicycle material-icons">directions_bike</i>
-                 </label>
-              </li>
-            </ul>
-          </div>
-          <div ref="directions">
-          </div>
-        </div>
       </div>
+      <br />
+      <div className="card">
+          <div className="card-header card-header-color">
+              <i className="material-icons">directions</i>
+              <ul className="list-inline pull-right">
+                  <li className="list-inline-item">
+                      <label>
+                          <input defaultChecked name="direction-type" onClick={this.travelModeSelected} type="radio" value="DRIVING" /> <i className="icon-shift-driving material-icons">directions_car</i>
+                      </label>
+                  </li>
+                  <li className="list-inline-item">
+                      <label>
+                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="TRANSIT" /> <i className="icon-shift-transit material-icons">directions_transit</i>
+                      </label>
+                  </li>
+                  <li className="list-inline-item">
+                      <label>
+                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="WALKING" /> <i className="icon-shift-walking material-icons">directions_walk</i>
+                      </label>
+                  </li>
+                  <li className="list-inline-item">
+                      <label>
+                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="BICYCLING" /> <i className="icon-shift-bicycle material-icons">directions_bike</i>
+                      </label>
+                  </li>
+              </ul>
+          </div>
+          <div className="restaurant-directions" ref="directions">
+          </div>
+      </div>
+  </div>
     );
   }
 }

@@ -4,7 +4,7 @@ import PubSub from 'pubsub-js';
 import 'bootstrap/dist/css/bootstrap.css';
 import Footer from './footer';
 import List from './list';
-import Map from './map';
+import GoogleMaps from './googleMaps';
 import SearchArea from './searchArea';
 import topics from '../services/topics';
 import NotificationSystem from 'react-notification-system';
@@ -136,7 +136,7 @@ class App extends Component {
               <div className="container">
                 <div className="row">
                   <div className="col-md-7">
-                    <Map />
+                    <GoogleMaps />
                   </div>
                   <div className="col-md-5">
                     <List />

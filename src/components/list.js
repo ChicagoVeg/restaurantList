@@ -323,7 +323,7 @@ export class List extends Component {
 
     return (
       <div>
-        <div className="card restaurant-list">
+        <div className="card restaurant-list-container">
           <div className="card-header card-header-color">
             <i className="material-icons">
               restaurant
@@ -347,7 +347,7 @@ export class List extends Component {
           </div>
   
           </div>
-          <div className="">
+          <div className="restaurant-list">
             <ul className="list-group list-group-flush">
               {restaurants}
             </ul>
