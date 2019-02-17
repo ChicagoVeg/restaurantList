@@ -23,8 +23,6 @@ export class Map extends Component {
     this.addressUpdated = this.addressUpdated.bind(this);
     this.travelModeSelected = this.travelModeSelected.bind(this);
     this.directionsUpdated = this.directionsUpdated.bind(this);
-    this.noAddress = this.noAddress.bind(this);
-    this.newAddressFromAutoComplete = this.newAddressFromAutoComplete.bind(this);
     this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
     this.obtainedAddressFromLatAndLng = this.obtainedAddressFromLatAndLng.bind(this);
 
@@ -50,21 +48,6 @@ export class Map extends Component {
     }
     console.log(`New restaurant selected: ${restaurant}`);
     PubSub.publish(topics.ThirdPartyProviderReceiveSelectedRestaurant, restaurant);
-  }
-
-
-
-  noAddress() {
-    if (this.isAutoDetected) {
-      return;
-    }
-
-    const warning = 'Address needed. Auto detect it or select one from the address box'; 
-    PubSub.publish(topics.warningNotification, warning);
-  }
-
-  newAddressFromAutoComplete(position) {
-    PubSub.publish(topics.geolocationAvailable, position);
   }
 
   addressUpdated(message, position) {
@@ -142,7 +125,6 @@ export class Map extends Component {
           mapElement={<div style={{ height: '100%' }} />}
           markers={this.state.markers}
           map={this.state.map}
-          newAddressFromAutoComplete={this.newAddressFromAutoComplete}
           noAddress={this.noAddress}
           zoom={3}
         />

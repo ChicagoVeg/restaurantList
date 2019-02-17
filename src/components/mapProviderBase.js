@@ -7,8 +7,6 @@ export class MapProviderBase extends Component {
 
   restaurantSelected(message, restaurant) {}
 
-  updateUserAddress(message, position) {}
-
   setDirectionsOnMap() {}
 
   loadFullMap(message, mapDetail) {}

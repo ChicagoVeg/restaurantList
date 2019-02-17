@@ -21,7 +21,6 @@ export class GoogleMaps extends MapProviderBase {
 
     this.setInfoWindow = this.setInfoWindow.bind(this);
     this.restaurantSelected = this.restaurantSelected.bind(this);
-    this.updateUserAddress = this.updateUserAddress.bind(this);
     this.loadFullMap = this.loadFullMap.bind(this);
     this.setDirectionsOnMap = this.setDirectionsOnMap.bind(this);
     this.travelModeSelected = this.travelModeSelected.bind(this);
@@ -29,10 +28,13 @@ export class GoogleMaps extends MapProviderBase {
     this.setAutocomplete = this.setAutocomplete.bind(this);
     this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
+    this.newAddressFromAutoComplete = this.newAddressFromAutoComplete.bind(this);
+    this.autocompleteInit = this.autocompleteInit.bind(this);
+    this.noAddress = this.noAddress.bind(this);
+ 
 
     // TODO: move these to map.js
     PubSub.subscribe(topics.ThirdPartyProviderReceiveSelectedRestaurant, this.restaurantSelected);
-    PubSub.subscribe(topics.ThirdPartyProviderUserAddressUpdated, this.updateUserAddress);
     PubSub.subscribe(topics.ThirdPartyProviderMapInitDetailsAvailable, this.loadFullMap);
     PubSub.subscribe(topics.ThirdPartyProviderFilterRestaurantType, this.filterRestaurants);
     PubSub.subscribe(topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
@@ -57,8 +59,6 @@ export class GoogleMaps extends MapProviderBase {
     this.google = null;
     this.travelMode = 'DRIVING';
     this.directionClass = null;
-    this.noAddress = this.props.noAddress;
-    this.newAddressFromAutoComplete = this.props.newAddressFromAutoComplete;
     this.obtainedAddressFromLatAndLng = this.props.obtainedAddressFromLatAndLng;
 
     // augmentation to support mapping features
@@ -140,13 +140,13 @@ export class GoogleMaps extends MapProviderBase {
     }).bind(this));
   }
 
-  updateUserAddress(message, position) {
-    if (message !== topics.ThirdPartyProviderUserAddressUpdated) {
-      console.warn(`Unexpected topics. Expected: ${topics.ThirdPartyProviderUserAddressUpdated}. Received: ${message}`);
+  noAddress() {
+    if (this.isAutoDetected) {
+      return;
     }
 
-    this.origin = position.formatted_address;
-    this.setDirectionsOnMap();
+    const warning = 'Address needed. Auto detect it or select one from the address box'; 
+    PubSub.publish(topics.warningNotification, warning);
   }
 
   setDirectionsOnMap() {
@@ -175,23 +175,28 @@ export class GoogleMaps extends MapProviderBase {
     }).bind(this));
   }
 
-  setAutocomplete() {
-    const autocompleteInit = (function () {
-      const element = document.querySelector('.js-address');
-      const places = new window.google.maps.places.Autocomplete(element);
-      this.google.maps.event.addListener(places, 'place_changed', () => {
-        const place = places.getPlace();
-        this.origin = place.formatted_address;
-        this.newAddressFromAutoComplete({
-          'coords': {
-            'latitude': place.geometry.location.lat(),
-            'longitude': place.geometry.location.lng()
-          }
-        });
-        this.setDirectionsOnMap();
+  newAddressFromAutoComplete(position) {
+    PubSub.publish(topics.geolocationAvailable, position);
+  }
+
+  autocompleteInit() {
+    const element = document.querySelector('.js-address');
+    const places = new window.google.maps.places.Autocomplete(element);
+    this.google.maps.event.addListener(places, 'place_changed', (function() {
+      const place = places.getPlace();
+      this.origin = place.formatted_address;
+      this.newAddressFromAutoComplete({
+        'coords': {
+          'latitude': place.geometry.location.lat(),
+          'longitude': place.geometry.location.lng()
+        }
       });
-    }).bind(this);
-    this.google.maps.event.addDomListener(window, 'load', autocompleteInit);
+      this.setDirectionsOnMap();
+    }).bind(this));
+  }
+
+  setAutocomplete() {
+    this.google.maps.event.addDomListener(window, 'load', this.autocompleteInit);
   }
 
   loadFullMap(message, mapDetails) {
