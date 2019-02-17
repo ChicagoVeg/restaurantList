@@ -4,7 +4,7 @@ import { GeoCoordinates } from '../services/geoCoordinates';
 import topics from '../services/topics';
 
 //TODO: (1) Move notification to App.js. It is a sys concern
-export class Search extends Component {
+export class SearchArea extends Component {
   constructor(props) {
     super(props);
 
@@ -20,7 +20,6 @@ export class Search extends Component {
 
     this.geolocate = this.geolocate.bind(this);
     this.performSearch = this.performSearch.bind(this);
-    this.resetSearchBox = this.resetSearchBox.bind(this);
     this.mapInitDetailsAvailable = this.mapInitDetailsAvailable.bind(this);
     this.gotAddressFromLatitudeAndLongitudeFromProvider = this.gotAddressFromLatitudeAndLongitudeFromProvider.bind(this);
 
@@ -119,10 +118,6 @@ export class Search extends Component {
     );
   }
 
-  resetSearchBox() {
-    this.searchBox.value = '';
-  }
-
   componentDidMount() {
     if (this.state.canGeolocate) {
       this.geolocate();
@@ -174,4 +169,4 @@ export class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchArea;

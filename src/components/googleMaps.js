@@ -349,7 +349,7 @@ export class GoogleMaps extends MapProviderBase {
                      name="direction-type"
                      onClick={this.travelModeSelected} 
                      type="radio" 
-                     value="TRANSITING"
+                     value="TRANSIT"
                    /> <i className="icon-shift-transit material-icons">directions_transit</i>
                  </label>
               </li>

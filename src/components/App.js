@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Footer from './footer';
 import List from './list';
 import Map from './map';
-import Search from './search';
+import SearchArea from './searchArea';
 import topics from '../services/topics';
 import NotificationSystem from 'react-notification-system';
 import 'font-awesome/css/font-awesome.min.css';
@@ -131,7 +131,7 @@ class App extends Component {
             </header>
             <div>
               <div className="container">
-                <Search />
+                <SearchArea />
               </div>
               <div className="container">
                 <div className="row">
