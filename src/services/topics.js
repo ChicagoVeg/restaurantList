@@ -13,12 +13,5 @@ export default {
     'infoNotification': 'infoNotification',
     'needAddressfromLatitudeAndLongitude': 'needAddressfromLatitudeAndLongitude',
     'gotAddressFromLatitudeAndLongitude': 'gotAddressFromLatitudeAndLongitude',
-    'ThirdPartyProviderReceiveSelectedRestaurant': 'ThirdPartyProviderReceiveSelectedRestaurant',
-    'ThirdPartyProviderUserAddressUpdated': 'ThirdPartyProviderUserAddressUpdated',
-    'ThirdPartyProviderMapInitDetailsAvailable': 'ThirdPartyProviderMapInitDetailsAvailable',
-    'ThirdPartyProviderUpdateTravelMode': 'ThirdPartyProviderUpdateTravelMode',
-    'ThirdPartyProviderDirectionRefUpdated': 'ThirdPartyProviderDirectionRefUpdated',
-    'ThirdPartyProviderFilterRestaurantType': 'ThirdPartyProviderFilterRestaurantType',
-    'ThirdParyProviderNeedAddressfromLatitudeAndLongitude': 'ThirdParyProviderNeedAddressfromLatitudeAndLongitude',
 };
 

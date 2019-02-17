@@ -84,8 +84,8 @@ export class GoogleMaps extends MapProviderBase {
   }
 
   restaurantSelected(message, restaurant) {
-    if (message !== topics.ThirdPartyProviderReceiveSelectedRestaurant) {
-      console.warn(`Received unexpected topics. Expected: ${topics.ThirdPartyProviderReceiveSelectedRestaurant}. Received: ${message}`);
+    if (message !== topics.restaurantSelected) {
+      console.warn(`Received unexpected topics. Expected: ${topics.restaurantSelected}. Received: ${message}`);
     }
     const address = restaurant.address;
     const formatted_address = `${address.address}, ${address.city}, ${address.state} ${address.zip}`;
@@ -110,8 +110,8 @@ export class GoogleMaps extends MapProviderBase {
   }
 
   getAddressFromLatAndLng(message, position) {
-    if (message !== topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude) {
-      console.warn(`Unexpected topics. Expected: ${topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude}. Received: ${message}`);
+    if (message !== topics.needAddressfromLatitudeAndLongitude) {
+      console.warn(`Unexpected topics. Expected: ${topics.needAddressfromLatitudeAndLongitude}. Received: ${message}`);
     }
 
     if (!position || !position.coords) {
@@ -203,8 +203,8 @@ export class GoogleMaps extends MapProviderBase {
   }
 
   loadFullMap(message, mapDetails) {
-    if (message !== topics.ThirdPartyProviderMapInitDetailsAvailable) {
-      console.warn(`Unexpected topics. Expected: ${topics.ThirdPartyProviderMapInitDetailsAvailable}. Received: ${message}`);
+    if (message !== topics.mapInitDetailsAvailable) {
+      console.warn(`Unexpected topics. Expected: ${topics.mapInitDetailsAvailable}. Received: ${message}`);
     }
 
     this.setState(mapDetails);
