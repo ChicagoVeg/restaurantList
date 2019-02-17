@@ -24,7 +24,7 @@ export class GoogleMaps extends MapProviderBase {
     this.updateUserAddress = this.updateUserAddress.bind(this);
     this.loadFullMap = this.loadFullMap.bind(this);
     this.setDirectionsOnMap = this.setDirectionsOnMap.bind(this);
-    this.travelModeUpdated = this.travelModeUpdated.bind(this);
+    this.travelModeSelected = this.travelModeSelected.bind(this);
     this.filterRestaurants = this.filterRestaurants.bind(this);
     this.setAutocomplete = this.setAutocomplete.bind(this);
     this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
@@ -34,7 +34,6 @@ export class GoogleMaps extends MapProviderBase {
     PubSub.subscribe(topics.ThirdPartyProviderReceiveSelectedRestaurant, this.restaurantSelected);
     PubSub.subscribe(topics.ThirdPartyProviderUserAddressUpdated, this.updateUserAddress);
     PubSub.subscribe(topics.ThirdPartyProviderMapInitDetailsAvailable, this.loadFullMap);
-    PubSub.subscribe(topics.ThirdPartyProviderUpdateTravelMode, this.travelModeUpdated);
     PubSub.subscribe(topics.ThirdPartyProviderFilterRestaurantType, this.filterRestaurants);
     PubSub.subscribe(topics.ThirdParyProviderNeedAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
 
@@ -206,11 +205,8 @@ export class GoogleMaps extends MapProviderBase {
     });
   }
 
-  travelModeUpdated(message, travelMode) {
-    if (message !== topics.ThirdPartyProviderUpdateTravelMode) {
-      console.warn(`Unexpected subscripion. Provided ${message}. Expected: ${topics.ThirdPartyProviderUpdateTravelMode}`);
-    }
-    this.travelMode = travelMode;
+  travelModeSelected(e) {
+    this.travelMode = e.currentTarget.value;
     this.setDirectionsOnMap();
   }
 

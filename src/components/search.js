@@ -33,7 +33,6 @@ export class Search extends Component {
 
     geolocation.getCurrentPosition(
       position => {
-        console.log(`Geolocation allowed with position: ${position}`);
         PubSub.publish(topics.infoNotification, 'Address automatically detected');
         position.isAutoDetected = true;
         this.setState({

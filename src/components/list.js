@@ -21,7 +21,6 @@ export class List extends Component {
     this.setupGeolocation = this.setupGeolocation.bind(this);
     this.setDistance = this.setDistance.bind(this);
     this.toogleDirection = this.toogleDirection.bind(this);
-    this.travelModeSelected = this.travelModeSelected.bind(this);
     this.formatTransactions = this.formatTransactions.bind(this);
     this.formatOpenHours = this.formatOpenHours.bind(this);
     this.convertNumberStringToDay = this.convertNumberStringToDay.bind(this);
@@ -139,7 +138,6 @@ export class List extends Component {
     if (message !== topics.geolocationAvailable) {
       console.warn(`Unexpected subscription name. Provided: ${message}. Expected: pubsub-geolocation-available`);
     }
-    console.log(`message: ${message}, Position: ${position}`);
     this.setDistance(position);
   }
 
@@ -177,12 +175,6 @@ export class List extends Component {
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
     } 
-  }
-
-  travelModeSelected(e) {
-    const travelMode = e.currentTarget.value;
-
-    PubSub.publish(topics.travelModeSelected, travelMode);
   }
 
   directionsUpdated() {
@@ -321,50 +313,6 @@ export class List extends Component {
                 <div style={{width: '100%', display: restaurant.showDirection ? 'block' : 'none' }}>                
                   <button className="accordion"  onClick={this.toogleDirection}>Directions</button>
                   <div className="panel">
-                  <ul className="list-inline">
-                  <li className="list-inline-item">
-                 <label> 
-                   <input 
-                    defaultChecked
-                    name="direction-type"
-                    onClick={this.travelModeSelected} 
-                    type="radio" 
-                    value="DRIVING"
-                   /> <i className="icon-shift-driving material-icons">directions_car</i>
-                 </label>
-               </li>
-                  <li className="list-inline-item">
-                 <label> 
-                   <input 
-                     name="direction-type"
-                     onClick={this.travelModeSelected} 
-                     type="radio" 
-                     value="TRANSITING"
-                   /> <i className="icon-shift-transit material-icons">directions_transit</i>
-                 </label>
-               </li>
-                  <li className="list-inline-item">
-                <label> 
-                  <input 
-                    name="direction-type"
-                    onClick={this.travelModeSelected} 
-                    type="radio" 
-                    value="WALKING"
-                  /> <i className="icon-shift-walking material-icons">directions_walk</i>
-                </label>
-               </li>
-                  <li className="list-inline-item">
-                 <label> 
-                   <input 
-                     name="direction-type"
-                     onClick={this.travelModeSelected}
-                     type="radio" 
-                     value="BICYCLING"
-                   /> <i className="icon-shift-bicycle material-icons">directions_bike</i>
-                 </label>
-               </li>
-                 </ul>
-                    <div className={`js-direction-${index}`}></div>
                   </div>
                 </div>  
             </div>
@@ -377,7 +325,7 @@ export class List extends Component {
       <div>
         <div className="card restaurant-list">
           <div className="card-header card-header-color">
-            <i class="material-icons">
+            <i className="material-icons">
               restaurant
             </i>
             <div className="pull-right inline">
