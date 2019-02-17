@@ -298,24 +298,19 @@ export class List extends Component {
                       <span className="restaurant-name">{restaurant.name}</span>
                     </a>
                     {'   '}
-                    <span className={getColorClass}>{restaurant.icon.code}</span>
+                    <span className={getColorClass} title={restaurant.type}>
+                      {restaurant.icon.code}
+                    </span>
                     {' '}
-                    {<i className={choiceAward}></i>}  
+                    {<i className={choiceAward} title={`${restaurant.bestInTownAward}-choice award winner`}></i>}  
                      <br />
-
                   </label>
-                  
+                  <i className="material-icons info-icon" title="click for more info">info</i>
                 </div>
               </div>
             </div>
             <div className="row mx-auto">
-              <div style={{width: '100%'}}>
-                <div style={{width: '100%', display: restaurant.showDirection ? 'block' : 'none' }}>                
-                  <button className="accordion"  onClick={this.toogleDirection}>Directions</button>
-                  <div className="panel">
-                  </div>
-                </div>  
-            </div>
+            
             </div>
           </div>
         </li>)
