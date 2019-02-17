@@ -67,7 +67,6 @@ $restaurant-font-size: 0.8em;
 }
 
 .restaurant-list-container {
-    border-color: $border-color;
     border-style: groove;
     border-width: 2px;
     height: 1400px;
@@ -152,9 +151,7 @@ $restaurant-font-size: 0.8em;
     }
 
     .restaurant-list {
-        height: 500px;
         margin-bottom: 20px;
-        width:85%;
     }
 }
 

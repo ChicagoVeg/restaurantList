@@ -330,7 +330,7 @@ export class GoogleMaps extends MapProviderBase {
           </div>
       </div>
       <br />
-      <div className="card">
+      <div className="card restaurant-directions-container">
           <div className="card-header card-header-color">
               <i className="material-icons" title="directions">directions</i>
               <ul className="list-inline pull-right">

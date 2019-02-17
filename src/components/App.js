@@ -9,6 +9,7 @@ import SearchArea from './searchArea';
 import topics from '../services/topics';
 import NotificationSystem from 'react-notification-system';
 import 'font-awesome/css/font-awesome.min.css';
+import {Helmet} from "react-helmet";
 
 class App extends Component {
   constructor() {
@@ -168,30 +169,38 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <meta id="og-image" property="og:image" content={require('../images/chicagorestaurants.jpg')} />
+          <meta id="og-image" property="og:image" content="http://chicagoveg.com/restaurants/Lib/Veg/dist/img/chicagorestaurants.jpg" />
+        </Helmet>
         <section>
           <article>
           <NotificationSystem ref={this.notification} />
           </article>
           <article>
             <header>
-              <div className="">
+              {/** for facebook */}
+              <span>
                 <img
-                    alt="ChicagoVeg Restaurants"
-                    className=""
-                    height="1px"
-                    src={require('../images/chicagorestaurants.jpg')}
-                    title="ChicagoVeg Restaurants"
-                    width="1px"
-                  />
-                  <img
-                    alt="ChicagoVeg Restaurants"
-                    className=""
-                    height="0"
-                    src="http://chicagoveg.com/restaurants/Lib/Veg/dist/img/chicagorestaurants.jpg"
-                    title="ChicagoVeg Restaurants"
-                    width="0"
-                  />
-                </div>
+                  alt="ChicagoVeg Restaurants"
+                  className="brand"
+                  height="1px"
+                  hidden
+                  src={require('../images/chicagorestaurants.jpg')}
+                  title="ChicagoVeg Restaurants"
+                  width="1px"
+                />
+                <img
+                  alt="ChicagoVeg Restaurants"
+                  className="brand"
+                  height="1px"
+                  hidden
+                  src="http://chicagoveg.com/restaurants/Lib/Veg/dist/img/chicagorestaurants.jpg"
+                  title="ChicagoVeg Restaurants"
+                  width="1px"
+                />
+              </span>
               <nav>
                 <div className="nav-row">
                   <div className="nav-column nav-left">
