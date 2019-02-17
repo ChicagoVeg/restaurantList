@@ -19,7 +19,6 @@ export class Map extends Component {
 
     this.restaurantSelected = this.restaurantSelected.bind(this);
     this.addressAutoDetectToggled = this.addressAutoDetectToggled.bind(this);
-    this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     this.loadFullMap = this.loadFullMap.bind(this);
     this.addressUpdated = this.addressUpdated.bind(this);
     this.travelModeSelected = this.travelModeSelected.bind(this);
@@ -31,7 +30,6 @@ export class Map extends Component {
 
     PubSub.subscribe(topics.autoDetectionRequested, this.addressAutoDetectToggled);
     PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
-    PubSub.subscribe(topics.restaurantTypeToggle, this.restaurantTypeToggled);
     PubSub.subscribe(topics.mapInitDetailsAvailable, this.loadFullMap);
     PubSub.subscribe(topics.geolocationAvailable, this.addressUpdated);
     PubSub.subscribe(topics.travelModeSelected, this.travelModeSelected);
@@ -54,12 +52,7 @@ export class Map extends Component {
     PubSub.publish(topics.ThirdPartyProviderReceiveSelectedRestaurant, restaurant);
   }
 
-  restaurantTypeToggled(message, type) {
-    if (message !== topics.restaurantTypeToggle) {
-      console.warn(`Restaurant type recieved in unexpected subscription broadcast. The broadcast is: ${message}.`);
-    }
-    PubSub.publish(topics.ThirdPartyProviderFilterRestaurantType, type);
-  }
+
 
   noAddress() {
     if (this.isAutoDetected) {

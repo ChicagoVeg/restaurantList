@@ -28,6 +28,7 @@ export class GoogleMaps extends MapProviderBase {
     this.filterRestaurants = this.filterRestaurants.bind(this);
     this.setAutocomplete = this.setAutocomplete.bind(this);
     this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
+    this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
 
     // TODO: move these to map.js
     PubSub.subscribe(topics.ThirdPartyProviderReceiveSelectedRestaurant, this.restaurantSelected);
@@ -94,10 +95,7 @@ export class GoogleMaps extends MapProviderBase {
     this.setDirectionsOnMap();
   }
 
-  filterRestaurants(message, type) {
-    if (message !== topics.ThirdPartyProviderFilterRestaurantType) {
-      console.warn(`Unexpected topics. Expected: ${topics.ThirdPartyProviderFilterRestaurantType}. Received: ${message}`);
-    }
+  filterRestaurants(type) {
     const markers = this.markers;
 
     if (!markers || markers.length === 0) {
@@ -216,6 +214,15 @@ export class GoogleMaps extends MapProviderBase {
     this.setDirectionsOnMap();
   }
 
+  restaurantTypeToggled(e) {
+    const restaurantType = {
+      'checked': e.target.checked,
+      'name': e.target.value,
+    };
+    this.filterRestaurants(restaurantType);
+    PubSub.publish(topics.restaurantTypeToggle, restaurantType);
+  }
+
   componentDidMount() {
     const ApiKey = 'AIzaSyBtKinaroy-zATTzX5ts17OuphpmXPAq1A';
     const script = document.createElement('script');
@@ -277,6 +284,47 @@ export class GoogleMaps extends MapProviderBase {
         <div className="card">
           <div className="card-header card-header-color">
             <i className="material-icons">map</i>
+          <ul className="list-inline pull-right">
+            <li className="list-inline-item">
+              <label>  
+                <input
+                  defaultChecked={true}
+                  name="restaurantType" 
+                  onChange={this.restaurantTypeToggled}  
+                  type="checkbox" 
+                  value="vegetarian" /> 
+                <span className={conversion.getColorClass('vegetarian')}> 
+                  Vegetarian ({conversion.code('vegetarian')}) 
+                </span>
+              </label>
+            </li>
+            <li className="list-inline-item">
+              <label>
+                <input 
+                defaultChecked={true}
+                  name="restaurantType"
+                  onChange={this.restaurantTypeToggled}
+                  type="checkbox" 
+                  value="vegan" /> 
+                <span className={conversion.getColorClass('vegan')}> 
+                 Vegan ({conversion.code('vegan')}) 
+                </span>
+            </label>
+        </li>
+        <li className="list-inline-item">
+          <label>
+            <input 
+              defaultChecked={true}
+              name="restaurantType"
+              onChange={this.restaurantTypeToggled}
+              type="checkbox" 
+              value="raw vegan" /> 
+            <span className={conversion.getColorClass('raw vegan')}> 
+            {' '} Raw Vegan ({conversion.code('raw vegan')})
+              </span>
+          </label>
+        </li>
+    </ul>
           </div>
           <div 
             className="map mx-auto rounded-corner" 

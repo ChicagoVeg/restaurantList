@@ -17,7 +17,6 @@ export class List extends Component {
 
     this.initialize = this.initialize.bind(this);
     this.restaurantSelected = this.restaurantSelected.bind(this);
-    this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     this.sort = this.sort.bind(this);  
     this.setupGeolocation = this.setupGeolocation.bind(this);
     this.setDistance = this.setDistance.bind(this);
@@ -26,6 +25,8 @@ export class List extends Component {
     this.formatTransactions = this.formatTransactions.bind(this);
     this.formatOpenHours = this.formatOpenHours.bind(this);
     this.convertNumberStringToDay = this.convertNumberStringToDay.bind(this);
+    this.filterRestaurants = this.filterRestaurants.bind(this);
+    this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
 
     this.geoCordinates = new GeoCoordinates();
     this.selectedRestaurant = null;
@@ -33,6 +34,7 @@ export class List extends Component {
     PubSub.subscribe(topics.restaurantListAvailable, this.initialize)
     PubSub.subscribe(topics.geolocationAvailable, this.setupGeolocation); 
     PubSub.subscribe(topics.directionsUpdated, this.directionsUpdated);
+    PubSub.subscribe(topics.restaurantTypeToggle, this.restaurantTypeToggled); 
   }
 
   initialize(message, restaurantsData) {
@@ -82,12 +84,10 @@ export class List extends Component {
     PubSub.publish(topics.directionRefUpdated, `js-direction-${index}`);
   }
 
-  restaurantTypeToggled(e) {
-    const restaurantType = {
-      'checked': e.target.checked,
-      'name': e.target.value,
-    };
-    PubSub.publish(topics.restaurantTypeToggle, restaurantType);
+  restaurantTypeToggled(message, restaurantType) {
+    if (message !== topics.restaurantTypeToggle) {
+      console.warn(`Restaurant type recieved in unexpected subscription broadcast. The broadcast is: ${message}.`);
+    }
     this.filterRestaurants(restaurantType);
   }
 
@@ -375,51 +375,6 @@ export class List extends Component {
 
     return (
       <div>
-        <div className="mx-auto restaurant-type">
-          <ul className="list-inline">
-            <li className="list-inline-item">
-              <label>  
-                <input
-                  defaultChecked={true}
-                  name="restaurantType" 
-                  onChange={this.restaurantTypeToggled}  
-                  type="checkbox" 
-                  value="vegetarian" /> 
-                <span className={conversion.getColorClass('vegetarian')}> 
-                  Vegetarian ({conversion.code('vegetarian')}) 
-                </span>
-              </label>
-            </li>
-            <li className="list-inline-item">
-              <label>
-                <input 
-                defaultChecked={true}
-                  name="restaurantType"
-                  onChange={this.restaurantTypeToggled}
-                  type="checkbox" 
-                  value="vegan" /> 
-                <span className={conversion.getColorClass('vegan')}> 
-                 Vegan ({conversion.code('vegan')}) 
-                </span>
-            </label>
-        </li>
-        <li className="list-inline-item">
-          <label>
-            <input 
-              defaultChecked={true}
-              name="restaurantType"
-              onChange={this.restaurantTypeToggled}
-              type="checkbox" 
-              value="raw vegan" /> 
-            <span className={conversion.getColorClass('raw vegan')}> 
-            {' '} Raw Vegan ({conversion.code('raw vegan')})
-              </span>
-          </label>
-        </li>
-    </ul>
-        </div>
-         <br />
-
         <div className="card restaurant-list">
           <div className="card-header card-header-color">
             <i class="material-icons">
