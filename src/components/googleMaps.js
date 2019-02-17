@@ -29,9 +29,7 @@ export class GoogleMaps extends MapProviderBase {
     this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     this.newAddressFromAutoComplete = this.newAddressFromAutoComplete.bind(this);
-    this.autocompleteInit = this.autocompleteInit.bind(this);
-    this.noAddress = this.noAddress.bind(this);
-    this.obtainedAddressFromLatAndLng = this.obtainedAddressFromLatAndLng.bind(this);
+    this.autocompleteInit = this.autocompleteInit.bind(this);    this.obtainedAddressFromLatAndLng = this.obtainedAddressFromLatAndLng.bind(this);
  
     // TODO: move these to map.js
     PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
@@ -143,23 +141,16 @@ export class GoogleMaps extends MapProviderBase {
     PubSub.publish(topics.gotAddressFromLatitudeAndLongitude, addressComponent.formatted_address);
   }
 
-  noAddress() {
-    if (this.isAutoDetected) {
-      return;
-    }
-
-    const warning = 'Address needed. Auto detect it or select one from the address box'; 
-    PubSub.publish(topics.warningNotification, warning);
-  }
-
   setDirectionsOnMap() {
     if (!this.origin || !this.destination) {
       console.warn(`Both origin and destination must not be falsy. Origin is: ${this.origin}. Destination is: ${this.destination}`);
       
-      if (!this.origin) {
-        this.noAddress();
-      }
-      return;
+      const warning = !this.destination ?
+        'Please, select a restaurant' :
+        'Please, select an address';
+
+        PubSub.publish(topics.warningNotification, warning);
+        return;
     }
 
     const request = {
@@ -282,7 +273,7 @@ export class GoogleMaps extends MapProviderBase {
     const LatLng = this.google.maps.LatLng;
     this.state.markers.forEach((marker) => {
       const getIconDetails = conversion.getIconDetails(marker.type);
-      const pin = `http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|${getIconDetails.colorCode}`;
+      const pin = `https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|${getIconDetails.colorCode}`;
       this.markers.push(new this.google.maps.Marker({
         position: new LatLng({
           lat: Number.parseFloat(marker.latitude),
@@ -307,9 +298,9 @@ export class GoogleMaps extends MapProviderBase {
       <div>
       <div className="card">
           <div className="card-header card-header-color">
-              <i className="material-icons">map</i>
+              <i className="material-icons" title="map">map</i>
               <ul className="list-inline pull-right">
-                  <li className="list-inline-item">
+                  <li className="list-inline-item" title="Filter on Vegetarian">
                       <label>
                           <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegetarian" />
                           <span className={conversion.getColorClass( 'vegetarian')}> 
@@ -317,7 +308,7 @@ export class GoogleMaps extends MapProviderBase {
                   </span>
                       </label>
                   </li>
-                  <li className="list-inline-item">
+                  <li className="list-inline-item" title="Filter on Vegan">
                       <label>
                           <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegan" />
                           <span className={conversion.getColorClass( 'vegan')}> 
@@ -325,7 +316,7 @@ export class GoogleMaps extends MapProviderBase {
                   </span>
                       </label>
                   </li>
-                  <li className="list-inline-item">
+                  <li className="list-inline-item" title="Filter on Raw Vegan">
                       <label>
                           <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="raw vegan" />
                           <span className={conversion.getColorClass( 'raw vegan')}> 
@@ -341,26 +332,34 @@ export class GoogleMaps extends MapProviderBase {
       <br />
       <div className="card">
           <div className="card-header card-header-color">
-              <i className="material-icons">directions</i>
+              <i className="material-icons" title="directions">directions</i>
               <ul className="list-inline pull-right">
                   <li className="list-inline-item">
-                      <label>
-                          <input defaultChecked name="direction-type" onClick={this.travelModeSelected} type="radio" value="DRIVING" /> <i className="icon-shift-driving material-icons">directions_car</i>
+                      <label title="driving directions">
+                          <input defaultChecked name="direction-type" onClick={this.travelModeSelected} type="radio" value="DRIVING" />
+                          { " " }
+                          <i className="icon-shift-driving material-icons">directions_car</i>
                       </label>
                   </li>
                   <li className="list-inline-item">
-                      <label>
-                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="TRANSIT" /> <i className="icon-shift-transit material-icons">directions_transit</i>
+                      <label title="transit directions">
+                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="TRANSIT" />
+                          { " " }
+                          <i className="icon-shift-transit material-icons">directions_transit</i>
                       </label>
                   </li>
                   <li className="list-inline-item">
-                      <label>
-                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="WALKING" /> <i className="icon-shift-walking material-icons">directions_walk</i>
+                      <label title="walking directions">
+                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="WALKING" /> 
+                          { " " }
+                          <i className="icon-shift-walking material-icons">directions_walk</i>
                       </label>
                   </li>
-                  <li className="list-inline-item">
+                  <li className="list-inline-item"  title="bicyling directions">
                       <label>
-                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="BICYCLING" /> <i className="icon-shift-bicycle material-icons">directions_bike</i>
+                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="BICYCLING" /> 
+                          { " " }
+                          <i className="icon-shift-bicycle material-icons">directions_bike</i>
                       </label>
                   </li>
               </ul>

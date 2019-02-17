@@ -13,7 +13,6 @@ export class MapProviderBase extends Component {
 
   directionUpdate(message, direction) {}
 
-  directionRefUpdated(message, direction) {}
 }
 
 export default MapProviderBase;

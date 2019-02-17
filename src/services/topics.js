@@ -7,7 +7,6 @@ export default {
     'restaurantTypeToggle': 'restaurantTypeToggle',
     'mapInitDetailsAvailable': 'mapInitDetailsAvailable',
     'travelModeSelected': 'travelModeSelected',
-    'directionRefUpdated': 'directionRefUpdated',
     'directionsUpdated': 'directionsUpdated',    
     'warningNotification': 'warningNotification',
     'infoNotification': 'infoNotification',

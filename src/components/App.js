@@ -14,6 +14,10 @@ class App extends Component {
   constructor() {
     super();
 
+    //ie 11 needs
+    this.ie11Polyfills = this.ie11Polyfills.bind(this);
+    this.ie11Polyfills()
+
     this.yelpData = null;
     this.notification = React.createRef();
 
@@ -102,6 +106,65 @@ class App extends Component {
     notification.addNotification(options); 
   }
 
+  // polyfills for IE11. Remove once ie11 is no longer relevant
+  ie11Polyfills() {
+    //Number.parseFloat 
+    if (Number.parseFloat === undefined) {
+      Number.parseFloat = parseFloat;
+    }
+
+     //Number.parseFloat 
+     if (Number.parseint === undefined) {
+      Number.parseInt = parseInt;
+    }
+
+    //trimend
+    String.prototype.trimEnd = String.prototype.trimEnd ? String.prototype.trimEnd : function() {
+      if(String.prototype.trimRight) {
+        return this.trimRight();
+      } else if(String.prototype.trim) {
+        var trimmed = this.trim();
+        var indexOfWord = this.indexOf(trimmed);
+        
+        return this.slice(indexOfWord, this.length);
+      }
+    };
+
+    //Object.assign
+    if (!Object.assign) {
+      Object.defineProperty(Object, 'assign', {
+        enumerable: false,
+        configurable: true,
+        writable: true,
+        value: function(target) {
+          'use strict';
+          if (target === undefined || target === null) {
+            throw new TypeError('Cannot convert first argument to object');
+          }
+    
+          var to = Object(target);
+          for (var i = 1; i < arguments.length; i++) {
+            var nextSource = arguments[i];
+            if (nextSource === undefined || nextSource === null) {
+              continue;
+            }
+            nextSource = Object(nextSource);
+    
+            var keysArray = Object.keys(Object(nextSource));
+            for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
+              var nextKey = keysArray[nextIndex];
+              var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+              if (desc !== undefined && desc.enumerable) {
+                to[nextKey] = nextSource[nextKey];
+              }
+            }
+          }
+          return to;
+        }
+      });
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -111,21 +174,41 @@ class App extends Component {
           </article>
           <article>
             <header>
-              <nav className="navbar navbar-default navbar-fixed-top">
-                <div className="navbar-header">
-                  <a href="/" className="navbar-brand pull-left">
-                    <img
-                      alt="ChicagoVeg Restaurants"
-                      className="brand"
-                      src={require('../images/brand.jpg')}
-                      title="ChicagoVeg Restaurants"
-                    />
-                  </a>
+              <div className="">
+                <img
+                    alt="ChicagoVeg Restaurants"
+                    className=""
+                    height="1px"
+                    src={require('../images/chicagorestaurants.jpg')}
+                    title="ChicagoVeg Restaurants"
+                    width="1px"
+                  />
+                  <img
+                    alt="ChicagoVeg Restaurants"
+                    className=""
+                    height="0"
+                    src="http://chicagoveg.com/restaurants/Lib/Veg/dist/img/chicagorestaurants.jpg"
+                    title="ChicagoVeg Restaurants"
+                    width="0"
+                  />
                 </div>
-                <div className="mx-auto page-title">
-                  <h1>
-                    {this.state.header.title}
-                  </h1>
+              <nav>
+                <div className="nav-row">
+                  <div className="nav-column nav-left">
+                    <a href="/" className="navbar-brand pull-left">
+                      <img
+                          alt="ChicagoVeg Restaurants"
+                          className="brand"
+                          src={require('../images/brand.jpg')}
+                          title="ChicagoVeg Restaurants"
+                        />
+                        </a>
+                    </div>
+                    <div className="nav-column nav-right page-title">
+                      <h1 className="mx-auto">
+                          {this.state.header.title}
+                      </h1>
+                    </div>
                 </div>
               </nav>
             </header>

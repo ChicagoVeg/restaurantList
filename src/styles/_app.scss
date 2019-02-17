@@ -4,6 +4,7 @@ body {
 
 nav {
     background-color: $section-header-color;
+    margin-top: -25px; //hack to cover over facebook images
 }
 
 .page-title {  
@@ -28,10 +29,37 @@ nav {
     background-color: $card-head-color !important    
 }
 
+/* Create two unequal columns that floats next to each other */
+.nav-column {
+  float: left;
+  padding: 10px;
+  height: 100px; /* Should be removed. Only for demonstration */
+}
+
+.nav-left {
+    align-items: center;
+    display: flex;
+    width: 25%;
+}
+
+.nav-right {
+    align-items: center;
+    display: flex;
+    width: 75%;
+}
+
+/* Clear floats after the columns */
+.nav-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
 // override twitter bootstrap
 @media (min-width: 57px) {
     .container {
-        max-width: 94% !important; 
+        max-width: 95% !important; 
     }
 }
 

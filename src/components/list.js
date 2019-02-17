@@ -80,7 +80,6 @@ export class List extends Component {
     }
     this.selectedRestaurant = restaurants[index];
     PubSub.publish(topics.restaurantSelected, this.selectedRestaurant); 
-    PubSub.publish(topics.directionRefUpdated, `js-direction-${index}`);
   }
 
   restaurantTypeToggled(message, restaurantType) {
@@ -303,9 +302,14 @@ export class List extends Component {
                     </span>
                     {' '}
                     {<i className={choiceAward} title={`${restaurant.bestInTownAward}-choice award winner`}></i>}  
-                     <br />
+                    {' '}
+                    <span className="restaurant-distance">{`(${restaurant.distance || '-'} miles)`}</span>
+                    <br />
                   </label>
-                  <i className="material-icons info-icon" title="click for more info">info</i>
+                  <span>{'     '} </span>
+                  <i className="material-icons info-icon" title="click for more info">
+                    info
+                  </i>
                 </div>
               </div>
             </div>
@@ -320,14 +324,15 @@ export class List extends Component {
       <div>
         <div className="card restaurant-list-container">
           <div className="card-header card-header-color">
-            <i className="material-icons">
+            <i className="material-icons" title="restaurants">
               restaurant
             </i>
             <div className="pull-right inline">
             <input 
               className={`button-link ${this.state.sortBy === 'name' ? 'active-sortBy' : ''}`}
               name="name"
-              onClick={this.sort} 
+              onClick={this.sort}
+              title="sort by name"
               type="button" 
               value="Name" 
             />
@@ -336,6 +341,7 @@ export class List extends Component {
               className={`button-link ${this.state.sortBy === 'distance' ? 'active-sortBy' : ''}`}
               name="distance" 
               onClick={this.sort}
+              title="Sort by distance"
               type="button" 
               value="Distance" 
             />

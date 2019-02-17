@@ -137,7 +137,7 @@ export class SearchArea extends Component {
                     id="basic-addon1"
                   >                  
                       <div className="input-group-prepend">
-                            <div className="auto-detect-region">
+                            <div className="auto-detect-region" title="click to auto-detect address">
                               <button
                                     className="button-link"
                                     type="button"
