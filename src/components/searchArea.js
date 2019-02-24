@@ -13,9 +13,11 @@ export class SearchArea extends Component {
     this.state = {
       autoDetected: false,
       details: {},
-      'canGeolocate': !!window.navigator.geolocation
+      canGeolocate: !!window.navigator.geolocation, 
+      searchText: 'Type address OR Auto-detect (button to left)',
     };
 
+    this.noGeolocationSearchtext = 'Type address';
     this.geoCoordinates = new GeoCoordinates();
 
     this.geolocate = this.geolocate.bind(this);
@@ -45,6 +47,7 @@ export class SearchArea extends Component {
         let message = '';
         this.setState({
           'canGeolocate': false,
+          'searchText': this.noGeolocationSearchtext,
         });
 
         switch (error.code) {
@@ -109,7 +112,6 @@ export class SearchArea extends Component {
       };
       PubSub.publish(topics.geolocationAvailable, geoCoordinates);
     };
-
     
     this.geoCoordinates.getGeocoordinatesFromAddress(
       searchText,
@@ -123,6 +125,9 @@ export class SearchArea extends Component {
       this.geolocate();
     } else {
       const warning = 'Geolocation is not supported by your browser';
+      this.setState({
+        'searchText': this.noGeolocationSearchtext,
+      });
       PubSub.publish(topics.warningNotification, warning);
     }
   }
@@ -158,7 +163,7 @@ export class SearchArea extends Component {
               aria-describedby="basic-addon1"
               aria-label="search"
               className="form-control js-address search-box"
-              placeholder="Type address OR Auto-detect (button to left)"
+              placeholder={this.state.searchText}
               ref={this.searchBox}
               required="required"
               type="search"

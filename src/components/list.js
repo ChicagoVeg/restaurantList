@@ -26,6 +26,7 @@ export class List extends Component {
     this.convertNumberStringToDay = this.convertNumberStringToDay.bind(this);
     this.filterRestaurants = this.filterRestaurants.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
+    this.info = this.info.bind(this);
 
     this.geoCordinates = new GeoCoordinates();
     this.selectedRestaurant = null;
@@ -131,6 +132,13 @@ export class List extends Component {
       return 0;
     })
     return restaurants;
+  }
+
+  info(e) {
+    const infoBtn = e.currentTarget;
+    const id = infoBtn.getAttribute('data-id');
+    const infoArea = document.querySelector(`#info-area-${id}`)
+    infoArea.toggleAttribute('hidden');
   }
 
   setupGeolocation(message, position) {
@@ -281,7 +289,7 @@ export class List extends Component {
             <div className="row">
               <div className="container-fluid">
                 <div className="row">                  
-                  <label className="restaurant-list-label">
+                  <label className="restaurant-list-label pointer">
                     <input 
                       onChange={this.restaurantSelected}
                       name="restaurant-selected"  
@@ -289,13 +297,7 @@ export class List extends Component {
                       value={index}  
                     /> 
                     {' '}
-                    <a 
-                      href={restaurant.url}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
                       <span className="restaurant-name">{restaurant.name}</span>
-                    </a>
                     {'   '}
                     <span className={getColorClass} title={restaurant.type}>
                       {restaurant.icon.code}
@@ -307,14 +309,37 @@ export class List extends Component {
                     <br />
                   </label>
                   <span>{'     '} </span>
-                  <i className="material-icons info-icon" title="click for more info">
+                  <i
+                    data-id={index} 
+                    className="material-icons info-icon pointer" 
+                    title="click for more info"
+                    onClick={this.info}
+                    >
                     info
                   </i>
                 </div>
               </div>
             </div>
-            <div className="row mx-auto">
-            
+            <div id={`info-area-${index}`} className="row" hidden>
+              <div className="restaurant-info">
+                <address>
+                  {restaurant.address.address}<br />
+                  {restaurant.address.city}<br />
+                  {restaurant.address.state}<br />
+                  {restaurant.address.zip}<br />
+                </address>
+                <a 
+                  href={`tel:${restaurant.phone}`}
+                >
+                  {restaurant.phone}
+                </a><br />
+                <a
+                    href={restaurant.url} 
+                    rel="noopener noreferrer" 
+                    target="_blank">
+                      Website
+                  </a><br />
+              </div>
             </div>
           </div>
         </li>)

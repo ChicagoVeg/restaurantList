@@ -239,6 +239,7 @@ export class GoogleMaps extends MapProviderBase {
   }
 
   componentDidMount() {
+    /*
     const ApiKey = 'AIzaSyBtKinaroy-zATTzX5ts17OuphpmXPAq1A';
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${ApiKey}&libraries=places`;
@@ -249,12 +250,13 @@ export class GoogleMaps extends MapProviderBase {
     });
 
     document.body.appendChild(script);
+    */
   }
 
   componentDidUpdate() {
-    if (!this.state.mapIsReady || !this.state.googleMapsHasLoaded) {
-      return;
-    }
+    //if (!this.state.mapIsReady || !this.state.googleMapsHasLoaded) {
+    //  return;
+    //}
 
     const { startingLatitude, startingLongitude, zoom } = this.state.map;
     this.google = window.google;

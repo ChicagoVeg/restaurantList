@@ -98,6 +98,17 @@ $restaurant-font-size: 0.8em;
     }
 }
 
+.restaurant-info {
+    border-color: $border-color;
+    border-radius: $border-radius;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-left: 3.4em;
+}
+
 .yelp-data-list {
     font-size: smaller;
 

@@ -131,6 +131,25 @@ class App extends Component {
       }
     };
 
+    //toggleAttribute
+    if (!Element.prototype.toggleAttribute) {
+      Element.prototype.toggleAttribute = function(name, force) {
+        if(force !== void 0) force = !!force 
+        
+        if (this.getAttribute(name) !== null) {
+          if (force) return true;
+          
+          this.removeAttribute(name);
+          return false;
+        } else {
+          if (force === false) return false;
+          
+          this.setAttribute(name, "");
+          return true;
+        }
+      };
+    }
+
     //Object.assign
     if (!Object.assign) {
       Object.defineProperty(Object, 'assign', {
@@ -204,7 +223,7 @@ class App extends Component {
               <nav>
                 <div className="nav-row">
                   <div className="nav-column nav-left">
-                    <a href="/" className="navbar-brand pull-left">
+                    <a href="/" className="navbar-brand">
                       <img
                           alt="ChicagoVeg Restaurants"
                           className="brand"
