@@ -276,7 +276,7 @@ export class GoogleMaps extends MapProviderBase {
     this.state.markers.forEach((marker) => {
       const getIconDetails = conversion.getIconDetails(marker.type);
       const pin = `https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|${getIconDetails.colorCode}`;
-      this.markers.push(new this.google.maps.Marker({
+      let gmMarker = new this.google.maps.Marker({
         position: new LatLng({
           lat: Number.parseFloat(marker.latitude),
           lng: Number.parseFloat(marker.longitude),
@@ -285,7 +285,13 @@ export class GoogleMaps extends MapProviderBase {
         title: marker.name,
         icon: pin,
         type: marker.type,
-      }));
+      });
+      gmMarker.addListener('click', (function() {
+        // note, this == maker, based on .bind
+        document.querySelector(`input[name="restaurant-selected"][value="${this.id}"]`).click();
+      }).bind(marker));
+
+      this.markers.push();
     });
 
     this.directionsService = new this.google.maps.DirectionsService();

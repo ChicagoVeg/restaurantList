@@ -294,7 +294,7 @@ export class List extends Component {
                       onChange={this.restaurantSelected}
                       name="restaurant-selected"  
                       type="radio" 
-                      value={index}  
+                      value={restaurant.id}
                     /> 
                     {' '}
                       <span className="restaurant-name">{restaurant.name}</span>
