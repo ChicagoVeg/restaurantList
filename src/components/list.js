@@ -313,7 +313,7 @@ export class List extends Component {
             </div>
             <div id={`info-area-${restaurant.id}`} className="row" hidden>
               <div className="restaurant-info">
-                <address>
+                <address className="mb-0">
                   {restaurant.address.address}<br />
                   {restaurant.address.city}, {' '} 
                   {restaurant.address.state} {' '}
@@ -339,7 +339,7 @@ export class List extends Component {
     return (
       <div>
         <div className="card restaurant-list-container">
-          <div className="card-header card-header-color">
+          <div className="card-header card-header-color pb-0">
             <i className="material-icons" title="restaurants">
               restaurant
             </i>
@@ -365,7 +365,7 @@ export class List extends Component {
   
           </div>
           <div className="restaurant-list">
-            <ul className="list-group list-group-flush">
+            <ul className="list-group list-group-flush mb-0">
               {restaurants}
             </ul>
           </div>

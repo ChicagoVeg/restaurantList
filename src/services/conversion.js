@@ -12,9 +12,9 @@ export default {
         if (type === 'raw vegan') {
             return 'RV';
         } else if (type === 'vegan') {
-            return 'V'
+            return 'VG'
         } else if (type === 'vegetarian') {
-            return 'VG';
+            return 'VT';
         } else  if (type === 'user') {
             return 'U';
         } else {
@@ -26,9 +26,9 @@ export default {
 
         if (code === 'RV') {
             return '0000FF';
-        } else if (code === 'V') {
-            return '00FF00'
         } else if (code === 'VG') {
+            return '00FF00'
+        } else if (code === 'VT') {
             return 'FF8000';
         } else if (code === 'U') { 
             return 'FFFFFF';
@@ -50,9 +50,9 @@ export default {
         const code = this.code(type);
         let className = '';
 
-        if (code === 'V'){
+        if (code === 'VG'){
             className  = 'vegan-token';
-        } else if (code === 'VG') {
+        } else if (code === 'VT') {
             className = 'vegetarian-token' 
         } else if (code === 'RV') {
             className = 'raw-vegan-token';

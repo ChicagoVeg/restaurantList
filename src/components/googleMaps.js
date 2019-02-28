@@ -36,7 +36,7 @@ export class GoogleMaps extends Component {
     PubSub.subscribe(topics.needAddressfromLatitudeAndLongitude, this.getAddressFromLatAndLng);
 
     this.state = {
-      markers: [],
+      markers: [], // marker value
       map: {
         startingLatitude: 41.954420,
         startingLongitude: -87.669250,
@@ -51,7 +51,7 @@ export class GoogleMaps extends Component {
     };
 
     this.map = null;
-    this.markers = [];
+    this.googleMarker = []; // reference to google marker on map
     this.directionsService = null;
     this.directionsDisplay = null;
     this.destination = null;
@@ -91,7 +91,7 @@ export class GoogleMaps extends Component {
   }
 
   filterRestaurants(type) {
-    const markers = this.markers;
+    const markers = this.googleMarker;
 
     if (!markers || markers.length === 0) {
       console.warn('No markers to filter');
@@ -297,7 +297,7 @@ export class GoogleMaps extends Component {
 
       }).bind(marker));
 
-      this.markers.push();
+      this.googleMarker.push(gmMarker);
     });
 
     this.directionsService = new this.google.maps.DirectionsService();
@@ -311,9 +311,9 @@ export class GoogleMaps extends Component {
     return (
       <div>
       <div className="card">
-          <div className="card-header card-header-color">
+          <div className="card-header card-header-color pb-0">
               <i className="material-icons" title="map">map</i>
-              <ul className="list-inline pull-right">
+              <ul className="list-inline pull-right mb-0">
                   <li className="list-inline-item" title="Filter on Vegetarian">
                       <label>
                           <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegetarian" />
@@ -345,9 +345,9 @@ export class GoogleMaps extends Component {
       </div>
       <br />
       <div className="card restaurant-directions-container">
-          <div className="card-header card-header-color">
+          <div className="card-header card-header-color pb-0">
               <i className="material-icons" title="directions">directions</i>
-              <ul className="list-inline pull-right">
+              <ul className="list-inline pull-right mb-0">
                   <li className="list-inline-item">
                       <label title="driving directions">
                           <input defaultChecked name="direction-type" onClick={this.travelModeSelected} type="radio" value="DRIVING" />
