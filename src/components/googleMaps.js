@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PubSub from 'pubsub-js';
 import conversion from '../services/conversion';
 import topics from '../services/topics';
-import MapProviderBase from './mapProviderBase';
 
 // Codebase has lot of experiment-code. It needs cleaning.
 
@@ -15,7 +14,7 @@ import MapProviderBase from './mapProviderBase';
  * @class GoogleMaps
  * @extends {Component}
  */
-export class GoogleMaps extends MapProviderBase {
+export class GoogleMaps extends Component {
   constructor(props) {
     super(props);
 
@@ -288,7 +287,14 @@ export class GoogleMaps extends MapProviderBase {
       });
       gmMarker.addListener('click', (function() {
         // note, this == maker, based on .bind
-        document.querySelector(`input[name="restaurant-selected"][value="${this.id}"]`).click();
+        const element = document.querySelector(`input[name="restaurant-selected"][value="${this.id}"]`);
+
+        if (element) {
+          element.click();
+        } else {
+          console.warn('Invalid id passed to google marker click event');
+        }
+
       }).bind(marker));
 
       this.markers.push();

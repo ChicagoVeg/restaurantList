@@ -167,7 +167,7 @@
             },
             "phone": "773.665.0227",
             "type": "Vegetarian",
-            "closed": true,
+            "closed": "true",
             "yelpAlias": ""
         },
         {
@@ -1020,7 +1020,7 @@
             "yelpAlias": "veggie-grill-chicago-3"      
         }, 
         {
-            "id": "77",
+            "id": "78",
             "name": "Veggie Grill - River North (Winter 2019)",
             "url": "https://www.veggiegrill.com/",
             "latitude": "41.893819",
@@ -1038,7 +1038,7 @@
             "yelpAlias": ""
         },
         {
-            "id": "78",
+            "id": "79",
             "name": "Shree - Naperville",
             "url": "http://shreerestaurants.com",
             "latitude": "41.79495",
@@ -1056,7 +1056,7 @@
             "yelpAlias": "shree-restaurant-naperville"
         },
         {
-            "id": "79",
+            "id": "80",
             "name": "The Joy Bar",
             "url": "http://www.thejoybar.com",
             "latitude": "41.878101",
@@ -1073,7 +1073,7 @@
             "bestInTownAward": "",
             "yelpAlias": "the-joy-bar-glen-ellyn"
         }, {
-            "id": "80",
+            "id": "81",
             "name": "Honest - Naperville ",
             "url": "https://honestrestaurantsusa.com",
             "latitude": "41.768564",
@@ -1091,7 +1091,7 @@
             "yelpAlias": "honest-naperville"
         }, 
         {
-            "id": "81",
+            "id": "82",
             "name": "Honest - Schamburg",
             "url": "https://honestrestaurantsusa.com",
             "latitude": "42.049428",
@@ -1109,7 +1109,7 @@
             "yelpAlias": "honest-schaumburg"
         },
         {
-            "id": "82",
+            "id": "83",
             "name": "Heritage Cafe",
             "url": "https://heritage1849.com",
             "latitude": "41.7513008",
@@ -1127,7 +1127,7 @@
             "yelpAlias": "heritage-cafe-chicago"
         },
         {
-            "id": "83",
+            "id": "84",
             "name": "No Bones Beach Club",
             "url": "https://heritage1849.com",
             "latitude": "41.910403",
@@ -1145,7 +1145,7 @@
             "yelpAlias": "no-bones-beach-club-chicago"
         }, 
         {
-            "id": "84",
+            "id": "85",
             "name": "Udupi Palace",
             "url": "http://www.udupipalacechicago.com",
             "latitude": "42.029640",

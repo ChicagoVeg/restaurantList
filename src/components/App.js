@@ -65,13 +65,14 @@ class App extends Component {
 
   componentDidUpdate() {
     const details = Object.assign({}, this.state);
+    const restaurants =  details.restaurants.filter(r => r.closed !== "true");
     PubSub.publish(topics.restaurantListAvailable, { 
-      restaurants: details.restaurants,
+      restaurants: restaurants,
       yelpData: this.yelpData,
     });
     PubSub.publish(topics.mapInitDetailsAvailable, {
       map: details.map,
-      restaurants: details.restaurants,
+      restaurants: restaurants,
 
     });
   }
@@ -120,16 +121,18 @@ class App extends Component {
     }
 
     //trimend
-    String.prototype.trimEnd = String.prototype.trimEnd ? String.prototype.trimEnd : function() {
-      if(String.prototype.trimRight) {
-        return this.trimRight();
-      } else if(String.prototype.trim) {
-        var trimmed = this.trim();
-        var indexOfWord = this.indexOf(trimmed);
-        
-        return this.slice(indexOfWord, this.length);
-      }
-    };
+    if(!String.prototype.trimEnd) {
+      String.prototype.trimEnd = function() {
+        if(String.prototype.trimRight) {
+          return this.trimRight();
+        } else if(String.prototype.trim) {
+          var trimmed = this.trim();
+          var indexOfWord = this.indexOf(trimmed);
+          
+          return this.slice(indexOfWord, this.length);
+        }
+      };
+    }
 
     //toggleAttribute
     if (!Element.prototype.toggleAttribute) {
@@ -157,7 +160,6 @@ class App extends Component {
         configurable: true,
         writable: true,
         value: function(target) {
-          'use strict';
           if (target === undefined || target === null) {
             throw new TypeError('Cannot convert first argument to object');
           }

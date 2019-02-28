@@ -46,11 +46,7 @@ export class List extends Component {
     const yelpData = restaurantsData.yelpData;
 
     // augment
-    let restaurants = restaurantsData.restaurants
-      .filter(restaurant => {
-          return restaurant.closed !== 'true';
-      })
-      .map(restaurant => {
+    let restaurants = restaurantsData.restaurants.map(restaurant => {
         restaurant.distance = null;
         restaurant.icon = conversion.getIconDetails(restaurant.type);
         restaurant.visible = true;
@@ -68,18 +64,20 @@ export class List extends Component {
   }
 
   restaurantSelected(e) {
-    const index = Number.parseInt(e.target.value);
-    
-    if (isNaN(index)) {
-      console.warn(`Invalid index provided. The value is: ${index}`);
-      return;
-    }    
+    const index = e.target.value;
     const restaurants = this.state.restaurants;
 
     if (!restaurants || restaurants.length < index-1) {
       console.warn(`Invalid index passed to restarantSelection. The index is: ${index}`);  
     }
-    this.selectedRestaurant = restaurants[index];
+    
+    this.selectedRestaurant = restaurants.find(r => r.id === index);
+
+    if (!this.selectedRestaurant) {
+      console.warn(`There is no restaurant with id: ${index}`);
+      return;
+    }
+
     PubSub.publish(topics.restaurantSelected, this.selectedRestaurant); 
   }
 
@@ -264,15 +262,8 @@ export class List extends Component {
           return null;
         } 
         const getColorClass = conversion.getColorClass(restaurant.type);
-        const restaurantDistanceDisplay =  !!restaurant.distance; 
         let choiceAward = '';
-        const yelpData = restaurant.yelpData || {};
-        const restaurant_image = yelpData ? restaurant.yelpData.image_url : "";
-        const transactions = this.formatTransactions(yelpData.transactions);
-        const openHours = this.formatOpenHours(Object.keys(yelpData).length === 0 ? '' : yelpData.hours[0].open);
-        const phoneNumber = restaurant.phone.replace(/\./, '-');
-        const address = `${restaurant.address.address}, ${restaurant.address.city}, ${restaurant.address.state} ${restaurant.address.zip}`;
-
+       
         if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'top') {
           choiceAward = 'fa fa-trophy fa-lg choice-award-top';
         } else if (!!restaurant.bestInTownAward && restaurant.bestInTownAward.toLowerCase() === 'runnerup') {
@@ -310,7 +301,7 @@ export class List extends Component {
                   </label>
                   <span>{'     '} </span>
                   <i
-                    data-id={index} 
+                    data-id={restaurant.id} 
                     className="material-icons info-icon pointer" 
                     title="click for more info"
                     onClick={this.info}
@@ -320,12 +311,12 @@ export class List extends Component {
                 </div>
               </div>
             </div>
-            <div id={`info-area-${index}`} className="row" hidden>
+            <div id={`info-area-${restaurant.id}`} className="row" hidden>
               <div className="restaurant-info">
                 <address>
                   {restaurant.address.address}<br />
-                  {restaurant.address.city}<br />
-                  {restaurant.address.state}<br />
+                  {restaurant.address.city}, {' '} 
+                  {restaurant.address.state} {' '}
                   {restaurant.address.zip}<br />
                 </address>
                 <a 
