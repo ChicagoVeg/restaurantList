@@ -378,6 +378,52 @@ export class List extends Component {
             </ul>
           </div>
         </div>
+        <div className="card restaurant-legend-area">
+          <div className="card-header card-header-color pb-0"> 
+            <i class="material-icons">vpn_key </i>
+          </div>
+          <div className="restaurant-legend-body">
+            <div class="restaurant-legend-row">
+              <div><i class="fa fa-trophy fa-lg choice-award-top" title="Top-choice award winner"></i></div>
+              <div><a href=" https://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice">ChicagoVeg Choice</a></div>
+            </div>
+            <div class="restaurant-legend-row">
+              <div><i class="fa fa-trophy fa-lg choice-award-runner" title="Runnerup-choice award winner"></i></div>
+              <div><a href=" https://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice">ChicagoVeg Choices</a></div>
+            </div>
+            <div class="restaurant-legend-row">
+              <div><i class="material-icons sponser" title="ChicagoVeg Sponsor">star_rate</i></div>
+              <div><a href="https://chicagoveg.com/#sponsors">ChicagoVeg Sponsor</a></div>
+            </div>
+
+            <div class="restaurant-legend-row">
+              <div><span class="vegetarian-token" title="Vegetarian">VT</span></div>
+              <div>
+                <a href="https://en.wikipedia.org/wiki/Vegetarianism" target="blank">
+                  Vegetarian
+                </a>
+              </div>
+            </div>
+            <div class="restaurant-legend-row">
+              <div><span class="vegan-token" title="Vegan">VG</span></div>
+              <div>
+                <a href="https://en.wikipedia.org/wiki/Veganism" target="blank">
+                  Vegan
+                </a>
+              </div>
+            </div>
+            <div class="restaurant-legend-row">
+              <div><span class="raw-vegan-token" title="Raw Vegan">RV</span></div>
+              <div>
+                <a href="https://en.wikipedia.org/wiki/Raw_veganism" target="_blank">
+                  Raw Vegan
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
       </div>
     )
   }

@@ -42,22 +42,6 @@ $restaurant-font-size: 0.8em;
     padding-left: 0;
 }
 
-.icon-shift-driving {
-    margin-left: -5px;
-}
-
-.icon-shift-transit {
-    margin-left: -7px;
-}
-
-.icon-shift-walking {
-    margin-left: -8px;
-}
-
-.icon-shift-bicyle {
-    margin-left: -15px;
-}
-
 .restaurant-list-container {
     border-style: groove;
     border-width: 2px;
@@ -149,6 +133,23 @@ $restaurant-font-size: 0.8em;
 .restaurant-count {
     width: 200px;    
 }
+
+.restaurant-legend-area {
+    margin-top: 20px;
+}
+
+.restaurant-legend-body {
+    padding: 5px 0;
+}
+
+.restaurant-legend-row {
+    display: flex;
+
+    div {
+        padding-left: 10px;
+    }
+  }
+
 
 /* Phone-size screens */
 @media only screen and (max-width: 768px) {
