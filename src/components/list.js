@@ -26,7 +26,8 @@ export class List extends Component {
     this.convertNumberStringToDay = this.convertNumberStringToDay.bind(this);
     this.filterRestaurants = this.filterRestaurants.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
-    this.info = this.info.bind(this);
+    this.infoAreas = {};
+    this.selectedInfoAreaId = null;
 
     this.geoCordinates = new GeoCoordinates();
     this.selectedRestaurant = null;
@@ -77,6 +78,19 @@ export class List extends Component {
       console.warn(`There is no restaurant with id: ${index}`);
       return;
     }
+
+    // old info area
+	  if (this.selectedInfoAreaId ) {
+  	    this.infoAreas[this.selectedInfoAreaId].toggleAttribute('hidden');
+  	}
+    
+    // new info area
+  	this.selectedInfoAreaId = index;
+  	let  infoArea = this.infoAreas[index];
+  	  
+  	if (infoArea) {
+  	  infoArea.toggleAttribute('hidden');
+  	}
 
     PubSub.publish(topics.restaurantSelected, this.selectedRestaurant); 
   }
@@ -130,13 +144,6 @@ export class List extends Component {
       return 0;
     })
     return restaurants;
-  }
-
-  info(e) {
-    const infoBtn = e.currentTarget;
-    const id = infoBtn.getAttribute('data-id');
-    const infoArea = document.querySelector(`#info-area-${id}`)
-    infoArea.toggleAttribute('hidden');
   }
 
   setupGeolocation(message, position) {
@@ -296,22 +303,19 @@ export class List extends Component {
                     {' '}
                     {<i className={choiceAward} title={`${restaurant.bestInTownAward}-choice award winner`}></i>}  
                     {' '}
-                    <span className="restaurant-distance">{`(${restaurant.distance || '-'} miles)`}</span>
+                    <span className="restaurant-distance">{restaurant.distance ? `(${restaurant.distance} miles)` : ''}</span>
                     <br />
                   </label>
-                  <span>{'     '} </span>
-                  <i
-                    data-id={restaurant.id} 
-                    className="material-icons info-icon pointer" 
-                    title="click for more info"
-                    onClick={this.info}
-                    >
-                    info
-                  </i>
                 </div>
               </div>
             </div>
-            <div id={`info-area-${restaurant.id}`} className="row" hidden>
+            <div
+              className="row" 
+              hidden
+              ref={infoArea => {
+                this.infoAreas[restaurant.id] = infoArea;
+              }}
+            >
               <div className="restaurant-info">
                 <address className="mb-0">
                   {restaurant.address.address}<br />
@@ -337,7 +341,7 @@ export class List extends Component {
     });
 
     return (
-      <div>
+      <div className="list-area">
         <div className="card restaurant-list-container">
           <div className="card-header card-header-color pb-0">
             <i className="material-icons" title="restaurants">
