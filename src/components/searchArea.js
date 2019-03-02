@@ -30,47 +30,44 @@ export class SearchArea extends Component {
   }
 
   geolocate() {
-    const geolocation = window.navigator.geolocation;
+    // it seems you do not get the pop-up requesing geolocation right
+    // when you use arrow functions
+    navigator.geolocation.getCurrentPosition((function(position) {
+      PubSub.publish(topics.infoNotification, 'Address automatically detected');
+      position.isAutoDetected = true;
+      this.setState({
+        'autoDetected': true,
+      });
+      PubSub.publish(topics.geolocationAvailable, position);
+      PubSub.publish(topics.needAddressfromLatitudeAndLongitude, position);
+    }).bind(this), (function(error){
+      console.warn(`Geolocation code: ${error.code}. Geolocation message: ${error.message}`);
+      let message = '';
+      this.setState({
+        'canGeolocate': false,
+        'searchText': this.noGeolocationSearchtext,
+      });
 
-    geolocation.getCurrentPosition(
-      position => {
-        PubSub.publish(topics.infoNotification, 'Address automatically detected');
-        position.isAutoDetected = true;
-        this.setState({
-          'autoDetected': true,
-        });
-        PubSub.publish(topics.geolocationAvailable, position);
-        PubSub.publish(topics.needAddressfromLatitudeAndLongitude, position);
-      },
-      error => {
-        console.warn(`Geolocation code: ${error.code}. Geolocation message: ${error.message}`);
-        let message = '';
-        this.setState({
-          'canGeolocate': false,
-          'searchText': this.noGeolocationSearchtext,
-        });
-
-        switch (error.code) {
-          case 0:
-            message = 'Position undetermined due to an unspecified error.';
-            break;
-          case 1:
-            message = 'Permission denied.';
-            break;
-          case 2:
-            message = 'Position cannot be determined by the system.';
-            break;
-          case 3:
-            message = 'A timeout occurred while trying to determine position.';
-            break;
-          default:
-            message = 'Cannot determine position.';
-            console.error(`The code has a geolocation constant that it not to. There may be a hidden bug. The code is ${error.code}`);
-        }
-        const warning = `${message} Please, manually add address`;
-        PubSub.publish(topics.warningNotification, warning);
-      },
-    );
+      switch (error.code) {
+        case 0:
+          message = 'Position undetermined due to an unspecified error.';
+          break;
+        case 1:
+          message = 'Permission denied.';
+          break;
+        case 2:
+          message = 'Position cannot be determined by the system.';
+          break;
+        case 3:
+          message = 'A timeout occurred while trying to determine position.';
+          break;
+        default:
+          message = 'Cannot determine position.';
+          console.error(`The code has a geolocation constant that it not to. There may be a hidden bug. The code is ${error.code}`);
+      }
+      const warning = `${message} Please, manually add address`;
+      PubSub.publish(topics.warningNotification, warning);
+    }).bind(this) );
   }
 
   mapInitDetailsAvailable(message, details) {
