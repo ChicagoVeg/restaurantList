@@ -4,12 +4,14 @@ body {
 
 nav {
     background-color: $section-header-color;
+    height: 70px;
 }
 
 .page-title {  
     h1 {
         color: white;
-        font-weight: 500;   
+        font-weight: 500; 
+        line-height: 60px;  
     }
 }
 
@@ -27,34 +29,6 @@ nav {
 .card-header-color {
     background-color: $card-head-color !important    
 }
-
-/* Create two unequal columns that floats next to each other */
-.nav-column {
-  float: left;
-  padding: 10px;
-  height: 65px;
-  flex-wrap: nowrap;
-}
-
-.nav-left {
-    align-items: center;
-    display: flex;
-    width: 15%;
-}
-
-.nav-right {
-    align-items: center;
-    display: flex;
-    width: 85%;
-}
-
-/* Clear floats after the columns */
-.nav-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 
 // override twitter bootstrap
 @media (min-width: 57px) {

@@ -223,22 +223,18 @@ class App extends Component {
                 />
               </span>
               <nav>
-                <div className="nav-row">
-                  <div className="nav-column nav-left">
-                    <a href="/" className="navbar-brand">
-                      <img
-                          alt="ChicagoVeg Restaurants"
-                          className="brand"
-                          src={require('../images/brand.jpg')}
-                          title="ChicagoVeg Restaurants"
-                        />
-                        </a>
-                    </div>
-                    <div className="nav-column nav-right page-title">
-                      <h1 className="mx-auto">
-                          {this.state.header.title}
-                      </h1>
-                    </div>
+                <a href="/" className="navbar-brand pull-left">
+                  <img
+                    alt="ChicagoVeg Restaurants"
+                    className="brand"
+                    src={require('../images/brand.jpg')}
+                    title="ChicagoVeg Restaurants"
+                  />
+                </a>
+                <div className="page-title text-center">
+                  <h1 className="mx-auto">
+                      {this.state.header.title}
+                  </h1>
                 </div>
               </nav>
             </header>

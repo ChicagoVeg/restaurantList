@@ -279,6 +279,8 @@ export class List extends Component {
           choiceAward = 'fa fa-star fa-lg choice-award-gold';
         } 
 
+        const isSponser =  restaurant.sponsor === 'Gold';
+
         return (restaurant.visible && <li 
             className="list-group-item list-item" 
             key={index}
@@ -303,6 +305,8 @@ export class List extends Component {
                     {' '}
                     {<i className={choiceAward} title={`${restaurant.bestInTownAward}-choice award winner`}></i>}  
                     {' '}
+                    {isSponser && (<i class="material-icons sponser" title="ChicagoVeg Sponsor">star_rate</i>)}
+                    {' '}{' '}
                     <span className="restaurant-distance">{restaurant.distance ? `(${restaurant.distance} miles)` : ''}</span>
                     <br />
                   </label>
