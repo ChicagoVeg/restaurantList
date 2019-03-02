@@ -9,15 +9,15 @@ nav {
 .page-title {  
     h1 {
         color: white;
-        font-weight: bold;   
+        font-weight: 500;   
     }
 }
 
 .brand {
     border-radius: 8px;
     padding:0px;
-    height: 65px;
-    width: 75px;
+    height: 45px;
+    width: 120px;
 }
 
 .title {
@@ -32,7 +32,7 @@ nav {
 .nav-column {
   float: left;
   padding: 10px;
-  height: 95px;
+  height: 65px;
   flex-wrap: nowrap;
 }
 
@@ -66,11 +66,11 @@ nav {
 /* Phone-size screens */
 @media only screen and (max-width: 768px) {
     .nav-column {
-        height: 65px;
+        height: 50px;
     }
 
     .brand {
-        height: 55px;
+        height: 40px;
         width: 65px;
     }
 

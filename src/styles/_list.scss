@@ -1,25 +1,10 @@
 $restaurant-name-font-size:1em;
 $restaurant-font-size: 0.8em;
 
-.raw-vegan-token {
-    color: $raw-vegan-color;
-    font-weight: bold;
-}
-
 .active-sortBy {
     font-weight: bold;
     text-decoration: underline !important;
 }
-
-.vegan-token {
-    color: $vegan-color; 
-    font-weight: bold; 
-}
-
-.vegetarian-token {
-    color: $vegetarian-color;
-    font-weight: bold;
-} 
 
 .choice-award-top {
     color: $choice-award-top-color;
@@ -69,7 +54,7 @@ $restaurant-font-size: 0.8em;
 .restaurant-list-container {
     border-style: groove;
     border-width: 2px;
-    height: 1400px;
+    height: 1200px;
     
 
     li {
@@ -107,6 +92,10 @@ $restaurant-font-size: 0.8em;
     font-size: 0.9em;
     font-weight: bold;
     margin-left: 3.4em;
+
+    address {
+        font-weight: 300;
+    }
 }
 
 .yelp-data-list {
@@ -130,12 +119,11 @@ $restaurant-font-size: 0.8em;
 
 .restaurant-name {
     font-size: $restaurant-name-font-size;
-    font-weight: bold;
+
 }
 
 .restaurant-phone {
     font-size: $restaurant-font-size;
-    font-weight: bold;
 }
 
 .restaurant-distance {
@@ -159,6 +147,10 @@ $restaurant-font-size: 0.8em;
 @media only screen and (max-width: 768px) {
     .restaurant-type {
         width: initial;
+    }
+
+    .restaurant-list-container {
+        height: 500px;
     }
 
     .restaurant-list {
