@@ -378,7 +378,8 @@ export class List extends Component {
             </ul>
           </div>
         </div>
-        <div className="card restaurant-legend-area">
+        <br />
+        <div className="card">
           <div className="card-header card-header-color pb-0"> 
             <i class="material-icons">vpn_key </i>
           </div>
