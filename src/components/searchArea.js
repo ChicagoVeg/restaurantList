@@ -147,7 +147,7 @@ export class SearchArea extends Component {
                                     onClick={this.geolocate}
                                     value="Auto Detect"
                                   >
-                                    <i className="auto-detect-icon material-icons">
+                                    <i className="auto-detect-icon material-icons text-black-50">
                                       my_location
                                     </i>
                                   </button>
