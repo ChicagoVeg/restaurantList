@@ -4,15 +4,30 @@ body {
 
 nav {
     background-color: $section-header-color;
-    height: 70px;
+    display: flex;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.nav-brand {
+    align-items: flex-start;
+    display:flex;
+
+    a {
+        margin-right:0;
+    }
+}
+
+.nav-title {
+    align-items: center;
+    display:flex;
+
 }
 
 .page-title {  
-    h1 {
         color: white;
         font-weight: 500; 
-        line-height: 60px;  
-    }
+        line-height: 60px;
 }
 
 .brand {
