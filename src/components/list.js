@@ -26,7 +26,7 @@ export class List extends Component {
     this.convertNumberStringToDay = this.convertNumberStringToDay.bind(this);
     this.filterRestaurants = this.filterRestaurants.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
-    this.infoAreas = {};
+    this.toggleInfoArea = this.toggleInfoArea.bind(this);
     this.selectedInfoAreaId = null;
 
     this.geoCordinates = new GeoCoordinates();
@@ -79,18 +79,7 @@ export class List extends Component {
       return;
     }
 
-    // old info area
-	  if (this.selectedInfoAreaId ) {
-  	    this.infoAreas[this.selectedInfoAreaId].toggleAttribute('hidden');
-  	}
-    
-    // new info area
-  	this.selectedInfoAreaId = index;
-  	let  infoArea = this.infoAreas[index];
-  	  
-  	if (infoArea) {
-  	  infoArea.toggleAttribute('hidden');
-  	}
+    this.toggleInfoArea(this.selectedInfoAreaId, index);
 
     PubSub.publish(topics.restaurantSelected, this.selectedRestaurant); 
   }
@@ -144,6 +133,28 @@ export class List extends Component {
       return 0;
     })
     return restaurants;
+  }
+
+  toggleInfoArea(oldIndex, newIndex) {
+    if (oldIndex) {
+      let oldInfoArea = document.querySelector(`[data-infoid="${oldIndex}"]`);
+      
+      if (oldInfoArea) {
+        oldInfoArea.toggleAttribute('hidden');
+      }
+    }
+      
+    if (!newIndex) {
+      return;
+    }
+
+    // new info area
+    this.selectedInfoAreaId = newIndex;
+    let newInfoArea = document.querySelector(`[data-infoid="${this.selectedInfoAreaId}"]`);
+        
+    if (newInfoArea) {
+      newInfoArea.toggleAttribute('hidden');
+    }
   }
 
   setupGeolocation(message, position) {
@@ -264,7 +275,7 @@ export class List extends Component {
   }
 
   render() {
-    const restaurants = this.state.restaurants.map((restaurant, index) => { 
+    const restaurants = this.state.restaurants.map((restaurant) => { 
         if (restaurant.closed && restaurant.closed === true) {
           return null;
         } 
@@ -283,7 +294,7 @@ export class List extends Component {
 
         return (restaurant.visible && <li 
             className="list-group-item list-item" 
-            key={index}
+            key={restaurant.id}
           > 
           <div className="container rounded-corner restaurant-item">
             <div className="row">
@@ -305,7 +316,7 @@ export class List extends Component {
                     {' '}
                     {<i className={choiceAward} title={`${restaurant.bestInTownAward}-choice award winner`}></i>}  
                     {' '}
-                    {isSponser && (<i class="material-icons sponser" title="ChicagoVeg Sponsor">star_rate</i>)}
+                    {isSponser && (<i className="material-icons sponser" title="ChicagoVeg Sponsor">star_rate</i>)}
                     {' '}{' '}
                     <span className="restaurant-distance">{restaurant.distance ? `(${restaurant.distance} miles)` : ''}</span>
                     <br />
@@ -315,10 +326,8 @@ export class List extends Component {
             </div>
             <div
               className="row" 
+              data-infoid={restaurant.id}
               hidden
-              ref={infoArea => {
-                this.infoAreas[restaurant.id] = infoArea;
-              }}
             >
               <div className="restaurant-info">
                 <address className="mb-0">
@@ -381,40 +390,40 @@ export class List extends Component {
         <br />
         <div className="card">
           <div className="card-header card-header-color pb-0"> 
-            <i class="material-icons">vpn_key </i>
+            <i className="material-icons">vpn_key </i>
           </div>
           <div className="restaurant-legend-body">
-            <div class="restaurant-legend-row">
-              <div><i class="fa fa-trophy fa-lg choice-award-top" title="Top-choice award winner"></i></div>
+            <div className="restaurant-legend-row">
+              <div><i className="fa fa-trophy fa-lg choice-award-top" title="Top-choice award winner"></i></div>
               <div><a href=" https://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice">ChicagoVeg Choice</a></div>
             </div>
-            <div class="restaurant-legend-row">
-              <div><i class="fa fa-trophy fa-lg choice-award-runner" title="Runnerup-choice award winner"></i></div>
+            <div className="restaurant-legend-row">
+              <div><i className="fa fa-trophy fa-lg choice-award-runner" title="Runnerup-choice award winner"></i></div>
               <div><a href=" https://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice">ChicagoVeg Choices</a></div>
             </div>
-            <div class="restaurant-legend-row">
-              <div><i class="material-icons sponser" title="ChicagoVeg Sponsor">star_rate</i></div>
+            <div className="restaurant-legend-row">
+              <div><i className="material-icons sponser" title="ChicagoVeg Sponsor">star_rate</i></div>
               <div><a href="https://chicagoveg.com/#sponsors">ChicagoVeg Sponsor</a></div>
             </div>
 
-            <div class="restaurant-legend-row">
-              <div><span class="vegetarian-token" title="Vegetarian">VT</span></div>
+            <div className="restaurant-legend-row">
+              <div><span className="vegetarian-token" title="Vegetarian">VT</span></div>
               <div>
                 <a href="https://en.wikipedia.org/wiki/Vegetarianism" target="blank">
                   Vegetarian
                 </a>
               </div>
             </div>
-            <div class="restaurant-legend-row">
-              <div><span class="vegan-token" title="Vegan">VG</span></div>
+            <div className="restaurant-legend-row">
+              <div><span className="vegan-token" title="Vegan">VG</span></div>
               <div>
                 <a href="https://en.wikipedia.org/wiki/Veganism" target="blank">
                   Vegan
                 </a>
               </div>
             </div>
-            <div class="restaurant-legend-row">
-              <div><span class="raw-vegan-token" title="Raw Vegan">RV</span></div>
+            <div className="restaurant-legend-row">
+              <div><span className="raw-vegan-token" title="Raw Vegan">RV</span></div>
               <div>
                 <a href="https://en.wikipedia.org/wiki/Raw_veganism" target="_blank">
                   Raw Vegan
