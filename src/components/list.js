@@ -425,7 +425,10 @@ export class List extends Component {
             <div className="restaurant-legend-row">
               <div><span className="raw-vegan-token" title="Raw Vegan">RV</span></div>
               <div>
-                <a href="https://en.wikipedia.org/wiki/Raw_veganism" target="_blank">
+                <a 
+                  href="https://en.wikipedia.org/wiki/Raw_veganism" 
+                  rel="noopener noreferrer"
+                  target="_blank">
                   Raw Vegan
                 </a>
               </div>
