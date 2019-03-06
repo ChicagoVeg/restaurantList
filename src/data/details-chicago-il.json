@@ -67,7 +67,7 @@
             "phone": " 773.252.3211",
             "type": "Vegetarian",
             "sponsor": "",
-            "bestInTownAward": "Top",
+            "bestInTownAward": "Runnerup",
             "yelpAlias": "the-chicago-diner-chicago-2"
         },
         {
@@ -251,6 +251,7 @@
             "phone": "773.275.8797",
             "type": "Vegan",
             "bestInTownAward": "Top",
+            "sponsor": "Gold",
             "yelpAlias": "alice-and-friends-vegan-kitchen-chicago-2"
         },
         {
@@ -283,8 +284,7 @@
             },
             "phone": "773.549.4904",
             "type": "Vegan",
-            "sponsor": "Gold",
-            "bestInTownAward": "Top",
+            "bestInTownAward": "Runnerup",
             "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
@@ -301,8 +301,7 @@
             },
             "phone": "312.332.6332",
             "type": "Vegan",
-            "sponsor": "Gold",
-            "bestInTownAward": "Top",
+            "bestInTownAward": "Runnerup",
             "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
@@ -319,8 +318,7 @@
             },
             "phone": "773-241-7800",
             "type": "Vegan",
-            "sponsor": "Gold",
-            "bestInTownAward": "Top",
+            "bestInTownAward": "Runnerup",
             "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
@@ -337,8 +335,7 @@
             },
             "phone": "773.489.8480",
             "type": "Vegan",
-            "sponsor": "Gold",
-            "bestInTownAward": "Top",
+            "bestInTownAward": "Runnerup",
             "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
@@ -564,7 +561,7 @@
             "phone": "773.935.6696",
             "type": "Vegetarian",
             "sponsor": "",
-            "bestInTownAward": "Top",
+            "bestInTownAward": "Runnerup",
             "yelpAlias": "the-chicago-diner-chicago"
         },
         {
@@ -783,8 +780,8 @@
             },
             "phone": "773.293.7768",
             "type": "Vegan",
-            "sponsor": "Gold",
-            "bestInTownAward": "Top",
+            "sponsor": "",
+            "bestInTownAward": "",
             "yelpAlias": "kāl-ish-chicago"
         },
          {

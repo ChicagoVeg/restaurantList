@@ -47,24 +47,9 @@ const Footer = (props) => {
                       </button>
                   </li>
                 <li className="list-inline-item">
-                    <button
-                        className="button-link"
-                        onClick={() => socialMediaPost({
-                            url: 'http://twitter.com/share?text=List%20of%20Chicagoland Vegan,%20Vegetarian%20and%20Raw%20Vegan%20Restaurants&amp;url=',
-                            top: '500',
-                            left: '500',
-                            width: '400',
-                            height: '400',
-                          })}
-                        type="button"
-                      >
-                      <i className="fa fa-instagram social-media"></i>
-                      </button>
-                  </li>
-                <li className="list-inline-item">
                     <a
                         className="social-media-link"
-                        href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application"
+                        href="https://www.chicagoveg.com/contact.html"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
@@ -76,7 +61,7 @@ const Footer = (props) => {
         <div>
                    <span className="copyright"> © </span>
            {' '}
-          <span className="year">- {new Date().getFullYear()}</span>
+          <span className="year"> {new Date().getFullYear()}</span>
           {' '}
 
           {' '}
@@ -90,15 +75,7 @@ const Footer = (props) => {
               </a>
           {' '}
           <span className="footer-pipe">
-            &nbsp; | &nbsp;
           </span>
-          <a
-                href="mailto:restaurants@chicagoveg.com?Subject=Feedback on Restaurant Application"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                        Feedback
-              </a>
         </div>
       </div>
     </footer>

@@ -395,46 +395,16 @@ export class List extends Component {
           <div className="restaurant-legend-body">
             <div className="restaurant-legend-row">
               <div><i className="fa fa-trophy fa-lg choice-award-top" title="Top-choice award winner"></i></div>
-              <div><a href=" https://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice">ChicagoVeg Choice</a></div>
+              <div><a href=" https://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice">Top ChicagoVeg Choice</a></div>
             </div>
             <div className="restaurant-legend-row">
               <div><i className="fa fa-trophy fa-lg choice-award-runner" title="Runnerup-choice award winner"></i></div>
-              <div><a href=" https://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice">ChicagoVeg Choices</a></div>
+              <div><a href=" https://www.meetup.com/ChicagoVeg/pages/ChicagoVeg_Choice">Top 3 ChicagoVeg Choices</a></div>
             </div>
             <div className="restaurant-legend-row">
               <div><i className="material-icons sponser" title="ChicagoVeg Sponsor">star_rate</i></div>
               <div><a href="https://chicagoveg.com/#sponsors">ChicagoVeg Sponsor</a></div>
             </div>
-
-            <div className="restaurant-legend-row">
-              <div><span className="vegetarian-token" title="Vegetarian">VT</span></div>
-              <div>
-                <a href="https://en.wikipedia.org/wiki/Vegetarianism" target="blank">
-                  Vegetarian
-                </a>
-              </div>
-            </div>
-            <div className="restaurant-legend-row">
-              <div><span className="vegan-token" title="Vegan">VG</span></div>
-              <div>
-                <a href="https://en.wikipedia.org/wiki/Veganism" target="blank">
-                  Vegan
-                </a>
-              </div>
-            </div>
-            <div className="restaurant-legend-row">
-              <div><span className="raw-vegan-token" title="Raw Vegan">RV</span></div>
-              <div>
-                <a 
-                  href="https://en.wikipedia.org/wiki/Raw_veganism" 
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  Raw Vegan
-                </a>
-              </div>
-            </div>
-
-
           </div>
         </div>
       </div>
