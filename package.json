@@ -12,14 +12,14 @@
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "pubsub-js": "^1.7.0",
-    "react": "^16.8.3",
+    "react": "^16.8.4",
     "react-autocomplete": "^1.8.1",
-    "react-dom": "^16.8.3",
+    "react-dom": "^16.8.4",
     "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.0",
     "react-notification-system": "^0.2.17",
     "react-places-autocomplete": "^7.2.1",
-    "react-scripts": "^2.1.5",
+    "react-scripts": "^2.1.8",
     "reactstrap": "^7.1.0"
   },
   "scripts": {
@@ -39,7 +39,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^5.14.1",
+    "eslint": "^5.15.2",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
