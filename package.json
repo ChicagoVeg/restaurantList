@@ -1,6 +1,6 @@
 {
   "name": "restaurant-list",
-  "version": "3.1.0",
+  "version": "3.0.0",
   "homepage": "https://chicagoveg.com/restaurants-v3/",
   "private": true,
   "dependencies": {
