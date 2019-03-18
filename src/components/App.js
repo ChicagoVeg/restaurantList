@@ -201,27 +201,6 @@ class App extends Component {
           </article>
           <article>
             <header>
-              {/** for facebook */}
-              <span>
-                <img
-                  alt="ChicagoVeg Restaurants"
-                  className="brand"
-                  height="1px"
-                  hidden
-                  src={require('../images/chicagorestaurants.jpg')}
-                  title="ChicagoVeg Restaurants"
-                  width="1px"
-                />
-                <img
-                  alt="ChicagoVeg Restaurants"
-                  className="brand"
-                  height="1px"
-                  hidden
-                  src="http://chicagoveg.com/restaurants/Lib/Veg/dist/img/chicagorestaurants.jpg"
-                  title="ChicagoVeg Restaurants"
-                  width="1px"
-                />
-              </span>
               <nav>
                 <div className="nav-brand">
                   <a href="/" className="navbar-brand pull-left">
