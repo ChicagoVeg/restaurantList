@@ -1,8 +1,9 @@
 # Restaurant App
 
-## Note
 
 This is version 3. Version 1 was a knockout.js app. Version 2 was an Aurelia.js version that was never released. Version 3 is built on react.
+This is the source code for the ChicagoVeg Group restaurant application. 
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
