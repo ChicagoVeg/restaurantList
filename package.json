@@ -1,26 +1,48 @@
 {
-  "name": "ChicagoVeganAndVegetarianRestaurants",
-  "description": "List of Chicagoland Vegan and Vegetarian Restaurants",
-  "version": "0.1.0-alpha",
-  "license": "MIT",
-  "author": "ChicagoVeg Group",
-  "contributors": [
-    {
-      "name": "ChicagoVeg Group Development Team",
-      "email": "chicagoVegGroup@gmail.com"
-    },
-    {
-      "name": "Phil Adenekan",
-      "email": ""
-    }
-  ],
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-htmlhint": "^0.4.1",
-    "grunt-contrib-qunit": "^0.5.2"
+  "name": "restaurant-list",
+  "version": "3.0.0",
+  "homepage": "//chicagoveg.com/restaurants/",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "bootstrap": "^4.3.1",
+    "font-awesome": "^4.7.0",
+    "material-design-icons": "^3.0.1",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
+    "pubsub-js": "^1.7.0",
+    "react": "^16.8.4",
+    "react-autocomplete": "^1.8.1",
+    "react-dom": "^16.8.4",
+    "react-google-maps": "^9.4.5",
+    "react-helmet": "^5.2.0",
+    "react-notification-system": "^0.2.17",
+    "react-places-autocomplete": "^7.2.1",
+    "react-scripts": "^2.1.8",
+    "reactstrap": "^7.1.0"
   },
   "scripts": {
-    "test": "grunt travis --verbose"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint --fix --ext .js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "eslint": "^5.15.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4"
   }
 }

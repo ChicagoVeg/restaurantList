@@ -1,0 +1,85 @@
+-----
+Templaes
+
+https://dribbble.com/shots/3824551-Find-restaurants-near-by
+
+https://dribbble.com/shots/3541190-Restaurants-App/attachments/786881
+
+
+
+------
+
+Yelp Data
+{
+    "name": "Loving Heart",
+    "imageUrl": "https://s3-media2.fl.yelpcdn.com/bphoto/B-6Hc1MRMMzviBmzYAp0cA/o.jpg",
+    "rating": 5,
+    "reviewCount": 166,
+    "hours": [{
+        "key": {
+            "day": false,
+            "start": "1200",
+            "end": "1800",
+            "overnight": false
+        }
+    }
+
+
+-----
+
+
+Algorithms 
+
+1. Search area
+
+a. auto-detect
+user-check/uncheck:
+
+b.search
+type-in-search-box:
+
+
+
+
+2. List
+
+a. List
+show-list
+
+new-selection
+
+check/uncheck-restaurant-type
+
+3. Map
+show-map
+
+show marker
+
+update-marker-based-on-selection 
+
+change-transport-type
+
+4. footer
+show-social-media
+
+add-link-to-facebook
+
+add-link-twitter
+
+show-e-mail-link
+
+___
+
+
+
+
+___
+
+
+css organization
+
+_layout.scss
+_component.scss
+_base.scss
+_main.scss
+

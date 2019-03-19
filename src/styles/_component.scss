@@ -1,0 +1,29 @@
+.button-link {
+    color: blue;
+    background:none!important;
+    border:none; 
+    border-color: white;
+    cursor: pointer;
+    padding:0!important;
+    text-decoration: none !important; 
+    outline: none;  
+}
+
+.rounded-corner {
+    padding: 10px;
+}
+
+.vertically-align-center {
+    align-items:center;
+    display:flex;
+}
+
+.info-icon {
+    color:blue;
+    font-size: 24px !important;
+    padding-left: 7px;
+}
+
+.pointer {
+    cursor: pointer;
+}

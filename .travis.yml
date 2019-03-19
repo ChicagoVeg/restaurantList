@@ -1,5 +1,9 @@
 language: node_js
 node_js:
-  - "0.11"
-before_script:
-  - npm install -g grunt-cli
+  - "stable"
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test
+  - npm run build

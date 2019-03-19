@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    background-color: $section-header-color;
+    display: flex;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.nav-brand {
+    align-items: flex-start;
+    display:flex;
+
+    a {
+        margin-right:0;
+    }
+}
+
+.nav-title {
+    align-items: center;
+    display:flex;
+
+}
+
+.page-title {  
+    color: white;
+    font-size:1.9em;
+    font-weight: 500;
+    padding-left: 3px; 
+}
+
+.brand {
+    border-radius: 8px;
+    padding:0px;
+    height: 55px;
+    width: 100px;
+}
+
+.title {
+    font-weight: bolder;
+}
+
+.card-header-color {
+    background-color: $card-head-color !important    
+}
+
+// override twitter bootstrap
+@media (min-width: 57px) {
+    .container {
+        max-width: 95% !important; 
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .nav-column {
+        height: 50px;
+    }
+
+    .brand {
+        height: 40px;
+        width: 60px;
+    }
+
+    .page-title {
+        float: left;
+        font-size: 1.5em;
+        margin-bottom: 0;
+    }
+}
+
+/* Phone-size screens */
+@media only screen and (max-width: 768px) {
+    nav {
+        padding-left:5px;
+        padding-right: 5px;
+    }
+
+    .nav-column {
+        height: 50px;
+    }
+
+    .brand {
+        height: 40px;
+        width: 60px;
+    }
+
+    .page-title {
+        font-size: 1.3em;
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 640px) {
+    nav {
+        padding-left:5px;
+        padding-right: 5px;
+    }
+
+    .nav-column {
+        height: 50px;
+    }
+
+    .brand {
+        height: 30px;
+        width: 50px;    
+    }
+
+    .page-title {
+        margin-bottom: 0;
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    nav {
+        padding-left:5px;
+        padding-right: 5px;
+    }
+
+    .nav-column {
+        height: 50px;
+    }
+
+    .brand {
+        height: 30px;
+        width: 50px;
+    }
+
+    .page-title {
+        font-size: 0.8em;
+        margin-bottom: 0
+    }
+}
