@@ -28,7 +28,8 @@ export class GoogleMaps extends Component {
     this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     this.newAddressFromAutoComplete = this.newAddressFromAutoComplete.bind(this);
-    this.autocompleteInit = this.autocompleteInit.bind(this);    this.obtainedAddressFromLatAndLng = this.obtainedAddressFromLatAndLng.bind(this);
+    this.autocompleteInit = this.autocompleteInit.bind(this);    
+    this.obtainedAddressFromLatAndLng = this.obtainedAddressFromLatAndLng.bind(this);
  
     // TODO: move these to map.js
     PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
