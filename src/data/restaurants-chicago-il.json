@@ -1156,6 +1156,54 @@
             "phone": "847.884.9510",
             "type": "Vegetarian",
             "yelpAlias": "udupi-palace-restaurant-schaumburg"
+        },
+        {
+            "id": "86",
+            "name": "Manna Kitchen",
+            "url": "https://mannakitchen.net",
+            "latitude": "41.796380",
+            "longitude": "-88.105630",
+            "address": {
+                "address": "2801 Ogden Ave, Suite 8 & 9",
+                "city": "Lisle",
+                "state": "IL",
+                "zip": "60532"
+            },
+            "phone": "-",
+            "type": "Vegan",
+            "yelpAlias": ""
+        },
+        {
+            "id": "87",
+            "name": "Althea",
+            "url": "http://www.matthewkenneycuisine.com/althea",
+            "latitude": "41.895330",
+            "longitude": "-87.624730",
+            "address": {
+                "address": "700 N Michigan Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60611"
+            },
+            "phone": "312-525-3400",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "88",
+            "name": "Fancy Plants Cafe",
+            "url": "http://www.fancyplantscafe.com",
+            "latitude": "41.938690",
+            "longitude": "-87.644340",
+            "address": {
+                "address": "613 W Briar St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "6057"
+            },
+            "phone": "773-857-1588",
+            "type": "Vegan",
+            "yelpAlias": "-"
         }
     ]
 }

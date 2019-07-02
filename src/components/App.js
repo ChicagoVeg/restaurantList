@@ -24,7 +24,7 @@ class App extends Component {
 
     // default values for displaying page prior to data load
     this.state = {
-      detailsFile: 'details-chicago-il.json',
+      restaurantData: 'restaurants-chicago-il.json',
       yelpData: 'yelp-data-chicago.json',
       header: {
         title: 'Vegetarian, Vegan and Raw Restaurants',
@@ -58,7 +58,7 @@ class App extends Component {
    * Note: Fetch API not needed since data is local to the app
    */
   componentDidMount() {
-    const details = require(`./../data/${this.state.detailsFile}`);
+    const details = require(`./../data/${this.state.restaurantData}`);
     this.yelpData = require(`./../data/${this.state.yelpData}`);
     this.setState(details);
   }
@@ -243,12 +243,12 @@ class App extends Component {
 }
 
 App.propTypes = {
-  detailsFile: PropTypes.string,
+  restaurantData: PropTypes.string,
   details: PropTypes.object,
 };
 
 App.defaultProps = {
-  detailsFile: 'details-chicago-il.json',
+  restaurantData: 'restaurants-chicago-il.json',
   details: {},
 };
 
