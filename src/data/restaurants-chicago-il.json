@@ -659,6 +659,7 @@
             },
             "phone": "708.250.6334",
             "type": "Vegan",
+            "closed": "true",
             "yelpAlias": "daisys-catering-cafe-phoenix"
         },
         {
@@ -842,15 +843,15 @@
             "id": "68",
             "name": "The Chicago House of Za",
             "url": "http://the-chicago-house-of-za-vegan-pizzeria.business.site",
-            "latitude": "41.954620",
-            "longitude": "-87.665007",
+            "latitude": "41.952310",
+            "longitude": "-87.682330",
             "address": {
-                "address": "1416 Irving Park Rd",
+                "address": "1939 W Byron St",
                 "city": "Chicago",
                 "state": "IL",
                 "zip": "60613"
             },
-            "phone": "773.904.7937",
+            "phone": "773.770.3848",
             "type": "Vegan",
             "sponsor": "",
             "yelpAlias": "the-chicago-house-of-za-vegan-pizzeria-chicago"
@@ -1185,7 +1186,7 @@
                 "state": "IL",
                 "zip": "60611"
             },
-            "phone": "312-525-3400",
+            "phone": "312.525.3400",
             "type": "Vegan",
             "yelpAlias": "-"
         },
@@ -1199,9 +1200,89 @@
                 "address": "613 W Briar St",
                 "city": "Chicago",
                 "state": "IL",
-                "zip": "6057"
+                "zip": "60657"
             },
-            "phone": "773-857-1588",
+            "phone": "773.857.1588",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "89",
+            "name": "Be Market Lake Bluff",
+            "url": "https://www.bemarketlb.com",
+            "latitude": "42.279761",
+            "longitude": "-87.845093",
+            "address": {
+                "address": "24 East Scranton",
+                "city": "Lake Bluff",
+                "state": "IL",
+                "zip": "60044"
+            },
+            "phone": "224.436.8330",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "90",
+            "name": "Cien 100% Naturalisimo",
+            "url": "https://www.facebook.com/Cien100-Naturalisimo-285677212063472/",
+            "latitude": "41.865330",
+            "longitude": "-87.783940",
+            "address": {
+                "address": "2709 S Ridgeland Ave",
+                "city": "Berwyn",
+                "state": "IL",
+                "zip": "60402"
+            },
+            "phone": "708.317.5679",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "91",
+            "name": "Daisy’s Cafe II",
+            "url": "https://www.facebook.com/MasterChefTsooriel/",
+            "latitude": "41.578750",
+            "longitude": "-87.666340",
+            "address": {
+                "address": "17100 Dixie Highway- Unit B",
+                "city": "Hazel Crest",
+                "state": "IL",
+                "zip": "60429"
+            },
+            "phone": "708.250.7951",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "92",
+            "name": "Vegan Tease",
+            "url": "https://www.facebook.com/tsvegan/",
+            "latitude": "41.556600",
+            "longitude": "-87.851130",
+            "address": {
+                "address": "14600 South LaGrange Road",
+                "city": "Orland Park",
+                "state": "IL",
+                "zip": "60462"
+            },
+            "phone": "773.418.7469",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "93",
+            "name": "Can't Believe It's Not Meat",
+            "url": "https://www.facebook.com/CANTBELIEVEITSNOTMEATINC/",
+            "latitude": "41.798210",
+            "longitude": "-87.625720",
+            "address": {
+                "address": "1368 1/2 E 53rd St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60462"
+            },
+            "phone": "773.289.0798",
             "type": "Vegan",
             "yelpAlias": "-"
         }
