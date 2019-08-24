@@ -842,7 +842,7 @@
         {
             "id": "68",
             "name": "The Chicago House of Za",
-            "url": "http://the-chicago-house-of-za-vegan-pizzeria.business.site",
+            "url": "http://thechicagohouseofza.com/",
             "latitude": "41.952310",
             "longitude": "-87.682330",
             "address": {
@@ -1251,12 +1251,12 @@
                 "zip": "60429"
             },
             "phone": "708.250.7951",
-            "type": "Vegan",
+            "type": "Not Verified",
             "yelpAlias": "-"
         },
         {
             "id": "92",
-            "name": "Vegan Tease",
+            "name": "Vegan T'ease",
             "url": "https://www.facebook.com/tsvegan/",
             "latitude": "41.556600",
             "longitude": "-87.851130",
@@ -1267,7 +1267,7 @@
                 "zip": "60462"
             },
             "phone": "773.418.7469",
-            "type": "Vegan",
+            "type": "Not Verified",
             "yelpAlias": "-"
         },
         {
@@ -1283,7 +1283,7 @@
                 "zip": "60462"
             },
             "phone": "773.289.0798",
-            "type": "Vegan",
+            "type": "Not Verified",
             "yelpAlias": "-"
         }
     ]

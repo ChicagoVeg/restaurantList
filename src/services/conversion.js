@@ -17,6 +17,8 @@ export default {
             return 'VT';
         } else  if (type === 'user') {
             return 'U';
+        } else  if (type === 'not verified') {
+            return 'NV';
         } else {
             return '';
         } 
@@ -32,6 +34,8 @@ export default {
             return 'FF8000';
         } else if (code === 'U') { 
             return 'FFFFFF';
+        } else if (code === 'NV') { 
+            return '422663';
         } else {
             console.warn(`Unknown type. Provided: ${type}`);
             return 'FFFFFF'; 
@@ -56,6 +60,8 @@ export default {
             className = 'vegetarian-token' 
         } else if (code === 'RV') {
             className = 'raw-vegan-token';
+        } else if (code === 'NV') {
+            className = 'not-verified-token';
         } else {
             console.log(`Received an unknown type: ${type}`);
         }
