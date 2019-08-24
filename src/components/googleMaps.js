@@ -326,7 +326,7 @@ export class GoogleMaps extends Component {
                   <li className="list-inline-item" title="Filter on Vegan">
                       <label>
                           <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegan" />
-                          <span className={conversion.getColorClass( 'vegan')}> 
+                          <span className={conversion.getColorClass('vegan')}> 
                    Vegan ({conversion.code('vegan')}) 
                   </span>
                       </label>
@@ -334,11 +334,19 @@ export class GoogleMaps extends Component {
                   <li className="list-inline-item" title="Filter on Raw Vegan">
                       <label>
                           <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="raw vegan" />
-                          <span className={conversion.getColorClass( 'raw vegan')}> 
+                          <span className={conversion.getColorClass('raw vegan')}> 
               {' '} Raw Vegan ({conversion.code('raw vegan')})
                 </span>
                       </label>
                   </li>
+                  <li className="list-inline-item" title="Filter on Not Verified">
+                  <label>
+                      <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="not verified" />
+                      <span className={conversion.getColorClass('not verified')}> 
+          {' '} Not Verified ({conversion.code('not verified')})
+            </span>
+                  </label>
+              </li>
               </ul>
           </div>
           <div className="map mx-auto rounded-corner" id="js-google-map-placeholder">
