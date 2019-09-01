@@ -4,8 +4,8 @@
   "homepage": "//chicagoveg.com/restaurants/",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
+    "@material-ui/core": "^4.4.0",
+    "@material-ui/icons": "^4.2.1",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "material-design-icons": "^3.0.1",
@@ -20,7 +20,7 @@
     "react-notification-system": "^0.2.17",
     "react-places-autocomplete": "^7.2.1",
     "react-scripts": "^3.1.1",
-    "reactstrap": "^7.1.0"
+    "reactstrap": "^8.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,8 +39,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.1",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3"
