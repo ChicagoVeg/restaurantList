@@ -268,7 +268,8 @@
             },
             "phone": "773.342.6585",
             "type": "Vegan",
-            "yelpAlias": "marianos-fresh-market-chicago-12"
+            "yelpAlias": "marianos-fresh-market-chicago-12",
+            "closed": "true"
         },
         {
             "id": "23",
@@ -416,7 +417,8 @@
             },
             "phone": "312.255.1590",
             "type": "Vegan",
-            "yelpAlias": "karyns-inner-beauty-center-chicago-2"
+            "yelpAlias": "karyns-inner-beauty-center-chicago-2",
+            "closed": "true"
         },
         {
             "id": "35",
@@ -983,7 +985,7 @@
             "yelpAlias": "healthy-substance-chicago"
         }, {
             "id": "76",
-            "name": "Veggie Grill - West Loop (Spring 2019)",
+            "name": "Veggie Grill - West Loop (Fall 2019)",
             "url": "https://www.veggiegrill.com/",
             "latitude": "41.884063",
             "longitude": "-87.650378",
@@ -1019,7 +1021,7 @@
         }, 
         {
             "id": "78",
-            "name": "Veggie Grill - River North (Winter 2019)",
+            "name": "Veggie Grill - River North",
             "url": "https://www.veggiegrill.com/",
             "latitude": "41.893819",
             "longitude": "-87.634129",
