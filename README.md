@@ -34,7 +34,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#####Make sure you have .htaccess file in your build folder in deployment, if using apache and linux to run the code.
+##### Make sure you have .htaccess file in your build folder in deployment, if using apache and linux to run the code.
 
 ### `npm run eject`
 
