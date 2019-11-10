@@ -985,7 +985,7 @@
             "yelpAlias": "healthy-substance-chicago"
         }, {
             "id": "76",
-            "name": "Veggie Grill - West Loop (Fall 2019)",
+            "name": "Veggie Grill - West Loop",
             "url": "https://www.veggiegrill.com/",
             "latitude": "41.884063",
             "longitude": "-87.650378",
@@ -1172,7 +1172,7 @@
                 "state": "IL",
                 "zip": "60532"
             },
-            "phone": "-",
+            "phone": "630.536.8328",
             "type": "Vegan",
             "yelpAlias": ""
         },
