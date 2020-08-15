@@ -985,7 +985,7 @@
             "yelpAlias": "healthy-substance-chicago"
         }, {
             "id": "76",
-            "name": "Veggie Grill - West Loop (Fall 2019)",
+            "name": "Veggie Grill - West Loop",
             "url": "https://www.veggiegrill.com/",
             "latitude": "41.884063",
             "longitude": "-87.650378",
@@ -1172,7 +1172,7 @@
                 "state": "IL",
                 "zip": "60532"
             },
-            "phone": "-",
+            "phone": "630.536.8328",
             "type": "Vegan",
             "yelpAlias": ""
         },
@@ -1285,6 +1285,38 @@
                 "zip": "60462"
             },
             "phone": "773.289.0798",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "94",
+            "name": "Zest Raw Vegan Eats",
+            "url": "https://www.zestforelife.com",
+            "latitude": "41.931080",
+            "longitude": "-87.649300",
+            "address": {
+                "address": "2668 N Halsted St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60614"
+            },
+            "phone": "773.697.8567",
+            "type": "Raw Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "95",
+            "name": "Pegasus Protein",
+            "url": "https://pegasusprotein.com",
+            "latitude": "41.917620",
+            "longitude": "-87.704430",
+            "address": {
+                "address": "3050 W Armitage Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60614"
+            },
+            "phone": "312.643.0359",
             "type": "Vegan",
             "yelpAlias": "-"
         }
