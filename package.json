@@ -11,7 +11,7 @@
     "material-design-icons": "^3.0.1",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
-    "pubsub-js": "^1.7.0",
+    "pubsub-js": "^1.9.0",
     "react": "^16.9.0",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.9.0",
