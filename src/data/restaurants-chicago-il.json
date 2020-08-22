@@ -1319,6 +1319,26 @@
             "phone": "312.643.0359",
             "type": "Vegan",
             "yelpAlias": "-"
+        },
+        {
+            "id": "96",
+            "name": "Veggie House",
+            "url": "https://www.veggiehouseusa.com",
+            "latitude": "41.854630",
+            "longitude": "-87.632830",
+            "address": {
+                "address": "2109 South China Place",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60616"
+            },
+            "phone": "312.326.9966",
+            "type": "Vegetarian",
+            "yelpAlias": "-"
         }
+
+
+
+
     ]
 }
