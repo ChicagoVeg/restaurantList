@@ -1335,6 +1335,22 @@
             "phone": "312.326.9966",
             "type": "Vegetarian",
             "yelpAlias": "-"
+        },
+        {
+            "id": "97",
+            "name": "Spirit Elephant",
+            "url": "https://www.spiritelephantrestaurant.com",
+            "latitude": "42.116732",
+            "longitude": "-87.743944",
+            "address": {
+                "address": "924 Green Bay Rd",
+                "city": "Winnetka",
+                "state": "IL",
+                "zip": "60093"
+            },
+            "phone": "847.348.9000",
+            "type": "Vegan",
+            "yelpAlias": "-"
         }
     ]
 }
