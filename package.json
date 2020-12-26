@@ -15,7 +15,7 @@
     "react": "^16.9.0",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.9.0",
-    "react-google-maps": "^9.4.5",
+    "react-google-maps": "^7.3.0",
     "react-helmet": "^5.2.1",
     "react-notification-system": "^0.2.17",
     "react-places-autocomplete": "^7.2.1",
