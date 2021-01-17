@@ -1348,6 +1348,22 @@
             "phone": "847.348.9000",
             "type": "Vegan",
             "yelpAlias": "-"
+        }, 
+        {
+            "id": "98",
+            "name": "Versatile Jerk and Vegan",
+            "url": "http://orderversatilejerkandvegan.com/",
+            "latitude": "41.888980",
+            "longitude": "-87.838860",
+            "address": {
+                "address": "9 N. 5th Ave",
+                "city": "Maywood",
+                "state": "IL",
+                "zip": "60153"
+            },
+            "phone": "8312.402.8591",
+            "type": "Vegan",
+            "yelpAlias": "-"
         }
     ]
 }
