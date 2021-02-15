@@ -1364,6 +1364,22 @@
             "phone": "312.402.8591",
             "type": "Vegan",
             "yelpAlias": "-"
+        },
+        {
+            "id": "99",
+            "name": "Kale My Name",
+            "url": "https://www.kalemyname.com/",
+            "latitude": "41.961400",
+            "longitude": "-87.710820",
+            "address": {
+                "address": "3300 W Montrose Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60618"
+            },
+            "phone": "872.208.7125",
+            "type": "Vegan",
+            "yelpAlias": "-"
         }
     ]
 }
