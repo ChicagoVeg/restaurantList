@@ -714,14 +714,14 @@
         {
             "id": "60",
             "name": "Purple Sprout Cafe",
-            "url": "https://www.facebook.com/PurpleSproutCafe",
-            "latitude": "42.1396937",
-            "longitude": "-87.90621829999998",
+            "url": "https://purplesprout.com/",
+            "latitude": "42.159460",
+            "longitude": "-87.943250",
             "address": {
-                "address": "341 E. Dundee Rd",
-                "city": "Wheeling",
+                "address": "364 Lexington Drive",
+                "city": "Buffalo Grove",
                 "state": "IL",
-                "zip": "60090"
+                "zip": "60089"
             },
             "phone": "224.223.7133",
             "type": "Vegan",
@@ -1379,6 +1379,22 @@
             },
             "phone": "872.208.7125",
             "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "100",
+            "name": "Rejoice Lounge",
+            "url": "https://www.rejoicelounge.com//",
+            "latitude": "41.887210",
+            "longitude": "-88.300800",
+            "address": {
+                "address": "11 E State St",
+                "city": ". Geneva",
+                "state": "IL",
+                "zip": "60134"
+            },
+            "phone": "630.943.7499",
+            "type": "Vegetarian",
             "yelpAlias": "-"
         }
     ]
