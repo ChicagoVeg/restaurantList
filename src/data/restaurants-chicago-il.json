@@ -1396,6 +1396,22 @@
             "phone": "630.943.7499",
             "type": "Vegetarian",
             "yelpAlias": "-"
+        },
+        {
+            "id": "101",
+            "name": "World Vegan Cafe",
+            "url": "https://www.facebook.com/veganworldcafe/",
+            "latitude": "41.909173",
+            "longitude": "-87.761444",
+            "address": {
+                "address": "5419 W North Ave",
+                "city": ". Chicago",
+                "state": "IL",
+                "zip": "60639"
+            },
+            "phone": "312-918-0293",
+            "type": "Vegan",
+            "yelpAlias": "-"
         }
     ]
 }
