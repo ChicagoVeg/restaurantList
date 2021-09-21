@@ -1399,7 +1399,7 @@
         },
         {
             "id": "101",
-            "name": "World Vegan Cafe",
+            "name": "Vegan World Cafe",
             "url": "https://www.facebook.com/veganworldcafe/",
             "latitude": "41.909173",
             "longitude": "-87.761444",
@@ -1409,7 +1409,23 @@
                 "state": "IL",
                 "zip": "60639"
             },
-            "phone": "312-918-0293",
+            "phone": "312.918.0293",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "102",
+            "name": "Sky Vegan",
+            "url": "https://www.skyveganchicago.com",
+            "latitude": "41.998330",
+            "longitude": "-87.664090",
+            "address": {
+                "address": "1320 W Devon Ave",
+                "city": ". Chicago",
+                "state": "IL",
+                "zip": "60660"
+            },
+            "phone": "773.973.0504",
             "type": "Vegan",
             "yelpAlias": "-"
         }
