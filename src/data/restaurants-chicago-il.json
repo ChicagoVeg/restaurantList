@@ -1405,7 +1405,7 @@
             "longitude": "-87.761444",
             "address": {
                 "address": "5419 W North Ave",
-                "city": ". Chicago",
+                "city": "Chicago",
                 "state": "IL",
                 "zip": "60639"
             },
@@ -1421,7 +1421,7 @@
             "longitude": "-87.664090",
             "address": {
                 "address": "1320 W Devon Ave",
-                "city": ". Chicago",
+                "city": "Chicago",
                 "state": "IL",
                 "zip": "60660"
             },
