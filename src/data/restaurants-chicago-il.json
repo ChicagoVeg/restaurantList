@@ -853,6 +853,7 @@
             "phone": "773.770.3848",
             "type": "Vegan",
             "sponsor": "",
+            "closed": "true",
             "yelpAlias": "the-chicago-house-of-za-vegan-pizzeria-chicago"
         }, 
         {
@@ -889,6 +890,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": "veggie-grill-chicago"
         }, 
         {
@@ -996,6 +998,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": ""
         }, 
         {
@@ -1014,6 +1017,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": "veggie-grill-chicago-3"      
         }, 
         {
@@ -1032,6 +1036,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": ""
         },
         {
@@ -1272,17 +1277,17 @@
         {
             "id": "93",
             "name": "Can't Believe It's Not Meat",
-            "url": "https://www.facebook.com/CANTBELIEVEITSNOTMEATINC/",
+            "url": "https://cantbelieveitsnotmeat.com/",
             "latitude": "41.798210",
             "longitude": "-87.625720",
             "address": {
                 "address": "1368 1/2 E 53rd St",
                 "city": "Chicago",
                 "state": "IL",
-                "zip": "60462"
+                "zip": "60615"
             },
-            "phone": "773.289.0798",
-            "type": "Vegan",
+            "phone": "773.675.8208",
+            "type": "Vegetarian",
             "yelpAlias": "-"
         },
         {
@@ -1299,6 +1304,7 @@
             },
             "phone": "773.697.8567",
             "type": "Raw Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1427,6 +1433,38 @@
             },
             "phone": "773.973.0504",
             "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "103",
+            "name": "Can't Believe It's Not Meat",
+            "url": "https://cantbelieveitsnotmeat.com/",
+            "latitude": "41.620490",
+            "longitude": "-87.852890",
+            "address": {
+                "address": "24 Orland Square Dr",
+                "city": "Orland Park",
+                "state": "IL",
+                "zip": "60462"
+            },
+            "phone": "708.645.4077",
+            "type": "Vegetarian",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "104",
+            "name": "Can't Believe It's Not Meat",
+            "url": "https://cantbelieveitsnotmeat.com/",
+            "latitude": "41.903190",
+            "longitude": "-87.634300",
+            "address": {
+                "address": "1143 N Wells st",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60610"
+            },
+            "phone": "",
+            "type": "Vegetarian",
             "yelpAlias": "-"
         }
     ]
