@@ -1466,6 +1466,38 @@
             "phone": "-",
             "type": "Vegetarian",
             "yelpAlias": "-"
+        },
+        {
+            "id": "105",
+            "name": "I'm Vegan",
+            "url": "http://www.imveganchicago.com/",
+            "latitude": "40.741895",
+            "longitude": "-73.989308",
+            "address": {
+                "address": "2907 N Lincoln Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60657"
+            },
+            "phone": "773.904.8905",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "106",
+            "name": "Uprising Bakery and Cafe",
+            "url": "http://www.uprisingbakeryandcafe.com",
+            "latitude": "42.1757267",
+            "longitude": "-88.3761652",
+            "address": {
+                "address": "2104 Algonquin Rd",
+                "city": "Lake in the Hills,",
+                "state": "IL",
+                "zip": "60156"
+            },
+            "phone": "-",
+            "type": "Vegetarian",
+            "yelpAlias": "-"
         }
     ]
 }
