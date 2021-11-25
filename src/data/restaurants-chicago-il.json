@@ -819,10 +819,10 @@
             "sponsor": "",
             "bestInTownAward": "",
             "yelpAlias": "hunters-brewing-chesterton"
-        },
-        {
+        }, 
+         {
             "id": "67",
-            "name": "Majani - South Shore",
+            "name": "Majani",
             "url": "https://www.majani.biz",
             "latitude": "41.764758",
             "longitude": "-87.564944",
@@ -1469,6 +1469,38 @@
         },
         {
             "id": "105",
+            "name": "I'm Vegan",
+            "url": "http://www.imveganchicago.com/",
+            "latitude": "40.741895",
+            "longitude": "-73.989308",
+            "address": {
+                "address": "2907 N Lincoln Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60657"
+            },
+            "phone": "773.904.8905",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "106",
+            "name": "Uprising Bakery and Cafe",
+            "url": "http://www.uprisingbakeryandcafe.com",
+            "latitude": "42.1757267",
+            "longitude": "-88.3761652",
+            "address": {
+                "address": "2104 Algonquin Rd",
+                "city": "Lake in the Hills,",
+                "state": "IL",
+                "zip": "60156"
+            },
+            "phone": "-",
+            "type": "Vegetarian",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "107",
             "name": "Maoz Vegetarian - Schaumburg",
             "url": "http://www.maozusa.com/restaurants/locations/chicago/",
             "latitude": "42.046260",
@@ -1484,7 +1516,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "106",
+            "id": "108",
             "name": "The Eating Well",
             "url": "https://eatingwellonline.com/restaurant",
             "latitude": "42.003590",
@@ -1500,7 +1532,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "107",
+            "id": "109",
             "name": "Bloom Plant Based Kitchen",
             "url": "https://www.bloompb.com/",
             "latitude": "41.909970",
@@ -1516,7 +1548,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "108",
+            "id": "110",
             "name": "Fons Empanadas",
             "url": "https://www.havingfons.com/",
             "latitude": "41.929419",
@@ -1532,7 +1564,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "109",
+            "id": "111",
             "name": "I'M Vegan",
             "url": "http://www.imveganchicago.com/",
             "latitude": "41.93488646646642",
@@ -1548,7 +1580,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "110",
+            "id": "112",
             "name": "JuiceRx Streeterville",
             "url": "https://drinkjuicerx.com/",
             "latitude": "41.8952999333567",
@@ -1564,7 +1596,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "111",
+            "id": "113",
             "name": "JuiceRx Bucktown",
             "url": "https://drinkjuicerx.com/",
             "latitude": "41.91776401737746",
@@ -1580,7 +1612,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "112",
+            "id": "114",
             "name": "JuiceRx Lakeview",
             "url": "https://drinkjuicerx.com/",
             "latitude": "41.94141984630769",
@@ -1596,7 +1628,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "113",
+            "id": "115",
             "name": "JuiceRx Headquarters",
             "url": "https://drinkjuicerx.com/",
             "latitude": "41.97318747288471",
@@ -1612,7 +1644,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "114",
+            "id": "116",
             "name": "Sam & Gertie's",
             "url": "https://www.samandgerties.com/",
             "latitude": "41.96532147288025",
@@ -1628,7 +1660,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "115",
+            "id": "117",
             "name": "Scoops Dessert Bar",
             "url": "https://www.yelp.com/biz/scoops-dessert-bar-chicago-2",
             "latitude": "41.900562947341875",
@@ -1644,7 +1676,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "116",
+            "id": "118",
             "name": "Vaca's Creamery",
             "url": "https://www.vacascreamery.com/",
             "latitude": "41.90978650435866",
@@ -1660,7 +1692,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "117",
+            "id": "119",
             "name": "Zest Raw Vegan Culinary Cafe",
             "url": "https://zestrawveganeats.com/",
             "latitude": "41.931269139840815",
@@ -1676,7 +1708,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "118",
+            "id": "120",
             "name": "Un Cooked - Fulton Market",
             "url": "https://www.eatuncooked.com/",
             "latitude": "41.886080537578636",
@@ -1692,7 +1724,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "119",
+            "id": "121",
             "name": "Un Cooked - Bucktown",
             "url": "https://www.eatuncooked.com/",
             "latitude": "41.911302910372655",
@@ -1708,7 +1740,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "120",
+            "id": "122",
             "name": "Un Cooked - Downes Grove",
             "url": "https://www.eatuncooked.com/",
             "latitude": "41.804329924337495",
@@ -1724,7 +1756,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "121",
+            "id": "123",
             "name": "Un Cooked - Oak Park",
             "url": "https://www.eatuncooked.com/",
             "latitude": "41.908665592874605",
@@ -1740,7 +1772,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "122",
+            "id": "124",
             "name": "Un Cooked - Lincoln Park",
             "url": "https://www.eatuncooked.com/",
             "latitude": "41.92522020184422",
@@ -1756,7 +1788,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "123",
+            "id": "125",
             "name": "Majani - South Loop",
             "url": "https://www.majani.biz",
             "latitude": "41.84656810941358",
@@ -1774,7 +1806,7 @@
             "yelpAlias": "majani-restaurant-chicago"
         },
         {
-            "id": "124",
+            "id": "126",
             "name": "Majani - One Eleven Hall Food",
             "url": "https://www.majani.biz",
             "latitude": "41.6931351190442",
@@ -1792,7 +1824,7 @@
             "yelpAlias": "majani-restaurant-chicago"
         },
         {
-            "id": "125",
+            "id": "127",
             "name": "Bani's Beet - South Loop",
             "url": "https://www.banisbeets.com/",
             "latitude": "41.84662405531273",
@@ -1808,7 +1840,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "126",
+            "id": "128",
             "name": "Plant Based Junkie",
             "url": "https://www.plantbasedjunkiechicago.com/",
             "latitude": "41.736970546271365",
@@ -1824,7 +1856,7 @@
             "yelpAlias": "-"
         },
         {
-            "id": "127",
+            "id": "129",
             "name": "Lucy's Cafe",
             "url": "https://victorys-banner-restaurant.business.site/",
             "latitude": "41.94356046252129",
@@ -1839,5 +1871,6 @@
             "type": "",
             "yelpAlias": "-"
         }
+
     ]
 }
