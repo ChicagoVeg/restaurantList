@@ -1468,22 +1468,6 @@
             "yelpAlias": "-"
         },
         {
-            "id": "105",
-            "name": "I'm Vegan",
-            "url": "http://www.imveganchicago.com/",
-            "latitude": "40.741895",
-            "longitude": "-73.989308",
-            "address": {
-                "address": "2907 N Lincoln Ave",
-                "city": "Chicago",
-                "state": "IL",
-                "zip": "60657"
-            },
-            "phone": "773.904.8905",
-            "type": "Vegan",
-            "yelpAlias": "-"
-        },
-        {
             "id": "106",
             "name": "Uprising Bakery and Cafe",
             "url": "http://www.uprisingbakeryandcafe.com",
@@ -1497,6 +1481,378 @@
             },
             "phone": "-",
             "type": "Vegetarian",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "107",
+            "name": "Maoz Vegetarian - Schaumburg",
+            "url": "http://www.maozusa.com/restaurants/locations/chicago/",
+            "latitude": "42.046260",
+            "longitude": "-88.036460",
+            "address": {
+                "address": "5 Woodfield Mall",
+                "city": "Schaumburg",
+                "state": "IL",
+                "zip": "60173"
+            },
+            "phone": "847.796.0430",
+            "type": "Vegetarian",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "108",
+            "name": "The Eating Well",
+            "url": "https://eatingwellonline.com/restaurant",
+            "latitude": "42.003590",
+            "longitude": "-88.103190",
+            "address": {
+                "address": "951 W Wise Rd",
+                "city": "Schaumburg",
+                "state": "IL",
+                "zip": "60193"
+            },
+            "phone": "708.401.5278",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "109",
+            "name": "Bloom Plant Based Kitchen",
+            "url": "https://www.bloompb.com/",
+            "latitude": "41.909970",
+            "longitude": "-87.676330",
+            "address": {
+                "address": "1559 N. Milwaukee Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60622"
+            },
+            "phone": "312.363.3110",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "110",
+            "name": "Fons Empanadas",
+            "url": "https://www.havingfons.com/",
+            "latitude": "41.929419",
+            "longitude": "-87.64291",
+            "address": {
+                "address": "2566 N Clark St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60614"
+            },
+            "phone": "312.874.4080",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "111",
+            "name": "I'M Vegan",
+            "url": "http://www.imveganchicago.com/",
+            "latitude": "41.93488646646642",
+            "longitude": "-87.66131641538928",
+            "address": {
+                "address": "2907 N Lincoln Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60657"
+            },
+            "phone": "773.904.8905",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "112",
+            "name": "JuiceRx Streeterville",
+            "url": "https://drinkjuicerx.com/",
+            "latitude": "41.8952999333567",
+            "longitude": "-87.62267802469422",
+            "address": {
+                "address": "211 E. Ontario St.",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60611"
+            },
+            "phone": "312.825.1275",
+            "type": "Raw Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "113",
+            "name": "JuiceRx Bucktown",
+            "url": "https://drinkjuicerx.com/",
+            "latitude": "41.91776401737746",
+            "longitude": "-87.67837246314407",
+            "address": {
+                "address": "1880 N. Damen Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60647"
+            },
+            "phone": "312.252.4938",
+            "type": "Raw Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "114",
+            "name": "JuiceRx Lakeview",
+            "url": "https://drinkjuicerx.com/",
+            "latitude": "41.94141984630769",
+            "longitude": "-87.64420806142029",
+            "address": {
+                "address": "3241 N. Broadway St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60657"
+            },
+            "phone": "773.857.7979",
+            "type": "Raw Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "115",
+            "name": "JuiceRx Headquarters",
+            "url": "https://drinkjuicerx.com/",
+            "latitude": "41.97318747288471",
+            "longitude": "-87.9651642460756",
+            "address": {
+                "address": "571 N. Edgewood Ave",
+                "city": "Wood Dale",
+                "state": "IL",
+                "zip": "60191"
+            },
+            "phone": "-",
+            "type": "Raw Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "116",
+            "name": "Sam & Gertie's",
+            "url": "https://www.samandgerties.com/",
+            "latitude": "41.96532147288025",
+            "longitude": "-87.66293014607584",
+            "address": {
+                "address": "1309 w. Wilson Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60640"
+            },
+            "phone": "773.293.7413",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "117",
+            "name": "Scoops Dessert Bar",
+            "url": "https://www.yelp.com/biz/scoops-dessert-bar-chicago-2",
+            "latitude": "41.900562947341875",
+            "longitude": "-87.6285766405331",
+            "address": {
+                "address": "838 N State St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60610"
+            },
+            "phone": "312.340.8291",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "118",
+            "name": "Vaca's Creamery",
+            "url": "https://www.vacascreamery.com/",
+            "latitude": "41.90978650435866",
+            "longitude": "-87.66387565633688",
+            "address": {
+                "address": "1436 W Blackhawk St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60642"
+            },
+            "phone": "-",
+            "type": "",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "119",
+            "name": "Zest Raw Vegan Culinary Cafe",
+            "url": "https://zestrawveganeats.com/",
+            "latitude": "41.931269139840815",
+            "longitude": "-87.64927535956905",
+            "address": {
+                "address": "2668 North Halsted",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60614"
+            },
+            "phone": "773.697.8567",
+            "type": "Raw Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "120",
+            "name": "Un Cooked - Fulton Market",
+            "url": "https://www.eatuncooked.com/",
+            "latitude": "41.886080537578636",
+            "longitude": "-87.65350154607818",
+            "address": {
+                "address": "210 N Carpenter St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60607"
+            },
+            "phone": "312.315.5552",
+            "type": "Raw Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "121",
+            "name": "Un Cooked - Bucktown",
+            "url": "https://www.eatuncooked.com/",
+            "latitude": "41.911302910372655",
+            "longitude": "-87.67772210194683",
+            "address": {
+                "address": "1616 N. Damen Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60647"
+            },
+            "phone": "-",
+            "type": "",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "122",
+            "name": "Un Cooked - Downes Grove",
+            "url": "https://www.eatuncooked.com/",
+            "latitude": "41.804329924337495",
+            "longitude": "-88.0491854105401",
+            "address": {
+                "address": "2589 Ogden Ave",
+                "city": "Downers Grove",
+                "state": "IL",
+                "zip": "60515"
+            },
+            "phone": "-",
+            "type": "",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "123",
+            "name": "Un Cooked - Oak Park",
+            "url": "https://www.eatuncooked.com/",
+            "latitude": "41.908665592874605",
+            "longitude": "-87.80448827984577",
+            "address": {
+                "address": "7103 West North Ave",
+                "city": "Oak Park",
+                "state": "IL",
+                "zip": "60302"
+            },
+            "phone": "-",
+            "type": "",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "124",
+            "name": "Un Cooked - Lincoln Park",
+            "url": "https://www.eatuncooked.com/",
+            "latitude": "41.92522020184422",
+            "longitude": "-87.65980094598645",
+            "address": {
+                "address": "1231 W Fullerton Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60614"
+            },
+            "phone": "-",
+            "type": "",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "125",
+            "name": "Majani - South Loop",
+            "url": "https://www.majani.biz",
+            "latitude": "41.84656810941358",
+            "longitude": "-87.62485641543941",
+            "address": {
+                "address": "2537 S Wabash Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60616"
+            },
+            "phone": "224.499.4940",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": "majani-restaurant-chicago"
+        },
+        {
+            "id": "126",
+            "name": "Majani - One Eleven Hall Food",
+            "url": "https://www.majani.biz",
+            "latitude": "41.6931351190442",
+            "longitude": "-87.60139853264364",
+            "address": {
+                "address": "756 E 111th Street",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60628"
+            },
+            "phone": "773.840.3491",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": "majani-restaurant-chicago"
+        },
+        {
+            "id": "127",
+            "name": "Bani's Beet - South Loop",
+            "url": "https://www.banisbeets.com/",
+            "latitude": "41.84662405531273",
+            "longitude": "-87.62485105108235",
+            "address": {
+                "address": "2537 South Wabash Avenue",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60616"
+            },
+            "phone": "-",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "128",
+            "name": "Plant Based Junkie",
+            "url": "https://www.plantbasedjunkiechicago.com/",
+            "latitude": "41.736970546271365",
+            "longitude": "-87.5837927480305",
+            "address": {
+                "address": "1639 E 87th St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60607"
+            },
+            "phone": "773.902.7467",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "129",
+            "name": "Lucy's Cafe",
+            "url": "https://victorys-banner-restaurant.business.site/",
+            "latitude": "41.94356046252129",
+            "longitude": "-87.68109461733638",
+            "address": {
+                "address": "2100 West Roscoe St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60618"
+            },
+            "phone": "773.665.0227",
+            "type": "",
             "yelpAlias": "-"
         },
         {
