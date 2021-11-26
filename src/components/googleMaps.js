@@ -352,7 +352,9 @@ export class GoogleMaps extends Component {
           <div className="map mx-auto rounded-corner" id="js-google-map-placeholder">
           </div>
       </div>
-      <br />
+      <div className="contact-us">
+        <a href="https://www.chicagoveg.com/contact.html" target="_blank">Contact us </a> for any questions and update requests.
+      </div>
       <div className="card restaurant-directions-container">
           <div className="card-header card-header-color pb-0">
               <i className="material-icons" title="directions">directions</i>
