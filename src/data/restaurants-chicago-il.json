@@ -1468,22 +1468,6 @@
             "yelpAlias": "-"
         },
         {
-            "id": "105",
-            "name": "I'm Vegan",
-            "url": "http://www.imveganchicago.com/",
-            "latitude": "40.741895",
-            "longitude": "-73.989308",
-            "address": {
-                "address": "2907 N Lincoln Ave",
-                "city": "Chicago",
-                "state": "IL",
-                "zip": "60657"
-            },
-            "phone": "773.904.8905",
-            "type": "Vegan",
-            "yelpAlias": "-"
-        },
-        {
             "id": "106",
             "name": "Uprising Bakery and Cafe",
             "url": "http://www.uprisingbakeryandcafe.com",
