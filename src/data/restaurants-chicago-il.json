@@ -48,6 +48,7 @@
                 "zip": "60661"
             },
             "phone": "312.831.2729",
+            "closed": "true",
             "type": "Raw Vegan",
             "yelpAlias": "chicago-raw-chicago"
         },
@@ -117,9 +118,9 @@
         },
         {
             "id": "7",
-            "name": "Cinnaholic - Schaumburg",
+            "name": "Cinnaholic - Naperville",
             "url": "https://www.cinnaholic.com/",
-            "latitude": "41.77763458054574, ",
+            "latitude": "41.77763458054574",
             "longitude": "-88.15018435658901",
             "address": {
                 "address": "41 W Jefferson Ave",
@@ -1315,7 +1316,7 @@
                 "zip": "60429"
             },
             "phone": "708.250.7951",
-            "type": "Not Verified",
+            "type": "Vegetarian",
             "yelpAlias": "-"
         },
         {
@@ -1913,7 +1914,7 @@
                 "zip": "60618"
             },
             "phone": "773.665.0227",
-            "type": "",
+            "type": "Vegetarian",
             "yelpAlias": "-"
         }
    ]
