@@ -208,7 +208,7 @@ export class GoogleMaps extends Component {
     const markers = mapDetails.restaurants.map(r => ({ ...r }));
     const userMaker = {
       id: 'userMaker',
-      name: 'You are here',
+      name: 'You starting location',
       latitude: mapDetails.map.startingLatitude,
       longitude: mapDetails.map.startingLongitude,
       type: 'user',
