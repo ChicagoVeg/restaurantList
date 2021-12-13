@@ -448,7 +448,7 @@
         {
             "id": "32",
             "name": "B'Gabs Goodies",
-            "url": "http://www.bgabsgoodies.com",
+            "url": " https://www.facebook.com/BGabsGoodies",
             "latitude": "41.79151359999999",
             "longitude": "-87.58977419999997",
             "address": {
@@ -1783,6 +1783,7 @@
             },
             "phone": " 312-315-5552",
             "type": "Raw Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1799,6 +1800,7 @@
             },
             "phone": "312.315.5552",
             "type": "Raw Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1815,6 +1817,7 @@
             },
             "phone": "312.315.5552",
             "type": "Raw Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1831,6 +1834,7 @@
             },
             "phone": "312.315.5552",
             "type": "Raw Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
