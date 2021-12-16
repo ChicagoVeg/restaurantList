@@ -1029,7 +1029,7 @@
         }, {
             "id": "75",
             "name": "Healthy Substance",
-            "url": "https://www.facebook.com/HealthySubstance/",
+            "url": "http://www.healthysubstance.com",
             "latitude": "41.792400",
             "longitude": "-87.793638",
             "address": {
@@ -1038,8 +1038,8 @@
                 "state": "IL",
                 "zip": "60038"
             },
-            "phone": "",
-            "type": "Vegetarian",
+            "phone": "773.306.2808",
+            "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
             "yelpAlias": "healthy-substance-chicago"

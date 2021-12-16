@@ -345,7 +345,7 @@ export class GoogleMaps extends Component {
           </div>
       </div>
       <div className="contact-us">
-        <a href="https://www.chicagoveg.com/contact.html" target="_blank">Contact us </a> for any questions and update requests.
+        <a href="https://www.chicagoveg.com/contact.html" target="_blank" rel="noopener noreferrer">Contact us </a> for any questions and update requests.
       </div>
       <div className="card restaurant-directions-container">
           <div className="card-header card-header-color pb-0">
