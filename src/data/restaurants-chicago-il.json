@@ -182,8 +182,8 @@
         },
         {
             "id": "12",
-            "name": "Quesadilla La Reyna Del Sur",
-            "url": "http://quesadillalareinadelsur.com",
+            "name": "Quesadilla La Reyna Del Sur - Western",
+            "url": "https://www.quesadillalareinadelsur.com/western",
             "latitude": "41.922673",
             "longitude": "-87.687749",
             "address": {
@@ -1920,6 +1920,56 @@
             "phone": "773.665.0227",
             "type": "Vegetarian",
             "yelpAlias": "-"
+        },
+        {
+            "id": "130",
+            "name": "Stand-up Burger (The Loop)",
+            "url": "https://www.standupburgers.com/lakeandwells",
+            "latitude": "41.885969101082665",
+            "longitude": "-87.63405230240312",
+            "address": {
+                "address": "204 North Wells St. ",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60606"
+            },
+            "phone": "312.658.1338",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "131",
+            "name": "Stand-up Burger (LakeView East)",
+            "url": "https://www.standupburgers.com/lakeview",
+            "latitude": "41.9331130269292",
+            "longitude": "-87.64430604473034",
+            "address": {
+                "address": "614 W Diversey Pkwy",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60614"
+            },
+            "phone": "773.868.1863",
+            "type": "Vegan",
+            "yelpAlias": "-"
+        },
+        {
+            "id": "132",
+            "name": "Quesadilla La Reyna Del Sur - Pilsen",
+            "url": "https://www.quesadillalareinadelsur.com/pilsen",
+            "latitude": "41.85777500592379",
+            "longitude": "-87.6646235461064",
+            "address": {
+                "address": "1519 W 18th St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60608"
+            },
+            "phone": "312.526.3548",
+            "type": "Vegetarian",
+            "sponsor": "Gold",
+            "bestInTownAward": "",
+            "yelpAlias": "quesadilla-la-reyna-del-sur-chicago-2"
         }
    ]
 }

@@ -62,3 +62,5 @@ typings/
 # next.js build output
 .next
 
+bcompare-4.4.3.26655_amd64.deb
+kite-installer
