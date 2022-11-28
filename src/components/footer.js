@@ -23,59 +23,62 @@ const Footer = (props) => {
         <div>
           <ul className="list-inline">
             <li className="list-inline-item">
-              <a 
-              className="social-media-link"
-              href="https://www.meetup.com/ChicagoVeg/"
-              rel="noopener noreferrer"
-              target="_blank">
-                <i className="fa fa-meetup social-media"></i>
+              <a
+                className="social-media-link"
+                href="https://www.meetup.com/ChicagoVeg/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <i className="fa fa-meetup social-media" />
               </a>
             </li>
-                <li className="list-inline-item">
-                    <button
-                        className="button-link"
-                        onClick={() => socialMediaPost({
-                            url: 'http://www.facebook.com/sharer.php?u=http://restaurants.chicagoveg.com',
-                            top: '500',
-                            left: '500',
-                            width: '400',
-                            height: '400',
-                          })}
-                        type="button"
-                      >
-                      <i className="fa fa-facebook-square social-media"></i>
-                      </button>
-                  </li>
-                <li className="list-inline-item">
-                    <a
-                        className="social-media-link"
-                        href="https://www.chicagoveg.com/contact.html"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                      <i className="fa fa-envelope-square social-media"></i>
-                      </a>
-                  </li>
-              </ul>
+            <li className="list-inline-item">
+              <button
+                className="button-link"
+                onClick={() => socialMediaPost({
+                  url: 'http://www.facebook.com/sharer.php?u=http://restaurants.chicagoveg.com',
+                  top: '500',
+                  left: '500',
+                  width: '400',
+                  height: '400',
+                })}
+                type="button"
+              >
+                <i className="fa fa-facebook-square social-media" />
+              </button>
+            </li>
+            <li className="list-inline-item">
+              <a
+                className="social-media-link"
+                href="https://www.chicagoveg.com/contact.html"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <i className="fa fa-envelope-square social-media" />
+              </a>
+            </li>
+          </ul>
         </div>
         <div>
-                   <span className="copyright"> © </span>
-           {' '}
-          <span className="year"> {new Date().getFullYear()}</span>
+          <span className="copyright"> © </span>
+          {' '}
+          <span className="year">
+            {' '}
+            {new Date().getFullYear()}
+          </span>
           {' '}
 
           {' '}
           <a
-                href="http://chicagoveg.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span>ChicagoVeg</span>
+            href="http://chicagoveg.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>ChicagoVeg</span>
 
-              </a>
+          </a>
           {' '}
-          <span className="footer-pipe">
-          </span>
+          <span className="footer-pipe" />
         </div>
       </div>
     </footer>
