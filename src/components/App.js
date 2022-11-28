@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PubSub from 'pubsub-js';
 import 'bootstrap/dist/css/bootstrap.css';
+import NotificationSystem from 'react-notification-system';
+import { Helmet } from 'react-helmet';
 import Footer from './footer';
 import List from './list';
 import GoogleMaps from './googleMaps';
 import SearchArea from './searchArea';
 import topics from '../services/topics';
-import NotificationSystem from 'react-notification-system';
 import 'font-awesome/css/font-awesome.min.css';
-import {Helmet} from "react-helmet";
 
 class App extends Component {
   constructor() {
     super();
 
-    //ie 11 needs
+    // ie 11 needs
     this.ie11Polyfills = this.ie11Polyfills.bind(this);
-    this.ie11Polyfills()
+    this.ie11Polyfills();
 
     this.yelpData = null;
     this.notification = React.createRef();
@@ -64,15 +64,15 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    const details = Object.assign({}, this.state);
-    const restaurants =  details.restaurants.filter(r => r.closed !== "true");
-    PubSub.publish(topics.restaurantListAvailable, { 
-      restaurants: restaurants,
+    const details = { ...this.state };
+    const restaurants = details.restaurants.filter((r) => r.closed !== 'true');
+    PubSub.publish(topics.restaurantListAvailable, {
+      restaurants,
       yelpData: this.yelpData,
     });
     PubSub.publish(topics.mapInitDetailsAvailable, {
       map: details.map,
-      restaurants: restaurants,
+      restaurants,
 
     });
   }
@@ -87,7 +87,7 @@ class App extends Component {
       level: 'info',
       message: info,
       position: 'tc',
-    }); 
+    });
   }
 
   warningNotification(message, warning) {
@@ -100,89 +100,88 @@ class App extends Component {
       level: 'warning',
       message: warning,
       position: 'tc',
-    }); 
+    });
   }
 
   notificationModal(options) {
     const notification = this.notification.current;
-    notification.addNotification(options); 
+    notification.addNotification(options);
   }
 
   // polyfills for IE11. Remove once ie11 is no longer relevant
   ie11Polyfills() {
-    //Number.parseFloat 
+    // Number.parseFloat
     if (Number.parseFloat === undefined) {
       Number.parseFloat = parseFloat;
     }
 
-     //Number.parseFloat 
-     if (Number.parseint === undefined) {
+    // Number.parseFloat
+    if (Number.parseint === undefined) {
       Number.parseInt = parseInt;
     }
 
-    //trimend
-    if(!String.prototype.trimEnd) {
-      String.prototype.trimEnd = function() {
-        if(String.prototype.trimRight) {
+    // trimend
+    if (!String.prototype.trimEnd) {
+      String.prototype.trimEnd = function () {
+        if (String.prototype.trimRight) {
           return this.trimRight();
-        } else if(String.prototype.trim) {
-          var trimmed = this.trim();
-          var indexOfWord = this.indexOf(trimmed);
-          
+        } if (String.prototype.trim) {
+          const trimmed = this.trim();
+          const indexOfWord = this.indexOf(trimmed);
+
           return this.slice(indexOfWord, this.length);
         }
       };
     }
 
-    //toggleAttribute
+    // toggleAttribute
     if (!Element.prototype.toggleAttribute) {
-      Element.prototype.toggleAttribute = function(name, force) {
-        if(force !== void 0) force = !!force 
-        
+      Element.prototype.toggleAttribute = function (name, force) {
+        if (force !== void 0) force = !!force;
+
         if (this.getAttribute(name) !== null) {
           if (force) return true;
-          
+
           this.removeAttribute(name);
           return false;
-        } else {
-          if (force === false) return false;
-          
-          this.setAttribute(name, "");
-          return true;
         }
+        if (force === false) return false;
+
+        this.setAttribute(name, '');
+        return true;
       };
     }
 
-    //Object.assign
+    // Object.assign
     if (!Object.assign) {
       Object.defineProperty(Object, 'assign', {
         enumerable: false,
         configurable: true,
         writable: true,
-        value: function(target) {
+        value(target) {
           if (target === undefined || target === null) {
             throw new TypeError('Cannot convert first argument to object');
           }
-    
-          var to = Object(target);
-          for (var i = 1; i < arguments.length; i++) {
-            var nextSource = arguments[i];
+
+          const to = Object(target);
+          for (let i = 1; i < arguments.length; i++) {
+            let nextSource = arguments[i];
             if (nextSource === undefined || nextSource === null) {
               continue;
             }
             nextSource = Object(nextSource);
-    
-            var keysArray = Object.keys(Object(nextSource));
-            for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
-              var nextKey = keysArray[nextIndex];
-              var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+
+            const keysArray = Object.keys(Object(nextSource));
+            for (let nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
+              const nextKey = keysArray[nextIndex];
+              const desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
               if (desc !== undefined && desc.enumerable) {
                 to[nextKey] = nextSource[nextKey];
               }
             }
           }
           return to;
-        }
+        },
       });
     }
   }
@@ -197,7 +196,7 @@ class App extends Component {
         </Helmet>
         <section>
           <article>
-          <NotificationSystem ref={this.notification} />
+            <NotificationSystem ref={this.notification} />
           </article>
           <article>
             <header>
@@ -214,9 +213,9 @@ class App extends Component {
                 </div>
                 <div className="nav-title mx-auto">
                   <h1 className="page-title">
-                      {this.state.header.title}
+                    {this.state.header.title}
                   </h1>
-                </div>               
+                </div>
               </nav>
             </header>
             <div>

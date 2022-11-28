@@ -1970,6 +1970,24 @@
             "sponsor": "Gold",
             "bestInTownAward": "",
             "yelpAlias": "quesadilla-la-reyna-del-sur-chicago-2"
+        },
+        {
+            "id": "133",
+            "name": "Planta Queen | Chicago",
+            "url": "https://www.plantarestaurants.com/location/planta-chicago/",
+            "latitude": "41.88969343650436",
+            "longitude": "-87.63067728773545",
+            "address": {
+                "address": "413 N Clark St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60654"
+            },
+            "phone": "630.691.7238",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
         }
    ]
 }
