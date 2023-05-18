@@ -1988,6 +1988,24 @@
             "sponsor": "",
             "bestInTownAward": "",
             "yelpAlias": ""
+        },
+        {
+            "id": "134",
+            "name": "Logan Vegan",
+            "url": "https://www.loganvegan.com/",
+            "latitude": "41.92794852021741",
+            "longitude": "-87.7067341604055",
+            "address": {
+                "address": "2535 North Kedzie Boulevard",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60647"
+            },
+            "phone": "773.904.8971",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
         }
    ]
 }
