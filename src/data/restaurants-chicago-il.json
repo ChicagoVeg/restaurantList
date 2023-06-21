@@ -1494,7 +1494,8 @@
             },
             "phone": "773.973.0504",
             "type": "Vegan",
-            "yelpAlias": "-"
+            "yelpAlias": "-",
+            "closed": "true"
         },
         {
             "id": "103",
