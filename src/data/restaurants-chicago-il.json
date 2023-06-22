@@ -1623,7 +1623,8 @@
             },
             "phone": "773.904.8905",
             "type": "Vegan",
-            "yelpAlias": "-"
+            "yelpAlias": "-",
+            "closed": "true"
         },
         {
             "id": "112",
@@ -2003,6 +2004,24 @@
                 "zip": "60647"
             },
             "phone": "773.904.8971",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "135",
+            "name": "Plant Junkie",
+            "url": "https://plantjunkiewashington.dine.online/locations/838805",
+            "latitude": "41.883212914710576",
+            "longitude": "-87.62853055871436",
+            "address": {
+                "address": "15 West Washington St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60602"
+            },
+            "phone": "847.409.2445",
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
