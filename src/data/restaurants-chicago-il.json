@@ -843,7 +843,8 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpAlias": "kāl-ish-chicago"
+            "yelpAlias": "kāl-ish-chicago",
+            "closed": "true"
         },
          {
             "id": "64",
@@ -861,7 +862,8 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpAlias": "vegan-now-chicago"
+            "yelpAlias": "vegan-now-chicago",
+            "closed": "true"
         },
          {
             "id": "66",
@@ -1205,7 +1207,8 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
-            "yelpAlias": "no-bones-beach-club-chicago"
+            "yelpAlias": "no-bones-beach-club-chicago",
+            "closed": "true"
         }, 
         {
             "id": "85",
@@ -1253,7 +1256,8 @@
             },
             "phone": "312.525.3400",
             "type": "Vegan",
-            "yelpAlias": "-"
+            "yelpAlias": "-",
+            "closed": "true"
         },
         {
             "id": "88",
@@ -1812,7 +1816,7 @@
             "latitude": "41.908665592874605",
             "longitude": "-87.80448827984577",
             "address": {
-                "address": "7103 West North Ave",
+                "address": "7103 W. North Ave",
                 "city": "Oak Park",
                 "state": "IL",
                 "zip": "60302"
@@ -1914,7 +1918,7 @@
             "latitude": "41.94356046252129",
             "longitude": "-87.68109461733638",
             "address": {
-                "address": "2100 West Roscoe St",
+                "address": "2100 W. Roscoe St",
                 "city": "Chicago",
                 "state": "IL",
                 "zip": "60618"
@@ -2016,12 +2020,84 @@
             "latitude": "41.883212914710576",
             "longitude": "-87.62853055871436",
             "address": {
-                "address": "15 West Washington St",
+                "address": "15 W. Washington St",
                 "city": "Chicago",
                 "state": "IL",
                 "zip": "60602"
             },
             "phone": "847.409.2445",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "136",
+            "name": "The Water Bar",
+            "url": "https://www.thewaterbar.biz/geneva-il.html",
+            "latitude": "41.888324112451876",
+            "longitude": "-88.30849420110287",
+            "address": {
+                "address": "315 W State St",
+                "city": "Geneva",
+                "state": "IL",
+                "zip": "60134"
+            },
+            "phone": "815.214.9552",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "137",
+            "name": "Elephant+Vine - Lincoln Park",
+            "url": "https://www.elephantandvine.com/",
+            "latitude": "41.92439000515036",
+            "longitude": "-87.6466676631547",
+            "address": {
+                "address": "2315 N. Lincoln Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60614"
+            },
+            "phone": "312.546.9742",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "138",
+            "name": "Elephant+Vine - Evanston",
+            "url": "https://www.elephantandvine.com/",
+            "latitude": "42.04894081394123",
+            "longitude": "-87.68139197415206",
+            "address": {
+                "address": "719 Church St",
+                "city": "Evanston",
+                "state": "IL",
+                "zip": "60201"
+            },
+            "phone": "847.586.0223",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "139",
+            "name": "Vegan Now 2 Go VG",
+            "url": "https://www.vegannow2go.com/",
+            "latitude": "41.759213180125364",
+            "longitude": "-87.58694102087277",
+            "address": {
+                "address": "1536 E. 75th St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60619"
+            },
+            "phone": "773.891.1433",
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
