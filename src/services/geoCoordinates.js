@@ -46,7 +46,7 @@ export class GeoCoordinates {
     }
 
     address = encodeURI(address.trim());
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${key}&sensor=false`;
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${key}&sensor=false&libraries=places,marker`;
     fetch(url)
       .then((response) => response.json())
       .then((addressDetails) => {
