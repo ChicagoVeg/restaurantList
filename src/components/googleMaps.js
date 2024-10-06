@@ -28,9 +28,9 @@ export class GoogleMaps extends Component {
     this.getAddressFromLatAndLng = this.getAddressFromLatAndLng.bind(this);
     this.restaurantTypeToggled = this.restaurantTypeToggled.bind(this);
     this.newAddressFromAutoComplete = this.newAddressFromAutoComplete.bind(this);
-    this.autocompleteInit = this.autocompleteInit.bind(this);    
+    this.autocompleteInit = this.autocompleteInit.bind(this);
     this.obtainedAddressFromLatAndLng = this.obtainedAddressFromLatAndLng.bind(this);
- 
+
     // TODO: move these to map.js
     PubSub.subscribe(topics.restaurantSelected, this.restaurantSelected);
     PubSub.subscribe(topics.mapInitDetailsAvailable, this.loadFullMap);
@@ -69,7 +69,7 @@ export class GoogleMaps extends Component {
   }
 
   setInfoWindow(flag, index) {
-    const markers = this.state.markers;
+    const { markers } = this.state;
 
     markers[index].showInfoWindow = flag;
     this.setState({
@@ -85,7 +85,7 @@ export class GoogleMaps extends Component {
     if (message !== topics.restaurantSelected) {
       console.warn(`Received unexpected topics. Expected: ${topics.restaurantSelected}. Received: ${message}`);
     }
-    const address = restaurant.address;
+    const { address } = restaurant;
     const formatted_address = `${address.address}, ${address.city}, ${address.state} ${address.zip}`;
     this.destination = formatted_address;
     this.setDirectionsOnMap();
@@ -117,24 +117,24 @@ export class GoogleMaps extends Component {
       return;
     }
 
-    const {latitude, longitude} = position.coords;
+    const { latitude, longitude } = position.coords;
     const latlng = new this.google.maps.LatLng(latitude, longitude);
     const geocoder = new this.google.maps.Geocoder();
     geocoder.geocode({
-      'latLng': latlng, 
-    }, (function(results, status) {
+      latLng: latlng,
+    }, (results, status) => {
       if (status !== this.google.maps.GeocoderStatus.OK) {
         console.error(`Geocode getting address from latitude and longitude returned with an error: ${this.google.maps.GeocoderStatus}`);
         return;
-      } else if (!results || !results[1]) {
+      } if (!results || !results[1]) {
         console.error('No result found');
         return;
-      } 
-      
+      }
+
       const addressComponents = results[1];
       this.origin = addressComponents.formatted_address;
-      this.obtainedAddressFromLatAndLng(addressComponents);     
-    }).bind(this));
+      this.obtainedAddressFromLatAndLng(addressComponents);
+    });
   }
 
   obtainedAddressFromLatAndLng(addressComponent) {
@@ -144,13 +144,13 @@ export class GoogleMaps extends Component {
   setDirectionsOnMap() {
     if (!this.origin || !this.destination) {
       console.warn(`Both origin and destination must not be falsy. Origin is: ${this.origin}. Destination is: ${this.destination}`);
-      
-      const warning = !this.destination ?
-        'Please, select a restaurant' :
-        'Please, select an address';
 
-        PubSub.publish(topics.warningNotification, warning);
-        return;
+      const warning = !this.destination
+        ? 'Please, select a restaurant'
+        : 'Please, select an address';
+
+      PubSub.publish(topics.warningNotification, warning);
+      return;
     }
 
     const request = {
@@ -158,7 +158,7 @@ export class GoogleMaps extends Component {
       destination: this.destination,
       travelMode: this.travelMode,
     };
-    this.directionsService.route(request, (function(result, status) {
+    this.directionsService.route(request, (result, status) => {
       if (status === 'OK') {
         const element = this.refs.directions;
         this.directionsDisplay.setDirections(result);
@@ -166,7 +166,7 @@ export class GoogleMaps extends Component {
       } else {
         console.error(`Error loading direction service. The error is: ${status}`);
       }
-    }).bind(this));
+    });
   }
 
   newAddressFromAutoComplete(position) {
@@ -176,17 +176,17 @@ export class GoogleMaps extends Component {
   autocompleteInit() {
     const element = document.querySelector('.js-address');
     const places = new window.google.maps.places.Autocomplete(element);
-    this.google.maps.event.addListener(places, 'place_changed', (function() {
+    this.google.maps.event.addListener(places, 'place_changed', () => {
       const place = places.getPlace();
       this.origin = place.formatted_address;
       this.newAddressFromAutoComplete({
-        'coords': {
-          'latitude': place.geometry.location.lat(),
-          'longitude': place.geometry.location.lng()
-        }
+        coords: {
+          latitude: place.geometry.location.lat(),
+          longitude: place.geometry.location.lng(),
+        },
       });
       this.setDirectionsOnMap();
-    }).bind(this));
+    });
   }
 
   setAutocomplete() {
@@ -203,9 +203,9 @@ export class GoogleMaps extends Component {
       mapIsReady: true,
     });
 
-        // Markers contain same field as restaurants but can contains user-info,
+    // Markers contain same field as restaurants but can contains user-info,
     // So it was cloned into a new array
-    const markers = mapDetails.restaurants.map(r => ({ ...r }));
+    const markers = mapDetails.restaurants.map((r) => ({ ...r }));
 
     this.setState({
       markers,
@@ -223,8 +223,8 @@ export class GoogleMaps extends Component {
 
   restaurantTypeToggled(e) {
     const restaurantType = {
-      'checked': e.target.checked,
-      'name': e.target.value,
+      checked: e.target.checked,
+      name: e.target.value,
     };
     this.filterRestaurants(restaurantType);
     PubSub.publish(topics.restaurantTypeToggle, restaurantType);
@@ -246,9 +246,9 @@ export class GoogleMaps extends Component {
   }
 
   componentDidUpdate() {
-    //if (!this.state.mapIsReady || !this.state.googleMapsHasLoaded) {
+    // if (!this.state.mapIsReady || !this.state.googleMapsHasLoaded) {
     //  return;
-    //}
+    // }
 
     const { startingLatitude, startingLongitude, zoom } = this.state.map;
     this.google = window.google;
@@ -264,21 +264,32 @@ export class GoogleMaps extends Component {
       },
     );
 
-    const LatLng = this.google.maps.LatLng;
+    const { LatLng } = this.google.maps;
     this.state.markers.forEach((marker) => {
       const getIconDetails = conversion.getIconDetails(marker.type);
-      const pin = `https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|${getIconDetails.colorCode}`;
-      let gmMarker = new this.google.maps.Marker({
+      // const pin = `https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•|${getIconDetails.colorCode}`;
+
+      const icon = {
+        path: 'M146.667,0C94.903,0,52.946,41.957,52.946,93.721c0,22.322,7.849,42.789,20.891,58.878c4.204,5.178,11.237,13.331,14.903,18.906c21.109,32.069,48.19,78.643,56.082,116.864c1.354,6.527,2.986,6.641,4.743,0.212c5.629-20.609,20.228-65.639,50.377-112.757c3.595-5.619,10.884-13.483,15.409-18.379c6.554-7.098,12.009-15.224,16.154-24.084c5.651-12.086,8.882-25.466,8.882-39.629C240.387,41.962,198.43,0,146.667,0z M146.667,144.358			c-28.892,0-52.313-23.421-52.313-52.313c0-28.887,23.421-52.307,52.313-52.307s52.313,23.421,52.313,52.307 C198.98,120.938,175.559,144.358,146.667,144.358z',
+        fillColor: `${getIconDetails.colorCode}`,
+        color: `${getIconDetails.colorCode}`,
+        fillOpacity: 1,
+        anchor: new google.maps.Point(0, 0),
+        strokeWeight: 1,
+        scale: 0.1,
+      };
+
+      const gmMarker = new this.google.maps.Marker({
         position: new LatLng({
           lat: Number.parseFloat(marker.latitude),
           lng: Number.parseFloat(marker.longitude),
         }),
         map: this.map,
         title: marker.name,
-        icon: pin,
+        icon,
         type: marker.type,
       });
-      gmMarker.addListener('click', (function() {
+      gmMarker.addListener('click', (function () {
         // note, this == maker, based on .bind
         const element = document.querySelector(`input[name="restaurant-selected"][value="${this.id}"]`);
 
@@ -287,7 +298,6 @@ export class GoogleMaps extends Component {
         } else {
           console.warn('Invalid id passed to google marker click event');
         }
-
       }).bind(marker));
 
       this.googleMarker.push(gmMarker);
@@ -303,88 +313,100 @@ export class GoogleMaps extends Component {
   render() {
     return (
       <div>
-      <div className="card">
+        <div className="card">
           <div className="card-header card-header-color pb-0">
-              <i className="material-icons" title="map">map</i>
-              <ul className="list-inline pull-right mb-0">
-                  <li className="list-inline-item" title="Filter on Vegetarian">
-                      <label>
-                          <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegetarian" />
-                          <span className={conversion.getColorClass( 'vegetarian')}> 
-                    Vegetarian ({conversion.code('vegetarian')}) 
+            <i className="material-icons" title="map">map</i>
+            <ul className="list-inline pull-right mb-0">
+              <li className="list-inline-item" title="Filter on Vegetarian">
+                <label>
+                  <input defaultChecked name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegetarian" />
+                  <span className={conversion.getColorClass('vegetarian')}>
+                    Vegetarian (
+                    {conversion.code('vegetarian')}
+                    )
                   </span>
-                      </label>
-                  </li>
-                  <li className="list-inline-item" title="Filter on Vegan">
-                      <label>
-                          <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegan" />
-                          <span className={conversion.getColorClass('vegan')}> 
-                   Vegan ({conversion.code('vegan')}) 
-                  </span>
-                      </label>
-                  </li>
-                  <li className="list-inline-item" title="Filter on Raw Vegan">
-                      <label>
-                          <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="raw vegan" />
-                          <span className={conversion.getColorClass('raw vegan')}> 
-              {' '} Raw Vegan ({conversion.code('raw vegan')})
-                </span>
-                      </label>
-                  </li>
-                  <li className="list-inline-item" title="Filter on Not Verified">
-                  <label>
-                      <input defaultChecked={true} name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="not verified" />
-                      <span className={conversion.getColorClass('not verified')}> 
-          {' '} Not Verified ({conversion.code('not verified')})
-            </span>
-                  </label>
+                </label>
               </li>
-              </ul>
+              <li className="list-inline-item" title="Filter on Vegan">
+                <label>
+                  <input defaultChecked name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="vegan" />
+                  <span className={conversion.getColorClass('vegan')}>
+                    Vegan (
+                    {conversion.code('vegan')}
+                    )
+                  </span>
+                </label>
+              </li>
+              <li className="list-inline-item" title="Filter on Raw Vegan">
+                <label>
+                  <input defaultChecked name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="raw vegan" />
+                  <span className={conversion.getColorClass('raw vegan')}>
+                    {' '}
+                    {' '}
+                    Raw Vegan (
+                    {conversion.code('raw vegan')}
+                    )
+                  </span>
+                </label>
+              </li>
+              <li className="list-inline-item" title="Filter on Not Verified">
+                <label>
+                  <input defaultChecked name="restaurantType" onChange={this.restaurantTypeToggled} type="checkbox" value="not verified" />
+                  <span className={conversion.getColorClass('not verified')}>
+                    {' '}
+                    {' '}
+                    Not Verified (
+                    {conversion.code('not verified')}
+                    )
+                  </span>
+                </label>
+              </li>
+            </ul>
           </div>
-          <div className="map mx-auto rounded-corner" id="js-google-map-placeholder">
-          </div>
-      </div>
-      <div className="contact-us">
-        <a href="https://www.chicagoveg.com/contact.html" target="_blank" rel="noopener noreferrer">Contact us </a> for any questions and update requests.
-      </div>
-      <div className="card restaurant-directions-container">
+          <div className="map mx-auto rounded-corner" id="js-google-map-placeholder" />
+        </div>
+        <div className="contact-us">
+          <a href="https://www.chicagoveg.com/contact.html" target="_blank" rel="noopener noreferrer">Contact us </a>
+          {' '}
+          for any questions and update requests.
+        </div>
+        <div className="card restaurant-directions-container">
           <div className="card-header card-header-color pb-0">
-              <i className="material-icons" title="directions">directions</i>
-              <ul className="list-inline pull-right mb-0">
-                  <li className="list-inline-item">
-                      <label title="driving directions">
-                          <input defaultChecked name="direction-type" onClick={this.travelModeSelected} type="radio" value="DRIVING" />
-                          { " " }
-                          <i className="icon-shift-driving material-icons">directions_car</i>
-                      </label>
-                  </li>
-                  <li className="list-inline-item">
-                      <label title="transit directions">
-                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="TRANSIT" />
-                          { " " }
-                          <i className="icon-shift-transit material-icons">directions_transit</i>
-                      </label>
-                  </li>
-                  <li className="list-inline-item">
-                      <label title="walking directions">
-                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="WALKING" /> 
-                          { " " }
-                          <i className="icon-shift-walking material-icons">directions_walk</i>
-                      </label>
-                  </li>
-                  <li className="list-inline-item"  title="bicyling directions">
-                      <label>
-                          <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="BICYCLING" /> 
-                          { " " }
-                          <i className="icon-shift-bicycle material-icons">directions_bike</i>
-                      </label>
-                  </li>
-              </ul>
+            <i className="material-icons" title="directions">directions</i>
+            <ul className="list-inline pull-right mb-0">
+              <li className="list-inline-item">
+                <label title="driving directions">
+                  <input defaultChecked name="direction-type" onClick={this.travelModeSelected} type="radio" value="DRIVING" />
+                  { ' ' }
+                  <i className="icon-shift-driving material-icons">directions_car</i>
+                </label>
+              </li>
+              <li className="list-inline-item">
+                <label title="transit directions">
+                  <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="TRANSIT" />
+                  { ' ' }
+                  <i className="icon-shift-transit material-icons">directions_transit</i>
+                </label>
+              </li>
+              <li className="list-inline-item">
+                <label title="walking directions">
+                  <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="WALKING" />
+                  { ' ' }
+                  <i className="icon-shift-walking material-icons">directions_walk</i>
+                </label>
+              </li>
+              <li className="list-inline-item" title="bicyling directions">
+                <label>
+                  <input name="direction-type" onClick={this.travelModeSelected} type="radio" value="BICYCLING" />
+                  { ' ' }
+                  <i className="icon-shift-bicycle material-icons">directions_bike</i>
+                </label>
+              </li>
+            </ul>
           </div>
-          <div className="restaurant-directions" ref="directions">
-          </div>
+          <div className="restaurant-directions" ref="directions" />
+        </div>
       </div>
-  </div>
     );
   }
 }
