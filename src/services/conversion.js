@@ -26,15 +26,15 @@ export default {
     const code = this.code(type);
 
     if (code === 'RV') {
-      return '0000FF';
+      return '#0000FF';
     } if (code === 'VG') {
-      return '00FF00';
+      return '#00FF00';
     } if (code === 'VT') {
-      return 'FF8000';
+      return '#FF8000';
     } if (code === 'U') {
-      return 'FFFFFF';
+      return '#FFFFFF';
     } if (code === 'NV') {
-      return '422663';
+      return '#422663';
     }
     console.warn(`Unknown type. Provided: ${type}`);
     return 'FFFFFF';
