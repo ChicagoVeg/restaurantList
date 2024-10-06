@@ -261,6 +261,7 @@ export class GoogleMaps extends Component {
         },
         zoom: Number.parseFloat(zoom),
         mapTypeId: 'roadmap',
+        mapId: 'AIzaSyDuddOEctDmQdN_eCrcHdkV0ONH_gX8j68&', //"DEMO_MAP_ID", // Map ID is required for advanced markers.
       },
     );
 
@@ -279,15 +280,21 @@ export class GoogleMaps extends Component {
         scale: 0.1,
       };
 
-      const gmMarker = new this.google.maps.Marker({
+      const pinBackground = new this.google.maps.marker.PinElement({
+        background: `${getIconDetails.colorCode}`,
+        borderColor: `${getIconDetails.colorCode}`,
+        glyphColor: '#FFFFFF',
+        scale: 0.8,
+      });
+
+      const gmMarker = new this.google.maps.marker.AdvancedMarkerElement({
         position: new LatLng({
           lat: Number.parseFloat(marker.latitude),
           lng: Number.parseFloat(marker.longitude),
         }),
         map: this.map,
         title: marker.name,
-        icon,
-        type: marker.type,
+        content: pinBackground.element,
       });
       gmMarker.addListener('click', (function () {
         // note, this == maker, based on .bind

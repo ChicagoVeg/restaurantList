@@ -235,8 +235,8 @@
             "id": "15",
             "name": "Amitabul",
             "url": "http://amitabulchicago.com",
-            "latitude": "41.993916",
-            "longitude": "-87.784523",
+            "latitude": "41.994100",
+            "longitude": "-87.784240",
             "address": {
                 "address": "6207 N. Milwaukee Ave",
                 "city": "Chicago",
@@ -302,8 +302,8 @@
             "id": "21",
             "name": "Alice & Friends' Vegan Kitchen",
             "url": "http://aliceandfriendsvegankitchen.com",
-            "latitude": "41.9874327",
-            "longitude": "-87.66020309999999",
+            "latitude": "41.987461",
+            "longitude": "-87.660477",
             "address": {
                 "address": "5812 N. Broadway St",
                 "city": "Chicago",
