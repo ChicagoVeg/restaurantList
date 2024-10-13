@@ -1106,8 +1106,8 @@
             "id": "79",
             "name": "Shree - Naperville",
             "url": "http://shreerestaurants.com",
-            "latitude": "41.79495",
-            "longitude": "-88.20439",
+            "latitude": "41.795290",
+            "longitude": "-88.204550",
             "address": {
                 "address": "1550 North Route 59",
                 "city": "Naperville",
@@ -1730,8 +1730,8 @@
             "id": "118",
             "name": "Vaca's Creamery",
             "url": "https://www.vacascreamery.com/",
-            "latitude": "41.90978650435866",
-            "longitude": "-87.66387565633688",
+            "latitude": "41.907250",
+            "longitude": "-87.664210",
             "address": {
                 "address": "1436 W Blackhawk St",
                 "city": "Chicago",
