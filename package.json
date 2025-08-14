@@ -9,7 +9,6 @@
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "material-design-icons": "^3.0.1",
-    "node-sass": "^7.0.1",
     "prop-types": "^15.7.2",
     "pubsub-js": "^1.9.0",
     "react": "^16.9.0",
@@ -19,7 +18,8 @@
     "react-notification-system": "^0.2.17",
     "react-places-autocomplete": "^7.2.1",
     "react-scripts": "5.0.1",
-    "reactstrap": "^8.0.1"
+    "reactstrap": "^8.0.1",
+    "sass": "^1.90.0"
   },
   "scripts": {
     "start": "react-scripts start",

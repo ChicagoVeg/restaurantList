@@ -2102,6 +2102,98 @@
             "sponsor": "",
             "bestInTownAward": "",
             "yelpAlias": ""
+        },
+        {
+            "id": "140",
+            "name": "Nekter Juice Bar",
+            "url": "https://locations.nekterjuicebar.com/ll/us/il/chicago/1338-s-halstead-space-12/",
+            "latitude": "41.864417511964525",
+            "longitude": "-87.64711301780929",
+            "address": {
+                "address": "1338 S Halstead Space #12",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60607"
+            },
+            "phone": "312.530.0206",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "141",
+            "name": "Runaway Cow",
+            "url": "https://www.runawaycowvegan.com/",
+            "latitude": "41.838422373958494",
+            "longitude": "-87.64184575652719",
+            "address": {
+                "address": "608 W 31st St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60616"
+            },
+            "phone": "312.846.1626",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+
+
+        {
+            "id": "142",
+            "name": "Penelope’s Vegan Taqueria - Andersonville – Clark Street",
+            "url": "https://penelopesvegantaqueria.com/andersonville-clark-st",
+            "latitude": "41.97660753943843",
+            "longitude": "-87.66866737362378",
+            "address": {
+                "address": "5204 N. Clark Street",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60640"
+            },
+            "phone": "773.754.7192",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "143",
+            "name": "Penelope’s Vegan Taqueria - River North – Chicago Avenue",
+            "url": "https://penelopesvegantaqueria.com/river-north-chicago-ave",
+            "latitude": "41.89684902790013",
+            "longitude": "-87.6355502872039",
+            "address": {
+                "address": "230 W. Chicago Ave",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60654"
+            },
+            "phone": "312.265.0400",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "144",
+            "name": "Penelope’s Vegan Taqueria - Pilsen – 18th Street",
+            "url": "https://penelopesvegantaqueria.com/pilsen-18th-st",
+            "latitude": "41.85795888835692",
+            "longitude": "-87.65565672944734",
+            "address": {
+                "address": "1165 W. 18th St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60608"
+            },
+            "phone": "872.342.3851",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
         }
    ]
 }
