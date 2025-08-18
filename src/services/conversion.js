@@ -28,7 +28,7 @@ export default {
     if (code === 'RV') {
       return '#0000FF';
     } if (code === 'VG') {
-      return '#00FF00';
+      return '#008800';
     } if (code === 'VT') {
       return '#FF8000';
     } if (code === 'U') {

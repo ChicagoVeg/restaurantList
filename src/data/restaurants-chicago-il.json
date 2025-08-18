@@ -347,7 +347,8 @@
             },
             "phone": "773.549.4904",
             "type": "Vegan",
-            "yelpAlias": "native-foods-cafe-chicago-2"
+            "yelpAlias": "native-foods-cafe-chicago-2",
+            "closed": "true"
         },
         {
             "id": "24",
@@ -379,7 +380,8 @@
             },
             "phone": "773-241-7800",
             "type": "Vegan",
-            "yelpAlias": "native-foods-cafe-chicago-2"
+            "yelpAlias": "native-foods-cafe-chicago-2",
+            "closed": "true"
         },
         {
             "id": "26",
@@ -395,7 +397,8 @@
             },
             "phone": "773.489.8480",
             "type": "Vegan",
-            "yelpAlias": "native-foods-cafe-chicago-2"
+            "yelpAlias": "native-foods-cafe-chicago-2",
+            "closed": "true"
         },
         {
             "id": "27",
@@ -2143,7 +2146,7 @@
 
         {
             "id": "142",
-            "name": "Penelope’s Vegan Taqueria - Andersonville – Clark Street",
+            "name": "Penelope’s Vegan Taqueria - Andersonville",
             "url": "https://penelopesvegantaqueria.com/andersonville-clark-st",
             "latitude": "41.97660753943843",
             "longitude": "-87.66866737362378",
@@ -2161,7 +2164,7 @@
         },
         {
             "id": "143",
-            "name": "Penelope’s Vegan Taqueria - River North – Chicago Avenue",
+            "name": "Penelope’s Vegan Taqueria - River North",
             "url": "https://penelopesvegantaqueria.com/river-north-chicago-ave",
             "latitude": "41.89684902790013",
             "longitude": "-87.6355502872039",
@@ -2179,7 +2182,7 @@
         },
         {
             "id": "144",
-            "name": "Penelope’s Vegan Taqueria - Pilsen – 18th Street",
+            "name": "Penelope’s Vegan Taqueria - Pilsen",
             "url": "https://penelopesvegantaqueria.com/pilsen-18th-st",
             "latitude": "41.85795888835692",
             "longitude": "-87.65565672944734",
