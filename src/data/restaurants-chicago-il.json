@@ -791,6 +791,7 @@
             "type": "Vegan",
             "sponsor": "Gold",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": "purple-sprout-cafe-wheeling-2"
         },
         {
@@ -1727,6 +1728,7 @@
             },
             "phone": "312.340.8291",
             "type": "Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -2090,7 +2092,7 @@
         },
         {
             "id": "139",
-            "name": "Vegan Now 2 Go VG",
+            "name": "Vegan Now 2 Go",
             "url": "https://www.vegannow2go.com/",
             "latitude": "41.759213180125364",
             "longitude": "-87.58694102087277",
@@ -2113,7 +2115,7 @@
             "latitude": "41.864417511964525",
             "longitude": "-87.64711301780929",
             "address": {
-                "address": "1338 S Halstead Space #12",
+                "address": "1338 S Halstead Space",
                 "city": "Chicago",
                 "state": "IL",
                 "zip": "60607"
