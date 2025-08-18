@@ -103,7 +103,7 @@ export class GoogleMaps extends Component {
       if (marker.type.toLowerCase() !== type.name) {
         return;
       }
-      marker.setVisible(type.checked);
+      marker.style.visibility = type.checked ? 'visible' : 'hidden'; // hides but keeps layout
     });
   }
 
@@ -296,6 +296,10 @@ export class GoogleMaps extends Component {
         title: marker.name,
         content: pinBackground.element,
       });
+
+      gmMarker.id = marker.id; // add id to marker for later use
+      gmMarker.type = marker.type.toLowerCase(); // add type to marker for later use
+
       gmMarker.addListener('click', (function () {
         // note, this == maker, based on .bind
         const element = document.querySelector(`input[name="restaurant-selected"][value="${this.id}"]`);
