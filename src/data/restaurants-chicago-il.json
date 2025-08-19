@@ -1366,7 +1366,7 @@
             "latitude": "41.931080",
             "longitude": "-87.649300",
             "address": {
-                "address": "2668 N Halsted St",
+                "address": "2668 N. Halsted St",
                 "city": "Chicago",
                 "state": "IL",
                 "zip": "60614"
@@ -1754,7 +1754,7 @@
             "latitude": "41.931269139840815",
             "longitude": "-87.64927535956905",
             "address": {
-                "address": "2668 North Halsted",
+                "address": "2668 N. Halsted st",
                 "city": "Chicago",
                 "state": "IL",
                 "zip": "60614"
@@ -2115,7 +2115,7 @@
             "latitude": "41.864417511964525",
             "longitude": "-87.64711301780929",
             "address": {
-                "address": "1338 S Halstead Space",
+                "address": "1338 S. Halsted St",
                 "city": "Chicago",
                 "state": "IL",
                 "zip": "60607"
