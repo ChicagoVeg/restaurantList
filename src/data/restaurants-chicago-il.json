@@ -33,6 +33,7 @@
                 "zip": "60622"
             },
             "phone": "773.360.8864",
+            "closed": "true",
             "type": "Vegan"
         },
         {
@@ -81,6 +82,7 @@
                 "zip": "60201"
             },
             "phone": "847.425.0239",
+            "closed": "true",
             "type": "Vegan"
         },
         {
@@ -99,6 +101,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "Runnerup",
+            "closed": "true",
             "yelpAlias": "the-chicago-diner-chicago-2"
         },
         {
@@ -114,12 +117,13 @@
                 "zip": "60173"
             },
             "phone": "847.420.3831",
+            "closed": "true",
             "type": "Vegan"
         },
         {
             "id": "7",
             "name": "Cinnaholic - Naperville",
-            "url": "https://www.cinnaholic.com/",
+            "url": "https://locations.cinnaholic.com/ll/us/il/naperville/47/",
             "latitude": "41.77763458054574",
             "longitude": "-88.15018435658901",
             "address": {
@@ -145,6 +149,7 @@
             },
             "phone": "773.772.9446",
             "type": "Vegetarian",
+            "closed": "true",
             "yelpAlias": "ground-control-chicago"
         },
         {
@@ -161,6 +166,7 @@
             },
             "phone": "630.922.5880",
             "type": "Vegetarian",
+            "closed": "true",
             "yelpAlias": "chataka-masti-naperville"
         },
         {
@@ -182,12 +188,12 @@
         },
         {
             "id": "12",
-            "name": "Quesadilla La Reyna Del Sur - Western",
-            "url": "https://www.quesadillalareinadelsur.com/western",
-            "latitude": "41.922673",
-            "longitude": "-87.687749",
+            "name": "Quesadilla La Reyna Del Sur",
+            "url": "http://orderquesadillalareinadelsur.com/index.php",
+            "latitude": "41.922918129551555",
+            "longitude": "-87.68729393149076",
             "address": {
-                "address": "2235 N. Western Ave",
+                "address": "2237 N. Western Ave",
                 "city": "Chicago",
                 "state": "IL",
                 "zip": "60647"
@@ -196,7 +202,7 @@
             "type": "Vegetarian",
             "sponsor": "Gold",
             "bestInTownAward": "",
-            "yelpAlias": "quesadilla-la-reyna-del-sur-chicago-2"
+            "yelpAlias": ""
         },
         {
             "id": "13",
@@ -212,6 +218,7 @@
             },
             "phone": "773.880.9155",
             "type": "Vegetarian",
+            "closed": "true",
             "yelpAlias": "vegetarian-express-chicago"
         },
         {
@@ -234,7 +241,7 @@
         {
             "id": "15",
             "name": "Amitabul",
-            "url": "http://amitabulchicago.com",
+            "url": "https://amitabulvegan.com",
             "latitude": "41.994100",
             "longitude": "-87.784240",
             "address": {
@@ -280,12 +287,13 @@
             "phone": "312.391.8654",
             "type": "Vegan",
             "sponsor": "",
+            "closed": "true",
             "yelpAlias": "kitchen-17-chicago"
         },
         {
             "id": "20",
             "name": "Loving Heart",
-            "url": "http://www.lovingheart.us",
+            "url": "https://www.lovingheartvegan.com/",
             "latitude": "41.962053",
             "longitude": "-87.65168670000003",
             "address": {
@@ -364,6 +372,7 @@
             },
             "phone": "312.332.6332",
             "type": "Vegan",
+            "closed": "true",
             "yelpAlias": "native-foods-cafe-chicago-2"
         },
         {
@@ -495,6 +504,7 @@
             },
             "phone": "312.831.2729",
             "type": "Raw Vegan",
+            "closed": "true",
             "yelpAlias": "chicago-raw-chicago-2"
         },
         {
@@ -575,6 +585,7 @@
             },
             "phone": "773.338.2152",
             "type": "Vegetarian",
+            "closed": "true",
             "yelpAlias": "udupi-palace-restaurant-chicago"
         },
         {
@@ -611,8 +622,8 @@
         },
         {
             "id": "44",
-            "name": "Chicago Diner - Halsted",
-            "url": "http://veggiediner.com/index.html",
+            "name": "Chicago Diner",
+            "url": "http://veggiediner.com",
             "latitude": "41.9440076",
             "longitude": "-87.64914420000002",
             "address": {
@@ -694,8 +705,8 @@
         },
         {
             "id": "51",
-            "name": "The Vegan Café",
-            "url": "http://www.rawvegancafe.org",
+            "name": "Vegan Café",
+            "url": "https://www.hsvegancafelockport.com/",
             "latitude": "41.5808757",
             "longitude": "-88.05093219999998",
             "address": {
@@ -829,6 +840,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": "vegetarian-express-chicago-3"
         },
          {
@@ -872,7 +884,7 @@
          {
             "id": "66",
             "name": "Hunter's Brewing",
-            "url": "info@huntersbrewing.com",
+            "url": "https://huntersrestaurants.com/",
             "latitude": "41.597244",
             "longitude": "-87.046342",
             "address": {
@@ -994,6 +1006,7 @@
             "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": "pine-food-company-barrington"
         }, 
         {
@@ -1193,6 +1206,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": "heritage-cafe-chicago"
         },
         {
@@ -1228,6 +1242,7 @@
             },
             "phone": "847.884.9510",
             "type": "Vegetarian",
+            "closed": "true",
             "yelpAlias": "udupi-palace-restaurant-schaumburg"
         },
         {
@@ -1325,6 +1340,7 @@
             },
             "phone": "708.250.7951",
             "type": "Vegetarian",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1427,7 +1443,7 @@
         {
             "id": "98",
             "name": "Versatile Jerk and Vegan",
-            "url": "http://orderversatilejerkandvegan.com/",
+            "url": "https://www.restaurantji.com/il/maywood/versatile-soul-food-cafe-/",
             "latitude": "41.888980",
             "longitude": "-87.838860",
             "address": {
@@ -1470,6 +1486,7 @@
             },
             "phone": "630.943.7499",
             "type": "Vegetarian",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1599,6 +1616,7 @@
             },
             "phone": "312.363.3110",
             "type": "Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1914,6 +1932,7 @@
             },
             "phone": "773.902.7467",
             "type": "Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1946,6 +1965,7 @@
             },
             "phone": "312.658.1338",
             "type": "Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1962,6 +1982,7 @@
             },
             "phone": "773.868.1863",
             "type": "Vegan",
+            "closed": "true",
             "yelpAlias": "-"
         },
         {
@@ -1980,6 +2001,7 @@
             "type": "Vegetarian",
             "sponsor": "Gold",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": "quesadilla-la-reyna-del-sur-chicago-2"
         },
         {
@@ -2034,6 +2056,7 @@
             "type": "Vegan",
             "sponsor": "",
             "bestInTownAward": "",
+            "closed": "true",
             "yelpAlias": ""
         },
         {
@@ -2196,6 +2219,78 @@
             },
             "phone": "872.342.3851",
             "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "145",
+            "name": "17",
+            "url": "https://www.17kitchen.com/",
+            "latitude": "42.04919847658517",
+            "longitude": "-87.68080981614516",
+            "address": {
+                "address": "1710 Orrington Ave",
+                "city": "Evanston",
+                "state": "IL",
+                "zip": "60608"
+            },
+            "phone": "847.376.2085",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        {
+            "id": "146",
+            "name": "Cinnaholic - Chicago - South Loop",
+            "url": "https://locations.cinnaholic.com/ll/us/il/chicago/130/",
+            "latitude": "41.86574794985496",
+            "longitude": "-87.64022123149296",
+            "address": {
+                "address": "1254 S Canal St",
+                "city": "Chicago",
+                "state": "IL",
+                "zip": "60607"
+            },
+            "phone": "224.575.7655",
+            "type": "Vegan",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+       { 
+            "id": "147",
+            "name": "Honest - Orland Park",
+            "url": "https://honestrestaurantsusa.com",
+            "latitude": "41.60270587943285",
+            "longitude": "-87.84146718732711",
+            "address": {
+                "address": "9178 W 159th St",
+                "city": "Orland Park",
+                "state": "IL",
+                "zip": "60462"
+            },
+            "phone": "708.981.3415",
+            "type": "Vegetarian",
+            "sponsor": "",
+            "bestInTownAward": "",
+            "yelpAlias": ""
+        },
+        { 
+            "id": "148",
+            "name": "Honest - Niles",
+            "url": "https://honestrestaurantsusa.com",
+            "latitude": "42.05419179712714",
+            "longitude": "-87.83516468730977",
+            "address": {
+                "address": "8351 W Golf Rd, Unit A",
+                "city": "Niles",
+                "state": "IL",
+                "zip": "60714"
+            },
+            "phone": "847.594.4117",
+            "type": "Vegetarian",
             "sponsor": "",
             "bestInTownAward": "",
             "yelpAlias": ""
